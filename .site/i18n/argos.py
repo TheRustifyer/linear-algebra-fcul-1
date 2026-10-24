@@ -83,6 +83,21 @@ def main():
         print("Verified Argos model " + model["source"] + " → " + model["target"], flush=True)
 
     installed = argostranslate.package.get_installed_packages()
+    # Argos' official ES models bundle the old Stanza resources schema. Stanza
+    # 1.10 expects the same processor map under packages.default. Adapt only the
+    # installed copy; the downloaded, checksum-verified archives remain intact.
+    for package in installed:
+        resources_path = package.package_path / "stanza" / "resources.json"
+        if not resources_path.exists():
+            continue
+        resources = json.loads(resources_path.read_text())
+        changed = False
+        for language_resources in resources.values():
+            if isinstance(language_resources, dict) and "default_processors" in language_resources and "packages" not in language_resources:
+                language_resources["packages"] = {"default": language_resources["default_processors"]}
+                changed = True
+        if changed:
+            resources_path.write_text(json.dumps(resources, ensure_ascii=False))
     stats = {}
     for target in plan["targets"]:
         destination = cache / "translation-memory" / "memory" / (target + ".json.gz")
