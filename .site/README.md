@@ -21,7 +21,7 @@ El resultado queda en .site/public/, ignorado por Git. El motor y las copias tem
 ## Organización
 
 - `Álgebra Lineal y Geometría Analítica — índice de contenidos.md`: el índice curricular original de Obsidian.
-- `README.md`: espejo generado para GitHub, sin frontmatter y con enlaces Markdown y avisos compatibles.
+- `README.md`: presentación pública del proyecto, sus materiales y sus idiomas.
 - Carpetas 00–07: los apuntes originales.
 - .site/quartz.config.yaml: presentación y funciones de la web.
 - .site/languages.json: idiomas y portadas.
@@ -29,15 +29,7 @@ El resultado queda en .site/public/, ignorado por Git. El motor y las copias tem
 
 Durante la publicación se adaptan los enlaces del vault. Los destinos ajenos a esta carpeta se muestran como texto cuando no están disponibles. Los bloques ejecutables Dataview y Anki se ocultan en la web, conservándolos en los originales. El informe de enlaces externos se guarda en la caché de publicación.
 
-## Actualizar el README de GitHub
-
-Edita siempre el índice original. El espejo conserva su contenido y adapta la presentación: no hay que mantener dos textos.
-
-```sh
-npm run readme
-```
-
-`npm run build` y `npm run preview` también lo regeneran automáticamente. Guarda el README generado junto con el índice al hacer tus commits. Quartz usa el índice original como portada y excluye el espejo para evitar duplicados. Los enlaces a contenidos fuera del repositorio se muestran como texto; las rutas locales del equipo se omiten del espejo.
+El README se redacta como presentación del repositorio y se mantiene por separado del índice curricular. La publicación web lee el índice original y no modifica el README.
 
 ## Traducciones
 
@@ -55,7 +47,7 @@ Las portadas actuales en inglés y portugués son resúmenes; los apuntes comple
 
 El Git independiente está en esta carpeta. El vault puede seguir guardando sus archivos existentes: son los mismos archivos físicos, con historias Git independientes, sin submódulo.
 
-Configura origin aquí cuando tengas la URL pública. En GitHub activa Settings → Pages → GitHub Actions. El flujo prepara y publica los apuntes automáticamente desde los originales.
+El remoto público es `git@github.com:TheRustifyer/linear-algebra-fcul-1.git`. En GitHub activa Settings → Pages → GitHub Actions. El flujo prepara y publica los apuntes automáticamente desde los originales.
 
 La URL base se obtiene del repositorio de GitHub; también puede establecerse mediante QUARTZ_BASE_URL.
 
