@@ -5,7 +5,8 @@
   "scripts": {
     "preview": "node .site/publish.mjs --serve",
     "build": "node .site/publish.mjs",
-    "site:prepare": "node .site/publish.mjs --prepare"
+    "site:prepare": "node .site/publish.mjs --prepare",
+    "readme": "node .site/publish.mjs --readme"
   },
   "engines": {
     "node": ">=22"

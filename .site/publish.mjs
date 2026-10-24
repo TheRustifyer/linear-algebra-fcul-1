@@ -37,6 +37,7 @@ async function sources(dir = root) {
   for (const entry of await fs.readdir(dir, {withFileTypes: true})) {
     if (entry.name.startsWith(".") || ["node_modules", "public"].includes(entry.name)) continue;
     const file = path.join(dir, entry.name);
+    if (dir === root && entry.name === "README.md") continue; // Generated GitHub mirror.
     if (entry.isDirectory()) found.push(...await sources(file));
     else if (entry.isFile() && extensions.has(path.extname(entry.name).toLowerCase())) found.push(file);
   }
@@ -66,9 +67,9 @@ async function prepare() {
     const text = markdown ? await fs.readFile(file, "utf8") : null;
     const suffix = source.match(/\.(en|es|pt)\.md$/)?.[1];
     entries.push({file, source, text,
-      dest: source === "README.md" ? "index.md" : source,
+      dest: source === oldIndex + ".md" ? "index.md" : source,
       language: (text && field(text, "language")?.split("-")[0]) || suffix || languages.default,
-      key: source === "README.md" ? "home" : (text && field(text, "translationKey")) || source.replace(/\.(en|es|pt)(?=\.md$)/, "").replace(/\.md$/, ""),
+      key: source === oldIndex + ".md" ? "home" : (text && field(text, "translationKey")) || source.replace(/\.(en|es|pt)(?=\.md$)/, "").replace(/\.md$/, ""),
     });
   }
   for (const code of ["en", "pt"]) {
@@ -82,7 +83,10 @@ async function prepare() {
     const stem = norm(path.posix.basename(entry.source).replace(/\.md$/, ""));
     short.set(stem, [...(short.get(stem) || []), entry]);
   }
-  const home = map.get("README.md");
+  const home = map.get(norm(oldIndex + ".md"));
+  if (!home) throw new Error("Missing original curricular index: " + oldIndex + ".md");
+  map.set("README.md", home);
+  map.set("README", home);
   map.set(norm(oldIndex), home);
   map.set(norm(oldIndex + ".md"), home);
   function resolveTarget(raw, from) {
@@ -103,7 +107,8 @@ async function prepare() {
     return null;
   }
   const missing = [];
-  function render(entry) {
+  function render(entry, {github = false} = {}) {
+    const destination = (target) => github ? target.source : target.dest;
     const tick = String.fromCharCode(96);
     const unsupported = new RegExp("^[ \\t]*(" + tick + "{3,}|~{3,})(?:dataviewjs|dataview|anki)\\b[^\\n]*\\n[\\s\\S]*?^[ \\t]*\\1[ \\t]*$", "gm");
     let text = entry.text.replace(unsupported, "");
@@ -113,7 +118,7 @@ async function prepare() {
       const label = split >= 0 ? raw.slice(split + 1) : path.posix.basename(target).replace(/\.md$/, "");
       const resolved = resolveTarget(target, entry);
       if (!resolved) { missing.push({source: entry.source, target}); return label; }
-      return (embed && path.extname(resolved.entry.dest) !== ".md" ? "!" : "") + "[" + label + "](<" + relative(entry.dest, resolved.entry.dest, resolved.fragment) + ">)";
+      return (embed && path.extname(resolved.entry.dest) !== ".md" ? "!" : "") + "[" + label + "](<" + relative(entry.dest, destination(resolved.entry), resolved.fragment) + ">)";
     });
     text = text.replace(/(!?)\[([^\]\n]*)\]\((<[^>]+>|[^)\n]+)\)/g, (all, embed, label, raw) => {
       const url = raw.replace(/^<|>$/g, "");
@@ -123,8 +128,9 @@ async function prepare() {
         if (/^(file:|obsidian:)/i.test(url)) { missing.push({source: entry.source, target: url}); return label; }
         return all;
       }
-      return embed + "[" + label + "](<" + relative(entry.dest, resolved.entry.dest, resolved.fragment) + ">)";
+      return embed + "[" + label + "](<" + relative(entry.dest, destination(resolved.entry), resolved.fragment) + ">)";
     });
+    if (github) return text;
     const counterparts = entries.filter((candidate) => candidate.key === entry.key);
     const nav = Object.entries(languages.locales).map(([code, locale]) => {
       const counterpart = counterparts.find((candidate) => candidate.language === code);
@@ -133,12 +139,36 @@ async function prepare() {
     const at = text.match(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n)?/)?.[0].length || 0;
     return text.slice(0, at) + "\n" + nav + "\n\n" + text.slice(at);
   }
+  let mirror = render({...home, dest: "README.md"}, {github: true})
+    .replace(/^---\r?\n[\s\S]*?\r?\n---\s*/, "")
+    .replace(/^> \[!(\w+)\][+-]?(?:[ \t]+([^\n]+))?$/gmi, (_, type, title) => {
+      const alert = type.toUpperCase();
+      if (["NOTE", "TIP", "IMPORTANT", "WARNING", "CAUTION"].includes(alert)) {
+        return "> [!" + alert + "]" + (title ? "\n> **" + title + "**\n>" : "");
+      }
+      return "> **" + (title || type) + "**\n>";
+    })
+    .replace(/==([^=\n]+)==/g, "**$1**")
+    .replace(/`\/Users\/[^`\n]+`/g, (localPath) => "`" + path.posix.basename(localPath.slice(1, -1)) + "`");
+  const sections = [];
+  mirror = mirror.replace(/^## (.+)$/gm, (heading, label) => {
+    const anchor = "contenido-" + (sections.length + 1);
+    sections.push({label, anchor});
+    return '<a id="' + anchor + '"></a>\n\n' + heading;
+  });
+  const overview = "**Faculdade de Ciências · Universidade de Lisboa**\n\n" +
+    "[Índice para Obsidian](<" + encodeURI(home.source) + ">)\n\n" +
+    "## Contenidos\n\n" + sections.map(({label, anchor}) => "- [" + label + "](#" + anchor + ")").join("\n");
+  mirror = mirror.replace(/^(# [^\n]+)\n/, "$1\n\n" + overview + "\n");
+  await changedWrite(path.join(root, "README.md"), "<!-- Generated from " + home.source + ". Edit the original; run npm run readme. -->\n\n" + mirror.trim() + "\n");
+  console.log("Updated README.md from the original curricular index.");
+  if (flags.has("--readme")) return;
   const produced = new Set();
   for (const entry of entries) {
     produced.add(entry.dest);
     await changedWrite(path.join(stage, entry.dest), entry.text === null ? await fs.readFile(entry.file) : render(entry));
   }
-  // /es/ uses the same authored README; this is generated output only.
+  // /es/ uses the original curricular index; this is generated output only.
   const esHome = {...home, dest: "es/index.md"};
   produced.add(esHome.dest);
   await changedWrite(path.join(stage, esHome.dest), render(esHome));
@@ -193,7 +223,7 @@ async function ensureEngine() {
   }
 }
 await prepare();
-if (!flags.has("--prepare")) {
+if (!flags.has("--prepare") && !flags.has("--readme")) {
   await ensureEngine();
   let watcher, pending;
   let serial = Promise.resolve();
