@@ -2,7 +2,7 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "de3ee62819c6b87745b278409e3670b7f3ecf21b",
+  "sourceCommit": "d31edfc0295bb281d7362f690d181ad7082db57d",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
@@ -147,13 +147,13 @@
   ],
   "stats": {
     "en": {
-      "translated": 5004,
-      "reused": 0,
+      "translated": 0,
+      "reused": 5004,
       "total": 5004
     },
     "pt": {
-      "translated": 5004,
-      "reused": 0,
+      "translated": 0,
+      "reused": 5004,
       "total": 5004
     }
   }
