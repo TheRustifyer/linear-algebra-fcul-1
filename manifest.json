@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
+  "engine": "Argos Translate",
+  "sourceCommit": "de3ee62819c6b87745b278409e3670b7f3ecf21b",
+  "documents": [
+    {
+      "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
+      "sourceHash": "e1c3c784436e97032838840ff3372eec4e1333ed3610c3f974b5a91bb13c676e"
+    },
+    {
+      "path": "01 Matrices y sistemas/01 Matrices y operaciones.md",
+      "sourceHash": "22ec7925f8d1c17a7a417258bda495bb63254551bb4592fa209e2b4615d556c0"
+    },
+    {
+      "path": "01 Matrices y sistemas/02 Eliminación y matrices elementales.md",
+      "sourceHash": "ae0f50f17be15dd1ed0492ddeec45eaa5c0c7a253f216a6fde5ac050bd0926de"
+    },
+    {
+      "path": "01 Matrices y sistemas/03 Compatibilidad, rango e inversa.md",
+      "sourceHash": "543bab272c3387ca464a29dfb0c96263585fce964843b3eec16d6021f7f5ccfa"
+    },
+    {
+      "path": "01 Matrices y sistemas/04 Factorización LU.md",
+      "sourceHash": "296cfed1d2143d129fecb80dc5147e8ad367a96ed8b804b27d165218da432d9c"
+    },
+    {
+      "path": "01 Matrices y sistemas/05 Sistemas de ecuaciones lineales.md",
+      "sourceHash": "1350af90825a9ba5b4dd448120db9c3465b8d8cd7f5afc898d98ff6aadacfdc2"
+    },
+    {
+      "path": "01 Matrices y sistemas/ejercicios/00 Índice de ejercicios.md",
+      "sourceHash": "5a49416f91c45a64c896228675e587ef57014af7a3522ff6fc9a439356ee8ed3"
+    },
+    {
+      "path": "01 Matrices y sistemas/ejercicios/01 Operaciones, potencias y transposición.md",
+      "sourceHash": "b9ff4feeaf6abfd784436fb420dfd0aea2f03a73703f80656f6f10f403b3dae7"
+    },
+    {
+      "path": "01 Matrices y sistemas/ejercicios/02 Escalonamiento y transformaciones elementales.md",
+      "sourceHash": "ac7d0800c4dcb272e8c8a4704e2ba073e3b2d6e50831b92a33558e0d01527f6b"
+    },
+    {
+      "path": "01 Matrices y sistemas/ejercicios/03 Invertibilidad y rango.md",
+      "sourceHash": "129c91b9cea883da91f068b60e11cc87d8dd3fbb118a53e4cc55c3680ad12f99"
+    },
+    {
+      "path": "01 Matrices y sistemas/ejercicios/04 Sistemas lineales.md",
+      "sourceHash": "b86e661d5abec101277108a353cca31d6b69f298630ece9172b8f89322f9f2b3"
+    },
+    {
+      "path": "02 Determinantes/01 Definición y cálculo de determinantes.md",
+      "sourceHash": "73cd98aa55d17e9ec8b29de27b37bf40cc1db78d73a623045c7da2597dc07548"
+    },
+    {
+      "path": "02 Determinantes/02 Propiedades y aplicaciones.md",
+      "sourceHash": "3cc2525444477c51a8fabe0af0f3871f8dca8ac1d3ba8d213a6fe1f2fbe62bc4"
+    },
+    {
+      "path": "02 Determinantes/03 Interpretación geométrica del determinante.md",
+      "sourceHash": "43eaf33afe4b434dc065de8a1b9b6d8c18173d713ee7474f46450034c9630446"
+    },
+    {
+      "path": "03 Espacios vectoriales/01 Espacios vectoriales y axiomas.md",
+      "sourceHash": "aed456f26b6c9c743a2d67c8af755d9468b40131c307e4a14ce244fac3241527"
+    },
+    {
+      "path": "03 Espacios vectoriales/02 Propiedades derivadas de los axiomas.md",
+      "sourceHash": "51af9d1328ed04e84987289b5345a9f45003657290f13e2c179a2cce4f63e862"
+    },
+    {
+      "path": "03 Espacios vectoriales/03 Subespacios y espacio generado.md",
+      "sourceHash": "135cc7165ce6f68e565cfeb816d29473b60592b6bb03b7fd97b2ac885658f268"
+    },
+    {
+      "path": "03 Espacios vectoriales/04 Independencia, bases y coordenadas.md",
+      "sourceHash": "d4463934ecbc5dd0f0ccecbb6510e624776e6ecfe1a52c8b3735dfec6328c788"
+    },
+    {
+      "path": "03 Espacios vectoriales/05 Sumas y espacios asociados a una matriz.md",
+      "sourceHash": "a71eb23f0a73c331893d99ea1a8466bc3645f98d7343e85ae704700eb12afdae"
+    },
+    {
+      "path": "03 Espacios vectoriales/06 Cuatro subespacios fundamentales.md",
+      "sourceHash": "d6def69b896e5579af4783bbbc9aaafa7ac6b3050c3d92695dd6905b2f53eec7"
+    },
+    {
+      "path": "04 Transformaciones lineales/01 Aplicaciones entre conjuntos.md",
+      "sourceHash": "6b6b7566bc501768a979e153ac13dbc6ae4bc8013b870a32b6b0f6df1e44cc0c"
+    },
+    {
+      "path": "04 Transformaciones lineales/02 Transformaciones, núcleo e imagen.md",
+      "sourceHash": "1c3db3d73ed6157c332f55f5ac6eae33fd2234758afb7ccc4bbf7e468017937a"
+    },
+    {
+      "path": "04 Transformaciones lineales/03 Representación matricial e isomorfismos.md",
+      "sourceHash": "7f5f9da57be20c78824c7123a361c91534c71f28e5899d5a3dae93b9993761e5"
+    },
+    {
+      "path": "04 Transformaciones lineales/04 Transformaciones geométricas y composición.md",
+      "sourceHash": "f93f5d918f3683dcd6f39860d3deff9d1483ca286b2ae0722c94de1c10920f39"
+    },
+    {
+      "path": "05 Valores propios y diagonalización/01 Espectro y subespacios propios.md",
+      "sourceHash": "41438602697548e14184684e91fa30aa7e929884b479c06723c7c58f6f184320"
+    },
+    {
+      "path": "05 Valores propios y diagonalización/02 Diagonalización y matrices simétricas.md",
+      "sourceHash": "682af9ba17357431b3b8a1cd926cf03552676b84350a501461aaa605e0a27802"
+    },
+    {
+      "path": "06 Espacios euclídeos/01 Producto interno, norma y ángulo.md",
+      "sourceHash": "d893c6d52845e9beb4de96413a67b08ebe984cbf7fc79acdca87fd436c666a0b"
+    },
+    {
+      "path": "06 Espacios euclídeos/02 Bases ortogonales y Gram-Schmidt.md",
+      "sourceHash": "5b1d1ecb47db08bc5d04d41b334e18bdd1c07d93bc3b707c0fa3c6b5498f2439"
+    },
+    {
+      "path": "06 Espacios euclídeos/03 Producto externo en R3.md",
+      "sourceHash": "560413861251a8d7f12d68fc3d656f656255a6428babe95302ff6631ad12775d"
+    },
+    {
+      "path": "06 Espacios euclídeos/04 Proyecciones matriciales y mínimos cuadrados.md",
+      "sourceHash": "7e30c5f784619d6b461f0c0859086053450e9b8f9ce42f37a0fa05053b834f70"
+    },
+    {
+      "path": "06 Espacios euclídeos/05 Rectas, planos y distancias.md",
+      "sourceHash": "da15732bd2d89ace5ad5fb3e2b9a615abb2065a48325468430b0e38b3913fdbb"
+    },
+    {
+      "path": "07 Formas cuadráticas/01 Formas cuadráticas y matrices simétricas.md",
+      "sourceHash": "d2f12d05127fc849a4f4c4063773cb0d2bfe8cf4fa614316ff2e4687d8e86af5"
+    },
+    {
+      "path": "07 Formas cuadráticas/02 Clasificación de formas cuadráticas.md",
+      "sourceHash": "c49a87a7984a7a684fbea462d0e040ff4a542f2632659e2b1f93146b0fad71a0"
+    },
+    {
+      "path": "Resumen - Síntesis de contenidos.md",
+      "sourceHash": "eed8bec423f0c7f252a9b290c4cbdb39703aa3a024a4f1c521b6536c6564d075"
+    },
+    {
+      "path": "index.md",
+      "sourceHash": "9e39ebb6d55a63f711cd58c7a56a120ea3dbc4dedf25a894b789a90082d69a3c"
+    }
+  ],
+  "stats": {
+    "en": {
+      "translated": 5004,
+      "reused": 0,
+      "total": 5004
+    },
+    "pt": {
+      "translated": 5004,
+      "reused": 0,
+      "total": 5004
+    }
+  }
+}
