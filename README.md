@@ -79,15 +79,15 @@ Worked solutions and the PDF are being expanded as the course progresses.
 
 **Spanish is the base language of my notes.** It helps me absorb new ideas more easily and concentrate on the mathematics without the extra mental effort of translating as I read. This is especially useful when I am tired: studying in Spanish makes it easier to keep learning with the energy I have available.
 
-English and Portuguese versions are added progressively to make the material accessible to more readers. The Portuguese terminology also keeps the notes connected to the original course.
+The English and Portuguese web editions are translated automatically from Spanish with **Argos Translate** when the site is published. Each page links to its equivalents in the other languages, including the Spanish original. Equations and code retain their original notation.
 
 | Language | Current material | Direction |
 | :--- | :--- | :--- |
-| 🇪🇸 **Español** | Main course index and most study notes | Continue developing and refining the notes |
-| 🇵🇹 **Português** | Course terminology and a translated overview | Add complete Portuguese versions progressively |
-| 🇬🇧 **English** | This introduction, a translated overview, and exercise solutions in progress | Develop English versions of the study material |
+| 🇪🇸 **Español** | Original study notes and course index | The language in which I write and refine the material |
+| 🇵🇹 **Português** | Automatically translated web edition | Read the same notes and exercises in Portuguese |
+| 🇬🇧 **English** | Main website and automatically translated notes | The default language of the public web edition |
 
-Translations are added page by page as the notes develop.
+Translations follow updates to the Spanish source notes. PDFs and LaTeX documents keep the language of their original text.
 
 ## Obsidian and the web edition
 

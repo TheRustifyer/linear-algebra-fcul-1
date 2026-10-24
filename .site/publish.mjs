@@ -1,23 +1,16 @@
 import fs from "node:fs/promises";
 import { existsSync, watch } from "node:fs";
 import path from "node:path";
-import os from "node:os";
-import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { spawn } from "node:child_process";
 import { setDefaultResultOrder } from "node:dns";
+import { root, cache, source as stage, editions, engine, output, publicBase } from "./paths.mjs";
 
 setDefaultResultOrder("ipv4first");
 const nodeOptions = process.env.NODE_OPTIONS || "";
 const childEnv = {...process.env, NODE_OPTIONS: nodeOptions.includes("--dns-result-order") ? nodeOptions : (nodeOptions + " --dns-result-order=ipv4first").trim()};
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const flags = new Set(process.argv.slice(2));
-const rootHash = createHash("sha256").update(root).digest("hex").slice(0, 16);
-const cache = process.env.ALGA_SITE_CACHE || path.join(os.tmpdir(), "alga-site", rootHash);
-const stage = path.join(cache, "content");
-const engine = path.join(cache, "engine");
-const output = path.join(root, ".site/public");
 const revision = (await fs.readFile(path.join(root, ".site/quartz-revision.txt"), "utf8")).trim();
 if (!/^[a-f0-9]{40}$/.test(revision)) throw new Error("Invalid pinned Quartz revision");
 const languages = JSON.parse(await fs.readFile(path.join(root, ".site/languages.json"), "utf8"));
@@ -67,14 +60,10 @@ async function prepare() {
     const text = markdown ? await fs.readFile(file, "utf8") : null;
     const suffix = source.match(/\.(en|es|pt)\.md$/)?.[1];
     entries.push({file, source, text,
-      dest: source === oldIndex + ".md" ? "index.md" : source,
-      language: (text && field(text, "language")?.split("-")[0]) || suffix || languages.default,
-      key: source === oldIndex + ".md" ? "home" : (text && field(text, "translationKey")) || source.replace(/\.(en|es|pt)(?=\.md$)/, "").replace(/\.md$/, ""),
+      dest: norm(source) === norm(oldIndex + ".md") ? "index.md" : source,
+      language: (text && field(text, "language")?.split("-")[0]) || suffix || languages.sourceLanguage,
+      key: norm(source) === norm(oldIndex + ".md") ? "home" : (text && field(text, "translationKey")) || source.replace(/\.(en|es|pt)(?=\.md$)/, "").replace(/\.md$/, ""),
     });
-  }
-  for (const code of ["en", "pt"]) {
-    const file = path.join(root, ".site/translations", code + ".md");
-    entries.push({file, source: ".site/translations/" + code + ".md", text: await fs.readFile(file, "utf8"), dest: code + "/index.md", language: code, key: "home"});
   }
   const map = new Map(), short = new Map();
   for (const entry of entries) {
@@ -106,13 +95,6 @@ async function prepare() {
     }
     return null;
   }
-  const exerciseIndex = map.get(norm("01 Matrices y sistemas/ejercicios/00 Índice de ejercicios.md"));
-  const exercisePdf = map.get(norm("01 Matrices y sistemas/ejercicios/ALGA - Exercicios 1-34.pdf"));
-  const practiceLabels = {
-    es: ["Ejercicios y soluciones", "PDF de ejercicios"],
-    en: ["Exercises and solutions", "Exercise PDF"],
-    pt: ["Exercícios e resoluções", "PDF de exercícios"],
-  };
   const missing = [];
   function render(entry) {
     const tick = String.fromCharCode(96);
@@ -136,44 +118,30 @@ async function prepare() {
       }
       return embed + "[" + label + "](<" + relative(entry.dest, resolved.entry.dest, resolved.fragment) + ">)";
     });
-    const counterparts = entries.filter((candidate) => candidate.key === entry.key);
-    const nav = Object.entries(languages.locales).map(([code, locale]) => {
-      const counterpart = counterparts.find((candidate) => candidate.language === code);
-      return "[" + locale.label + (counterpart ? "" : " · índice") + "](<" + relative(entry.dest, counterpart?.dest || locale.home) + ">)";
-    }).join(" · ");
-    const at = text.match(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n)?/)?.[0].length || 0;
-    const labels = practiceLabels[entry.language] || practiceLabels.es;
-    const practice = [[exerciseIndex, "✍️ " + labels[0]], [exercisePdf, "📄 " + labels[1]]]
-      .filter(([target]) => target)
-      .map(([target, label]) => "[" + label + "](<" + relative(entry.dest, target.dest) + ">)")
-      .join(" · ");
-    const navigation = [nav, practice].filter(Boolean).join("\n\n");
-    return text.slice(0, at) + "\n" + navigation + "\n\n" + text.slice(at);
+    if (!field(text, "lang")) {
+      text = text.startsWith("---\n") ? text.replace(/^---\n/, "---\nlang: es\n") : "---\nlang: es\n---\n\n" + text;
+    }
+    return text;
   }
   const produced = new Set();
   for (const entry of entries) {
     produced.add(entry.dest);
     await changedWrite(path.join(stage, entry.dest), entry.text === null ? await fs.readFile(entry.file) : render(entry));
   }
-  // /es/ uses the original curricular index; this is generated output only.
-  const esHome = {...home, dest: "es/index.md"};
-  produced.add(esHome.dest);
-  await changedWrite(path.join(stage, esHome.dest), render(esHome));
-  const manifest = path.join(cache, "manifest.json");
+  const manifest = path.join(cache, "source-files.json");
   let previous = [];
   try { previous = JSON.parse(await fs.readFile(manifest, "utf8")); } catch {}
   for (const stale of previous) if (!produced.has(stale) && !stale.split("/").includes("..")) await fs.rm(path.join(stage, stale), {force: true});
   await changedWrite(manifest, JSON.stringify([...produced], null, 2));
   await changedWrite(path.join(cache, "link-report.json"), JSON.stringify(missing, null, 2));
+  await changedWrite(path.join(cache, "source-manifest.json"), JSON.stringify({schema: 1, files: entries.map(({source, dest}) => ({source, dest}))}, null, 2));
   console.log("Prepared " + entries.filter((e) => e.text !== null).length + " Markdown pages from the original course folder.");
 }
-async function syncConfig() {
+async function syncConfig(code = "en", multilingual = false) {
   let config = await fs.readFile(path.join(root, ".site/quartz.config.yaml"), "utf8");
-  let baseUrl = process.env.QUARTZ_BASE_URL;
-  if (!baseUrl && process.env.GITHUB_REPOSITORY) {
-    const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
-    baseUrl = owner.toLowerCase() + ".github.io" + (repo.toLowerCase() === owner.toLowerCase() + ".github.io" ? "" : "/" + repo);
-  }
+  const prefix = multilingual ? languages.locales[code].prefix : "";
+  const baseUrl = publicBase() + (prefix ? "/" + prefix : "");
+  config = config.replace(/^  locale:.*$/m, "  locale: en-US");
   if (baseUrl) {
     config = config.replace(/^  baseUrl:.*\n/m, "");
     config = config.replace(/^configuration:\s*$/m, "configuration:\n  baseUrl: " + JSON.stringify(baseUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")));
@@ -209,8 +177,27 @@ async function ensureEngine() {
     await fs.writeFile(marker, hash);
   }
 }
-await prepare();
-if (!flags.has("--prepare")) {
+if (flags.has("--bootstrap")) {
+  await ensureEngine();
+} else if (flags.has("--prepare")) {
+  await prepare();
+} else if (flags.has("--multilingual")) {
+  await ensureEngine();
+  await fs.rm(output, {recursive: true, force: true});
+  for (const [code, locale] of Object.entries(languages.locales)) {
+    const content = path.join(editions, code);
+    if (!existsSync(path.join(content, "index.md"))) throw new Error("Missing prepared edition: " + code);
+    await syncConfig(code, true);
+    const destination = path.join(output, locale.prefix);
+    console.log("Building complete " + code + " edition.");
+    await run(process.execPath, ["quartz/bootstrap-cli.mjs", "build", "-d", content, "-o", destination]);
+  }
+  // Preserve the old English overview URL without publishing another copy of the notes.
+  const englishHome = "https://" + publicBase() + "/";
+  await changedWrite(path.join(output, "en/index.html"), '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=' + englishHome + '"><link rel="canonical" href="' + englishHome + '"><title>Linear Algebra and Analytic Geometry</title></head><body><a href="' + englishHome + '">Read the notes in English</a></body></html>');
+  console.log("Published English at /, Spanish at /es/, and Portuguese at /pt/.");
+} else {
+  await prepare();
   await ensureEngine();
   let watcher, pending;
   let serial = Promise.resolve();
@@ -222,7 +209,7 @@ if (!flags.has("--prepare")) {
       if (parts[0]?.startsWith(".") && parts[0] !== ".site") return;
       if (parts[0] !== ".site" && !extensions.has(path.extname(filename).toLowerCase())) return;
       clearTimeout(pending);
-      pending = setTimeout(() => { serial = serial.then(prepare).then(syncConfig).catch(console.error); }, 300);
+      pending = setTimeout(() => { serial = serial.then(prepare).then(() => syncConfig()).catch(console.error); }, 300);
     });
   }
   try {

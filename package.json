@@ -5,9 +5,23 @@
   "scripts": {
     "preview": "node .site/publish.mjs --serve",
     "build": "node .site/publish.mjs",
-    "site:prepare": "node .site/publish.mjs --prepare"
+    "site:prepare": "node .site/publish.mjs --prepare",
+    "site:bootstrap": "node .site/publish.mjs --bootstrap",
+    "build:multilingual": "node .site/publish.mjs --multilingual",
+    "i18n:extract": "node .site/i18n/documents.mjs extract",
+    "i18n:materialize": "node .site/i18n/documents.mjs materialize"
   },
   "engines": {
     "node": ">=22"
+  },
+  "dependencies": {
+    "github-slugger": "2.0.0",
+    "remark-frontmatter": "5.0.0",
+    "remark-gfm": "4.0.1",
+    "remark-math": "6.0.0",
+    "remark-parse": "11.0.0",
+    "remark-stringify": "11.0.0",
+    "unified": "11.0.5",
+    "yaml": "2.8.1"
   }
 }

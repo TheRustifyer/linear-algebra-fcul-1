@@ -1,20 +1,21 @@
 {
-  "default": "es",
+  "sourceLanguage": "es",
+  "defaultLanguage": "en",
   "locales": {
-    "es": {
-      "label": "Español",
-      "locale": "es-ES",
-      "home": "index.md"
-    },
     "en": {
       "label": "English",
       "locale": "en-US",
-      "home": "en/index.md"
+      "prefix": ""
+    },
+    "es": {
+      "label": "Español",
+      "locale": "es-ES",
+      "prefix": "es"
     },
     "pt": {
       "label": "Português",
       "locale": "pt-PT",
-      "home": "pt/index.md"
+      "prefix": "pt"
     }
   }
 }

@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "engine": "argostranslate",
+  "engineVersion": "1.11.0",
+  "models": [
+    {
+      "source": "es",
+      "target": "en",
+      "version": "1.9",
+      "url": "https://argos-net.com/v1/translate-es_en-1_9.argosmodel",
+      "sha256": "c54df2b62fceaf54a3ce5d97db6bf56efd7940063329f6778f4212d2acb370d4",
+      "bytes": 285208831
+    },
+    {
+      "source": "es",
+      "target": "pt",
+      "version": "1.0",
+      "url": "https://argos-net.com/v1/translate-es_pt-1_0.argosmodel",
+      "sha256": "c772951dee3917f799b701bde0612331f54e1aa09d709dd057bee6b41bb04936",
+      "bytes": 67510435
+    }
+  ]
+}

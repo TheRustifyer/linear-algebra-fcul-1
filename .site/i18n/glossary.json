@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "exact": {
+    "en": {
+      "Matrices y operaciones": "Matrices and operations",
+      "Eliminación y matrices elementales": "Elimination and elementary matrices",
+      "Compatibilidad, rango e inversa": "Consistency, rank, and inverses",
+      "Ejercicios de matrices y sistemas": "Matrix and linear system exercises",
+      "Álgebra Lineal y Geometría Analítica": "Linear Algebra and Analytic Geometry",
+      "matriz hermítica": "Hermitian matrix",
+      "matriz hermitiana": "Hermitian matrix",
+      "forma escalonada": "row echelon form",
+      "forma escalonada reducida": "reduced row echelon form",
+      "valores propios": "eigenvalues",
+      "vectores propios": "eigenvectors",
+      "rango": "rank",
+      "núcleo": "kernel"
+    },
+    "pt": {
+      "Matrices y operaciones": "Matrizes e operações",
+      "Eliminación y matrices elementales": "Eliminação e matrizes elementares",
+      "Compatibilidad, rango e inversa": "Compatibilidade, posto e inversa",
+      "Ejercicios de matrices y sistemas": "Exercícios de matrizes e sistemas",
+      "Álgebra Lineal y Geometría Analítica": "Álgebra Linear e Geometria Analítica",
+      "matriz hermítica": "matriz hermítica",
+      "matriz hermitiana": "matriz hermítica",
+      "forma escalonada": "forma de escada",
+      "forma escalonada reducida": "forma de escada reduzida",
+      "valores propios": "valores próprios",
+      "vectores propios": "vetores próprios",
+      "rango": "posto",
+      "núcleo": "núcleo"
+    }
+  }
+}

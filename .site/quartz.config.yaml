@@ -5,8 +5,8 @@ configuration:
   enableSPA: true
   enablePopovers: true
   analytics: null
-  locale: es-ES
-  # Set baseUrl after creating the public GitHub repository.
+  locale: en-US
+  # Each publication supplies the edition-specific GitHub Pages base URL.
   ignorePatterns:
     - private
     - templates

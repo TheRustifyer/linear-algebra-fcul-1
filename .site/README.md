@@ -1,54 +1,64 @@
-# Publicar la asignatura
+# Publicación e idiomas
 
-La carpeta original es el repositorio. El índice completo se edita en `Álgebra Lineal y Geometría Analítica — índice de contenidos.md` y los apuntes permanecen en sus carpetas actuales.
+La carpeta original de la asignatura sigue siendo el repositorio. Se edita el índice curricular y los apuntes en sus ubicaciones habituales. El README público presenta el proyecto por separado.
 
-Para ver la web, ejecuta desde esta carpeta, con Node.js 22 o posterior:
+## Publicación automática
+
+Cada subida a `main` ejecuta tres trabajos:
+
+1. **Translate:** prepara las notas fuera del checkout, recupera la memoria de traducción y utiliza exclusivamente Argos para traducir la prosa que aún no conoce.
+2. **Build:** construye tres sitios completos con Quartz, con búsquedas e índices propios.
+3. **Deploy:** publica el conjunto en GitHub Pages después de que terminen correctamente las tres ediciones.
+
+La edición inglesa ocupa la raíz; la española, `/es/`; la portuguesa, `/pt/`. La interfaz de Quartz usa inglés y cada documento declara el idioma de su contenido. Las rutas de las notas permanecen estables entre idiomas. El selector lleva a la versión de la misma nota y los ejercicios están enlazados en todas las páginas.
+
+No se necesita ninguna clave de una API de traducción. Los modelos se descargan de Argos, se comprueban mediante SHA-256 y se ejecutan con CPU en GitHub. Se usan modelos directos ES→EN y ES→PT, sin idioma intermedio.
+
+## Dónde se guardan las traducciones
+
+| Ubicación | Contenido | Conservación |
+| --- | --- | --- |
+| Rama `main` y vault | Originales, configuración y glosario | Historial normal |
+| Rama técnica `translation-memory` | Fragmentos traducidos en JSON comprimido y manifiesto de procedencia | Historial Git, independiente de la caché |
+| Caché de Actions | Modelos instalados y archivos descargados | Puede caducar; se reconstruye |
+| Artefacto `argos-translations-…` | Ediciones Markdown preparadas, memoria e informe de traducción | 90 días, sujeto a la retención del repositorio |
+| GitHub Pages | HTML, búsqueda y archivos de lectura | Última publicación correcta |
+
+La rama técnica pertenece al mismo repositorio público: es pública y no constituye almacenamiento privado. No se descarga dentro del vault ni se mezcla con las notas de `main`. El trabajo de traducción la actualiza con permisos limitados a ese trabajo. Su actualización no vuelve a disparar Pages, que escucha únicamente `main`.
+
+La memoria guarda cada fragmento por contenido y por versión del procedimiento, modelos y glosario. Si cambia un párrafo, se traduce ese párrafo. Si cambian los modelos o las reglas de traducción, se invalida la memoria correspondiente. Durante una ejecución larga se guardan avances; los fragmentos terminados se conservan incluso si después falla la construcción de Quartz.
+
+El archivo descargable permite recuperar los documentos concretos de una publicación. La rama técnica permite reconstruirlos aunque hayan caducado tanto el artefacto como las cachés. Si no existe memoria, se vuelve a traducir desde los originales.
+
+## Protección del contenido
+
+La extracción utiliza un parser Markdown con soporte para tablas, referencias, metadatos y matemáticas. Se traducen textos, títulos y etiquetas visibles. Se conservan las fórmulas, el código, los identificadores de referencias y los destinos de los enlaces. Una comprobación de integridad detiene la publicación si cambia contenido protegido.
+
+Las versiones publicadas incluyen anclas de los encabezados originales para que sigan funcionando los enlaces a apartados después de traducir sus títulos. PDF, TeX y otros adjuntos conservan su idioma y contenido originales.
+
+## Configuración
+
+- `languages.json`: idioma de origen, idioma principal y rutas de las ediciones.
+- `i18n/argos-models.lock.json`: versión del motor y huellas de los modelos.
+- `i18n/glossary.json`: traducciones exactas preferidas para títulos y términos.
+- `i18n/requirements.txt`: dependencia de Argos utilizada por Actions.
+- `quartz.config.yaml`: aspecto, interfaz y funciones de Quartz.
+- `quartz-revision.txt`: revisión fija del motor.
+
+Para solicitar una reconstrucción completa, ejecuta el flujo desde Actions y activa **Rebuild all translations**. Esto vuelve a traducir con los modelos fijados y conserva el historial anterior en la rama técnica.
+
+## Vista previa local
 
 ```sh
 npm run preview
 ```
 
-La primera vez se instala Quartz automáticamente. Abre http://localhost:8080. Editar un apunte actualiza la vista previa.
-
-Para generar la web sin servidor:
+Abre http://localhost:8080. Esta vista muestra los originales españoles, instala Quartz si hace falta y se actualiza al editar. No ejecuta Argos ni escribe traducciones en el vault.
 
 ```sh
 npm run build
 ```
 
-El resultado queda en .site/public/, ignorado por Git. El motor y las copias temporales se generan en la carpeta temporal del sistema. No se editan ni se mantienen como otro repositorio.
+Genera una web local de los originales en `.site/public/`, ignorada por Git. El motor y los archivos de preparación se guardan en la carpeta temporal del sistema.
 
-## Organización
-
-- `Álgebra Lineal y Geometría Analítica — índice de contenidos.md`: el índice curricular original de Obsidian.
-- `README.md`: presentación pública del proyecto, sus materiales y sus idiomas.
-- Carpetas 00–07: los apuntes originales.
-- .site/quartz.config.yaml: presentación y funciones de la web.
-- .site/languages.json: idiomas y portadas.
-- .site/translations/: portadas inglesa y portuguesa, todavía resumidas.
-
-Durante la publicación se adaptan los enlaces del vault. Los destinos ajenos a esta carpeta se muestran como texto cuando no están disponibles. Los bloques ejecutables Dataview y Anki se ocultan en la web, conservándolos en los originales. El informe de enlaces externos se guarda en la caché de publicación.
-
-El README se redacta como presentación del repositorio y se mantiene por separado del índice curricular. La publicación web lee el índice original y no modifica el README.
-
-## Traducciones
-
-El original actual está en español. Para traducir un apunte, crea su versión junto a él con el sufijo .en.md o .pt.md:
-
-- 01 Matrices y operaciones.md
-- 01 Matrices y operaciones.en.md
-- 01 Matrices y operaciones.pt.md
-
-El selector enlaza las versiones existentes. Si usas otros nombres, comparte el campo translationKey en el frontmatter y declara language: es-ES, en-US o pt-PT.
-
-Las portadas actuales en inglés y portugués son resúmenes; los apuntes completos siguen en español. La interfaz general de Quartz usa español.
-
-## Git y GitHub
-
-El Git independiente está en esta carpeta. El vault puede seguir guardando sus archivos existentes: son los mismos archivos físicos, con historias Git independientes, sin submódulo.
-
-El remoto público es `git@github.com:TheRustifyer/linear-algebra-fcul-1.git`. En GitHub activa Settings → Pages → GitHub Actions. El flujo prepara y publica los apuntes automáticamente desde los originales.
-
-La URL base se obtiene del repositorio de GitHub; también puede establecerse mediante QUARTZ_BASE_URL.
-
-La versión de Quartz está fijada en quartz-revision.txt. Su licencia MIT corresponde al motor; no se asigna por ello una licencia a los apuntes.
+Argos está restringido a GitHub Actions. Las órdenes internas de extracción y montaje de idiomas forman parte del flujo de publicación, no del trabajo normal sobre los apuntes.
