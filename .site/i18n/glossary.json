@@ -14,7 +14,15 @@
       "valores propios": "eigenvalues",
       "vectores propios": "eigenvectors",
       "rango": "rank",
-      "núcleo": "kernel"
+      "núcleo": "kernel",
+      "00 Fundamentos": "00 Foundations",
+      "01 Matrices y sistemas": "01 Matrices and linear systems",
+      "02 Determinantes": "02 Determinants",
+      "03 Espacios vectoriales": "03 Vector spaces",
+      "04 Transformaciones lineales": "04 Linear transformations",
+      "05 Valores propios y diagonalización": "05 Eigenvalues and diagonalisation",
+      "06 Espacios euclídeos": "06 Euclidean spaces",
+      "07 Formas cuadráticas": "07 Quadratic forms"
     },
     "pt": {
       "Matrices y operaciones": "Matrizes e operações",
@@ -29,7 +37,15 @@
       "valores propios": "valores próprios",
       "vectores propios": "vetores próprios",
       "rango": "posto",
-      "núcleo": "núcleo"
+      "núcleo": "núcleo",
+      "00 Fundamentos": "00 Fundamentos",
+      "01 Matrices y sistemas": "01 Matrizes e sistemas",
+      "02 Determinantes": "02 Determinantes",
+      "03 Espacios vectoriales": "03 Espaços vetoriais",
+      "04 Transformaciones lineales": "04 Transformações lineares",
+      "05 Valores propios y diagonalización": "05 Valores próprios e diagonalização",
+      "06 Espacios euclídeos": "06 Espaços euclidianos",
+      "07 Formas cuadráticas": "07 Formas quadráticas"
     }
   }
 }

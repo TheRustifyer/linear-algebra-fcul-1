@@ -28,7 +28,7 @@ jobs:
       ALGA_SITE_CACHE: /tmp/alga-site-cache
       ARGOS_PACKAGES_DIR: /tmp/alga-site-cache/argos-packages
       XDG_CACHE_HOME: /tmp/alga-site-cache/argos-runtime
-      ARGOS_CHUNK_TYPE: STANZA
+      ARGOS_CHUNK_TYPE: MINISBD
       ARGOS_DEVICE_TYPE: cpu
       ARGOS_INTER_THREADS: '1'
       ARGOS_INTRA_THREADS: '2'
@@ -56,6 +56,7 @@ jobs:
             /tmp/alga-site-cache/argos-packages
             /tmp/alga-site-cache/argos-runtime
           key: ${{ runner.os }}-argos-models-v1-${{ hashFiles('.site/i18n/argos-models.lock.json', '.site/i18n/requirements.txt') }}
+          restore-keys: ${{ runner.os }}-argos-models-v1-
       - name: Install publication tools
         run: npm ci --ignore-scripts
       - name: Prepare original notes outside the checkout

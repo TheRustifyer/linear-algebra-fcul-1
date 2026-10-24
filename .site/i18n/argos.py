@@ -5,6 +5,7 @@ import hashlib
 import importlib.metadata
 import json
 import os
+import shutil
 from pathlib import Path
 import sys
 import time
@@ -43,16 +44,8 @@ def main():
     import argostranslate.package
     import argostranslate.settings
     import argostranslate.translate
-    import stanza
 
-    # Tokenizers and their resources are already bundled in the pinned Argos archives.
-    original_pipeline = stanza.Pipeline
-    def bundled_pipeline(*pipeline_args, **pipeline_kwargs):
-        pipeline_kwargs.setdefault("download_method", stanza.DownloadMethod.NONE)
-        return original_pipeline(*pipeline_args, **pipeline_kwargs)
-    stanza.Pipeline = bundled_pipeline
-
-    # Avoid extra sentence-splitter downloads. Both its runtime and translation models are cached.
+    # Use the sentence-boundary backend supported by current Argos.
     argostranslate.settings.device = "cpu"
     argostranslate.settings.inter_threads = 1
     argostranslate.settings.intra_threads = 2
@@ -83,21 +76,21 @@ def main():
         print("Verified Argos model " + model["source"] + " → " + model["target"], flush=True)
 
     installed = argostranslate.package.get_installed_packages()
-    # Argos' official ES models bundle the old Stanza resources schema. Stanza
-    # 1.10 expects the same processor map under packages.default. Adapt only the
-    # installed copy; the downloaded, checksum-verified archives remain intact.
+    boundary = lock["sentenceBoundary"]
+    boundary_file = model_dir / "es-sentence-boundary.onnx"
+    if not boundary_file.exists() or fingerprint(boundary_file) != boundary["sha256"]:
+        request = urllib.request.Request(boundary["url"], headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(request, timeout=120) as response:
+            data = response.read()
+        if hashlib.sha256(data).hexdigest() != boundary["sha256"]:
+            raise RuntimeError("Argos sentence-boundary model checksum mismatch")
+        boundary_file.write_bytes(data)
     for package in installed:
-        resources_path = package.package_path / "stanza" / "resources.json"
-        if not resources_path.exists():
-            continue
-        resources = json.loads(resources_path.read_text())
-        changed = False
-        for language_resources in resources.values():
-            if isinstance(language_resources, dict) and "default_processors" in language_resources and "packages" not in language_resources:
-                language_resources["packages"] = {"default": language_resources["default_processors"]}
-                changed = True
-        if changed:
-            resources_path.write_text(json.dumps(resources, ensure_ascii=False))
+        if package.from_code == "es":
+            destination = package.package_path / "minisbd" / "es.onnx"
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(boundary_file, destination)
+    argostranslate.settings.chunk_type = argostranslate.settings.ChunkType.MINISBD
     stats = {}
     for target in plan["targets"]:
         destination = cache / "translation-memory" / "memory" / (target + ".json.gz")

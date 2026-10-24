@@ -1,1 +1,2 @@
 argostranslate==1.11.0
+minisbd==0.9.5

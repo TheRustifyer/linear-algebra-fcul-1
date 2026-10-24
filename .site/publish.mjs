@@ -113,8 +113,8 @@ async function prepare() {
       if (/^(https?:|mailto:|data:|#)/i.test(url)) return all;
       const resolved = resolveTarget(url, entry);
       if (!resolved) {
-        if (/^(file:|obsidian:)/i.test(url)) { missing.push({source: entry.source, target: url}); return label; }
-        return all;
+        missing.push({source: entry.source, target: url});
+        return label;
       }
       return embed + "[" + label + "](<" + relative(entry.dest, resolved.entry.dest, resolved.fragment) + ">)";
     });

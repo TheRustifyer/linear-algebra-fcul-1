@@ -18,6 +18,13 @@ const recipeFiles = ["argos.py", "argos-models.lock.json", "glossary.json", "req
 const recipe = sha256(Buffer.concat([Buffer.from("ast-prose-v1\n"), ...await Promise.all(recipeFiles.map((file) => fs.readFile(path.join(root, ".site/i18n", file))))]));
 const manifest = JSON.parse(await fs.readFile(path.join(cache, "source-manifest.json"), "utf8"));
 
+const folders = new Set();
+for (const file of manifest.files) {
+  let directory = path.posix.dirname(file.dest);
+  while (directory !== ".") { folders.add(directory); directory = path.posix.dirname(directory); }
+}
+const folderTitle = (folder) => path.posix.basename(folder) === "ejercicios" ? "Ejercicios y soluciones" : path.posix.basename(folder);
+
 function parts(text) {
   return text.split(/(\[![a-z][\w-]*\][+-]?|==|\^[\w-]+\s*$)/gimu).map((value, index) => ({ value, protected: index % 2 === 1 }));
 }
@@ -96,6 +103,7 @@ if (mode === "extract") {
     if (typeof meta.description === "string") transformText(meta.description, register);
     documents.push({ path: file.dest, sourceHash: sha256(contents) });
   }
+  for (const folder of folders) transformText(folderTitle(folder), register);
   await fs.writeFile(path.join(cache, "translation-plan.json"), JSON.stringify({ schema: 1, recipe, targets, sourceLanguage: languages.sourceLanguage, sourceCommit: process.env.GITHUB_SHA || null, documents, segments }));
   console.log("Extracted " + Object.keys(segments).length + " unique prose segments from " + documents.length + " documents.");
 } else if (mode === "materialize") {
@@ -110,6 +118,13 @@ if (mode === "extract") {
   await fs.rm(editions, { recursive: true, force: true });
   for (const [code, locale] of Object.entries(languages.locales)) {
     const destination = path.join(editions, code);
+    const titles = new Map();
+    const translated = (text) => {
+      const result = memories[code]?.entries[sha256(text)];
+      if (typeof result !== "string" || !result.trim()) throw new Error("Missing translation in " + code + ": " + sha256(text));
+      return result;
+    };
+    const label = (text) => code === languages.sourceLanguage ? text : transformText(text, translated);
     for (const file of manifest.files) {
       const target = path.join(destination, file.dest);
       await fs.mkdir(path.dirname(target), { recursive: true });
@@ -118,11 +133,6 @@ if (mode === "extract") {
       if (plan.documents.find((document) => document.path === file.dest)?.sourceHash !== sha256(contents)) throw new Error("Source changed during translation: " + file.dest);
       const tree = processor.parse(contents), meta = metadata(tree, file.dest);
       const before = protectedData(tree);
-      const translated = (text) => {
-        const result = memories[code]?.entries[sha256(text)];
-        if (typeof result !== "string" || !result.trim()) throw new Error("Missing translation in " + code + ": " + sha256(text));
-        return result;
-      };
       const anchors = new Map(), slugger = new GithubSlugger();
       walk(tree, (node) => { if (node.type === "heading") anchors.set(node, slugger.slug(readable(node))); });
       if (code !== languages.sourceLanguage) {
@@ -132,6 +142,7 @@ if (mode === "extract") {
         delete meta.aliases;
       }
       if (protectedData(tree) !== before) throw new Error("Protected mathematical or link content changed: " + file.dest);
+      titles.set(file.dest, String(meta.title));
       meta.lang = code;
       meta.language = locale.locale;
       meta.sourceLanguage = languages.sourceLanguage;
@@ -158,6 +169,17 @@ if (mode === "extract") {
       const end = markdown.match(/^---\n[\s\S]*?\n---\n/)?.[0].length || 0;
       markdown = markdown.slice(0, end) + "\n" + navigation(code, file.dest) + markdown.slice(end);
       await fs.writeFile(target, markdown);
+    }
+    // Folder landing pages give the explorer translated chapter names and direct access to exercises.
+    for (const folder of [...folders].sort()) {
+      const filename = folder + "/index.md";
+      if (manifest.files.some((file) => file.dest === filename)) continue;
+      const title = label(folderTitle(folder));
+      const children = [...folders].filter((child) => path.posix.dirname(child) === folder).map((child) => ({ dest: child + "/index.md", title: label(folderTitle(child)) }));
+      const files = manifest.files.filter((file) => path.posix.dirname(file.dest) === folder && /\.(md|pdf|tex)$/.test(file.dest)).map((file) => ({ dest: file.dest, title: titles.get(file.dest) || path.posix.basename(file.dest) }));
+      const links = [...children, ...files].map((child) => "- [" + child.title.replace(/\[/g, "\\[").replace(/\]/g, "\\]") + "](<" + encodeURI(path.posix.relative(folder, child.dest)) + ">)").join("\n");
+      const front = YAML.stringify({ title, lang: code, language: locale.locale }).trimEnd();
+      await fs.writeFile(path.join(destination, filename), "---\n" + front + "\n---\n\n" + navigation(code, filename) + "# " + title + "\n\n" + links + "\n");
     }
   }
   const report = { schema: 1, recipe, engine: "Argos Translate", sourceCommit: plan.sourceCommit, documents: plan.documents, stats: JSON.parse(await fs.readFile(path.join(cache, "translation-stats.json"), "utf8")) };
