@@ -1,5 +1,9 @@
 # 📐 Linear Algebra & Analytic Geometry
 
+### 🌐 [Read the notes online](https://therustifyer.github.io/linear-algebra-fcul-1/)
+
+**[✍️ Exercises and solutions](https://therustifyer.github.io/linear-algebra-fcul-1/01-matrices-y-sistemas/ejercicios/00-%C3%ADndice-de-ejercicios.html) · [📄 Exercise PDF](01%20Matrices%20y%20sistemas/ejercicios/ALGA%20-%20Exercicios%201-34.pdf)**
+
 **Study notes, worked exercises, and mathematical connections — built chapter by chapter.**
 
 🎓 **University of Lisbon · Faculty of Sciences (FCUL)**  
@@ -14,6 +18,7 @@ The aim is to bring explanations, mathematical reasoning, and practice together 
 - [🎯 About the project](#about-the-project)
 - [📚 Course map](#course-map)
 - [✍️ Notes and exercises](#notes-and-exercises)
+- [🧮 Exercises and solutions](#exercises-and-solutions)
 - [🌍 Languages](#languages)
 - [💎 Obsidian and the web edition](#obsidian-and-the-web-edition)
 - [🌱 How the collection grows](#how-the-collection-grows)
@@ -32,7 +37,7 @@ The collection is being developed throughout the course: chapters and solutions 
 | Chapter | Topics | Explore |
 | :--- | :--- | :--- |
 | 🧩 Foundations | Sets, operations, relations, and mathematical language | [Foundations](00%20Fundamentos/) |
-| **1 · Matrices and linear systems** | Matrix operations, row reduction, rank, inverses, and real and complex systems | [Chapter 1](01%20Matrices%20y%20sistemas/) |
+| **1 · Matrices and linear systems** | Matrix operations, row reduction, rank, inverses, and real and complex systems | [Notes](01%20Matrices%20y%20sistemas/) · [Exercises](#exercises-and-solutions) |
 | **2 · Determinants** | Computation, properties, applications, and geometric interpretation | [Chapter 2](02%20Determinantes/) |
 | **3 · Vector spaces** | Subspaces, span, independence, bases, coordinates, and matrix subspaces | [Chapter 3](03%20Espacios%20vectoriales/) |
 | **4 · Linear maps** | Kernel, image, matrix representations, isomorphisms, and composition | [Chapter 4](04%20Transformaciones%20lineales/) |
@@ -54,14 +59,27 @@ The collection brings together three kinds of material:
 
 - [Chapter overview](Resumen%20-%20S%C3%ADntesis%20de%20contenidos.md)
 - [Matrices and operations](01%20Matrices%20y%20sistemas/01%20Matrices%20y%20operaciones.md)
-- [Exercise collection](01%20Matrices%20y%20sistemas/ejercicios/)
-- [Exercises 1–34 · PDF](01%20Matrices%20y%20sistemas/ejercicios/ALGA%20-%20Exercicios%201-34.pdf) · [LaTeX source](01%20Matrices%20y%20sistemas/ejercicios/ALGA%20-%20Exercicios%201-34.tex)
 
-Worked solutions are being added progressively.
+## Exercises and solutions
+
+✍️ **[Open the exercise index](https://therustifyer.github.io/linear-algebra-fcul-1/01-matrices-y-sistemas/ejercicios/00-%C3%ADndice-de-ejercicios.html)** to follow the original numbering, or jump straight to a topic below. The collection includes worked solutions and checks you can use after trying each problem.
+
+| Exercises | Topic | Open |
+| :--- | :--- | :--- |
+| **1–15** | Matrix entries, operations, powers, and transposition | [Web](https://therustifyer.github.io/linear-algebra-fcul-1/01-matrices-y-sistemas/ejercicios/01-operaciones%2C-potencias-y-transposici%C3%B3n.html) · [Markdown](01%20Matrices%20y%20sistemas/ejercicios/01%20Operaciones%2C%20potencias%20y%20transposici%C3%B3n.md) |
+| **16–19** | Row reduction and elementary transformations | [Web](https://therustifyer.github.io/linear-algebra-fcul-1/01-matrices-y-sistemas/ejercicios/02-escalonamiento-y-transformaciones-elementales.html) · [Markdown](01%20Matrices%20y%20sistemas/ejercicios/02%20Escalonamiento%20y%20transformaciones%20elementales.md) |
+| **20–30** | Invertibility and rank | [Web](https://therustifyer.github.io/linear-algebra-fcul-1/01-matrices-y-sistemas/ejercicios/03-invertibilidad-y-rango.html) · [Markdown](01%20Matrices%20y%20sistemas/ejercicios/03%20Invertibilidad%20y%20rango.md) |
+| **31–34** | Linear systems | [Web](https://therustifyer.github.io/linear-algebra-fcul-1/01-matrices-y-sistemas/ejercicios/04-sistemas-lineales.html) · [Markdown](01%20Matrices%20y%20sistemas/ejercicios/04%20Sistemas%20lineales.md) |
+
+📄 **[Read or download the exercise PDF](01%20Matrices%20y%20sistemas/ejercicios/ALGA%20-%20Exercicios%201-34.pdf)** · [LaTeX source](01%20Matrices%20y%20sistemas/ejercicios/ALGA%20-%20Exercicios%201-34.tex)
+
+Worked solutions and the PDF are being expanded as the course progresses.
 
 ## Languages
 
-The project connects the Portuguese course material with notes and explanations that can be shared across three languages.
+**Spanish is the base language of my notes.** It helps me absorb new ideas more easily and concentrate on the mathematics without the extra mental effort of translating as I read. This is especially useful when I am tired: studying in Spanish makes it easier to keep learning with the energy I have available.
+
+English and Portuguese versions are added progressively to make the material accessible to more readers. The Portuguese terminology also keeps the notes connected to the original course.
 
 | Language | Current material | Direction |
 | :--- | :--- | :--- |

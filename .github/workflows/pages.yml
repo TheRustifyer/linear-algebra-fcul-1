@@ -17,8 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      ALGA_SITE_CACHE: ${{ runner.temp }}/alga-site-cache
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -29,6 +27,8 @@ jobs:
           path: ${{ runner.temp }}/alga-site-cache/engine
           key: ${{ runner.os }}-quartz-${{ hashFiles('.site/quartz-revision.txt') }}
       - run: npm run build
+        env:
+          ALGA_SITE_CACHE: ${{ runner.temp }}/alga-site-cache
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .site/public
