@@ -106,6 +106,13 @@ async function prepare() {
     }
     return null;
   }
+  const exerciseIndex = map.get(norm("01 Matrices y sistemas/ejercicios/00 Índice de ejercicios.md"));
+  const exercisePdf = map.get(norm("01 Matrices y sistemas/ejercicios/ALGA - Exercicios 1-34.pdf"));
+  const practiceLabels = {
+    es: ["Ejercicios y soluciones", "PDF de ejercicios"],
+    en: ["Exercises and solutions", "Exercise PDF"],
+    pt: ["Exercícios e resoluções", "PDF de exercícios"],
+  };
   const missing = [];
   function render(entry) {
     const tick = String.fromCharCode(96);
@@ -135,7 +142,13 @@ async function prepare() {
       return "[" + locale.label + (counterpart ? "" : " · índice") + "](<" + relative(entry.dest, counterpart?.dest || locale.home) + ">)";
     }).join(" · ");
     const at = text.match(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n)?/)?.[0].length || 0;
-    return text.slice(0, at) + "\n" + nav + "\n\n" + text.slice(at);
+    const labels = practiceLabels[entry.language] || practiceLabels.es;
+    const practice = [[exerciseIndex, "✍️ " + labels[0]], [exercisePdf, "📄 " + labels[1]]]
+      .filter(([target]) => target)
+      .map(([target, label]) => "[" + label + "](<" + relative(entry.dest, target.dest) + ">)")
+      .join(" · ");
+    const navigation = [nav, practice].filter(Boolean).join("\n\n");
+    return text.slice(0, at) + "\n" + navigation + "\n\n" + text.slice(at);
   }
   const produced = new Set();
   for (const entry of entries) {
