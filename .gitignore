@@ -1,0 +1,46 @@
+# Local configuration and generated files
+.DS_Store
+.obsidian/
+.vscode/
+.idea/
+node_modules/
+.env
+.env.*
+!.env.example
+.site/public/
+.site-cache/
+.quartz-cache/
+*.tsbuildinfo
+
+# Keep .tex sources, .bib bibliographies, and final PDFs.
+# Ignore intermediate LaTeX build products only.
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.vrb
+*.xdv
+*.dvi
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*-blx.bib

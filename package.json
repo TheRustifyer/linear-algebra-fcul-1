@@ -1,0 +1,13 @@
+{
+  "name": "linear-algebra-and-analytic-geometry",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preview": "node .site/publish.mjs --serve",
+    "build": "node .site/publish.mjs",
+    "site:prepare": "node .site/publish.mjs --prepare"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

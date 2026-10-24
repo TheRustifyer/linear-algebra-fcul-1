@@ -1,0 +1,20 @@
+{
+  "default": "es",
+  "locales": {
+    "es": {
+      "label": "Español",
+      "locale": "es-ES",
+      "home": "index.md"
+    },
+    "en": {
+      "label": "English",
+      "locale": "en-US",
+      "home": "en/index.md"
+    },
+    "pt": {
+      "label": "Português",
+      "locale": "pt-PT",
+      "home": "pt/index.md"
+    }
+  }
+}
