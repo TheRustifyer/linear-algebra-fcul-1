@@ -15,6 +15,7 @@ The aim is to bring explanations, mathematical reasoning, and practice together 
 - [📚 Course map](#course-map)
 - [✍️ Notes and exercises](#notes-and-exercises)
 - [🌍 Languages](#languages)
+- [💎 Obsidian and the web edition](#obsidian-and-the-web-edition)
 - [🌱 How the collection grows](#how-the-collection-grows)
 - [🎓 Academic context](#academic-context)
 
@@ -69,6 +70,14 @@ The project connects the Portuguese course material with notes and explanations 
 | 🇬🇧 **English** | This introduction, a translated overview, and exercise solutions in progress | Develop English versions of the study material |
 
 Translations are added page by page as the notes develop.
+
+## Obsidian and the web edition
+
+💎 I write and maintain these notes in my personal [Obsidian](https://obsidian.md/) vault: a collection of Markdown documents connected through links between topics. This repository shares part of that collection, using the same notes I study and develop there.
+
+The `.md` files retain Obsidian conventions such as `[[wikilinks]]`, callouts, and note properties. Some of that notation may appear as plain text on GitHub. References to notes elsewhere in my personal collection may also point to material that has not been published.
+
+🌐 The web edition is built with [Quartz](https://quartz.jzhao.xyz/), which adapts the published notes for reading and navigation in a browser, including supported callouts, mathematical notation, and links between public pages. You can read the shared material online or use the available PDFs without installing Obsidian.
 
 ## How the collection grows
 
