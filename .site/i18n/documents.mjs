@@ -142,6 +142,7 @@ if (mode === "extract") {
         delete meta.aliases;
       }
       if (protectedData(tree) !== before) throw new Error("Protected mathematical or link content changed: " + file.dest);
+      meta.title = locale.titles?.[file.dest] || meta.title;
       titles.set(file.dest, String(meta.title));
       meta.lang = code;
       meta.language = locale.locale;

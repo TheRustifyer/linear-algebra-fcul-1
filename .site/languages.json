@@ -5,7 +5,11 @@
     "en": {
       "label": "English",
       "locale": "en-US",
-      "prefix": ""
+      "prefix": "",
+      "titles": {
+        "index.md": "Linear Algebra and Analytic Geometry — Course index",
+        "01 Matrices y sistemas/ejercicios/00 Índice de ejercicios.md": "Matrix and linear system exercises — ALGA 2026/27"
+      }
     },
     "es": {
       "label": "Español",
@@ -15,7 +19,11 @@
     "pt": {
       "label": "Português",
       "locale": "pt-PT",
-      "prefix": "pt"
+      "prefix": "pt",
+      "titles": {
+        "index.md": "Álgebra Linear e Geometria Analítica — Índice de conteúdos",
+        "01 Matrices y sistemas/ejercicios/00 Índice de ejercicios.md": "Exercícios de matrizes e sistemas — ALGA 2026/27"
+      }
     }
   }
 }

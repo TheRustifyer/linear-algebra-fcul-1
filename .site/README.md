@@ -38,7 +38,7 @@ Las versiones publicadas incluyen anclas de los encabezados originales para que 
 
 ## Configuración
 
-- `languages.json`: idioma de origen, idioma principal y rutas de las ediciones.
+- `languages.json`: idioma de origen, idioma principal, rutas de las ediciones y títulos de presentación por página.
 - `i18n/argos-models.lock.json`: versión del motor y huellas de los modelos.
 - `i18n/glossary.json`: traducciones exactas preferidas para títulos y términos.
 - `i18n/requirements.txt`: dependencia de Argos utilizada por Actions.
