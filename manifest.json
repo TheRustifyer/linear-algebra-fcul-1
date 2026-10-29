@@ -2,23 +2,27 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "d31edfc0295bb281d7362f690d181ad7082db57d",
+  "sourceCommit": "03d243d4a21c8fe80d5723bfe18f0bfc9ca2882d",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
       "sourceHash": "e1c3c784436e97032838840ff3372eec4e1333ed3610c3f974b5a91bb13c676e"
     },
     {
+      "path": "01 Matrices y sistemas/00 Prefacio.md",
+      "sourceHash": "e0de1f132c1731b106b7a82df40a28172a3c20e905f189c0f30a0ae6957b32d3"
+    },
+    {
       "path": "01 Matrices y sistemas/01 Matrices y operaciones.md",
-      "sourceHash": "22ec7925f8d1c17a7a417258bda495bb63254551bb4592fa209e2b4615d556c0"
+      "sourceHash": "f546ff6d1c81cc64ac2f1c17a27ee7643a96f8ccf4345edd19a09428861136a6"
     },
     {
       "path": "01 Matrices y sistemas/02 Eliminación y matrices elementales.md",
-      "sourceHash": "ae0f50f17be15dd1ed0492ddeec45eaa5c0c7a253f216a6fde5ac050bd0926de"
+      "sourceHash": "6e30c272081201c491ed1f0d32967db9cd8f93c8af82118e3dcd41be2546d7e1"
     },
     {
       "path": "01 Matrices y sistemas/03 Compatibilidad, rango e inversa.md",
-      "sourceHash": "543bab272c3387ca464a29dfb0c96263585fce964843b3eec16d6021f7f5ccfa"
+      "sourceHash": "63900adf6bd3e4b10c73155fe45371d7dd2a51f14d487899baa0f05cef343762"
     },
     {
       "path": "01 Matrices y sistemas/04 Factorización LU.md",
@@ -50,11 +54,11 @@
     },
     {
       "path": "02 Determinantes/01 Definición y cálculo de determinantes.md",
-      "sourceHash": "73cd98aa55d17e9ec8b29de27b37bf40cc1db78d73a623045c7da2597dc07548"
+      "sourceHash": "2e3d7b62e9ccdf004e228eb1e06a5a6b30ea6fd586439dc1941e4a08a8ff2385"
     },
     {
       "path": "02 Determinantes/02 Propiedades y aplicaciones.md",
-      "sourceHash": "3cc2525444477c51a8fabe0af0f3871f8dca8ac1d3ba8d213a6fe1f2fbe62bc4"
+      "sourceHash": "48d6c0ceab3cad6e74396d83b2223d90d423ccad1c3d007a9cce6a9db677e102"
     },
     {
       "path": "02 Determinantes/03 Interpretación geométrica del determinante.md",
@@ -147,14 +151,14 @@
   ],
   "stats": {
     "en": {
-      "translated": 0,
-      "reused": 5004,
-      "total": 5004
+      "translated": 1608,
+      "reused": 4427,
+      "total": 6035
     },
     "pt": {
-      "translated": 0,
-      "reused": 5004,
-      "total": 5004
+      "translated": 1608,
+      "reused": 4427,
+      "total": 6035
     }
   }
 }
