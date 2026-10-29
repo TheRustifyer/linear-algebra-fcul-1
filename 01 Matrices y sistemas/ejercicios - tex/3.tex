@@ -1,0 +1,82 @@
+\item For each of the following parts, determine, if possible, the real numbers $x$ and $y$ such that the matrices $A$ and $B$ are equal.
+
+    \textcolor{red}{Remember}: Two matrices are equal if they have the \underline{same dimensions} and all their corresponding entries \textbf{are equal}.
+
+    \begin{enumerate}
+         % ------------------------ (a) ------------------------
+        \item
+            $A = \begin{bmatrix}
+                1 & 0 \\
+                x & y \\
+                -1 & 3
+            \end{bmatrix}$, \quad
+            $B = \begin{bmatrix}
+                1 & 0 \\    
+                \frac{y}{2} & x + 1 \\    
+                -1 & 3 \\    
+            \end{bmatrix}$
+    
+    \textbf{Solution:}
+    \begin{banswer}
+        \begin{itemize}
+            \item From the first row: $\mathlarger{a}_{11} = 1 = \mathlarger{b}_{11}$ and $\mathlarger{a}_{12} = 0 = \mathlarger{b}_{12}$.
+            \item From the second row: $\mathlarger{a}_{21} = x = \frac{y}{2} = \mathlarger{b}_{21}$ and $\mathlarger{a}_{22} = y = x + 1 = \mathlarger{b}_{22}$.
+            \item From the third row: $\mathlarger{a}_{31} = -1 = \mathlarger{b}_{31}$ and $\mathlarger{a}_{32} = 3 = \mathlarger{b}_{32}$.
+        \end{itemize}
+
+        The point is that rows 1 and 3 do not give us any information about $x$ and $y$, so we only need to solve the system of equations from the second row:
+        $$
+        \left\{
+        \begin{aligned}
+            x &= \frac{y}{2},\\
+            y &= x+1.
+        \end{aligned}
+        \right.
+        $$
+
+        Substitute $x=\frac{y}{2}$ into the second equation:
+        $$
+        \begin{aligned}
+            y &= \frac{y}{2}+1,\\
+            2y &= y+2,\\
+            y &= 2,\qquad x=\frac{y}{2}=1.
+        \end{aligned}
+        $$
+
+        \begin{tcolorbox}
+            \centering
+            $x=1,\qquad y=2$
+        \end{tcolorbox}
+    \end{banswer}
+
+% ------------------------ (b) ------------------------
+    \item 
+    $A = \begin{bmatrix}
+        x^3 & 2 & 0 \\
+        3 & y & -1
+    \end{bmatrix}$, \quad
+    $B = \begin{bmatrix}
+        3x + 1 & 2 & y \\
+        3 & -2 & -1
+    \end{bmatrix}$
+
+    \textbf{Solution:}
+    \begin{banswer}
+    \end{banswer}
+
+% ------------------------ (c) ------------------------
+    \item 
+    $A = \begin{bmatrix}
+        2 & -5 \\
+        0 & x + y \\
+        2y & 3
+    \end{bmatrix}$, \quad
+    $B = \begin{bmatrix}
+        2 & -5 \\    
+        0 & 2x + 4 \\    
+        y + 1 & 1 \\    
+    \end{bmatrix}$
+
+    \textbf{Solution:}
+
+    \end{enumerate}
