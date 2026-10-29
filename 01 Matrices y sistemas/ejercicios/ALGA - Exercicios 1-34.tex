@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{relsize}
+\usepackage{multicol}
 
 \usepackage{color}
 \usepackage[most]{tcolorbox}
@@ -10,6 +11,9 @@
 % This package is only included to let me comment the other exercises in the document, so I can preview the one that I am actively working on as if it were the first, so I don't have to scroll down to see the result.
 % I should remove it when I finish the document
 \usepackage{comment}
+
+% This one lets me use labels in the enumerate environment, so I can reference them later in the document
+\usepackage{enumitem}
 
 \title{
   \textbf{Linear Algebra and Analytic Geometry}\\[0.35em]
@@ -21,19 +25,20 @@
 %\date{\today}
 
 \newenvironment{banswer}
-  {\par\begingroup\color{black}\leftskip=1.5em}
-  {\par\endgroup}
+  {\color{black}}
+  {}
 \newenvironment{answer}
-  {\par\begingroup\color{blue}\leftskip=1.5em}
-  {\par\endgroup}
+  {\color{blue}}
+  {}
+\newenvironment{ranswer}
+  {\color{red}}
+  {}
 
 \begin{document}
 
 \maketitle
 
 \begin{enumerate}
-
-\begin {comment}
 
 % ---------- Exercise 1 --------------
 \item Consider the following matrix: $A = \begin{bmatrix}
@@ -174,9 +179,106 @@ $
 
     \end{enumerate}
 
-\end{comment}
+\item Consider the following matrices:\\[1em]
+    \begin{array}{ccc}
+        A = \begin{bmatrix} 2 & 2 \\ 3 & 3 \\ -1 & -1 \end{bmatrix},
+        &
+        B = \begin{bmatrix} -1 & 3 \\ -4 & 0 \\ 0 & -1 \end{bmatrix},
+        &
+        C = \begin{bmatrix} 2 & -1 \\ 3 & 0 \\ \end{bmatrix},
+        \\[2em]
+        D = \begin{bmatrix} 1 & 2 & 3 \\ 3 & 1 & -2 \\ \end{bmatrix},
+        &
+        E = \begin{bmatrix} 1 & 0 & 2 \\ -1 & 2 & 1 \\ -2 & 2 & 4 \\ \end{bmatrix}, &
+        F = \begin{bmatrix} -2 & 1 & 3 \\ -1 & 1 & -2 \\ 0 & 1 & 3 \\ \end{bmatrix}
+    \end{array}
+    \\[2em]
+    Determine the following matrices, only if they are defined. If they are not defined, explain why.
 
-\item cosa
-% ---------- End list of exercises --------------
+    \begin{multicols}{4}
+        \begin{enumerate}[label=\Alph*)]
+            \item $A+B$
+            \item $B+A$
+            \item $A-B$
+            \item $D+E$
+            \item $-A+2B$
+            \item $A+C$
+            \item $A+D$
+            \item $A-A$
+            \item $C-C$
+            \item $AB$
+            \item $AC$
+            \item $CA$
+            \item $AD$
+            \item $DA$
+            \item $EF$
+            \item $FE$
+            \item $A(3D)$
+            \item $(AC)D$
+            \item $A(CD)$
+            \item $(2A)(C(3D))$
+            \item $(2A)((2C)(2D))$
+            \item $A(CD+D)$
+            \item $C^3$
+        \end{enumerate}
+        \end{multicols}
+        % Answers
+        \begin{enumerate}[label=\Alph*)]
+            \begin{multicols}{3}
+                \item \begin{answer} % A)
+                $\begin{bmatrix}
+                    1 & 5 \\
+                    -1 & 3 \\
+                    -1 & -2
+                \end{bmatrix}$
+           \end{answer}, \par
+           \item \begin{answer} % B)
+                $\begin{bmatrix}
+                    1 & 5 \\
+                    -1 & 3 \\
+                    -1 & -2
+                \end{bmatrix}$
+           \end{answer}
+           \item \begin{answer} % C)
+                $\begin{bmatrix}
+                    3 & -1 \\
+                    7 & 3 \\
+                    -1 & 0
+                \end{bmatrix}$
+           \end{answer}
+            \end{multicols}
+           \item \begin{ranswer} % D)
+                Not defined, because $D$ is a $2 \times 3$ matrix and $E$ is a $3 \times 3$ matrix, so they do not have the same dimensions.
+           \end{ranswer}
+           \item \begin{answer} % E)
+                $-1 \space \cdot \begin{bmatrix}
+                    2 & 2 \\
+                    3 & 3 \\
+                    -1 & -1
+                \end{bmatrix}$ + $2 \space \cdot \begin{bmatrix}
+                    -1 & 3 \\
+                    -4 & 0 \\
+                    0 & -1
+                \end{bmatrix}$ =
+                $\begin{bmatrix}
+                    -4 & 5 \\
+                    -11 & 3 \\
+                    0 & -2
+                \end{bmatrix}$
+           \end{answer}
+           \item \begin{ranswer} % F)
+                Not defined, because $A_{3 \times 2} = [a_{ij}] = A$ and $C$ is a $C_{2 \times 2}$ matrix, so they do not have the same dimensions.
+           \end{ranswer}
+           \item \begin{ranswer} % G)
+                Not defined, because $A$ is a $3 \times 2$ matrix and $D$ is a $2 \times 3$ matrix, so they do not have the same dimensions.
+           \end{ranswer}
+           \item \begin{answer} % H)
+                $H = 0_{3x3}$
+              \end{answer}
+            \item \begin{answer} % I)
+                $H = 0_{2x2}$
+              \end{answer}
+        \end{enumerate}
+    % ---------- End list of exercises --------------
 \end{enumerate}
 \end{document}

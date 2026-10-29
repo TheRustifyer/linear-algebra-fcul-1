@@ -46,7 +46,7 @@ El [[Matemáticas/Álgebra lineal/Determinantes|determinante]] asigna un escala
 
 ## Motivación: unicidad en un sistema de dos ecuaciones
 
-Considérese, sobre un cuerpo $\mathbb K$, el sistema
+Sea $\mathbb K=\mathbb R$ o $\mathbb C$. Fijados $a,b,c,d,\alpha,\beta\in\mathbb K$, considérese el sistema
 
 $$
 \begin{cases}
@@ -55,14 +55,69 @@ cx+dy=\beta.
 \end{cases}
 $$
 
-Si $a\ne0$, la operación $L_2\leftarrow L_2-\frac caL_1$ deja como segundo pivote $d-\frac{bc}{a}$. Hay solución única exactamente cuando ese pivote no es cero, esto es, cuando $ad-bc\ne0$. Si $a=0$ y $c\ne0$, se intercambian las ecuaciones y se obtiene el mismo criterio. Si $a=c=0$, el sistema no puede determinar de manera única ambas incógnitas y $ad-bc=0$. Por tanto:
-
 ### Criterio de unicidad para dos incógnitas
 
 > [!teorema] Solución única de un sistema $2\times2$
-> El sistema tiene solución única si y sólo si $ad-bc\ne0$.
+> Para cualesquiera $a,b,c,d,\alpha,\beta\in\mathbb K$, el sistema tiene solución única si y sólo si $ad-bc\ne0$. (Aula 13, diap. 2–3; TPC en diap. 3.)[^a13]
 
-La reducción prueba ambas direcciones: un segundo pivote no nulo produce rango dos y unicidad; si el criterio falla, el rango es menor que dos y cualquier sistema compatible tiene más de una solución. La expresión será el determinante de la matriz de coeficientes. (Aula 13, pp. 2–3)[^a13]
+#### Demostración paso a paso
+
+La expresión $ad-bc$ depende solo de los coeficientes, no de los términos independientes. Analizamos todos los casos posibles para los coeficientes de $x$.
+
+**1. Caso $a\ne0$: eliminar $x$ de la segunda ecuación.** Restamos $\frac ca$ veces la primera ecuación a la segunda. La matriz ampliada queda
+
+$$
+\left[\begin{array}{cc|c}
+a&b&\alpha\\
+c&d&\beta
+\end{array}\right]
+\longrightarrow
+\left[\begin{array}{cc|c}
+a&b&\alpha\\
+0&d-\frac{cb}{a}&\beta-\frac{c\alpha}{a}
+\end{array}\right].
+$$
+
+Llamemos $\delta=d-\frac{cb}{a}$ al coeficiente que queda junto a $y$. Al multiplicar por el número no nulo $a$,
+
+$$
+a\delta=ad-bc.
+$$
+
+Por tanto, $\delta\ne0$ exactamente cuando $ad-bc\ne0$. Si $\delta\ne0$, la segunda fila determina un único valor de $y$ y la primera determina después un único valor de $x$:
+
+$$
+y=\frac{\beta-\frac{c\alpha}{a}}{\delta},
+\qquad
+x=\frac{\alpha-by}{a}.
+$$
+
+Si $\delta=0$, la segunda fila se convierte en $0\,y=\beta-\frac{c\alpha}{a}$. Cuando el lado derecho no es cero, no hay solución. Cuando es cero, $y$ queda libre y cada valor de $y$ determina $x=\frac{\alpha-by}{a}$; como $\mathbb R$ y $\mathbb C$ contienen infinitos escalares, hay infinitas soluciones. En ninguno de esos dos casos la solución es única.
+
+**2. Caso $a=0$ y $c\ne0$: intercambiar las ecuaciones.** El intercambio no cambia las soluciones. La primera ecuación del sistema intercambiado tiene coeficiente no nulo $c$ junto a $x$; al eliminar $x$ de la otra ecuación queda
+
+$$
+\left[\begin{array}{cc|c}
+c&d&\beta\\
+0&b&\alpha
+\end{array}\right].
+$$
+
+Hay solución única exactamente cuando $b\ne0$: entonces la segunda fila fija $y$ y la primera fija $x$. Si $b=0$, la segunda fila es o bien incompatible o bien deja $y$ libre; en el segundo caso, como $c\ne0$, la primera ecuación determina $x$ para cada valor de $y$, así que no hay unicidad. Como $a=0$,
+
+$$
+ad-bc=-bc,
+$$
+
+y, dado que $c\ne0$, esta expresión es no nula exactamente cuando $b\ne0$.
+
+**3. Caso $a=0$ y $c=0$: la incógnita $x$ no aparece.** Ambas ecuaciones solo pueden imponer condiciones sobre $y$. Si son incompatibles, no hay solución; si son compatibles, cualquier solución puede acompañarse de cualquier valor de $x$, por lo que no es única. Además,
+
+$$
+ad-bc=0.
+$$
+
+Los casos cubren todas las posibilidades para $a$ y $c$. En cada caso el sistema tiene solución única exactamente cuando $ad-bc\ne0$, como se quería demostrar.
 
 ## Definición recursiva
 
@@ -243,12 +298,53 @@ $$
 
 Cada producto selecciona exactamente una entrada de cada fila y de cada columna.
 
+Para un entero $n\ge1$, $n!=1\cdot2\cdots n$ es el factorial de $n$; por tanto, para $n\ge2$,
+
+$$
+n!=n(n-1)!.
+$$
+
 ### Número de términos de la fórmula del determinante
 
 > [!teorema] Expansión con $n!$ términos
-> El determinante de una matriz de orden $n$ es una suma de $n!$ términos. Cada uno multiplica $n$ entradas —una de cada fila y una de cada columna— por una potencia de $-1$.
+> Para cada matriz cuadrada de orden $n$, la expansión recursiva del determinante contiene $n!$ términos formales. Cada término es una potencia de $-1$ multiplicada por un producto de $n$ entradas, una de cada fila y una de cada columna. (Aula 13, diap. 11.)[^a13]
 
-**Demostración.** Inducimos en $n$. Para $n=1$ hay un término, y $1!=1$. Supongamos que una matriz de orden $n-1$ produce $(n-1)!$ términos. Al desarrollar una matriz de orden $n$ por la primera fila hay $n$ elecciones $a_{1j}$; cada menor de orden $n-1$ aporta $(n-1)!$ términos. Cada término de ese menor usa una vez cada fila restante y cada columna salvo $j$; al multiplicarlo por $a_{1j}$ queda una entrada de cada fila y columna original. El recuento total es $n(n-1)!=n!$. Los factores de signo se multiplican y siguen siendo potencias de $-1$. (Aula 13, p. 11)[^a13]
+#### Demostración paso a paso
+
+Sea $P(n)$ la afirmación de que la expansión recursiva de toda matriz cuadrada de orden $n$ tiene $n!$ términos, y que cada término es una potencia de $-1$ multiplicada por un producto que elige exactamente una entrada de cada fila y cada columna. Usamos inducción: comprobamos primero el caso inicial y luego deducimos el caso de orden $n$ a partir del de orden $n-1$.
+
+**1. Caso inicial $n=1$.** Si $A=[a_{11}]$, la definición establece $\det(A)=a_{11}$. Hay un solo término, y
+
+$$
+1=1!.
+$$
+
+Ese término contiene la única entrada, de la única fila y la única columna, y su coeficiente es $1=(-1)^0$, una potencia de $-1$. Así queda probado $P(1)$.
+
+**2. Hipótesis de inducción.** Fijemos un entero $n\ge2$ y supongamos que $P(n-1)$ se cumple: al desarrollar el determinante de cualquier matriz de orden $n-1$ aparecen exactamente $(n-1)!$ términos formales. Cada uno es un producto de $n-1$ entradas, una de cada fila y de cada columna de esa matriz, multiplicado por una potencia de $-1$.
+
+**3. Desarrollar una matriz de orden $n$ por la primera fila.** Para $A=[a_{ij}]\in M_n(\mathbb K)$, la definición recursiva da
+
+$$
+\det(A)=\sum_{j=1}^{n}a_{1j}(-1)^{1+j}\det\bigl(A(1|j)\bigr).
+$$
+
+La suma tiene $n$ bloques: el bloque $j$ empieza con la entrada $a_{1j}$ y continúa con la expansión de un determinante menor de orden $n-1$. Por la hipótesis de inducción, cada bloque aporta $(n-1)!$ términos. Así, antes de evaluar o reunir términos que pudieran tener el mismo valor numérico, el total es
+
+$$
+\underbrace{(n-1)!+\cdots+(n-1)!}_{n\text{ bloques}}
+=n(n-1)!.
+$$
+
+**4. Comprobar qué entradas contiene cada producto.** En un término del bloque $j$, el factor inicial $a_{1j}$ toma una entrada de la primera fila y de la columna $j$. El término procedente de $A(1|j)$ toma una entrada de cada una de las filas $2,\ldots,n$ y de cada columna distinta de $j$. Por eso, al combinar ambos factores, queda exactamente una entrada de cada fila original y una de cada columna original: la columna $j$ ya está representada por $a_{1j}$ y las demás aparecen en el menor. El signo interno del menor multiplicado por $(-1)^{1+j}$ sigue siendo una potencia de $-1$.
+
+**5. Cerrar el paso inductivo.** Los bloques con índices $j$ distintos son elecciones distintas de la entrada de la primera fila; por tanto, contamos todos los términos formales de la expansión, aunque después algunas entradas concretas coincidan en valor. Finalmente,
+
+$$
+n(n-1)!=n!.
+$$
+
+Hemos probado $P(n)$ bajo la hipótesis $P(n-1)$. Junto con el caso inicial, la inducción demuestra la afirmación para todo entero $n\ge1$. (Aula 13, diap. 11.)[^a13]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -333,12 +429,12 @@ El recorrido parte de [[Física/Grado/1º/Álgebra Lineal y Geometría Analític
 
 ### Material base aportado
 
-- FCUL, *ALGA-2026-27-AulasTeo-slides-aula13-Determinantes-impressao.pdf*, Aula 13, 16/10/2026, pp. 2–11. Fuente local: /Users/therustifyer/Seafile/Física (Completo)/Carrera/1º/ULisboa/ALGA/02 - Determinantes/.
-- FCUL, *ALGA-2026-27-AulasTeo-slides-Aula14-Determinantes-impressao.pdf*, Aula 14, 19/10/2026, pp. 2–4. Fuente local: /Users/therustifyer/Seafile/Física (Completo)/Carrera/1º/ULisboa/ALGA/02 - Determinantes/.
+- FCUL, *Álgebra Linear e Geometria Analítica*, Aula 13, 16/10/2026, pp. 2–11 ([PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/02%20-%20Determinantes/ALGA-2026-27-AulasTeo-slides-aula13-Determinantes-impressao.pdf)).
+- FCUL, *Álgebra Linear e Geometria Analítica*, Aula 14, 19/10/2026, pp. 2–4 ([PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/02%20-%20Determinantes/ALGA-2026-27-AulasTeo-slides-Aula14-Determinantes-impressao.pdf)).
 
-[^a13]: FCUL, *ALGA-2026-27-AulasTeo-slides-aula13-Determinantes-impressao.pdf*, Aula 13, 16/10/2026.
+[^a13]: FCUL, *Álgebra Linear e Geometria Analítica*, Aula 13, 16/10/2026. [PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/02%20-%20Determinantes/ALGA-2026-27-AulasTeo-slides-aula13-Determinantes-impressao.pdf).
 
-[^a14]: FCUL, *ALGA-2026-27-AulasTeo-slides-Aula14-Determinantes-impressao.pdf*, Aula 14, 19/10/2026.
+[^a14]: FCUL, *Álgebra Linear e Geometria Analítica*, Aula 14, 19/10/2026. [PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/02%20-%20Determinantes/ALGA-2026-27-AulasTeo-slides-Aula14-Determinantes-impressao.pdf).
 
 ### Lecturas académicas opcionales
 
