@@ -2,7 +2,7 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "63dfeaf986cd9b63019cafd39f9bfebb161f5688",
+  "sourceCommit": "bd91367226816059854f72b2badf3b0fec20c849",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
@@ -34,7 +34,7 @@
     },
     {
       "path": "01 Matrices y sistemas/ejercicios/00 Índice de ejercicios.md",
-      "sourceHash": "5a49416f91c45a64c896228675e587ef57014af7a3522ff6fc9a439356ee8ed3"
+      "sourceHash": "81f72abd1065d9ba1df605f7a3381dea801365e246433234136b55b15dd6f507"
     },
     {
       "path": "01 Matrices y sistemas/ejercicios/01 Operaciones, potencias y transposición.md",
@@ -53,6 +53,10 @@
       "sourceHash": "b86e661d5abec101277108a353cca31d6b69f298630ece9172b8f89322f9f2b3"
     },
     {
+      "path": "01 Matrices y sistemas/ejercicios/05 Sistemas e invertibilidad — ejercicios 35–40.md",
+      "sourceHash": "fdde3f307c7a0cb5cb44dfd6898d98666df9e6a2428b4f4ca08c84c76cda5b3b"
+    },
+    {
       "path": "02 Determinantes/01 Definición y cálculo de determinantes.md",
       "sourceHash": "2e3d7b62e9ccdf004e228eb1e06a5a6b30ea6fd586439dc1941e4a08a8ff2385"
     },
@@ -63,6 +67,22 @@
     {
       "path": "02 Determinantes/03 Interpretación geométrica del determinante.md",
       "sourceHash": "43eaf33afe4b434dc065de8a1b9b6d8c18173d713ee7474f46450034c9630446"
+    },
+    {
+      "path": "02 Determinantes/ejercicios/00 Índice de ejercicios.md",
+      "sourceHash": "0be31d800f17d689c3ea8701bc97d6f7be97cdb32d84b85dd12fda1d416b3de3"
+    },
+    {
+      "path": "02 Determinantes/ejercicios/01 Cálculo y propiedades — ejercicios 41–48.md",
+      "sourceHash": "bc4bd06eb34c59795d7ace87f30b0aab1bcabf7a3ac1fb40e29c56dd6edc5762"
+    },
+    {
+      "path": "02 Determinantes/ejercicios/02 Productos, invertibilidad y parámetros — ejercicios 49–54.md",
+      "sourceHash": "ac5ada4f6ccbefd08b49ef3a2b33829c0c4878278fae14f152ab8edb33554ad4"
+    },
+    {
+      "path": "02 Determinantes/ejercicios/03 Cofactores, adjunta y Cramer — ejercicios 55–58.md",
+      "sourceHash": "b9a3e64ca2cb59857fabba5fe82e49d040aea7515cac601a3b3b9e39f4002f2d"
     },
     {
       "path": "03 Espacios vectoriales/01 Espacios vectoriales y axiomas.md",
@@ -87,6 +107,14 @@
     {
       "path": "03 Espacios vectoriales/06 Cuatro subespacios fundamentales.md",
       "sourceHash": "d6def69b896e5579af4783bbbc9aaafa7ac6b3050c3d92695dd6905b2f53eec7"
+    },
+    {
+      "path": "03 Espacios vectoriales/ejercicios/01 Axiomas y subespacios — ejercicios 59–65.md",
+      "sourceHash": "2ce7781fe34c25814a7bf131b9f6a539f160d739789c288a34dbcc5d98086ece"
+    },
+    {
+      "path": "03 Espacios vectoriales/ejercicios/02 Combinaciones lineales y espacio generado — ejercicios 66–77.md",
+      "sourceHash": "c798a3f7fdd34c27a7109f1097db6268e8d9ba733806d846b5fd15f169609534"
     },
     {
       "path": "04 Transformaciones lineales/01 Aplicaciones entre conjuntos.md",
@@ -151,14 +179,14 @@
   ],
   "stats": {
     "en": {
-      "translated": 232,
-      "reused": 5965,
-      "total": 6197
+      "translated": 1271,
+      "reused": 6196,
+      "total": 7467
     },
     "pt": {
-      "translated": 232,
-      "reused": 5965,
-      "total": 6197
+      "translated": 1271,
+      "reused": 6196,
+      "total": 7467
     }
   }
 }
