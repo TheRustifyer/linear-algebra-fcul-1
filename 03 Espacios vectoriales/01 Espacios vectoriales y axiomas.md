@@ -48,6 +48,26 @@ Sea $K$ un cuerpo, por ejemplo $\mathbb R$ o $\mathbb C$, y sea $V$ un conjunto.
 
 En la notación habitual la suma interna se escribe $u+v$ y la multiplicación externa $\lambda\odot v$, abreviada como $\lambda v$. Los símbolos recuerdan operaciones distintas: $+$ suma vectores o escalares según el contexto, mientras que $\lambda v$ aplica un escalar a un vector. El dominio de cada operación evita sumar, por ejemplo, un número y un vector sin haber definido tal operación.
 
+### Qué leyes puede cumplir una operación
+
+Que una regla sea una operación binaria interna sólo asegura que recibe dos elementos y devuelve uno del mismo conjunto. No dice todavía si el orden de los argumentos importa ni cómo se agrupan tres elementos. Para la suma vectorial se exigen, además, asociatividad, conmutatividad, un neutro y un opuesto para cada vector. Esas leyes convierten $(V,+)$ en un grupo conmutativo. La nota canónica de [[Matemáticas/Estructuras algebraicas/Operaciones algebraicas|operaciones algebraicas]] desarrolla esta distinción y otros ejemplos.[^a17-operaciones]
+
+Por ejemplo, en $\mathbb R$ la suma es asociativa y conmutativa, tiene neutro $0$ y cada real $x$ tiene opuesto $-x$. En un espacio vectorial esas mismas leyes deben valer para los elementos de $V$, cualquiera que sea su naturaleza. La multiplicación externa por escalares tiene otro tipo de entrada; sus compatibilidades se fijan por separado en los axiomas 5–8.
+
+```anki
+deck: Física::Álgebra Lineal::Espacios vectoriales
+tags:
+  - matematicas
+  - algebra-lineal
+  - operaciones
+---
+> [!note] Pregunta
+> ¿Qué debe cumplir la suma interna de $V$ además de ser una operación binaria?
+===
+> [!important] Respuesta
+> Ser asociativa y conmutativa, tener neutro y un opuesto para cada vector. La multiplicación externa por escalares tiene cuatro axiomas propios.
+```
+
 ### Definición de espacio vectorial
 
 > [!definicion] Espacio vectorial sobre $K$
@@ -118,6 +138,40 @@ Por ejemplo, en $\mathbb R^2$, $(1,2)+(-3,4)=(-2,6)$ y $2(1,2)=(2,4)$. Las ocho 
 
 El conjunto $M_{m\times n}(K)$ de matrices $m$ por $n$ con entradas en $K$ es un espacio vectorial con la suma y producto escalar entrada a entrada. La suma conserva el tamaño; el vector cero es la matriz nula y el opuesto se obtiene cambiando el signo de cada entrada. Cada axioma se reduce a la propiedad correspondiente en $K$.[^3]
 
+Por ejemplo, para estas matrices $3\times3$,
+
+$$
+A=\begin{pmatrix}
+1&0&2\\
+-1&3&1\\
+2&1&0
+\end{pmatrix},
+\qquad
+B=\begin{pmatrix}
+0&2&-1\\
+4&1&0\\
+-2&3&5
+\end{pmatrix},
+$$
+
+la suma y el producto por $2$ se calculan entrada a entrada:
+
+$$
+A+B=\begin{pmatrix}
+1&2&1\\
+3&4&1\\
+0&4&5
+\end{pmatrix},
+\qquad
+2A=\begin{pmatrix}
+2&0&4\\
+-2&6&2\\
+4&2&0
+\end{pmatrix}.
+$$
+
+Ambas matrices resultantes siguen en $M_{3\times3}(K)$ cuando las entradas pertenecen a $K$.[^a17-ejemplos]
+
 ### Polinomios de grado acotado
 
 Sea $P_d(K)$ el conjunto de polinomios con coeficientes en $K$ y grado menor o igual que $d$, junto con el polinomio nulo. La suma y el producto por escalares habituales no elevan el grado por encima de $d$; por tanto permanecen en $P_d(K)$. El neutro es el polinomio nulo, y los axiomas se heredan de las operaciones sobre coeficientes.
@@ -134,7 +188,33 @@ Ambos resultados siguen teniendo grado a lo sumo $2$.
 
 Si $X$ es un conjunto, el conjunto de funciones $f:X\to K$ es un espacio vectorial al definir $(f+g)(x)=f(x)+g(x)$ y $(\lambda f)(x)=\lambda f(x)$ para cada $x\in X$. Las igualdades de funciones se comprueban punto a punto. El vector cero es la función que vale $0_K$ en todo $X$.
 
-Este ejemplo muestra que los vectores no tienen por qué ser listas finitas: una función puede tratarse como un único elemento, siempre que las operaciones permanezcan dentro del conjunto.
+Este ejemplo muestra que los vectores no tienen por qué ser listas finitas: una función puede tratarse como un único elemento, siempre que las operaciones permanezcan dentro del conjunto. En particular, el conjunto $F(\mathbb R)$ de todas las funciones reales de variable real es un espacio vectorial, y también lo es $C(\mathbb R)$, el subconjunto de funciones continuas: la suma de continuas y su producto por un real siguen siendo continuos. Por tanto, $C(\mathbb R)$ es además un subespacio de $F(\mathbb R)$.[^a17-ejemplos]
+
+### Dos casos que ponen a prueba la definición
+
+El espacio vectorial más pequeño tiene un solo elemento: $V=\{0_V\}$. La suma y cualquier producto por escalares devuelven ese mismo elemento, así que todos los axiomas se cumplen. No se exige que haya vectores distintos del cero.[^a17-ejemplos]
+
+En cambio, el círculo unidad
+
+$$
+S^1=\{(x,y)\in\mathbb R^2:x^2+y^2=1\}
+$$
+
+no es un espacio vectorial con las operaciones habituales. Contiene $(1,0)$ y $(0,1)$, pero su suma $(1,1)$ no pertenece a $S^1$, porque $1^2+1^2\ne1$. Falla el cierre bajo suma.[^a17-circulo]
+
+```anki
+deck: Física::Álgebra Lineal::Espacios vectoriales
+tags:
+  - matematicas
+  - algebra-lineal
+  - espacios-vectoriales
+---
+> [!note] Pregunta
+> ¿Por qué el círculo unidad de $\mathbb R^2$ no es un espacio vectorial con las operaciones habituales?
+===
+> [!important] Respuesta
+> No es cerrado bajo suma: $(1,0)$ y $(0,1)$ pertenecen a la circunferencia, pero su suma $(1,1)$ no.
+```
 
 ## El mismo conjunto con cuerpos distintos: $\mathbb C$
 
@@ -142,7 +222,7 @@ Los escalares son parte de la estructura. El conjunto $\mathbb C$ es un espacio 
 
 También es un espacio vectorial sobre $\mathbb R$ cuando sólo se permite multiplicar por reales. Todo complejo tiene forma única $a+bi$, con $a,b\in\mathbb R$, por lo que $\{1,i\}$ es una base real y la dimensión sobre $\mathbb R$ es $2$. No hay contradicción: la dimensión depende del cuerpo de escalares.
 
-Más generalmente, $\mathbb C^n$ es espacio vectorial sobre $\mathbb R$ usando escalares reales; su dimensión real es $2n$. El producto por un escalar complejo también está definido dentro de $\mathbb C^n$, por lo que además es un espacio vectorial complejo, de dimensión compleja $n$.
+Más generalmente, $\mathbb C^n$ es espacio vectorial sobre $\mathbb R$ usando escalares reales; su dimensión real es $2n$. El producto por un escalar complejo también está definido dentro de $\mathbb C^n$, por lo que además es un espacio vectorial complejo, de dimensión compleja $n$. En cambio, $\mathbb R^n$ no es subespacio de $\mathbb C^n$ si esta última se considera sobre $\mathbb C$: el vector $e_1=(1,0,\ldots,0)$ es real, pero $ie_1=(i,0,\ldots,0)$ ya no pertenece a $\mathbb R^n$. La misma inclusión sí es de subespacios cuando ambas se consideran sobre $\mathbb R$.[^a17-ejemplos]
 
 ## Contraejemplo: una operación que no respeta la unidad
 
@@ -166,11 +246,24 @@ Esta estrategia también hace visible por qué el cuerpo importa: una operación
 
 Una vez establecida la estructura total, se estudian subconjuntos que también son espacios vectoriales con las operaciones heredadas. Ese tema se formula en la nota de [[Matemáticas/Álgebra lineal/Espacios vectoriales/02 Subespacios vectoriales|subespacios vectoriales]]. La relación entre espacio, combinación lineal y matrices enlaza además con sistemas lineales, pero no altera la definición abstracta.
 
+## Práctica graduada
+
+1. En $V=M_{2\times2}(\mathbb R)$ con las operaciones habituales, identifica el dominio y el codominio de la suma y del producto por escalares.
+2. Decide si $\mathbb R^2$ es un espacio vectorial con la suma habitual y $\lambda\odot(x,y)=(\lambda x,0)$. Señala la condición que decide.
+3. Explica por qué $C(\mathbb R)$ es subespacio de $F(\mathbb R)$.
+
+## Soluciones razonadas
+
+1. La suma es interna, $V\times V\to V$: suma dos matrices del mismo tamaño y el resultado conserva sus cuatro entradas. El producto por escalares es externo, $\mathbb R\times V\to V$: combina un real y una matriz y devuelve otra matriz $2\times2$.
+2. No. Para $v=(1,2)$, la operación propuesta da $1\odot v=(1,0)\ne v$. Falla el axioma de acción de la unidad, aunque el resultado sí pertenece a $\mathbb R^2$.
+3. La función cero es continua, y la suma de dos funciones continuas y el múltiplo real de una función continua siguen siendo continuos. Así $C(\mathbb R)$ contiene el cero y es cerrado bajo ambas operaciones heredadas de $F(\mathbb R)$.
+
 ## 📚 Fuentes
 
 ### Material base aportado
 
 - [[Matemáticas/Álgebra lineal/Espacios vectoriales/01 Espacios vectoriales — definición y axiomas|Espacios vectoriales: definición y axiomas]], nota canónica del Vault: formalismo completo, terminología y fuente académica asociada.
+- FCUL, *ALGA 2026/27, Aulas Teóricas*, Aula 17, «Espaços vetoriais», 26/10/2026, diapositivas pp. 2–21. Localizadores concretos: operaciones de coordenadas y matrices, pp. 2–5; operaciones binarias y sus leyes, pp. 6–13; ejemplos y contraejemplo, pp. 17–21. No se añade un enlace directo al PDF de clase.
 - Índice curricular de Álgebra Lineal y Geometría Analítica para Física, FCUL. Determina el alcance de esta unidad; no se usa como fuente de las afirmaciones matemáticas.
 
 ### Ampliación académica
@@ -180,6 +273,10 @@ Una vez establecida la estructura total, se estudian subconjuntos que también s
 [^3]: MIT OpenCourseWare, [*Algebra I Student Notes*](https://ocw.mit.edu/courses/res-18-011-algebra-i-student-notes-fall-2021/mit18_701f21_full_lec_new.pdf), notas universitarias abiertas sobre estructuras algebraicas y espacios vectoriales.
 
 Los ejemplos finito-dimensionales se verifican componente a componente: las propiedades necesarias son exactamente las leyes del cuerpo en cada coordenada o coeficiente. Esta reducción explica por qué los mismos axiomas sirven para tuplas, matrices y polinomios.
+
+[^a17-operaciones]: FCUL, Aula 17, 26/10/2026, diapositivas pp. 6–13: operaciones binarias internas, conmutatividad, asociatividad, elemento neutro y elemento inverso.
+[^a17-ejemplos]: FCUL, Aula 17, 26/10/2026, diapositivas pp. 2–5 y 17–21: operaciones con coordenadas y matrices; polinomios, funciones, dependencia respecto del cuerpo y el espacio vectorial de un solo elemento.
+[^a17-circulo]: FCUL, Aula 17, 26/10/2026, diapositiva p. 21: la circunferencia unidad no es cerrada bajo suma.
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
