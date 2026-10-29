@@ -2,7 +2,7 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "03d243d4a21c8fe80d5723bfe18f0bfc9ca2882d",
+  "sourceCommit": "63dfeaf986cd9b63019cafd39f9bfebb161f5688",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
@@ -66,15 +66,15 @@
     },
     {
       "path": "03 Espacios vectoriales/01 Espacios vectoriales y axiomas.md",
-      "sourceHash": "aed456f26b6c9c743a2d67c8af755d9468b40131c307e4a14ce244fac3241527"
+      "sourceHash": "ec010e27306992b580ce22bb8d0db302fe73f31cae1b72fec899ccc39f1ae52c"
     },
     {
       "path": "03 Espacios vectoriales/02 Propiedades derivadas de los axiomas.md",
-      "sourceHash": "51af9d1328ed04e84987289b5345a9f45003657290f13e2c179a2cce4f63e862"
+      "sourceHash": "2ec97b56207f50c4ba4fc171ca76702c9114758cec7113b2346a348e75d06aac"
     },
     {
       "path": "03 Espacios vectoriales/03 Subespacios y espacio generado.md",
-      "sourceHash": "135cc7165ce6f68e565cfeb816d29473b60592b6bb03b7fd97b2ac885658f268"
+      "sourceHash": "d19f98d29211168ad7007db4bf6ac65b5774bda70338fcf0916a42816c6e83fe"
     },
     {
       "path": "03 Espacios vectoriales/04 Independencia, bases y coordenadas.md",
@@ -151,14 +151,14 @@
   ],
   "stats": {
     "en": {
-      "translated": 1608,
-      "reused": 4427,
-      "total": 6035
+      "translated": 232,
+      "reused": 5965,
+      "total": 6197
     },
     "pt": {
-      "translated": 1608,
-      "reused": 4427,
-      "total": 6035
+      "translated": 232,
+      "reused": 5965,
+      "total": 6197
     }
   }
 }
