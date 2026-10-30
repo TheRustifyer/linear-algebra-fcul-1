@@ -16,7 +16,7 @@ tags:
 
 # Ejercicios de matrices y sistemas
 
-Los primeros cuatro cuadernos conservan los ejercicios **1–34** de la ficha disponible hasta el **2 de octubre de 2026**. La continuación **35–40**, incorporada desde los fascículos 1–60 y 1–90, completa la práctica de matrices y sistemas. Se mantiene la numeración del boletín y la distribución sigue la técnica principal de cada ejercicio.
+Los ejercicios **1–40** van desde la lectura y las operaciones con matrices hasta la resolución y discusión de sistemas lineales. Los primeros cuatro cuadernos reúnen los **1–34**, disponibles en la ficha del **2 de octubre de 2026**; el quinto continúa con los **35–40** de los fascículos 1–60 y 1–90. Cada cuaderno mantiene los números del boletín y agrupa los problemas por la técnica que se practica.
 
 > [!tip] Cómo estudiar con estos cuadernos
 > Intenta cada enunciado antes de abrir la resolución. Las **resoluciones** y las **comprobaciones** están cerradas por defecto: ábrelas cuando quieras corregirte. En los ejercicios marcados 🤖, repite la **Comprobación** para verificar el resultado de forma independiente.
@@ -25,25 +25,25 @@ Los primeros cuatro cuadernos conservan los ejercicios **1–34** de la ficha di
 
 ### 1. Lectura, operaciones, potencias y transposición
 
-[[01 Operaciones, potencias y transposición|Ejercicios 1–15]]: identificar entradas y tamaños, construir matrices, decidir qué operaciones están definidas, multiplicar, calcular potencias y demostrar propiedades o refutarlas mediante contraejemplos.
+Los [[01 Operaciones, potencias y transposición|ejercicios 1–15]] parten de la lectura de entradas y tamaños para construir y operar con matrices. La práctica incluye decidir qué operaciones están definidas, multiplicar, calcular potencias y justificar propiedades mediante pruebas o refutarlas con contraejemplos.
 
 ### 2. Escalonamiento y transformaciones elementales
 
-[[02 Escalonamiento y transformaciones elementales|Ejercicios 16–19]]: reconocer formas escalonadas, reducir matrices, hallar rangos y expresar operaciones de fila mediante matrices elementales.
+Los [[02 Escalonamiento y transformaciones elementales|ejercicios 16–19]] enseñan a reconocer formas escalonadas y reducir matrices para hallar su rango. También relacionan las operaciones de fila con la multiplicación por matrices elementales.
 
 ### 3. Invertibilidad y rango
 
-[[03 Invertibilidad y rango|Ejercicios 20–30]]: demostrar propiedades de inversas, calcular inversas reales y complejas, resolver ecuaciones matriciales y justificar la conservación del rango.
+Los [[03 Invertibilidad y rango|ejercicios 20–30]] estudian cuándo una matriz tiene inversa: se demuestran propiedades de las inversas, se calculan inversas reales y complejas y se resuelven ecuaciones matriciales. Las justificaciones sobre conservación del rango completan ese estudio.
 
 ### 4. Sistemas lineales
 
-[[04 Sistemas lineales|Ejercicios 31–34]]: reconocer ecuaciones lineales, aplicar Gauss–Jordan y discutir existencia y número de soluciones, también con parámetros.
+Los [[04 Sistemas lineales|ejercicios 31–34]] comienzan por reconocer ecuaciones lineales. Después utilizan Gauss–Jordan para decidir si un sistema tiene solución y cuántas soluciones admite, también cuando sus coeficientes dependen de un parámetro.
 
 ### 5. Sistemas e invertibilidad · continuación
 
-[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ejercicios/05 Sistemas e invertibilidad — ejercicios 35–40|Ejercicios 35–40]]: discutir dos parámetros, relacionar soluciones particulares y homogéneas, comparar parametrizaciones y justificar invertibilidad mediante pivotes y conjugación.
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ejercicios/05 Sistemas e invertibilidad — ejercicios 35–40|ejercicios 35–40]] amplían la discusión a dos parámetros y relacionan una solución particular con las del homogéneo. Comparar parametrizaciones, estudiar pivotes y trabajar con conjugación permite justificar las familias de soluciones y las condiciones de invertibilidad.
 
-Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/00 Índice de ejercicios|ejercicios 41–58]] se estudian en el capítulo de determinantes, aunque compartan el PDF de enunciados.
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/00 Índice de ejercicios|ejercicios 41–58]] continúan en el capítulo de determinantes, donde la invertibilidad y la solución de sistemas se estudian mediante ese nuevo cálculo.
 
 ## Procedencia de las respuestas
 

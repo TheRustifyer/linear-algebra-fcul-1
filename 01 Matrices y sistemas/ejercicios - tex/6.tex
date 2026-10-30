@@ -1,0 +1,72 @@
+\item Let the following matrices be defined:
+
+$$
+\begin{array}{ccccc}
+    A = \begin{bmatrix}
+        a_1 & a_2 & a_3 \\
+        b_1 & b_2 & b_3 \\
+        c_1 & c_2 & c_3 \\
+        d_1 & d_2 & d_3
+    \end{bmatrix},
+    &
+    B = \begin{bmatrix}
+        1 & 0 & 1 & 0
+    \end{bmatrix},
+    &
+    C = \begin{bmatrix}
+        1 & 0 & 1 & 0 \\
+        1 & -2 & 0 & 0
+    \end{bmatrix},
+    &
+    D = \begin{bmatrix}
+        1 \\ 0 \\ 1
+    \end{bmatrix},
+    &
+    E = \begin{bmatrix}
+        1 & 1 & 1 \\
+        0 & -2 & 0 \\
+        1 & 0 & 1
+    \end{bmatrix}
+\end{array}
+$$
+
+Compute:
+
+\begin{tabular}{llll}
+    a) $BA$ & b) $CA$ & c) $AD$ & d) $AE$
+\end{tabular} \\[0.5em]
+
+\textbf{Solution:}
+\begin{itemize}[label=\alph*)]
+    \item $B_{1 \times 4} \cdot \! A_{4 \times 3} \implies BA_{1 \times 3}$
+        \begin{answer}
+            $ = \begin{bmatrix}
+                a_1 + c_1 & a_2 + c_2 & a_3 + c_3
+            \end{bmatrix}$
+        \end{answer}
+    \item $C_{2 \times 4} \cdot \! A_{4 \times 3} \implies CA_{2 \times 3}$
+        \begin{answer}
+            $ = \begin{bmatrix}
+                a_1 + c_1  & a_2 + c_2     & a_3 + c_3 \\
+                a_1 - 2b_1 & a_2 -2b_2  & a_3 -2b_3
+            \end{bmatrix}$
+        \end{answer}
+    \item $A_{4 \times 3} \cdot \! D_{3 \times 1} \implies DA_{4 \times 1}$
+        \begin{answer}
+            $ = \begin{bmatrix}
+                a_1 + a_3 \\
+                b_1 + b_3 \\
+                c_1 + c_3  \\
+                d_1 + d_3
+            \end{bmatrix}$
+        \end{answer}
+    \item $A_{4 \times 3} \cdot \! E_{3 \times 3} \implies AE_{4 \times 3}$
+        \begin{answer}
+            $ = \begin{bmatrix}
+                a_1 + a_3  & a_1 -2a_2  & a_1 + a_3 \\
+                b_1 + b_3  & b_1 -2b_2  & b_1 + b_3 \\
+                c_1 + c_3   & c_1 -2c_2  & c_1 + c_3 \\
+                d_1 + d_3  & d_1 -2d_2  & d_1 + d_3
+            \end{bmatrix}$
+        \end{answer}
+\end{itemize}

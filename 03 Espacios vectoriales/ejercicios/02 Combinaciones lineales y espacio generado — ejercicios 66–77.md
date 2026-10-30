@@ -28,10 +28,10 @@ tags:
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 ```
 
-La pregunta de pertenencia a un [[Matemáticas/Álgebra lineal/Espacios vectoriales/03 Combinaciones lineales y espacio generado|espacio generado]] exige encontrar coeficientes que reproduzcan el objeto completo. En $\mathbb R^n$ se comparan coordenadas; en polinomios, coeficientes; en matrices, entradas; en funciones, valores para todo punto del dominio. Una contradicción en una sola condición descarta la combinación; una respuesta afirmativa debe satisfacerlas todas.[^generado]
+Para decidir si un vector pertenece a un [[Matemáticas/Álgebra lineal/Espacios vectoriales/03 Combinaciones lineales y espacio generado|espacio generado]], se busca una combinación que lo reproduzca por completo. La igualdad se comprueba comparando coordenadas en $\mathbb R^n$, coeficientes en polinomios y entradas en matrices. En funciones debe valer para todos los puntos del dominio. Una sola contradicción descarta la combinación; los coeficientes encontrados deben satisfacer todas las condiciones.[^generado]
 
 > [!tip] Procedencia de las respuestas
-> 🤖 identifica resoluciones propias. Los enunciados proceden del boletín de FCUL. Las fichas separadas disponibles de soluciones y resoluciones no contienen respuestas a 66–77; las marcas «S» de algunos enunciados no constituyen aquí un contraste oficial de las respuestas.
+> 🤖 identifica las resoluciones y comprobaciones propias. Los enunciados proceden del boletín de FCUL. Sus marcas «S» remiten a una ficha separada; las fichas de soluciones y resoluciones disponibles corresponden a ejercicios anteriores.
 
 ## Encontrar una combinación o demostrar que no existe
 
@@ -61,16 +61,15 @@ En el espacio vectorial real $\mathbb R^3$, decide, justificando, si cada vector
 
 **j)** $(4,6,-8)$ de $\bigl((2,-1,-4)\bigr)$.
 
-**k)**
+**k)** Sean
 
 $$
-u=\left(\frac{\sqrt5}{\sqrt3},\frac{\sqrt5}{\sqrt2},\frac5{\sqrt2}\right)
-\quad\text{de}\quad
-\left(v\right),\qquad
+u=\left(\frac{\sqrt5}{\sqrt3},\frac{\sqrt5}{\sqrt2},\frac5{\sqrt2}\right),
+\qquad
 v=\frac15\left(\sqrt{10},\sqrt{15},5\sqrt3\right).
 $$
 
-¿Es también $v$ combinación lineal de $(u)$?
+¿Es $u$ combinación lineal de $(v)$? ¿Es también $v$ combinación lineal de $(u)$?
 
 > [!resolucion]- Resolución
 > **a)** Buscamos $r,s\in\mathbb R$ con $r(2,-1,1)+s(2,0,-2)=(-8,5,-7)$. Igualar coordenadas da
@@ -95,15 +94,17 @@ $$
 > -3(4,-6,1)+14(1,-2,-1)=(2,-10,-17).
 > $$
 >
-> **d)** Cada uno de los tres generadores cumple $-8x-5y+2z=0$. Cualquier combinación también lo cumple, por la distributividad. Para el vector pedido,
+> **d)** Una ecuación lineal homogénea satisfecha por los tres generadores permite comprobar si el vector pedido puede pertenecer a su generado. En este caso, los tres cumplen $-8x-5y+2z=0$, y cualquier combinación conserva esa igualdad por la distributividad. Sin embargo, para el vector pedido,
 >
 > $$
 > -8(-5)-5(3)+2(-5)=15\ne0.
 > $$
 >
-> Por tanto, **no** es combinación. La condición necesaria proporciona una contradicción sin tener que hallar coeficientes.
+> Por tanto, **no** es combinación: incumple una condición que satisface todo vector del generado.
 >
-> **e)** Llamemos $v_1,v_2,v_3,v_4$ a los cuatro vectores, en el orden del enunciado. Podemos buscar una combinación con coeficiente de $v_4$ igual a cero. La segunda coordenada da $s=3$; las otras dos quedan $r+t=-5$ y $r-s-t=-5$. Así, $r-t=-2$, de donde $r=-7/2$ y $t=-3/2$. **Sí**:
+> **e)** Llamemos $v_1,v_2,v_3,v_4$ a los cuatro vectores, en el orden del enunciado. Para demostrar que el vector pertenece basta encontrar una combinación. Buscamos primero una que sólo use los tres primeros: $rv_1+sv_2+tv_3$, con coeficiente de $v_4$ igual a cero.
+>
+> La segunda coordenada exige $s=3$; la primera y la tercera dan $r+t=-5$ y $r-s-t=-5$. Sustituyendo $s=3$ en esta última, $r-t=-2$. Al resolver junto con $r+t=-5$, resulta $r=-7/2$, $t=-3/2$. Por tanto, **sí**:
 >
 > $$
 > (-5,3,-5)=-\frac72v_1+3v_2-\frac32v_3+0v_4.
@@ -132,7 +133,7 @@ $$
 > =\sqrt{\frac{15}6}=\frac{\sqrt5}{\sqrt2}.
 > $$
 >
-> En la tercera, $v_3=\sqrt3$ y $(5/\sqrt6)\sqrt3=5/\sqrt2$. Por tanto,
+> La tercera coordenada de $v$ es $\sqrt3$; multiplicarla por el mismo coeficiente da $(5/\sqrt6)\sqrt3=5/\sqrt2$. Por tanto,
 >
 > $$
 > \boxed{u=\frac5{\sqrt6}v,\qquad v=\frac{\sqrt6}5u.}
@@ -141,7 +142,7 @@ $$
 > Ambas respuestas son afirmativas; el segundo coeficiente existe porque el primero es no nulo.
 
 > [!recuerda]- Comprobación
-> Multiplica y suma las tres coordenadas de los coeficientes dados en a), c) y e–i). En b) y j), las coordenadas que fijan los coeficientes deben comprobarse antes de usar la coordenada contradictoria. Para d), verifica $-8x-5y+2z=0$ en los tres generadores; para k), comprueba que $(5/\sqrt6)(\sqrt6/5)=1$.
+> Las combinaciones de a), c) y e–i) se comprueban multiplicando y sumando en las tres coordenadas. En b) y j), las primeras ecuaciones fijan un candidato que falla en otra coordenada; esa contradicción es la que descarta la combinación. En d), sustituir los tres generadores en $-8x-5y+2z$ debe dar cero. En k), el producto $(5/\sqrt6)(\sqrt6/5)=1$ confirma que los dos coeficientes son inversos.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Espacios vectoriales
@@ -163,10 +164,10 @@ tags:
   - combinaciones-lineales
 ---
 > [!note] Pregunta
-> ¿Cómo puede una ecuación lineal homogénea común a los generadores descartar la pertenencia de un vector a su generado?
+> ¿Qué se concluye si un vector incumple una ecuación lineal homogénea que satisfacen todos los generadores?
 ===
 > [!important] Respuesta
-> Toda combinación conserva esa ecuación. Si el vector candidato la incumple, no puede ser combinación de los generadores; cumplirla sólo prueba pertenencia si las ecuaciones describen todo el generado.
+> Que no pertenece al espacio generado, porque toda combinación conserva esa ecuación. En cambio, cumplirla sólo permite probar pertenencia si se sabe que las ecuaciones utilizadas describen todo el generado.
 ```
 
 ### Ejercicio 67 · Igualar todos los coeficientes de un polinomio 🤖
@@ -190,12 +191,17 @@ es combinación lineal de cada familia:[^67]
 **d)** $\bigl(2x^3-x^2+2x-2,\ -3x^3-4x^2+4x-5,\ -7x^3-2x^2-9,\ -x^3-5x^2+6x-7\bigr)$.
 
 > [!resolucion]- Resolución
-> Dos polinomios son iguales si coinciden los coeficientes de cada potencia, incluido el término independiente. Escribimos las filas de los sistemas en el orden $x^3,x^2,x,1$.[^generado]
+> Comparamos los coeficientes de $x^3,x^2,x$ y del término independiente. Una combinación reproduce $p$ si satisface simultáneamente esas cuatro igualdades.[^generado]
 >
 > **a)** Sean $r,s$ los coeficientes de la familia. Se exige
 >
 > $$
-> 2r=-12,\quad -s=-5,\quad 3r+4s=2,\quad-r-2s=-4.
+> \begin{cases}
+> 2r=-12,\\
+> -s=-5,\\
+> 3r+4s=2,\\
+> -r-2s=-4.
+> \end{cases}
 > $$
 >
 > Las primeras dos ecuaciones dan $r=-6,s=5$. Las restantes dan $-18+20=2$ y $6-10=-4$, así que **sí**.
@@ -203,8 +209,12 @@ es combinación lineal de cada familia:[^67]
 > **b)** El sistema es
 >
 > $$
-> -2r+2s=-12,\quad-r+\frac12s=-5,
-> \quad r+s=2,\quad-3r-4s=-4.
+> \begin{cases}
+> -2r+2s=-12,\\
+> -r+\frac12s=-5,\\
+> r+s=2,\\
+> -3r-4s=-4.
+> \end{cases}
 > $$
 >
 > De $r+s=2$ y $-r+s=-6$ se obtiene $r=4,s=-2$. Las otras condiciones dan $-4-1=-5$ y $-12+8=-4$. **Sí**, con coeficientes $(4,-2)$.
@@ -212,7 +222,11 @@ es combinación lineal de cada familia:[^67]
 > **c)** Para $r,s,t$, los coeficientes de $x^3,x^2,x$ exigen
 >
 > $$
-> -2r+2s-4t=-12,\qquad-r+s-t=-5,\qquad r+2s+4t=2.
+> \begin{cases}
+> -2r+2s-4t=-12,\\
+> -r+s-t=-5,\\
+> r+2s+4t=2.
+> \end{cases}
 > $$
 >
 > Restando dos veces la segunda ecuación de la primera, resulta $-2t=-2$, luego $t=1$. La segunda da $s=r-4$; la tercera da $3r-4=2$, luego $r=2,s=-2$. Pero el término independiente de esa combinación es
@@ -221,7 +235,7 @@ es combinación lineal de cada familia:[^67]
 > -r+2s-2t=-2-4-2=-8\ne-4.
 > $$
 >
-> Como los tres primeros coeficientes ya han fijado una única terna, no existe otra que repare la contradicción. **No** es combinación.
+> Las tres primeras igualdades obligan a elegir $(r,s,t)=(2,-2,1)$, pero esa terna produce término independiente $-8$ en lugar de $-4$. Por tanto, **no** es combinación.
 >
 > **d)** Con coeficientes $r,s,t,u$, las cuatro ecuaciones son
 >
@@ -237,7 +251,7 @@ es combinación lineal de cada familia:[^67]
 > Para probar existencia basta encontrar una solución. Tomamos $t=u=0$. De las ecuaciones de $x$ y $x^3$ quedan $r+2s=1$ y $2r-3s=-12$, que dan $s=2,r=-3$. Las otras dos se cumplen: $3-8=-5$ y $6-10=-4$. Por tanto, **sí**, con coeficientes $(-3,2,0,0)$.
 
 > [!recuerda]- Comprobación
-> Expande $-6p_1+5p_2$ en a), $4p_1-2p_2$ en b) y $-3p_1+2p_2$ en d). Deben aparecer exactamente los coeficientes $(-12,-5,2,-4)$. En c), la combinación forzada es $-12x^3-5x^2+2x-8$, lo que permite localizar la discrepancia en el término independiente.
+> Si $p_j$ denota el polinomio que ocupa la posición $j$ de cada familia, las combinaciones $-6p_1+5p_2$ en a), $4p_1-2p_2$ en b) y $-3p_1+2p_2$ en d) producen los coeficientes $(-12,-5,2,-4)$. En c), la combinación forzada es $-12x^3-5x^2+2x-8$: la discrepancia está en el término independiente.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Espacios vectoriales
@@ -249,10 +263,10 @@ tags:
 > ¿Por qué no basta ajustar los coeficientes de mayor grado al buscar una combinación de polinomios?
 ===
 > [!important] Respuesta
-> La igualdad exige todos los coeficientes, también los nulos y el término independiente. Si algunos fijan los candidatos, deben comprobarse aún en las ecuaciones restantes.
+> Deben coincidir todos los coeficientes, también los nulos y el término independiente. Si algunas ecuaciones determinan los coeficientes de la combinación, todavía hay que sustituirlos en las ecuaciones restantes.
 ```
 
-### Ejercicio 68 · Una igualdad exige las seis entradas 🤖
+### Ejercicio 68 · Combinaciones lineales de matrices 🤖
 
 #### Enunciado
 
@@ -313,7 +327,7 @@ $$
 > $$
 
 > [!recuerda]- Comprobación
-> En c), calcula directamente $D_1+D_2/2$: debe obtenerse $C$ completa. En a), sólo las dos entradas contradictorias bastan para refutar la igualdad; en b), los tres coeficientes forzados fallan ya en $(1,3)$. Hallar coeficientes con algunas entradas es una búsqueda de candidatos, no una verificación de la matriz entera.
+> El cálculo directo de $D_1+D_2/2$ en c) debe dar las seis entradas de $C$. En a), dos entradas exigen valores incompatibles de $r+s$; en b), el candidato $(2,1,5)$ falla en la entrada $(1,3)$. Los coeficientes obtenidos con algunas entradas deben satisfacer también todas las restantes.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Espacios vectoriales
@@ -352,7 +366,7 @@ En el espacio vectorial real $\mathcal F(\mathbb R)$, decide si:[^69]
 > **b) No.** Supongamos que existen $r,s\in\mathbb R$ con $\cos x=r\sin^2x+s\cos^2x$ para todo real $x$. Al evaluar en $x=0$, se obtiene $1=s$. Al evaluar en $x=\pi$, se obtiene $-1=s$. Un mismo escalar no puede valer $1$ y $-1$. La identidad es imposible.
 
 > [!recuerda]- Comprobación
-> En a), la fórmula de suma $\cos(x+x)=\cos x\cos x-\sin x\sin x$ reproduce la identidad para todo $x$. En b), tanto $\sin^2x$ como $\cos^2x$ tienen el mismo valor en $0$ y $\pi$; toda combinación conserva esa igualdad de valores, mientras que $\cos x$ la incumple. Probar unos puntos puede refutar una identidad, pero no demostrarla para todo el dominio.
+> En a), la fórmula de suma $\cos(x+x)=\cos x\cos x-\sin x\sin x$ demuestra la identidad para todo $x$. En b), tanto $\sin^2x$ como $\cos^2x$ tienen el mismo valor en $0$ y $\pi$. Cualquier combinación debe conservar esa igualdad, mientras que $\cos x$ vale $1$ y $-1$, respectivamente. Evaluar en puntos concretos permite refutar una identidad; demostrarla exige una igualdad válida en todo el dominio.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Espacios vectoriales
@@ -364,12 +378,12 @@ tags:
 > ¿Cómo se usan evaluaciones puntuales al decidir si $f$ es combinación lineal de funciones $g_1,\ldots,g_s$?
 ===
 > [!important] Respuesta
-> Una identidad $f(x)=\sum_jr_jg_j(x)$ exige los mismos escalares en todos los puntos. Evaluar puede fijarlos o producir una contradicción; comprobar sólo algunos puntos no demuestra la identidad global.
+> Los mismos escalares deben satisfacer $f(x)=\sum_jr_jg_j(x)$ en todos los puntos del dominio. Las evaluaciones pueden determinar esos escalares o producir una contradicción; una respuesta afirmativa debe justificar la igualdad para todo $x$.
 ```
 
 ## Qué contiene un espacio generado
 
-### Ejercicio 70 · Producir elementos del generado 🤖
+### Ejercicio 70 · Construir elementos de un espacio generado 🤖
 
 #### Enunciado
 
@@ -473,19 +487,19 @@ En $\mathbb R^3$, decide si cada afirmación es verdadera o falsa y justifica:[^
 >
 > **l) Verdadera.** El cero no añade combinaciones. Además, $(2,2,-2)=2(1,1,-1)$ y $(1,1,-1)=\tfrac12(2,2,-2)$, de modo que se generan exactamente los mismos múltiplos.
 >
-> **m) Verdadera.** Llamemos $c=(1,1,-1)$, $d=(2,2,0)$ y $r=(0,0,-2)$, $s=(3,3,3)$, $t=(3,3,-1)$. Se verifican
+> **m) Verdadera.** Denotemos por $c=(1,1,-1)$ y $d=(2,2,0)$ los generadores de la izquierda, y por $r=(0,0,-2)$, $s=(3,3,3)$ y $t=(3,3,-1)$ los de la derecha. Aquí las cinco letras representan vectores. Para expresar los generadores derechos mediante los izquierdos, se tiene
 >
 > $$
 > r=2c-d,\qquad s=-3c+3d,\qquad t=c+d.
 > $$
 >
-> Así, los tres generadores de la derecha pertenecen al generado izquierdo, luego toda combinación de ellos también. Para la inclusión contraria,
+> Por tanto, cualquier combinación de $r,s,t$ pertenece a $\langle c,d\rangle$. En el sentido contrario,
 >
 > $$
 > c=r+\frac13s,\qquad d=r+\frac23s.
 > $$
 >
-> Los dos generadores izquierdos pertenecen al derecho. Las dos inclusiones demuestran la igualdad.[^generado]
+> Estas dos igualdades muestran que cualquier combinación de $c,d$ pertenece a $\langle r,s,t\rangle$. Quedan demostradas las dos inclusiones.[^generado]
 >
 > **n) Falsa.** Todo vector del generado izquierdo tiene $x=y$, porque sus dos generadores lo cumplen. El generador derecho $(1,2,-1)$ incumple esa ecuación, de modo que no pertenece al izquierdo.
 >
@@ -607,7 +621,7 @@ $$
 > B=A^T=\begin{pmatrix}3&0&-2&1\\0&-2&1&0\\2&-3&0&2\end{pmatrix}.
 > $$
 >
-> Por las definiciones, $C(A)=\langle u,v,w\rangle=L(B)$. Ambas familias generan vectores con cuatro coordenadas.[^generado]
+> Las columnas de $A$ y las filas de $B$ son precisamente $u,v,w$; por eso $C(A)=\langle u,v,w\rangle=L(B)$. Los tres vectores tienen cuatro coordenadas, lo que explica los tamaños de ambas matrices.[^generado]
 >
 > **b)** La combinación genérica es
 >
@@ -654,7 +668,7 @@ tags:
 
 ## Pertenencia con parámetros
 
-### Ejercicio 74 · Separar los valores que impiden dividir 🤖
+### Ejercicio 74 · Pertenencia con dos parámetros 🤖
 
 #### Enunciado
 
@@ -703,7 +717,7 @@ en el espacio vectorial real $\mathbb R^3$.
 > \qquad q\in\mathbb R.
 > $$
 >
-> Si $b\ne-4/3$, la tercera ecuación es contradictoria. Los casos cubren todos los reales y proporcionan coeficientes en cada caso compatible. Así,
+> Para $a=-2/3$ y $b\ne-4/3$, la ecuación $0=b+4/3$ es contradictoria. Por tanto, los valores que permiten la combinación son
 >
 > $$
 > \boxed{a\ne-\frac23\ \text{con cualquier }b,
@@ -727,7 +741,7 @@ tags:
 > Se separa $c(a)\ne0$, donde $u=d/c$, de $c(a)=0$. En este último caso debe cumplirse $d(a,b)=0$; si no, no hay combinación, y si sí, esa ecuación no restringe $u$.
 ```
 
-### Ejercicio 75 · Dos valores singulares distintos 🤖
+### Ejercicio 75 · Pertenencia y casos especiales del parámetro 🤖
 
 #### Enunciado
 
@@ -782,7 +796,7 @@ en $\mathbb R^3$.
 > \qquad q\in\mathbb R.
 > $$
 >
-> Los tres casos son exhaustivos. En conclusión,
+> La condición de pertenencia queda, según el valor de $t$,
 >
 > $$
 > \boxed{\begin{array}{ll}
@@ -819,14 +833,14 @@ $$
 Encuentra una familia finita que genere $V\cap W$, usando la respuesta anterior.
 
 > [!resolucion]- Resolución
-> **a) Reducir los generadores.** Llamemos $v_1,v_2,v_3,v_4$ a los cuatro vectores dados. Las igualdades
+> **a)** Llamemos $v_1,v_2,v_3,v_4$ a los cuatro vectores dados. Los dos últimos se pueden expresar mediante los dos primeros:
 >
 > $$
 > v_3=v_2-\frac12v_1,\qquad
 > v_4=\frac{7v_1-v_2}{3}
 > $$
 >
-> muestran que los dos últimos no amplían el generado. Como $v_1,v_2$ ya están en la familia original, ambas inclusiones dan $V=\langle v_1,v_2\rangle$.[^generado]
+> Por estas igualdades, cualquier combinación de los cuatro vectores puede escribirse usando sólo $v_1,v_2$. A su vez, toda combinación de $v_1,v_2$ pertenece a $V$, porque ambos son generadores originales. Por tanto, $V=\langle v_1,v_2\rangle$.[^generado]
 >
 > Una combinación de ellos tiene coordenadas
 >
@@ -840,13 +854,13 @@ Encuentra una familia finita que genere $V\cap W$, usando la respuesta anterior.
 > z-x-y=0,\qquad w+2x-y=0.
 > $$
 >
-> **Comprobar la inclusión contraria.** Si $(x,y,z,w)$ cumple esas dos ecuaciones, elegimos
+> Para que estas ecuaciones describan todo $V$, también debe poder reconstruirse cualquier solución como combinación de $v_1,v_2$. Si $(x,y,z,w)$ las cumple, tomamos
 >
 > $$
 > r=\frac{x+2y}{6},\qquad s=\frac{x-y}{3}.
 > $$
 >
-> Entonces $2r+2s=x$ y $2r-s=y$. Las otras coordenadas de $rv_1+sv_2$ son $x+y=z$ y $-2x+y=w$. Así, todo vector que satisface las ecuaciones pertenece a $V$. Concluimos la igualdad de conjuntos:
+> Con esos coeficientes, las dos primeras coordenadas de $rv_1+sv_2$ son $2r+2s=x$ y $2r-s=y$. Las otras dos son $x+y=z$ y $-2x+y=w$. Así se recupera el vector completo y se obtiene
 >
 > $$
 > \boxed{V=\{(x,y,z,w)\in\mathbb R^4:z=x+y,\ w=-2x+y\}.}
@@ -946,7 +960,13 @@ Encuentra una familia finita que genere $V\cap W$, usando la respuesta anterior.
 > 4z=3x+11y,\qquad4w=3x+7y.
 > $$
 >
-> Para probar que bastan, tomemos una matriz cuyas entradas cumplen ambas. Con los coeficientes $r=(x+5y)/4$ y $s=(x+y)/4$, las entradas superiores de $rM_1+sM_2$ son $x,y$, y las inferiores son $(3x+11y)/4=z$ y $(3x+7y)/4=w$. La matriz se reconstruye completa, de modo que
+> Recíprocamente, sea una matriz cuyas entradas satisfacen esas dos condiciones. Los coeficientes obtenidos de sus entradas superiores permiten reconstruirla:
+>
+> $$
+> r=\frac{x+5y}{4},\qquad s=\frac{x+y}{4}.
+> $$
+>
+> En $rM_1+sM_2$, las entradas superiores son entonces $x,y$. Las inferiores valen $(3x+11y)/4=z$ y $(3x+7y)/4=w$ por las condiciones supuestas. Se recuperan las cuatro entradas, y por tanto
 >
 > $$
 > \boxed{V=\left\{\begin{pmatrix}x&y\\z&w\end{pmatrix}:
@@ -1009,7 +1029,11 @@ Encuentra una familia finita que genere $V\cap W$, usando la respuesta anterior.
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Actúa como profesor de Álgebra Lineal de primer curso. Propón un ejercicio de 66–77 y pide primero escribir la igualdad que define la pertenencia. En vectores compara todas las coordenadas; en polinomios incluye los coeficientes nulos y el término independiente; en matrices verifica todas las entradas; en funciones exige coeficientes constantes y una identidad válida para todo real. Para comparar generados pide las dos inclusiones, o un vector concreto que refute una. En 74 y 75, exige separar los ceros de cada posible divisor antes de dividir y comprobar que los casos son exhaustivos. En 76 y 77, pide demostrar que las ecuaciones son necesarias y suficientes, y luego imponer simultáneamente las condiciones de la intersección. Comprueba la respuesta por sustitución en el enunciado y permite corregir la primera inferencia errónea antes de mostrar el resto. Formula una pregunta cada vez, espera mi respuesta y adapta la dificultad mediante recuperación activa y repetición espaciada.
+Actúa como profesor de Álgebra Lineal de primer curso. Propón un ejercicio de 66–77 y pide primero escribir la igualdad que define la pertenencia. En vectores, compara todas las coordenadas; en polinomios, incluye los coeficientes nulos y el término independiente; en matrices, verifica todas las entradas. En funciones, exige coeficientes constantes y una identidad válida para todo real.
+
+Para comparar espacios generados, pide las dos inclusiones o un vector concreto que refute una. En 74 y 75, exige separar los ceros de cada posible divisor antes de dividir y comprobar que se han cubierto todos los valores del parámetro. En 76 y 77, pide demostrar que las ecuaciones son necesarias y suficientes; después, impón simultáneamente las condiciones de ambos subespacios para calcular la intersección.
+
+Comprueba la respuesta por sustitución en el enunciado. Si hay un error, permite corregir la primera inferencia que falla antes de mostrar el resto. Formula una pregunta cada vez, espera mi respuesta y adapta la dificultad mediante recuperación activa y repetición espaciada.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })

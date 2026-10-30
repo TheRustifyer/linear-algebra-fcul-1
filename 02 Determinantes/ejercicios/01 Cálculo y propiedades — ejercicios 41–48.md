@@ -22,10 +22,10 @@ tags:
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 ```
 
-El [[Matemáticas/Álgebra lineal/Determinantes|determinante]] puede calcularse desarrollando productos o transformando la matriz hasta que el valor sea visible. Elegir el método exige reconocer ceros, triangularidad y relaciones entre filas o columnas. Las propiedades utilizadas en las resoluciones proceden de la teoría de determinantes consultada.[^teoria]
+Antes de desarrollar un [[Matemáticas/Álgebra lineal/Determinantes|determinante]], conviene mirar la matriz. Una fila con muchos ceros reduce el trabajo de Laplace; una matriz triangular sólo exige multiplicar su diagonal. Cuando esa estructura aún no aparece, las operaciones de filas o columnas pueden hacerla visible, siempre que se lleve la cuenta de cómo cambia el determinante.[^teoria]
 
 > [!tip] Práctica
-> Todas las resoluciones y comprobaciones de estos ejercicios son propias (🤖). La marca «S» de algunos enunciados anuncia una respuesta en las fichas del curso; no atribuye a esas fichas los desarrollos que siguen.
+> 🤖 identifica las resoluciones y comprobaciones añadidas por IA. La letra «S» del boletín indica que existe una respuesta oficial; los desarrollos de este cuaderno son propios.
 
 ## Fórmulas directas y estructura de la matriz
 
@@ -36,8 +36,14 @@ El [[Matemáticas/Álgebra lineal/Determinantes|determinante]] puede calcularse
 Calcula los determinantes de las siguientes matrices, con $\theta\in\mathbb R$ en c):[^41]
 
 $$
-\text{a) }\begin{pmatrix}3&1\\2&4\end{pmatrix},\qquad
-\text{b) }\begin{pmatrix}6&-12\\-2&4\end{pmatrix},\qquad
+\text{a) }\begin{pmatrix}3&1\\2&4\end{pmatrix}.
+$$
+
+$$
+\text{b) }\begin{pmatrix}6&-12\\-2&4\end{pmatrix}.
+$$
+
+$$
 \text{c) }\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}.
 $$
 
@@ -56,9 +62,16 @@ $$
 >
 > **b)** $6\cdot4-(-12)(-2)=24-24=\boxed0$. El producto de dos números negativos es positivo; por eso se resta $24$.
 >
-> **c)** $\cos^2\theta-(-\sin\theta)\sin\theta=\cos^2\theta+\sin^2\theta=\boxed1$.
+> **c)** La fórmula da
 >
-> **d)** Desarrollamos por la primera fila, cuyo primer elemento es cero:
+> $$
+> \cos^2\theta-(-\sin\theta)\sin\theta
+> =\cos^2\theta+\sin^2\theta=\boxed1,
+> $$
+>
+> por la identidad trigonométrica $\cos^2\theta+\sin^2\theta=1$.
+>
+> **d)** Llamemos $A$ a la matriz de este apartado. Desarrollamos por la primera fila, cuyo primer elemento es cero:
 >
 > $$
 > \det A=-2\begin{vmatrix}1&3\\2&1\end{vmatrix}
@@ -95,15 +108,29 @@ $$
 Calcula $\det A$: **a)** por Sarrus; **b)** por Laplace sobre la segunda fila; **c)** por Laplace sobre la primera columna.
 
 > [!resolucion]- Resolución
-> **a) Sarrus.** En orden $3$, se suman los tres productos cíclicos en un sentido y se restan los tres del otro:
+> **a) Sarrus.** Agrupamos por separado los tres productos que se suman y los tres que se restan:
 >
 > $$
-> \det A=(0(-1)4+2\cdot3\cdot0+1\cdot2\cdot1)
-> -(1(-1)0+2\cdot2\cdot4+0\cdot3\cdot1)
-> =2-16=\boxed{-14}.
+> S_+=0(-1)4+2\cdot3\cdot0+1\cdot2\cdot1=2,
 > $$
 >
-> **b) Laplace por la segunda fila.** El cofactor de la entrada $(i,j)$ es $C_{ij}=(-1)^{i+j}\det A_{ij}$, donde $A_{ij}$ se obtiene eliminando esa fila y esa columna. Para la segunda fila, los signos son $-,+,-$:
+> $$
+> S_-=1(-1)0+2\cdot2\cdot4+0\cdot3\cdot1=16.
+> $$
+>
+> Por tanto,
+>
+> $$
+> \det A=S_+-S_-=2-16=\boxed{-14}.
+> $$
+>
+> **b) Laplace por la segunda fila.** Cada entrada se multiplica por su cofactor,
+>
+> $$
+> C_{ij}=(-1)^{i+j}\det A_{ij},
+> $$
+>
+> donde $A_{ij}$ se obtiene eliminando la fila $i$ y la columna $j$. En la segunda fila, los signos de los cofactores son $-,+,-$:
 >
 > $$
 > \det A=-2\begin{vmatrix}2&1\\1&4\end{vmatrix}
@@ -113,7 +140,7 @@ Calcula $\det A$: **a)** por Sarrus; **b)** por Laplace sobre la segunda fila; *
 >
 > Los dos últimos menores tienen una columna nula. Queda $-2(8-1)=\boxed{-14}$.
 >
-> **c) Laplace por la primera columna.** Sólo la entrada $a_{21}=2$ es no nula. Su signo es $(-1)^3=-1$:
+> **c) Laplace por la primera columna.** Sólo contribuye $a_{21}=2$. El signo de su cofactor es $(-1)^{2+1}=-1$:
 >
 > $$
 > \det A=2C_{21}=-2\begin{vmatrix}2&1\\1&4\end{vmatrix}=\boxed{-14}.
@@ -172,7 +199,10 @@ tags:
 Determina el determinante de cada matriz:[^43]
 
 $$
-A=\begin{pmatrix}1&0&0&0\\1&-2&0&0\\2&3&0&0\\1&5&6&7\end{pmatrix},\qquad
+A=\begin{pmatrix}1&0&0&0\\1&-2&0&0\\2&3&0&0\\1&5&6&7\end{pmatrix}.
+$$
+
+$$
 B=\begin{pmatrix}1&0&0&0\\0&4&0&0\\0&0&9&0\\0&0&0&-6\end{pmatrix}.
 $$
 
@@ -181,7 +211,10 @@ C=\begin{pmatrix}-6&9&-7\\0&2&11\\0&0&4\end{pmatrix}.
 $$
 
 $$
-D=\begin{pmatrix}3&-4&12&\sqrt2&6\\12&-2&6&-7&4\\0&0&0&0&0\\1&\sqrt3&5&5&9\\1&-3&5&-6&7\end{pmatrix},\qquad
+D=\begin{pmatrix}3&-4&12&\sqrt2&6\\12&-2&6&-7&4\\0&0&0&0&0\\1&\sqrt3&5&5&9\\1&-3&5&-6&7\end{pmatrix}.
+$$
+
+$$
 E=\begin{pmatrix}5&0&-7\\0&0&12\\-8&0&9\end{pmatrix}.
 $$
 
@@ -197,7 +230,13 @@ $$
 > **e)** La segunda columna de $E$ es nula. Laplace por esa columna da $\boxed{\det E=0}$.
 
 > [!recuerda]- Comprobación
-> En a), la tercera fila es combinación de las dos primeras: $R_3=\frac72R_1-\frac32R_2$. Esa dependencia confirma el determinante cero sin utilizar la diagonal. En b) y c), Laplace sucesivo por las columnas con más ceros reproduce los productos indicados.
+> En a), la relación $R_3=\frac72R_1-\frac32R_2$ permite obtener una fila nula y confirma el determinante cero sin utilizar la diagonal.
+>
+> En b), desarrollar sucesivamente por las primeras columnas deja los factores $1,4,9,-6$. En c), la primera columna sólo tiene una entrada no nula:
+>
+> $$
+> \det C=-6\begin{vmatrix}2&11\\0&4\end{vmatrix}=-6\cdot8=-48.
+> $$
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -244,7 +283,9 @@ B=\begin{pmatrix}-1&1&2&0&1\\-1&1&1&-1&2\\-1&3&9&-1&2\\1&1&6&7&2\\2&0&4&3&0\end{
 $$
 
 > [!resolucion]- Resolución
-> **a)** Sumar a una fila un múltiplo de otra no cambia el determinante. Primero hacemos $R_2\leftarrow R_2-\alpha R_1$, obteniendo $R_2=(1,2,1,1)$. Utilizando esa fila ya modificada, hacemos $R_3\leftarrow R_3-\beta R_2-R_1$; es la composición de dos operaciones que conservan el determinante. Finalmente, $R_4\leftarrow R_4+2R_1$. Resulta
+> **a)** Los términos con $\alpha$ de la segunda fila son exactamente $\alpha$ veces la primera. Los eliminamos con $R_2\leftarrow R_2-\alpha R_1$ y obtenemos $R_2=(1,2,1,1)$.
+>
+> Esa nueva fila permite eliminar $\beta$ de la tercera: $R_3\leftarrow R_3-\beta R_2$ deja $(2,1,0,0)$. Restamos ahora $R_1$ y queda $(0,0,0,-3)$. Por último, $R_4\leftarrow R_4+2R_1$ anula las dos primeras entradas de la cuarta fila. Todas estas sumas de múltiplos de otras filas conservan el determinante:
 >
 > $$
 > A' =\begin{pmatrix}2&1&0&3\\1&2&1&1\\0&0&0&-3\\0&0&5&6\end{pmatrix},\qquad \det A'=\det A.
@@ -257,15 +298,15 @@ $$
 > =3\cdot5(4-1)=\boxed{45}.
 > $$
 >
-> El resultado es independiente de $\alpha,\beta$: su contribución era eliminable sumando múltiplos de otras filas.
+> El resultado vale para todos los $\alpha,\beta\in\mathbb R$, pues las operaciones realizadas eliminan ambos parámetros sin dividir por ellos.
 >
-> **b)** Hacemos $R_2\leftarrow R_2-R_1$, $R_3\leftarrow R_3-R_1$, $R_4\leftarrow R_4+R_1$ y $R_5\leftarrow R_5+2R_1$. Intercambiamos después $R_2$ y $R_3$ para disponer de un pivote $2$ en la segunda columna:
+> **b)** Usamos el $-1$ de la primera fila como pivote para anular las otras entradas de su columna. Las operaciones son $R_2\leftarrow R_2-R_1$, $R_3\leftarrow R_3-R_1$, $R_4\leftarrow R_4+R_1$ y $R_5\leftarrow R_5+2R_1$. La nueva segunda fila empieza con dos ceros; intercambiarla con la tercera sitúa un pivote $2$ en la segunda columna:
 >
 > $$
 > \begin{pmatrix}-1&1&2&0&1\\0&2&7&-1&1\\0&0&-1&-1&1\\0&2&8&7&3\\0&2&8&3&2\end{pmatrix}.
 > $$
 >
-> Esta matriz tiene determinante $-\det B$ debido al intercambio. Ahora restamos $R_2$ de $R_4$ y $R_5$, y sumamos $R_3$ a esas dos filas. Obtenemos
+> El intercambio cambia el signo, de modo que el determinante de esta matriz es $-\det B$. Restamos $R_2$ de $R_4$ y $R_5$ para anular su segunda entrada. En ambas queda un $1$ en la tercera columna, que se elimina sumando $R_3$:
 >
 > $$
 > \begin{pmatrix}-1&1&2&0&1\\0&2&7&-1&1\\0&0&-1&-1&1\\0&0&0&7&3\\0&0&0&3&2\end{pmatrix}.
@@ -274,7 +315,16 @@ $$
 > Con $R_5\leftarrow R_5-\frac37R_4$, la última entrada diagonal es $2-9/7=5/7$. El producto diagonal vale $(-1)2(-1)7(5/7)=10$. Como sólo hubo un intercambio, $\boxed{\det B=-10}$.
 
 > [!recuerda]- Comprobación
-> En a), toma $\alpha=\beta=0$ y desarrolla por la tercera columna: $5\cdot9=45$. En b), antes de la última eliminación, el determinante es $(-1)2(-1)$ multiplicado por $\begin{vmatrix}7&3\\3&2\end{vmatrix}=5$: vuelve a dar $10$ para la matriz con las filas intercambiadas.
+> En a), toma $\alpha=\beta=0$ y desarrolla por la tercera columna. El término de la segunda fila es cero, porque su menor tiene la primera columna igual al doble de la segunda. El término de la cuarta fila es $-5$ por un menor de valor $-9$, y da $45$.
+>
+> En b), se puede detener la eliminación antes de la última operación. El determinante de la matriz con las filas intercambiadas es
+>
+> $$
+> (-1)2(-1)\begin{vmatrix}7&3\\3&2\end{vmatrix}
+> =2(14-9)=10.
+> $$
+>
+> Al deshacer el intercambio, se recupera $\det B=-10$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -338,23 +388,31 @@ $$
 Calcula los determinantes de:
 
 $$
-A=\begin{pmatrix}3a&3b&3c&3d\\1&3&4&1\\5&2&0&8\\1&1&3&4\end{pmatrix},\qquad
+A=\begin{pmatrix}3a&3b&3c&3d\\1&3&4&1\\5&2&0&8\\1&1&3&4\end{pmatrix}.
+$$
+
+$$
 B=\begin{pmatrix}5&2&0&8\\1&3&4&1\\a&b&c&d\\-1&-1&-3&-4\end{pmatrix}.
 $$
 
 $$
-C=\begin{pmatrix}1&3&4&1\\-1&-1&-3&-4\\5&2&0&8\\a&b&c&d\end{pmatrix},\qquad
+C=\begin{pmatrix}1&3&4&1\\-1&-1&-3&-4\\5&2&0&8\\a&b&c&d\end{pmatrix}.
+$$
+
+$$
 D=\begin{pmatrix}-1&-4&-1&-3\\1&1&3&4\\5&8&2&0\\a&d&b&c\end{pmatrix}.
 $$
 
 $$
-E=\begin{pmatrix}a&b&c&d\\1+\sqrt7a&3+\sqrt7b&4+\sqrt7c&1+\sqrt7d\\5-a&2-b&-c&8-d\\-1&-1&-3&-4\end{pmatrix},
-\qquad
+E=\begin{pmatrix}a&b&c&d\\1+\sqrt7a&3+\sqrt7b&4+\sqrt7c&1+\sqrt7d\\5-a&2-b&-c&8-d\\-1&-1&-3&-4\end{pmatrix}.
+$$
+
+$$
 F=\begin{pmatrix}5&1&a&-1\\2&3&b&-1\\0&4&c&-3\\8&1&d&-4\end{pmatrix}.
 $$
 
 > [!resolucion]- Resolución
-> Denotemos las filas de $M$ por $r_1,r_2,r_3,r_4$. No necesitamos hallar los valores de $a,b,c,d$: basta seguir las transformaciones.
+> Denotemos las filas de $M$ por $r_1,r_2,r_3,r_4$. En cada apartado se reconoce una transformación de esas filas o de las columnas; su efecto sobre el determinante permite usar directamente el dato $\det M=5$.
 >
 > **a)** Se multiplica $r_1$ por $3$ y $r_4$ por $-1$. Cada factor afecta al determinante una sola vez: $\det A=3(-1)5=\boxed{-15}$.
 >
@@ -362,7 +420,9 @@ $$
 >
 > **c)** El orden es $(r_2,r_4,r_3,r_1)$. Se obtiene de $(1,2,3,4)$ intercambiando primero las posiciones $1,2$ y después $2,4$. Dos intercambios conservan el signo: $\boxed{\det C=5}$.
 >
-> **d)** Primero reordenamos las filas de $M$ como $(r_4,r_2,r_3,r_1)$, mediante un intercambio de la primera y la cuarta. Reordenamos después las columnas como $(1,4,2,3)$, desplazando la cuarta columna hasta la segunda posición mediante dos intercambios. El factor total es $(-1)(-1)^2=-1$, por lo que $\boxed{\det D=-5}$.
+> **d)** Primero intercambiamos las filas primera y cuarta de $M$, que pasan a tener el orden $(r_4,r_2,r_3,r_1)$. Ese intercambio cambia el signo del determinante.
+>
+> Después, las columnas deben quedar en el orden $(1,4,2,3)$. Para llevar la cuarta hasta la segunda posición se hacen dos intercambios: primero con la tercera y después con la segunda. Esos dos cambios de signo se cancelan. El factor total es $(-1)(-1)^2=-1$, de modo que $\boxed{\det D=-5}$.
 >
 > **e)** Se han efectuado $R_2\leftarrow R_2+\sqrt7R_1$ y $R_3\leftarrow R_3-R_1$. Ambas conservan el determinante: $\boxed{\det E=5}$.
 >
@@ -410,7 +470,7 @@ $$
 $$
 
 > [!demostracion]- Demostración
-> Queremos llevar ambos determinantes a una misma matriz mediante propiedades que controlan su valor. En el izquierdo, hacemos $C_1\leftarrow C_1-C_2$ y extraemos el factor $3$ de la tercera columna:
+> En el determinante izquierdo, la primera columna contiene a la segunda sumada a otra columna. Restar $C_2$ de $C_1$ elimina los términos $b,y,2$ sin cambiar el valor. Extraemos después el factor $3$ de la tercera columna:
 >
 > $$
 > D_{\mathrm{izq}}=3\begin{vmatrix}a&b&c\\x&y&z\\1&2&3\end{vmatrix}.
@@ -428,7 +488,7 @@ $$
 > D_{\mathrm{der}}=3\begin{vmatrix}a&x&1\\b&y&2\\c&z&3\end{vmatrix}.
 > $$
 >
-> Ambos coinciden con la misma expresión; queda probada la igualdad sin expandir ningún determinante.
+> Los dos determinantes son, por tanto, tres veces el determinante de la misma matriz. Esto prueba la igualdad solicitada sin desarrollar sus productos.
 
 > [!recuerda]- Comprobación
 > Toma $(a,b,c)=(1,0,0)$ y $(x,y,z)=(0,1,0)$. El izquierdo queda triangular con diagonal $1,1,9$; el derecho también tiene determinante $9$. Es un control numérico del signo y del factor $3$, no un sustituto de la prueba general.
@@ -446,8 +506,11 @@ $$
 Calcula los determinantes de
 
 $$
-\text{a) }B=\begin{pmatrix}a&2b&c\\3d&6e&3f\\-2g&-4h&-2i\end{pmatrix},
-\qquad\text{b) }C=4A,
+\text{a) }B=\begin{pmatrix}a&2b&c\\3d&6e&3f\\-2g&-4h&-2i\end{pmatrix}.
+$$
+
+$$
+\text{b) }C=4A.
 $$
 
 $$
@@ -480,7 +543,7 @@ $$
 > $$
 
 > [!recuerda]- Comprobación
-> Una realización sencilla es $A=\operatorname{diag}(2,1,1)$. Entonces b) tiene diagonal $(8,4,4)$, de producto $128$; a) tiene diagonal $(2,6,-2)$, de producto $-24$; en c), Laplace por la primera fila y después por la última da $-6$.
+> Para comprobar los factores y los signos con datos concretos, toma $A=\operatorname{diag}(2,1,1)$, que cumple $\det A=2$. En b), la diagonal de $4A$ es $(8,4,4)$, de producto $128$. En a), la diagonal de $B$ es $(2,6,-2)$, de producto $-24$. En c), desarrollar primero por la primera fila y después por la última deja $2(-3)=-6$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -514,7 +577,17 @@ El cálculo de un determinante permite decidir si hay inversa sin calcularla. Lo
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Actúa como profesor de Álgebra Lineal de primer curso. Escoge un ejercicio entre 41 y 48 y pide que elija un método antes de calcular. Comprueba que distingo multiplicar una fila de multiplicar toda la matriz, que cuento los intercambios y que aplico correctamente el signo de cada cofactor. Si dos métodos son posibles, pide comparar el trabajo necesario. Deja que termine la resolución y exige una comprobación distinta antes de mostrar la respuesta. Mantén explícitas las reglas $\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc$, $C_{ij}=(-1)^{i+j}\det A_{ij}$, $\det(\lambda A)=\lambda^n\det A$ y $\det A^T=\det A$. Sarrus sólo vale para orden $3$; Laplace sirve en cualquier orden. Como ejemplo de selección de método, una columna con dos ceros en orden $3$ deja un único término de Laplace. Haz una pregunta cada vez, espera mi respuesta y alterna cálculo, explicación y recuperación espaciada.
+Actúa como profesor de Álgebra Lineal de primer curso. Escoge un ejercicio entre 41 y 48 y pregunta qué método conviene usar antes de empezar a calcular. Espera mi respuesta; si hay varias opciones, pide comparar cuántos términos habría que desarrollar.
+
+Para orden dos, comprueba que aplico
+
+$$
+\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc.
+$$
+
+Pide que limite Sarrus al orden tres. Para Laplace, exige identificar la fila y columna que se eliminan y justificar el signo $(-1)^{i+j}$ de cada cofactor. Una columna con dos ceros en orden tres debe llevarme a un único término, como ocurre en el ejercicio 42.
+
+En las operaciones elementales, exige llevar la cuenta de intercambios y factores. Debo distinguir multiplicar una fila de multiplicar la matriz entera: para $A$ de orden $n$, $\det(\lambda A)=\lambda^n\det A$. Usa también $\det A^T=\det A$ al comparar filas y columnas. Pide una comprobación por otro método, corrige el primer paso incorrecto y retoma más adelante las propiedades que me hayan costado.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })

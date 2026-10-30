@@ -1,0 +1,36 @@
+\item Consider the following matrices:
+
+$$A = \begin{aligned}
+    \begin{bmatrix}
+        0   &  3  & 1 \\
+        -1  &  0  & 2 \\
+        3   &  0  & 2
+    \end{bmatrix} \quad and \quad
+    B = \begin{bmatrix}
+        -1 &  0   & 0 \\
+        0  &  -1  & 3 \\
+        2  &  8   & 1
+    \end{bmatrix} 
+\end{aligned}$$ \\
+
+Without computing the product, calculate:
+
+\begin{enumerate}[label=\alph*)]
+    \item
+        \begin{answer}
+            $(AB)_{23} = (-1)\cdot0+0\cdot3+2\cdot1 = 2$ \\[0.5em]
+            $(AB)_{31} = 3(-1)+0\cdot0+2\cdot2 = 1$.
+        \end{answer}
+    \item Second row of $AB$
+        \begin{answer}
+            The second row of $AB$ is the second row of $A$ multiplied by $B$:
+            $$\begin{bmatrix}-1 & 0 & 2\end{bmatrix} \cdot B
+            = \begin{bmatrix}5 & 16 & 2\end{bmatrix}$$
+        \end{answer}
+    \item Third column of $AB$
+        \begin{answer}
+            The third column of $AB$ is $A$ multiplied by the third column of $B$:
+            $$A \cdot \begin{bmatrix}0 \\ 3 \\ 1\end{bmatrix}
+            = \begin{bmatrix}10 \\ 2 \\ 2\end{bmatrix}$$
+        \end{answer}
+\end{enumerate}

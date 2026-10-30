@@ -22,10 +22,10 @@ tags:
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 ```
 
-La propiedad $\det(AB)=\det A\det B$ evita calcular productos completos cuando sólo interesa su determinante. Su hipótesis es concreta: $A$ y $B$ deben ser matrices cuadradas del mismo orden. Junto con el criterio $\det A\ne0$, permite estudiar [[Matemáticas/Álgebra lineal/Matriz inversa|inversas]] y [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|sistemas lineales]].[^teoria]
+Para calcular $\det(AB)$, a menudo basta conocer los determinantes de los dos factores. Si $A$ y $B$ son cuadradas del mismo orden, se cumple $\det(AB)=\det A\det B$. Además de ahorrar el producto de las matrices, esta igualdad permite decidir si existe una [[Matemáticas/Álgebra lineal/Matriz inversa|inversa]] y si los [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|sistemas lineales]] correspondientes tienen solución única.[^teoria]
 
 > [!tip] Procedencia
-> Las resoluciones y comprobaciones están añadidas por IA (🤖). Se conserva la numeración original; los ejercicios 49–54 pertenecen a determinantes por el procedimiento que evalúan.[^base]
+> 🤖 identifica las resoluciones y comprobaciones añadidas por IA. Los números 49–54 corresponden a los del boletín original.[^base]
 
 ## Productos y cambios de escala
 
@@ -36,21 +36,25 @@ La propiedad $\det(AB)=\det A\det B$ evita calcular productos completos cuando s
 Considera[^49]
 
 $$
-A=\begin{pmatrix}1&2&-1&2\\2&0&2&1\\-1&1&0&0\\0&1&-1&0\end{pmatrix},
-\qquad
+A=\begin{pmatrix}1&2&-1&2\\2&0&2&1\\-1&1&0&0\\0&1&-1&0\end{pmatrix}.
+$$
+
+$$
 B=\begin{pmatrix}1&-1&1&-3\\2&1&0&-2\\-1&1&2&-2\\-2&-1&3&0\end{pmatrix}.
 $$
 
 **a)** Calcula los determinantes de $A,B,AB,A^2,AB^T,A+B$. **b)** Decide cuáles de $A,B,AB,A+B$ son invertibles e indica los determinantes de sus inversas cuando existan.
 
 > [!resolucion]- Resolución
-> **a) Primero, los determinantes de los factores.** En $A$, hacemos $R_2\leftarrow R_2-2R_1$ y $R_3\leftarrow R_3+R_1$, sin cambiar el determinante. La primera columna queda $(1,0,0,0)^T$, luego
+> **a)** Calculamos primero $\det A$ y $\det B$, que servirán también para los productos y la potencia pedidos.
+>
+> En $A$, el $1$ de la primera fila permite anular las demás entradas de su columna con $R_2\leftarrow R_2-2R_1$ y $R_3\leftarrow R_3+R_1$. Ambas operaciones conservan el determinante. Como la primera columna queda $(1,0,0,0)^T$, Laplace reduce el cálculo a
 >
 > $$
 > \det A=\begin{vmatrix}-4&4&-3\\3&-1&2\\1&-1&0\end{vmatrix}.
 > $$
 >
-> Intercambiando la primera y la tercera fila de este menor y eliminando por debajo del pivote $1$, se obtiene
+> En este menor, intercambiamos la primera y la tercera fila para disponer de un pivote $1$. Después, $R_2\leftarrow R_2-3R_1$ y $R_3\leftarrow R_3+4R_1$ anulan las dos entradas que quedan debajo:
 >
 > $$
 > \begin{pmatrix}1&-1&0\\0&2&2\\0&0&-3\end{pmatrix}.
@@ -58,7 +62,13 @@ $$
 >
 > Su determinante es $-6$; como hubo un intercambio, $\boxed{\det A=6}$.
 >
-> En $B$, hacemos $R_2\leftarrow R_2-2R_1$, $R_3\leftarrow R_3+R_1$ y $R_4\leftarrow R_4+2R_1$. Después, $R_4\leftarrow R_4+R_2$ y $R_4\leftarrow R_4-R_3$, utilizando las filas ya modificadas. Resulta
+> En $B$ también empezamos anulando la primera columna por debajo del $1$. Hacemos $R_2\leftarrow R_2-2R_1$, $R_3\leftarrow R_3+R_1$ y $R_4\leftarrow R_4+2R_1$:
+>
+> $$
+> \begin{pmatrix}1&-1&1&-3\\0&3&-2&4\\0&0&3&-5\\0&-3&5&-6\end{pmatrix}.
+> $$
+>
+> Sumar la nueva segunda fila a la cuarta elimina el $-3$ de la segunda columna. En la cuarta fila queda entonces $(0,0,3,-2)$, de la que restamos $R_3$ para anular también la tercera entrada. Así obtenemos
 >
 > $$
 > \begin{pmatrix}1&-1&1&-3\\0&3&-2&4\\0&0&3&-5\\0&0&0&3\end{pmatrix}.
@@ -66,11 +76,16 @@ $$
 >
 > Todas las operaciones conservan el determinante, así que $\boxed{\det B=1\cdot3\cdot3\cdot3=27}$.
 >
-> Como $A,B\in M_4(\mathbb R)$, se puede aplicar la multiplicatividad. Además, transponer no cambia un determinante:
+> Como $A,B\in M_4(\mathbb R)$, se puede aplicar la multiplicatividad:
 >
 > $$
 > \boxed{\det(AB)=6\cdot27=162},\qquad
-> \boxed{\det(A^2)=6^2=36},\qquad
+> \boxed{\det(A^2)=6^2=36}.
+> $$
+>
+> Como $\det B^T=\det B$, el producto con la transpuesta tiene el mismo determinante:
+>
+> $$
 > \boxed{\det(AB^T)=6\cdot27=162}.
 > $$
 >
@@ -166,7 +181,7 @@ Trabajamos con $K=\mathbb R$ o $\mathbb C$, como en estos cálculos del curso. P
 > \boxed{\det((2A)^T)=40}.
 > $$
 >
-> Las dos expresiones siguientes tienen paréntesis distintos. En $2A^{-1}$ se multiplica por $2$ la inversa de $A$; en $(2A)^{-1}$ se invierte la matriz $2A$:
+> Para $2A^{-1}$, se parte de $\det(A^{-1})=1/5$ y se multiplica por $2^3$. Para $(2A)^{-1}$, se parte de $\det(2A)=40$ y se toma su recíproco. El orden de las dos operaciones da resultados distintos:
 >
 > $$
 > \boxed{\det(2A^{-1})=2^3\frac15=\frac85},\qquad
@@ -204,7 +219,10 @@ tags:
 Para cada $k\in\mathbb R$, sean[^51]
 
 $$
-A_k=\begin{pmatrix}0&k&2\\k-4&0&0\\0&3&k-1\end{pmatrix},\qquad
+A_k=\begin{pmatrix}0&k&2\\k-4&0&0\\0&3&k-1\end{pmatrix}.
+$$
+
+$$
 B_k=\begin{pmatrix}1&k&-1\\2&4&-2\\3&-7&k+3\end{pmatrix},
 $$
 
@@ -215,7 +233,7 @@ $$
 **a)** Calcula sus determinantes. **b)** Determina cuándo es invertible cada matriz. **c)** Indica para qué $k$: **i)** $A_kX=0$ tiene solución única; **ii)** $B_kX=0$ tiene una solución no nula. **d)** Determina cuándo es invertible $A_k^TB_{2k}$.
 
 > [!resolucion]- Resolución
-> **a)** En $A_k$, la segunda fila tiene un solo elemento potencialmente no nulo. Laplace por ella da
+> **a)** La segunda fila de $A_k$ tiene dos ceros, por lo que Laplace deja un único término. La entrada $k-4$ está en la posición $(2,1)$ y su cofactor lleva signo negativo:
 >
 > $$
 > \det A_k=-(k-4)\begin{vmatrix}k&2\\3&k-1\end{vmatrix}
@@ -223,7 +241,7 @@ $$
 > =\boxed{-(k-4)(k-3)(k+2)}.
 > $$
 >
-> En $B_k$, hacemos $R_2\leftarrow R_2-2R_1$ y $R_3\leftarrow R_3-3R_1$:
+> En $B_k$, el $1$ de la primera fila permite anular las otras dos entradas de su columna sin dividir por ninguna expresión que dependa de $k$. Hacemos $R_2\leftarrow R_2-2R_1$ y $R_3\leftarrow R_3-3R_1$:
 >
 > $$
 > B_k\longrightarrow\begin{pmatrix}1&k&-1\\0&4-2k&0\\0&-7-3k&k+6\end{pmatrix}.
@@ -235,7 +253,7 @@ $$
 > \det B_k=(4-2k)(k+6)=\boxed{-2(k-2)(k+6)}.
 > $$
 >
-> En $C_k$, hacemos $R_3\leftarrow R_3-R_1$, con lo que la tercera fila pasa a $(0,0,1-k,2-2k)$. Laplace por la cuarta fila, cuyo único término está en $(4,3)$, da
+> En $C_k$, restar la primera fila de la tercera anula sus dos primeras entradas y deja $(0,0,1-k,2-2k)$. La cuarta fila sólo tiene el término $k$ en la posición $(4,3)$. Desarrollando por ella, con signo negativo, queda un menor triangular:
 >
 > $$
 > \det C_k=-k\begin{vmatrix}1&k&-2\\0&1&1\\0&0&2-2k\end{vmatrix}
@@ -257,7 +275,7 @@ $$
 >
 > **c-ii)** Una solución homogénea no nula existe exactamente cuando la matriz es singular. Así, $B_kX=0$ la tiene para $\boxed{k=-6\text{ o }k=2}$.
 >
-> **d)** Los factores son cuadrados de orden $3$, y
+> **d)** Los factores son cuadrados de orden $3$, así que se puede aplicar la multiplicatividad. La transposición conserva el determinante de $A_k$:
 >
 > $$
 > \det(A_k^TB_{2k})=\det A_k\,\det B_{2k}.
@@ -282,7 +300,9 @@ $$
 > $$
 
 > [!recuerda]- Comprobación
-> En $k=0$, los tres determinantes son $-24,24,0$ y el producto de d) tiene determinante $-576$. En $k=1$, $A_1$ es invertible, pero $B_{2}$ no lo es; por eso el producto de d) falla aunque el primer factor tenga inversa. Cada raíz de las fórmulas de a) anula una fila, columna o dependencia de la matriz correspondiente.
+> Con $k=0$, las fórmulas dan $\det A_0=-24$, $\det B_0=24$ y $\det C_0=0$; el producto de d) tiene determinante $-576$. Con $k=1$, $A_1$ es invertible, pero $B_2$ no lo es, de modo que $A_1^TB_2$ no tiene inversa.
+>
+> También pueden reconocerse directamente algunos de los valores singulares: en $A_4$ la segunda fila es nula; en $B_2$ la segunda es el doble de la primera; en $C_0$ la cuarta fila es nula. Para cualquier raíz de los determinantes de a), las filas y las columnas de la matriz correspondiente son linealmente dependientes.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -319,7 +339,7 @@ tags:
 Demuestra que, para cualesquiera $A,B\in M_n(K)$, se cumple $\det(AB)=\det(BA)$.[^52]
 
 > [!demostracion]- Demostración
-> Las hipótesis aseguran que los dos productos y los determinantes de ambos factores están definidos en el mismo orden $n$. Aplicamos la multiplicatividad a cada producto:
+> Como $A$ y $B$ son cuadradas del mismo orden, la multiplicatividad se aplica en los dos órdenes del producto:
 >
 > $$
 > \det(AB)=\det A\det B,\qquad
@@ -329,7 +349,27 @@ Demuestra que, para cualesquiera $A,B\in M_n(K)$, se cumple $\det(AB)=\det(BA)$.
 > Los determinantes son escalares del cuerpo $K$, cuya multiplicación es conmutativa. Por ello, los miembros derechos son iguales y $\boxed{\det(AB)=\det(BA)}$. No se ha supuesto $AB=BA$.
 
 > [!recuerda]- Comprobación
-> Con $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ y $B=\begin{pmatrix}1&0\\1&1\end{pmatrix}$, se tiene $AB=\begin{pmatrix}2&1\\1&1\end{pmatrix}$ y $BA=\begin{pmatrix}1&1\\1&2\end{pmatrix}$. Son matrices distintas, pero ambos determinantes valen $1$.
+> Un ejemplo permite comprobar que la igualdad de determinantes no exige igualdad de matrices. Toma
+>
+> $$
+> A=\begin{pmatrix}1&1\\0&1\end{pmatrix}.
+> $$
+>
+> $$
+> B=\begin{pmatrix}1&0\\1&1\end{pmatrix}.
+> $$
+>
+> Sus productos son
+>
+> $$
+> AB=\begin{pmatrix}2&1\\1&1\end{pmatrix}.
+> $$
+>
+> $$
+> BA=\begin{pmatrix}1&1\\1&2\end{pmatrix}.
+> $$
+>
+> Las matrices difieren, pero $\det(AB)=2-1=1$ y $\det(BA)=2-1=1$.
 
 ### Ejercicio 53 · Productos de factores rectangulares 🤖
 
@@ -338,19 +378,23 @@ Demuestra que, para cualesquiera $A,B\in M_n(K)$, se cumple $\det(AB)=\det(BA)$.
 Sean[^53]
 
 $$
-A=\begin{pmatrix}1&-1\\-1&0\\0&-1\end{pmatrix}\in M_{3\times2}(\mathbb R),
-\qquad
+A=\begin{pmatrix}1&-1\\-1&0\\0&-1\end{pmatrix}\in M_{3\times2}(\mathbb R).
+$$
+
+$$
 B=\begin{pmatrix}-1&0&2\\-3&1&3\end{pmatrix}\in M_{2\times3}(\mathbb R).
 $$
 
 Calcula $\det(AB)$ y $\det(BA)$.
 
 > [!resolucion]- Resolución
-> Los productos están definidos: las dimensiones interiores son $2$ en $AB$ y $3$ en $BA$. Sus tamaños son distintos, $3\times3$ y $2\times2$. Calculándolos por fila y columna,
+> $AB$ está definido porque $A$ tiene dos columnas y $B$ tiene dos filas; el resultado tiene tamaño $3\times3$. En $BA$, $B$ tiene tres columnas y $A$ tiene tres filas, por lo que también se puede multiplicar, con un resultado de tamaño $2\times2$. El cálculo por fila y columna da
 >
 > $$
-> AB=\begin{pmatrix}2&-1&-1\\1&0&-2\\3&-1&-3\end{pmatrix},
-> \qquad
+> AB=\begin{pmatrix}2&-1&-1\\1&0&-2\\3&-1&-3\end{pmatrix}.
+> $$
+>
+> $$
 > BA=\begin{pmatrix}-1&-1\\-4&0\end{pmatrix}.
 > $$
 >
@@ -361,7 +405,15 @@ Calcula $\det(AB)$ y $\det(BA)$.
 > El ejercicio 52 no se aplica: $A$ y $B$ son rectangulares y no tienen determinantes propios. Aunque ambos productos sean cuadrados, eso no cumple la hipótesis de dos factores cuadrados del mismo orden.
 
 > [!recuerda]- Comprobación
-> Sarrus en $AB$ da $(0+6+1)-(0+3+4)=7-7=0$. En $BA$, cambiar el signo de la primera fila y desarrollar por la segunda permite comprobar el signo negativo del resultado.
+> Sarrus en $AB$ da $(0+6+1)-(0+3+4)=7-7=0$.
+>
+> En $BA$, cambiar el signo de la primera fila produce
+>
+> $$
+> \begin{pmatrix}1&1\\-4&0\end{pmatrix}.
+> $$
+>
+> Desarrollar por la segunda fila da $(-4)(-1)\cdot1=4$. El determinante original tiene el signo opuesto, por lo que $\det(BA)=-4$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -401,7 +453,13 @@ Decide, justificando, si las siguientes afirmaciones son verdaderas o falsas par
 >
 > Un solo contraejemplo basta para refutar una afirmación universal. El determinante es lineal en una fila cuando las demás se mantienen fijas; eso no lo convierte en lineal respecto de una matriz completa.
 >
-> **b) Verdadera.** La potencia significa $A^4=AAAA$. Aplicar tres veces la multiplicatividad produce $\det(A^4)=\det A\det A\det A\det A=(\det A)^4$, también si $A$ es singular.
+> **b) Verdadera.** La potencia significa $A^4=AAAA$. Aplicamos la multiplicatividad a esos cuatro factores:
+>
+> $$
+> \det(A^4)=\det A\det A\det A\det A=(\det A)^4.
+> $$
+>
+> La propiedad también vale si $A$ es singular, pues no se divide por su determinante.
 >
 > **c) Verdadera sobre $\mathbb R$ o $\mathbb C$.** El vector cero siempre es solución, por lo que el sistema es compatible. Como $\det A=0$, el rango es menor que $3$. Hay al menos una variable libre y, por tanto, infinitas soluciones.
 >
@@ -410,7 +468,15 @@ Decide, justificando, si las siguientes afirmaciones son verdaderas o falsas par
 > **e) Verdadera.** Una matriz reducida $3\times3$ con una fila nula tiene a lo sumo dos pivotes. Las operaciones elementales preservan el rango, así que $\operatorname{rg}A<3$. Por el criterio de invertibilidad, $A$ es singular y $\det A=0$.
 
 > [!recuerda]- Comprobación
-> En d), contrasta el contraejemplo con $A=\operatorname{diag}(1,1,0)$. Sigue siendo singular y la tercera ecuación ahora sería $0=1$, también imposible. Para ver un singular compatible con ese mismo término independiente, toma $A$ con primera columna $(5,-2,1)^T$ y las otras dos nulas: cualquier $X=(1,s,t)^T$ lo resuelve. El determinante nulo permite ambos comportamientos.
+> Para d), la matriz $A=\operatorname{diag}(1,1,0)$ da otro sistema incompatible: la tercera ecuación es $0=1$.
+>
+> Con el mismo término independiente también puede obtenerse un sistema singular compatible. Toma
+>
+> $$
+> A=\begin{pmatrix}5&0&0\\-2&0&0\\1&0&0\end{pmatrix}.
+> $$
+>
+> Su determinante es cero, pero todo vector $X=(1,s,t)^T$, con $s,t\in\mathbb R$, satisface $AX=(5,-2,1)^T$. Los dos ejemplos muestran por qué el determinante nulo, por sí solo, no decide la compatibilidad.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -483,7 +549,11 @@ El determinante no nulo asegura la existencia de una inversa y de una solución 
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Actúa como profesor de Álgebra Lineal de primer curso. Escoge un ejercicio entre 49 y 54 y pide que declare tamaños e hipótesis antes de aplicar una propiedad. Comprueba que distingo $2A^{-1}$ de $(2A)^{-1}$ y que sustituyo $2k$ en toda la fórmula de $\det B_k$. En las preguntas de verdadero o falso, exige una prueba o un contraejemplo concreto. Para sistemas singulares, pregunta por separado compatibilidad y número de soluciones. Deja que compruebe mis resultados antes de mostrarlos. Trabaja sobre $\mathbb R$ o $\mathbb C$ con $\det(AB)=\det A\det B$ para factores cuadrados del mismo orden, $\det(cA)=c^n\det A$ y $\det(A^{-1})=1/\det A$. Si $\det A=0$, el homogéneo tiene soluciones no nulas; para $AX=B$ hay que comprobar además compatibilidad. Como ejemplo, con $A\in M_3$ y $\det A=5$, $\det(2A^{-1})=8/5$ y $\det((2A)^{-1})=1/40$. Haz una pregunta cada vez, espera mi respuesta y recupera los errores en preguntas posteriores.
+Actúa como profesor de Álgebra Lineal de primer curso y trabaja sobre $\mathbb R$ o $\mathbb C$ con los ejercicios 49–54. Haz una pregunta cada vez y espera mi intento antes de ofrecer ayuda. Pide que indique los tamaños de las matrices y las hipótesis de la propiedad elegida.
+
+Utiliza $\det(AB)=\det A\det B$ para factores cuadrados del mismo orden, $\det(cA)=c^n\det A$ para una matriz de orden $n$ y $\det(A^{-1})=1/\det A$ cuando exista la inversa. Comprueba que distingo $2A^{-1}$ de $(2A)^{-1}$: si $A\in M_3$ y $\det A=5$, sus determinantes son $8/5$ y $1/40$, respectivamente. En el ejercicio 51, pide que sustituya $2k$ en todos los factores de $\det B_k$.
+
+En las afirmaciones de verdadero o falso, exige una prueba o un contraejemplo concreto. Si $\det A=0$, el sistema homogéneo tiene soluciones no nulas; para $AX=B$, pregunta además si hay compatibilidad. Deja que compruebe los resultados, señala la primera inferencia incorrecta y retoma los errores en preguntas posteriores.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })

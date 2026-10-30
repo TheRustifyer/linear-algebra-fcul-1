@@ -1,0 +1,77 @@
+
+% ---------- Exercise 9 ----------
+\item Let the following matrices be defined:
+
+$$
+A = \begin{bmatrix}
+    4 & 2 \\
+    2 & 1
+\end{bmatrix},
+\quad
+B = \begin{bmatrix}
+    -1 & -1 \\
+    2 & 2
+\end{bmatrix},
+\quad
+C = \begin{bmatrix}
+    0 & -3 \\
+    3 & 0
+\end{bmatrix}.
+$$
+
+Compute $AB$, $BA$, and $CA$.\\
+\textbf{Solution:}
+
+\begin{answer}
+    Note: $A,B,C \in \mathcal{M}_{2\times2}(\mathbb{R})$,
+    so all three products are defined and belong to
+    $\mathcal{M}_{2\times2}(\mathbb{R})$.\\
+
+    \textbf{Product $AB$:}
+
+    $$
+    \begin{aligned}
+        AB
+        &= \begin{bmatrix}
+            4(-1)+2(2) & 4(-1)+2(2) \\
+            2(-1)+1(2) & 2(-1)+1(2)
+        \end{bmatrix} \\[0.5em]
+        &= \boxed{\begin{bmatrix}
+            0 & 0 \\
+            0 & 0
+        \end{bmatrix}}.
+    \end{aligned}
+    $$
+
+    \textbf{Product $BA$:}
+
+    $$
+    \begin{aligned}
+        BA
+        &= \begin{bmatrix}
+            (-1)4+(-1)2 & (-1)2+(-1)1 \\
+            2(4)+2(2) & 2(2)+2(1)
+        \end{bmatrix} \\[0.5em]
+        &= \boxed{\begin{bmatrix}
+            -6 & -3 \\
+            12 & 6
+        \end{bmatrix}}.
+    \end{aligned}
+    $$
+
+    \textbf{Product $CA$:}
+
+    $$
+    \begin{aligned}
+        CA
+        &= \begin{bmatrix}
+            0(4)+(-3)2 & 0(2)+(-3)1 \\
+            3(4)+0(2) & 3(2)+0(1)
+        \end{bmatrix} \\[0.5em]
+        &= \boxed{\begin{bmatrix}
+            -6 & -3 \\
+            12 & 6
+        \end{bmatrix}}.
+    \end{aligned}
+    $$
+\end{answer}

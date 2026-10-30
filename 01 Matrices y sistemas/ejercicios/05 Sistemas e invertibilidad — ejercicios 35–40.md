@@ -23,7 +23,7 @@ tags:
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 ```
 
-Una ecuación que contiene parámetros puede perder un pivote para ciertos valores. La [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|eliminación de Gauss–Jordan]] permite separar esos valores antes de dividir y distinguir una variable libre de una ecuación imposible. El [[Matemáticas/Álgebra lineal/Teorema de Rouché-Capelli|criterio de compatibilidad por rangos]] y la [[Matemáticas/Álgebra lineal/Matriz inversa|invertibilidad]] dan dos lecturas de esa misma reducción.[^teoria]
+Al resolver un sistema con parámetros, una división puede dejar fuera precisamente los casos que hay que estudiar. La [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|eliminación de Gauss–Jordan]] permite reconocerlos: cuando desaparece un pivote, hay que comprobar si queda una ecuación redundante o una contradicción. El [[Matemáticas/Álgebra lineal/Teorema de Rouché-Capelli|criterio de compatibilidad por rangos]] distingue esas dos situaciones; para una matriz cuadrada, el rango completo equivale a la [[Matemáticas/Álgebra lineal/Matriz inversa|invertibilidad]].[^teoria]
 
 > [!tip] Procedencia de las respuestas
 > 📘🤖 señala una respuesta parcialmente contrastada con la ficha de soluciones; 🤖, una resolución propia. Las comprobaciones son independientes del desarrollo principal y pueden repetirse con el enunciado.
@@ -48,15 +48,15 @@ $$
 **a)** Discute el sistema según $a$ y $b$. **b)** Indica para qué valores el sistema homogéneo asociado tiene una solución no nula. **c)** Indica para qué valores su matriz de coeficientes es invertible. **d)** Resuelve $S_{-3,-1}$ por Gauss–Jordan.
 
 > [!resolucion]- Resolución
-> **a) Separar los valores que anulan los coeficientes decisivos.** Restar la tercera ecuación de la segunda y sumar la primera con la tercera da, respectivamente,
+> **a)** Las dos últimas ecuaciones tienen el mismo coeficiente de $x$, por lo que restarlas elimina esa incógnita. Sumar la primera y la tercera también elimina $x$ y, además, cancela $y$. Se obtiene, respectivamente,
 >
 > $$
 > (a-1)y=1,\qquad (b+1)z=b+1.
 > $$
 >
-> Conservando la tercera ecuación, estas dos combinaciones forman un sistema equivalente al original: de ellas se recuperan la primera y la segunda. La ecuación restante es $x-ay+z=1$.
+> Conservamos $x-ay+z=1$ junto con esas dos ecuaciones. El sistema sigue siendo equivalente al original: sumar la ecuación conservada a la primera diferencia recupera la segunda ecuación original, y restarla de la suma recupera la primera.
 >
-> Si **$a=1$**, aparece $0=1$. El sistema es **incompatible para todo $b$**. Esta conclusión se toma antes de estudiar $b$.
+> Si **$a=1$**, la ecuación de $y$ se convierte en $0=1$. El sistema es **incompatible para todo $b$**, incluido $b=-1$.
 >
 > Supongamos **$a\ne1$**. Entonces $y=1/(a-1)$.
 >
@@ -73,7 +73,13 @@ $$
 > \qquad t\in\mathbb R.
 > $$
 >
-> Por tanto, el sistema es compatible determinado si $a\ne1$ y $b\ne-1$; compatible indeterminado de grado $1$ si $a\ne1$ y $b=-1$; e incompatible si $a=1$. El caso $a=1,b=-1$ pertenece a la última categoría, pues sigue conteniendo $0=1$.
+> La clasificación completa queda así:
+>
+> | Condiciones | Tipo de sistema |
+> | --- | --- |
+> | $a=1$, cualquier $b$ | Incompatible |
+> | $a\ne1$, $b\ne-1$ | Compatible determinado |
+> | $a\ne1$, $b=-1$ | Compatible indeterminado, con un parámetro libre |
 >
 > **b) Homogéneo asociado.** Al sustituir los términos independientes por cero, las mismas operaciones producen
 >
@@ -87,33 +93,33 @@ $$
 > \boxed{\text{Hay solución homogénea no nula}\iff a=1\ \text{o}\ b=-1.}
 > $$
 >
-> Un sistema homogéneo siempre admite la solución cero; no puede ser incompatible. La anotación de la ficha rotulada «35 b)» no corresponde a esta pregunta.[^sol35]
+> El homogéneo admite la solución cero en todos los casos; los valores hallados indican cuándo aparecen además soluciones no nulas.[^sol35]
 >
-> **c)** Una matriz cuadrada es invertible exactamente cuando su sistema homogéneo sólo tiene la solución cero. Por b),
+> **c)** Denotemos por $A_{a,b}$ la matriz de coeficientes del sistema. Una matriz cuadrada es invertible exactamente cuando su sistema homogéneo sólo tiene la solución cero. Por b),
 >
 > $$
 > \boxed{A_{a,b}\text{ es invertible}\iff a\ne1\ \text{y}\ b\ne-1.}
 > $$
 >
-> **d) Gauss–Jordan para $a=-3,b=-1$.** Partimos de
+> **d) Gauss–Jordan para $a=-3,b=-1$.** La matriz ampliada es
 >
 > $$
 > \left[\begin{array}{rrr|r}-1&-3&-1&-1\\1&-1&1&2\\1&3&1&1\end{array}\right].
 > $$
 >
-> Intercambiamos $R_1$ y $R_3$; después hacemos $R_2\leftarrow R_2-R_1$ y $R_3\leftarrow R_3+R_1$:
+> Intercambiamos $R_1$ y $R_3$ para empezar con un pivote $1$. Después, $R_2\leftarrow R_2-R_1$ y $R_3\leftarrow R_3+R_1$ anulan las otras dos entradas de la primera columna:
 >
 > $$
 > \left[\begin{array}{rrr|r}1&3&1&1\\0&-4&0&1\\0&0&0&0\end{array}\right].
 > $$
 >
-> Con $R_2\leftarrow-\frac14R_2$ y $R_1\leftarrow R_1-3R_2$, la forma reducida es
+> Convertimos el pivote de la segunda fila en $1$ mediante $R_2\leftarrow-\frac14R_2$. La operación $R_1\leftarrow R_1-3R_2$ elimina el $3$ situado encima y deja la forma reducida:
 >
 > $$
 > \left[\begin{array}{rrr|r}1&0&1&7/4\\0&1&0&-1/4\\0&0&0&0\end{array}\right].
 > $$
 >
-> Luego $(x,y,z)=(7/4-t,-1/4,t)$, con $t\in\mathbb R$.
+> Las dos filas no nulas dicen $x+z=7/4$ e $y=-1/4$. Como $z$ es libre, escribimos $z=t$ y obtenemos $(x,y,z)=(7/4-t,-1/4,t)$, con $t\in\mathbb R$.
 
 > [!recuerda]- Comprobación
 > En el caso determinado, sustituye $x=a/(a-1)$, $y=1/(a-1)$ y $z=1$: los tres miembros izquierdos resultan $b,2,1$. Para $b=-1$, sustituye la familia con $t$ y obtendrás $-1,2,1$ independientemente de $t$. En d), esta sustitución produce también $(-1,2,1)$.
@@ -125,7 +131,7 @@ tags:
   - sistemas-lineales
 ---
 > [!note] Pregunta
-> ¿Cómo se trata una ecuación $c(a)y=d(a)$ al discutir un sistema con parámetros?
+> Antes de dividir $c(a)y=d(a)$ por $c(a)$ en un sistema con parámetro $a$, ¿qué casos hay que distinguir?
 ===
 > [!important] Respuesta
 > Se separan $c(a)\ne0$, donde se puede dividir, y $c(a)=0$: si $d(a)\ne0$ hay contradicción; si $d(a)=0$, esa ecuación no impone restricción.
@@ -151,8 +157,11 @@ tags:
 Sean[^36]
 
 $$
-A=\begin{pmatrix}1&2&2&-1\\2&4&-2&2\\0&0&6&-4\end{pmatrix},
-\qquad B=\begin{pmatrix}-1\\4\\-6\end{pmatrix}.
+A=\begin{pmatrix}1&2&2&-1\\2&4&-2&2\\0&0&6&-4\end{pmatrix}.
+$$
+
+$$
+B=\begin{pmatrix}-1\\4\\-6\end{pmatrix}.
 $$
 
 Considera $AX=B$ en $x_1,x_2,x_3,x_4$.
@@ -160,24 +169,28 @@ Considera $AX=B$ en $x_1,x_2,x_3,x_4$.
 **a)** Sin resolverlo, comprueba que $(2,0,-3,-3)$ es solución y $(2,0,0,-3)$ no lo es. **b)** Resuelve el homogéneo asociado por Gauss–Jordan. **c)** Da la solución general de $AX=B$. **d)** Da dos soluciones distintas de la de a).
 
 > [!resolucion]- Resolución
-> **a)** Basta evaluar los dos productos, sin calcular incógnitas:
+> **a)** Para comprobar un candidato, se sustituye en las tres ecuaciones; no hace falta resolver el sistema. Con el primero,
 >
 > $$
 > A\begin{pmatrix}2\\0\\-3\\-3\end{pmatrix}
 > =\begin{pmatrix}2-6+3\\4+6-6\\-18+12\end{pmatrix}
-> =B,
-> \qquad
+> =B.
+> $$
+>
+> El segundo vector no reproduce $B$:
+>
+> $$
 > A\begin{pmatrix}2\\0\\0\\-3\end{pmatrix}
 > =\begin{pmatrix}5\\-2\\12\end{pmatrix}\ne B.
 > $$
 >
-> **b)** En $[A\mid0]$, hacemos $R_2\leftarrow R_2-2R_1$, y después $R_3\leftarrow R_3+R_2$:
+> **b)** Las dos primeras entradas de $R_2$ son el doble de las de $R_1$. En $[A\mid0]$, hacemos $R_2\leftarrow R_2-2R_1$ para anularlas. La fila obtenida es la opuesta de $R_3$, así que $R_3\leftarrow R_3+R_2$ elimina la tercera fila:
 >
 > $$
 > \left[\begin{array}{rrrr|r}1&2&2&-1&0\\0&0&-6&4&0\\0&0&0&0&0\end{array}\right].
 > $$
 >
-> Escalar $R_2$ por $-1/6$ y hacer $R_1\leftarrow R_1-2R_2$ da
+> Dividimos $R_2$ por $-6$ para que su pivote sea $1$ y lo usamos en $R_1\leftarrow R_1-2R_2$ para anular la entrada situada encima:
 >
 > $$
 > \left[\begin{array}{rrrr|r}1&2&0&1/3&0\\0&0&1&-2/3&0\\0&0&0&0&0\end{array}\right].
@@ -190,7 +203,13 @@ Considera $AX=B$ en $x_1,x_2,x_3,x_4$.
 > \qquad s,t\in\mathbb R.
 > $$
 >
-> **c)** Si $P=(2,0,-3,-3)^T$, entonces $A(P+X_h)=AP+AX_h=B$. Recíprocamente, cualquier solución $X$ satisface $A(X-P)=0$, por lo que toda solución se obtiene así:
+> **c)** Ya conocemos una solución particular, $P=(2,0,-3,-3)^T$. Sumarle cualquiera de las soluciones homogéneas no cambia el término independiente, porque
+>
+> $$
+> A(P+X_h)=AP+AX_h=B+0=B.
+> $$
+>
+> También se obtienen de esta manera todas las soluciones: si $AX=B$, entonces $A(X-P)=B-B=0$, de modo que $X-P$ es una solución del homogéneo. Por tanto,
 >
 > $$
 > \boxed{X=\begin{pmatrix}2-2s-t/3\\s\\-3+2t/3\\-3+t\end{pmatrix},
@@ -230,7 +249,7 @@ $$
 Indica un sistema cuyo homogéneo asociado sea $(S)$ y que admita la solución $(2,-1,0,-1)$.
 
 > [!resolucion]- Resolución
-> El homogéneo asociado conserva todos los coeficientes. Sólo pueden cambiar los miembros derechos. Para que el vector propuesto sea solución, éstos deben ser los valores de los miembros izquierdos en ese vector:
+> El sistema buscado debe conservar los coeficientes de $(S)$ y tener a $(2,-1,0,-1)$ como solución. Por eso sus términos independientes se obtienen sustituyendo ese vector en los tres miembros izquierdos:
 >
 > $$
 > 2-2+0+1=1,\qquad4-1-0-4=-1,\qquad-2+1+0+1=0.
@@ -281,17 +300,27 @@ $$
 no es una solución general del sistema.
 
 > [!resolucion]- Resolución
-> En la familia original se cumple
+> Al escribir la familia original por coordenadas, se obtiene
 >
 > $$
-> x=2+\alpha+\beta,\quad y=1+3\alpha,\quad z=-1,\quad w=\alpha+\beta.
+> x=2+\alpha+\beta,\qquad w=\alpha+\beta,
+> $$
+>
+> $$
+> y=1+3\alpha,\qquad z=-1.
 > $$
 >
 > Por tanto, todos sus elementos satisfacen $z=-1$ y $x-w=2$. Recíprocamente, si se cumplen esas dos igualdades, se recuperan los parámetros con $\alpha=(y-1)/3$ y $\beta=w-\alpha$. Así, esas dos ecuaciones describen exactamente la familia.
 >
-> **a)** La solución cero no pertenece a ella, porque su tercera coordenada sería $0$, no $-1$. Todo sistema homogéneo admite cero, luego éste no es homogéneo.
+> **a)** El vector cero no pertenece a la familia, porque su tercera coordenada sería $0$, no $-1$. Todo sistema homogéneo admite cero como solución, luego éste no es homogéneo.
 >
-> **b)** Como no cambian los vectores $u,v$, basta comprobar si el nuevo punto base $Q$ pertenece a la familia original. En efecto, si $Q=P+\alpha_0u+\beta_0v$, desplazar los parámetros por $\alpha_0,\beta_0$ no cambia el conjunto recorrido. Si $Q$ no pertenece, la nueva familia ya contiene una solución ajena al sistema al tomar ambos parámetros cero.
+> **b)** Los vectores $u,v$ permanecen iguales: sólo cambia el punto desde el que se suman sus múltiplos. Si el nuevo punto $Q$ ya pertenece a la familia, cambiar $P$ por $Q$ sólo cambia los valores de los parámetros que representan cada solución. En concreto, si $Q=P+\alpha_0u+\beta_0v$, entonces
+>
+> $$
+> Q+\alpha u+\beta v=P+(\alpha_0+\alpha)u+(\beta_0+\beta)v.
+> $$
+>
+> Como los parámetros recorren todos los reales, las dos familias coinciden. Si $Q$ no pertenece a la original, basta tomar $\alpha=\beta=0$: la nueva familia contiene entonces un elemento que no es solución.
 >
 > - **i) Sí:** $Q-P=(1,0,0,1)=v$.
 > - **ii) Sí:** $Q-P=(-1,3,0,-1)=u-2v$.
@@ -309,7 +338,7 @@ tags:
   - sistemas-lineales
 ---
 > [!note] Pregunta
-> Si una solución general es $P+\sum_jt_ju_j$, ¿cuándo puede sustituirse $P$ por $Q$ conservando los mismos directores y parámetros libres?
+> Una solución general se escribe $P+\sum_jt_ju_j$, con los $t_j$ libres. ¿Cuándo se puede cambiar $P$ por $Q$ y conservar los mismos vectores $u_j$?
 ===
 > [!important] Respuesta
 > Cuando $Q-P$ es combinación de los $u_j$, es decir, cuando $Q$ ya pertenece a la familia. Entonces el cambio sólo desplaza los parámetros.
@@ -324,14 +353,17 @@ tags:
 Para $a,b\in\mathbb R$, sean[^39]
 
 $$
-A=\begin{pmatrix}8&-2&1&3\\0&a^2-4&a-2&6\\0&0&a^2-4&b\\0&0&0&a\end{pmatrix},
-\qquad B=\begin{pmatrix}b\\1\\2\\2b\end{pmatrix}.
+A=\begin{pmatrix}8&-2&1&3\\0&a^2-4&a-2&6\\0&0&a^2-4&b\\0&0&0&a\end{pmatrix}.
+$$
+
+$$
+B=\begin{pmatrix}b\\1\\2\\2b\end{pmatrix}.
 $$
 
 **a)** Discute el sistema de matriz ampliada $[A\mid B]$. **b)** Determina los valores de $a,b$ para los que $A-5I_4$ es invertible. **c)** Para esos valores, decide si existe una columna no nula $C\in M_{4\times1}(\mathbb R)$ tal que $AC=5C$.
 
 > [!resolucion]- Resolución
-> **a)** Llamemos $x,y,z,w$ a las cuatro incógnitas. La forma triangular aconseja leer desde la última ecuación:
+> **a)** Llamemos $x,y,z,w$ a las cuatro incógnitas. La última ecuación sólo contiene $w$; una vez conocida, la anterior permite hallar $z$, y así sucesivamente. Escribimos las ecuaciones en ese orden:
 >
 > $$
 > aw=2b,\qquad (a^2-4)z+bw=2,
@@ -344,12 +376,24 @@ $$
 > Si **$a\notin\{0,2,-2\}$**, los cuatro coeficientes diagonales son no nulos. Se determina sucesivamente $w$, $z$, $y$ y $x$, sin ninguna ecuación sobrante: el sistema es **compatible determinado para todo $b$**. La solución puede obtenerse de
 >
 > $$
-> w=\frac{2b}a,\quad z=\frac{2-bw}{a^2-4},\quad
-> y=\frac{1-(a-2)z-6w}{a^2-4},\quad
+> w=\frac{2b}a,\qquad z=\frac{2-bw}{a^2-4}.
+> $$
+>
+> Sustituyendo esos valores en las dos ecuaciones restantes,
+>
+> $$
+> y=\frac{1-(a-2)z-6w}{a^2-4},\qquad
 > x=\frac{b+2y-z-3w}{8}.
 > $$
 >
-> Si **$a=0$**, la última ecuación exige $0=2b$. Para $b\ne0$ es incompatible. Para $b=0$, la tercera ecuación da $z=-1/2$; la segunda, $-4y-2z+6w=1$, da $y=3w/2$; la primera da $x=1/16$. Queda
+> Si **$a=0$**, la última ecuación exige $0=2b$. Para $b\ne0$ es incompatible. Para $b=0$, esa ecuación no impone ninguna restricción a $w$, mientras que la tercera da $z=-1/2$. Sustituyendo en la segunda,
+>
+> $$
+> -4y-2\left(-\frac12\right)+6w=1
+> \quad\Longrightarrow\quad y=\frac32w.
+> $$
+>
+> En la primera, los términos que contienen $w$ se cancelan y queda $8x-1/2=0$, de donde $x=1/16$. Tomando $w=t$,
 >
 > $$
 > (x,y,z,w)=\left(\frac1{16},\frac32t,-\frac12,t\right),
@@ -412,7 +456,13 @@ Sea $A\in M_n(\mathbb C)$ tal que $AA^*=3I_n$.[^40]
 Aquí $A^*$ es la [[Matemáticas/Álgebra lineal/Conjugada transpuesta de una matriz|conjugada transpuesta]]; $\overline A$ sólo conjuga las entradas y no cambia sus posiciones.[^conjugada]
 
 > [!demostracion]- Demostración
-> **a)** La hipótesis dice que $A(\frac13A^*)=I_n$. Por tanto, el producto tiene rango $n$. Como el rango de $A$ es al menos el del producto y no puede superar $n$, se tiene $\operatorname{rg}A=n$. Para una matriz cuadrada, rango completo implica invertibilidad.[^teoria]
+> **a)** Dividir la igualdad dada por $3$ proporciona una candidata a inversa:
+>
+> $$
+> A\left(\frac13A^*\right)=I_n.
+> $$
+>
+> Cada columna de este producto es una combinación de las columnas de $A$. Como el producto es $I_n$, las columnas de $A$ generan las $n$ columnas de la identidad; por tanto, $\operatorname{rg}A=n$. Al ser cuadrada y tener rango completo, $A$ es invertible.[^teoria]
 >
 > Multiplicar $AA^*=3I_n$ a la izquierda por $A^{-1}$ da $A^*=3A^{-1}$; luego
 >
@@ -471,7 +521,11 @@ Las condiciones de unicidad obtenidas por pivotes se expresan también mediante 
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Actúa como profesor de Álgebra Lineal de primer curso. Propón uno de los ejercicios 35–40, deja que intente resolverlo y pide justificar cada división por un parámetro, cada variable libre y cada afirmación de invertibilidad. En las familias de soluciones, comprueba que sé distinguir un punto particular de una dirección homogénea. Si me equivoco, señala la primera igualdad que no se sigue de la anterior y permite corregirla antes de dar la solución. Exige una comprobación por sustitución o por los dos productos de una inversa, según corresponda. Usa como referencias $AX=B$, la familia $P+X_h$ con $AX_h=0$, y el criterio de rango completo para una matriz cuadrada. Por ejemplo, en $S_{-3,-1}$ debo recuperar $(7/4-t,-1/4,t)$ y verificarlo en las tres ecuaciones. Formula una pregunta cada vez, espera la respuesta y adapta la dificultad mediante recuperación activa y repetición espaciada.
+Actúa como profesor de Álgebra Lineal de primer curso y trabaja con los ejercicios 35–40. Formula una pregunta cada vez y espera mi intento antes de dar pistas o mostrar una solución. Si me equivoco, localiza la primera igualdad injustificada y deja que la corrija.
+
+Pide que justifique las divisiones por parámetros, identifique las variables libres y compruebe cada solución en las ecuaciones originales. Para comparar familias, utiliza el hecho de que todas las soluciones de $AX=B$ son $P+X_h$, con $AP=B$ y $AX_h=0$. Comprueba que distingo la solución particular $P$ de los vectores que multiplican los parámetros.
+
+En las preguntas de invertibilidad, pide relacionar los pivotes con el rango y verificar los dos productos de la inversa propuesta. Como referencia, $S_{-3,-1}$ tiene la familia $(7/4-t,-1/4,t)$; debo poder obtenerla y sustituirla en las tres ecuaciones. Alterna cálculo y justificación, ajusta la dificultad y retoma más adelante los errores para comprobar que los he corregido.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })

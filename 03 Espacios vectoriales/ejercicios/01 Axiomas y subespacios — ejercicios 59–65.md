@@ -29,7 +29,7 @@ await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 Cambiar las operaciones obliga a comprobar la estructura completa de un [[Matemáticas/Álgebra lineal/Espacios vectoriales/01 Espacios vectoriales — definición y axiomas|espacio vectorial]]. Cuando las operaciones son las de un espacio conocido, el [[Matemáticas/Álgebra lineal/Espacios vectoriales/02 Subespacios vectoriales|criterio de subespacio]] reduce el trabajo a tres preguntas: ¿pertenece el vector cero?, ¿la suma conserva la condición?, ¿la conserva cualquier multiplicación por un escalar del cuerpo fijado?[^axiomas][^subespacios]
 
 > [!tip] Procedencia de las respuestas
-> 🤖 identifica resoluciones propias. Los enunciados proceden del boletín de FCUL; sus marcas «S» remiten a una ficha separada que no contiene respuestas a estos ejercicios en la versión disponible. Cada resolución incorpora una comprobación reproducible.
+> 🤖 identifica las resoluciones y comprobaciones propias. Los enunciados proceden del boletín de FCUL. La marca «S» del original remite a una ficha separada; la versión disponible de esa ficha corresponde a ejercicios anteriores.
 
 ## Operaciones y cancelación
 
@@ -61,7 +61,7 @@ $$
 $$
 
 > [!resolucion]- Resolución
-> **a) Sí.** Primero hay cierre: si $x,y>0$, también $xy>0$; y $x^\alpha>0$ para cualquier real $\alpha$. Las potencias reales están bien definidas porque la base es positiva. Fijemos $x,y,z>0$ y $\alpha,\beta\in\mathbb R$. Las cuatro propiedades de la suma vectorial son:
+> **a) Sí.** Las dos operaciones devuelven números positivos: $xy>0$ para $x,y>0$, y $x^\alpha>0$ para cualquier $\alpha\in\mathbb R$. La positividad de la base garantiza además que la potencia real esté definida. Fijemos $x,y,z>0$ y $\alpha,\beta\in\mathbb R$ para comprobar los axiomas. Respecto de la suma vectorial:
 >
 > 1. **Conmutatividad:** $x\oplus y=xy=yx=y\oplus x$.
 > 2. **Asociatividad:** $(x\oplus y)\oplus z=(xy)z=x(yz)=x\oplus(y\oplus z)$.
@@ -94,7 +94,7 @@ $$
 > 1\otimes x=x^1=x.
 > $$
 >
-> Quedan verificados los ocho axiomas con las operaciones del enunciado. En particular, el vector cero no es el número $0$, que ni siquiera pertenece al conjunto.
+> Por tanto, $\mathbb R^+$ con estas operaciones es un espacio vectorial real cuyo vector cero es el número $1$.
 >
 > **b) No.** Falla la distributividad respecto de la suma de escalares. Con $\alpha=\beta=1$ y $x=1$,
 >
@@ -126,7 +126,9 @@ $$
 > Cada paso usa una propiedad de los números reales. Al valer para todo índice, las ocho igualdades son igualdades de sucesiones. Así, $\mathbb R^{\mathbb N}$ es un espacio vectorial real.[^axiomas]
 
 > [!recuerda]- Comprobación
-> En a), $0\otimes x=x^0=1=0_V$ y $(-1)\otimes x=x^{-1}$, coherentes con el neutro y el opuesto encontrados. En b–d, repite los contraejemplos usando exactamente las operaciones del enunciado. En e), comprueba el índice $n$ antes de concluir igualdad de sucesiones: ninguna de las ocho verificaciones depende de un índice particular ni de convergencia.
+> En a), las identidades $0\otimes x=x^0=1=0_V$ y $(-1)\otimes x=x^{-1}$ recuperan el neutro y el opuesto. Los fallos de b–d se localizan, respectivamente, en $4\ne2$, $(0,0)\ne(0,1)$ y $(0,1)\ne(0,2)$ al aplicar las operaciones definidas.
+>
+> En e), el índice $n$ es arbitrario: cada identidad debe valer en todos los términos de la sucesión. Las verificaciones sólo usan operaciones entre números reales y se aplican a sucesiones convergentes y a sucesiones que no convergen.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Espacios vectoriales
@@ -174,7 +176,7 @@ tags:
   - espacios-vectoriales
 ---
 > [!note] Pregunta
-> ¿Cómo se demuestran los axiomas de un espacio de todas las sucesiones con operaciones término a término?
+> ¿Cómo se comprueban los axiomas en el conjunto de todas las sucesiones reales con operaciones término a término?
 ===
 > [!important] Respuesta
 > Se fija un índice arbitrario y se demuestra allí cada igualdad mediante las leyes del cuerpo. Como vale para todo índice, las sucesiones son iguales; no se exige convergencia.
@@ -200,7 +202,7 @@ Sea $V$ un espacio vectorial sobre $K$, con $u,v,w\in V$ y $\alpha,\beta\in K$. 
 > \qquad (v+w)+(-w)=v.
 > $$
 >
-> Como los miembros antes de simplificar eran iguales, $u=v$.
+> La igualdad inicial se reduce así a $u=v$.
 >
 > **b)** La hipótesis $\alpha\ne0_K$ garantiza que existe $\alpha^{-1}\in K$. Multiplicamos la igualdad por ese escalar. La compatibilidad del producto escalar y $1_Ku=u$ dan
 >
@@ -209,7 +211,7 @@ Sea $V$ un espacio vectorial sobre $K$, con $u,v,w\in V$ y $\alpha,\beta\in K$. 
 > \qquad \alpha^{-1}(\alpha v)=v.
 > $$
 >
-> Luego $u=v$. Es el escalar lo que se invierte; no se ha definido una división por vectores.
+> Al multiplicar por $\alpha^{-1}$, la igualdad se reduce a $u=v$.
 >
 > **c)** Restando $\beta u$ y usando la distributividad respecto de los escalares se obtiene $(\alpha-\beta)u=0_V$. La propiedad de producto nulo en un espacio vectorial afirma que el escalar es cero o el vector es cero. Como $u\ne0_V$, debe ser $\alpha-\beta=0_K$, es decir, $\alpha=\beta$.[^axiomas]
 
@@ -290,7 +292,13 @@ Decide, justificando cada caso, cuáles de los siguientes conjuntos son subespac
 En todos los casos las coordenadas no restringidas son reales. Los símbolos $\wedge$ y $\vee$ significan «y» y «o», respectivamente.
 
 > [!resolucion]- Resolución
-> Una condición lineal homogénea se conserva al tomar $\lambda u+\mu v$: si una expresión lineal $L$ vale cero en $u$ y $v$, entonces $L(\lambda u+\mu v)=\lambda L(u)+\mu L(v)=0$. Además, cero la satisface. Lo mismo ocurre con varias condiciones simultáneas, aplicando el argumento a cada una.[^subespacios]
+> Las ecuaciones lineales homogéneas se conservan al combinar dos soluciones. Si $L$ representa su miembro izquierdo y $L(u)=L(v)=0$, entonces, para $\lambda,\mu\in\mathbb R$,
+>
+> $$
+> L(\lambda u+\mu v)=\lambda L(u)+\mu L(v)=0.
+> $$
+>
+> El vector cero también satisface la ecuación. Cuando se exigen varias ecuaciones a la vez, este argumento se aplica a cada una.[^subespacios]
 >
 > **a) Sí.** Para $L(x,y,z)=x-y+z$, el argumento anterior prueba el cierre; $(0,0,0)$ cumple $L=0$.
 >
@@ -332,7 +340,7 @@ En todos los casos las coordenadas no restringidas son reales. Los símbolos $\w
 > En conclusión, son subespacios exactamente $V_1,V_2,V_7,V_{10},V_{11}$.
 
 > [!recuerda]- Comprobación
-> Para los cinco casos afirmativos, toma $\lambda=\mu=1$ en sus fórmulas de cierre para comprobar la suma, y $\mu=0$ para comprobar cualquier múltiplo. En cada caso negativo, verifica primero que los vectores elegidos pertenecen y después que el resultado deja de pertenecer. Contener cero sólo resuelve una de las tres condiciones.
+> En las fórmulas de cierre de los casos afirmativos, $\lambda=\mu=1$ produce la suma y $\mu=0$ produce cualquier múltiplo escalar. En cada contraejemplo hay dos comprobaciones: que el vector de partida pertenece y que el resultado de la operación queda fuera. Así, $V_9$ contiene cero y $(0,1,0)$, pero no contiene $2(0,1,0)=(0,2,0)$: la pertenencia de cero por sí sola no garantiza el cierre.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Espacios vectoriales
@@ -404,7 +412,7 @@ $$
 > \lambda A(x,y)+\mu A(s,t)=A(\lambda x+\mu s,\lambda y+\mu t).
 > $$
 >
-> Los parámetros nuevos son reales para cualesquiera $\lambda,\mu\in\mathbb R$; quedan probados la pertenencia de cero y ambos cierres.
+> Los nuevos parámetros $\lambda x+\mu s$ y $\lambda y+\mu t$ son reales, por lo que cualquier combinación de dos matrices de $W_1$ vuelve a pertenecer a $W_1$.
 >
 > **b) No.** Toda matriz del conjunto tiene entrada $(2,3)$ igual a $1$. La matriz cero no pertenece.
 >
@@ -420,7 +428,7 @@ $$
 >
 > Cero también cumple las dos ecuaciones. Por tanto, es subespacio.
 >
-> **d) Sí.** Las condiciones equivalen a $a_{11}-a_{12}=0$ y $a_{12}-a_{13}=0$, dos ecuaciones lineales homogéneas. Si las tres primeras entradas coinciden en cada una de $A$ y $B$, las tres entradas de $\lambda A+\mu B$ también coinciden. Cero las satisface.
+> **d) Sí.** La condición equivale a exigir simultáneamente $a_{11}-a_{12}=0$ y $a_{12}-a_{13}=0$. Son dos ecuaciones lineales homogéneas: la matriz cero las satisface y cualquier combinación de matrices que las cumplen vuelve a cumplirlas.
 >
 > **e) No.** La matriz
 >
@@ -433,7 +441,7 @@ $$
 > Son subespacios exactamente $W_1,W_3,W_4$.[^subespacios]
 
 > [!recuerda]- Comprobación
-> En a), sustituye los parámetros $(1,0)$ y $(0,1)$: toda matriz del conjunto se reconstruye como $xA(1,0)+yA(0,1)$. En c–d, comprueba cada relación en cero y en una combinación genérica. En e), no basta estudiar escalares positivos: el cuerpo también contiene los negativos.
+> En a), la igualdad $A(x,y)=xA(1,0)+yA(0,1)$ reconstruye cada matriz a partir de dos matrices fijas. En c–d, las restricciones se comprueban sustituyendo las entradas $c_{ij}=\lambda a_{ij}+\mu b_{ij}$ en cada ecuación. El fallo de e) aparece al multiplicar por $-1$, un escalar admitido en $\mathbb R$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Espacios vectoriales
@@ -468,7 +476,7 @@ La barra de b) conjuga las entradas; $\overline A^{\,T}$ es la [[Matemáticas/�
 > =\lambda(A+A^T)+\mu(B+B^T)=0.
 > $$
 >
-> Por tanto, la combinación sigue perteneciendo a $V$. Se han verificado cero y cierre para las [[Matemáticas/Álgebra lineal/Matriz antisimétrica|matrices antisimétricas reales]].
+> La combinación satisface la misma condición que $A$ y $B$. Así, las [[Matemáticas/Álgebra lineal/Matriz antisimétrica|matrices antisimétricas reales]] forman un subespacio.
 >
 > **b) No.** Consideremos $A=iI_3$. Como $A^*=-iI_3$, se cumple $A+A^*=0$ y $A\in W$. El escalar $i$ es admisible sobre $\mathbb C$, pero $iA=-I_3$. Para esa matriz,
 >
@@ -478,7 +486,13 @@ La barra de b) conjuga las entradas; $\overline A^{\,T}$ es la [[Matemáticas/�
 >
 > Luego $iA\notin W$: falla el cierre bajo escalares complejos. La causa es que $(\lambda A)^*=\overline\lambda A^*$, y la conjugación también afecta al escalar.[^antihermitica]
 >
-> Si se fija $\mathbb R$ como cuerpo, el conjunto $W$ sí es subespacio: cero pertenece y, para $r,s\in\mathbb R$, la igualdad $\overline r=r$, $\overline s=s$ permite obtener $(rA+sB)+(rA+sB)^*=r(A+A^*)+s(B+B^*)=0$. Esa afirmación se refiere a una estructura de escalares distinta de la preguntada.
+> Al considerar únicamente escalares reales, $W$ sí es un subespacio. La matriz cero pertenece y, para $A,B\in W$ y $r,s\in\mathbb R$, se tiene $\overline r=r$ y $\overline s=s$. Por ello,
+>
+> $$
+> (rA+sB)+(rA+sB)^*=r(A+A^*)+s(B+B^*)=0.
+> $$
+>
+> El cambio de cuerpo explica la diferencia entre las dos respuestas: el contraejemplo anterior necesita el escalar complejo $i$.
 
 > [!recuerda]- Comprobación
 > En a), escribe una matriz antisimétrica real como
@@ -487,7 +501,7 @@ La barra de b) conjuga las entradas; $\overline A^{\,T}$ es la [[Matemáticas/�
 > \begin{pmatrix}0&a&b\\-a&0&c\\-b&-c&0\end{pmatrix}.
 > $$
 >
-> La suma y cualquier múltiplo real conservan esa forma. En b), calcula las tres entradas diagonales de $iI_3$, su conjugada transpuesta y las de $-I_3$; el contraejemplo depende del cuerpo, no del tamaño.
+> La suma y cualquier múltiplo real conservan esa forma. En b), la conjugación cambia las tres entradas diagonales de $iI_3$ de $i$ a $-i$, mientras que deja las de $-I_3$ iguales a $-1$. Por eso $iI_3$ satisface $A+A^*=0$ y $-I_3$ la incumple.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Espacios vectoriales
@@ -521,7 +535,7 @@ En $\mathbb R_3[x]$, el espacio real de polinomios de grado a lo sumo $3$, decid
 
 **e)** $E_5=\{ax^3+bx^2+x+c:a,b,c\in\mathbb R\}$.
 
-Todos los coeficientes son reales. Dos polinomios son iguales cuando coinciden sus coeficientes de cada potencia, completando con ceros las potencias ausentes. La observación del boletín sobre grados iguales presupone expresiones de grado efectivo, con coeficientes principales no nulos; el criterio por coeficientes también incluye el polinomio cero.[^64]
+Todos los coeficientes son reales. Dos polinomios son iguales cuando coinciden los coeficientes de cada potencia, completando con ceros las potencias ausentes; este criterio incluye el polinomio cero.[^64]
 
 > [!resolucion]- Resolución
 > **a) Sí.** Representemos cada polinomio por su lista de coeficientes $(a,b,c,d)$ en el orden $x^3,x^2,x,1$. La suma de polinomios suma esas listas y la multiplicación escalar multiplica cada coeficiente. Cero cumple las dos ecuaciones homogéneas. Si $p,q\in E_1$, los coeficientes de $\lambda p+\mu q$ cumplen
@@ -557,7 +571,7 @@ Todos los coeficientes son reales. Dos polinomios son iguales cuando coinciden s
 > p(x)=b(x^2-1)+c\left(\frac52x^3+x+1\right).
 > $$
 >
-> Sustituye sus coeficientes en ambas condiciones. En d), la suma nunca crea un término en $x$ porque ambos coeficientes son cero. En los casos negativos, comprueba el coeficiente concreto que falla, sin confundirlo con el valor del polinomio en un punto.
+> Los coeficientes de esta expresión satisfacen $2a-5c=0$ y $b-c+d=0$. En d), el coeficiente de $x$ en una combinación es $\lambda\cdot0+\mu\cdot0=0$. Los fallos de b), c) y e) se comprueban en las restricciones de sus coeficientes, tal como están escritas en el enunciado.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Espacios vectoriales
@@ -603,7 +617,7 @@ $$
 Verifica también que $f(x)=\cos x$ pertenece a $F_5$.
 
 > [!advertencia] Período en el enunciado
-> La glosa del PDF dice «período $\pi$», pero la condición escrita en b) es $f(x+2\pi)=f(x)$. Se resuelve esa condición: $2\pi$ es un período admitido, sin exigir que sea el período positivo mínimo. La función cero y las funciones constantes también la satisfacen.[^65]
+> La glosa del PDF dice «período $\pi$», pero la fórmula de b) exige $f(x+2\pi)=f(x)$. Esa igualdad significa que $2\pi$ es un período; no exige que sea el período positivo mínimo. También la satisfacen la función cero y todas las funciones constantes.[^65]
 
 > [!resolucion]- Resolución
 > **a) Sí.** La función cero es impar. Sean $f,g\in F_1$, $\lambda,\mu\in\mathbb R$ y $h=\lambda f+\mu g$. Para cada real $x$,
@@ -651,7 +665,7 @@ Verifica también que $f(x)=\cos x$ pertenece a $F_5$.
 > f''-f'+f=-\cos x+\sin x+\cos x=\sin x.
 > $$
 >
-> Que el conjunto contenga funciones no implica que contenga la función cero. Son subespacios exactamente $F_1,F_2,F_3,F_4$.[^subespacios][^derivadas]
+> Son subespacios exactamente $F_1,F_2,F_3,F_4$.[^subespacios][^derivadas]
 
 > [!recuerda]- Comprobación
 > En a–b, las identidades se verifican para un $x$ arbitrario: evaluar unos pocos puntos no bastaría para probarlas. En d), prueba por separado $e^x$ y $e^{2x}$ y usa la linealidad para reconstruir $ae^x+be^{2x}$. En e), $2\cos x$ da $2\sin x$ al sustituir; en $x=\pi/2$ vale $2$ y no $1$, otro fallo explícito del cierre escalar.
@@ -663,10 +677,10 @@ tags:
   - funciones
 ---
 > [!note] Pregunta
-> ¿Qué condición caracteriza una función impar y por qué se conserva al combinar linealmente dos funciones impares?
+> ¿Por qué una combinación lineal de dos funciones impares sigue siendo impar?
 ===
 > [!important] Respuesta
-> $f(-x)=-f(x)$ para todo $x$ de su dominio simétrico. Si $h=\lambda f+\mu g$, entonces $h(-x)=\lambda[-f(x)]+\mu[-g(x)]=-h(x)$.
+> Si $f$ y $g$ están definidas en un mismo dominio simétrico respecto de cero y $h=\lambda f+\mu g$, su imparidad da $h(-x)=\lambda[-f(x)]+\mu[-g(x)]=-h(x)$ para todo $x$ del dominio. Por tanto, $h$ es impar.
 ```
 
 ```anki
@@ -723,7 +737,7 @@ Las condiciones de pertenencia se traducen también en preguntas sobre [[Matema�
 [^61]: FCUL, *ALGA 2026/2027 — Exercícios: Enunciados*, 1–90, p. 16, ejercicio 61, apartados a–l.
 [^62]: FCUL, *ALGA 2026/2027 — Exercícios: Enunciados*, 1–90, p. 16, ejercicio 62, apartados a–e.
 [^63]: FCUL, *ALGA 2026/2027 — Exercícios: Enunciados*, 1–90, p. 16, ejercicio 63, apartados a–b. Se conserva la conjugación de b) y el cuerpo complejo de la pregunta.
-[^64]: FCUL, *ALGA 2026/2027 — Exercícios: Enunciados*, 1–90, p. 17, observación «Sobre polinómios» y ejercicio 64, apartados a–e. La comparación por coeficientes completa con ceros las potencias ausentes, de acuerdo con las operaciones polinómicas del espacio vectorial.
+[^64]: FCUL, *ALGA 2026/2027 — Exercícios: Enunciados*, 1–90, p. 17, observación «Sobre polinómios» y ejercicio 64, apartados a–e. La observación del boletín sobre grados iguales presupone expresiones de grado efectivo, con coeficientes principales no nulos. La comparación por coeficientes completa con ceros las potencias ausentes y también incluye el polinomio cero.
 [^65]: FCUL, *ALGA 2026/2027 — Exercícios: Enunciados*, 1–90, p. 17, ejercicio 65, apartados a–e y las dos verificaciones de las notas. En b) se sigue la fórmula $f(x+2\pi)=f(x)$ frente a la glosa discordante «período $\pi$».
 [^axiomas]: Premisas consultadas en *Espacios vectoriales: definición y axiomas*: ocho axiomas, igualdad componente a componente, distinción entre cuerpo y vectores, cancelación y producto nulo.
 [^potencias]: Premisas consultadas en *Logaritmos*, lección curricular de 1.º de Bachillerato, apartados «Definición formal y mapa de subapartados» y «Propiedades y cambio de base»: la exponencial y el logaritmo son inversas, y para argumentos positivos $\ln(xy)=\ln x+\ln y$ y $\ln(x^r)=r\ln x$. Estas propiedades justifican las identidades de potencias reales aplicadas con $x,y>0$ en 59 a).
@@ -734,7 +748,11 @@ Las condiciones de pertenencia se traducen también en preguntas sobre [[Matema�
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Actúa como profesor de Álgebra Lineal de primer curso. Usa los ejercicios 59–65 para pedirme una decisión antes de mostrar cálculos. Si las operaciones cambian, exige comprobar el cierre y los ocho axiomas; si son heredadas, pide identificar el vector cero y justificar los dos cierres o construir un contraejemplo concreto. En el ejercicio 60, pregunta qué hipótesis permite cancelar y qué operación lo justifica. En matrices distingue transposición y conjugada transpuesta, fijando siempre el cuerpo de escalares. En polinomios compara todos los coeficientes, y en funciones exige identidades para todo real. Mantén en 65 b) la condición escrita $f(x+2\pi)=f(x)$, sin exigir período mínimo. Pide verificar también las dos funciones propuestas en 65 d–e. Formula una pregunta cada vez, espera la respuesta y señala la primera inferencia que deba corregirse antes de ofrecer una solución completa. Usa recuperación activa y repetición espaciada, aumentando la dificultad cuando pueda justificar cada paso.
+Actúa como profesor de Álgebra Lineal de primer curso. Usa los ejercicios 59–65 y pide que decida qué condición comprobar antes de empezar a calcular. Si las operaciones cambian, exige comprobar el cierre y los ocho axiomas. Si son heredadas, pide identificar el vector cero y justificar los dos cierres, o construir un contraejemplo concreto. En el ejercicio 60, pregunta qué hipótesis permite cancelar y qué operación lo justifica.
+
+En matrices, distingue transposición y conjugada transpuesta y fija siempre el cuerpo de escalares. En polinomios, compara todos los coeficientes; en funciones, exige identidades para todo real. En 65 b), conserva la condición escrita $f(x+2\pi)=f(x)$, sin exigir período mínimo, y pide verificar las dos funciones propuestas en 65 d–e.
+
+Formula una pregunta cada vez y espera mi respuesta. Si hay un error, señala la primera inferencia que deba corregirse y permite que la revise antes de mostrar la solución completa. Usa recuperación activa y repetición espaciada, aumentando la dificultad cuando pueda justificar cada paso.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })

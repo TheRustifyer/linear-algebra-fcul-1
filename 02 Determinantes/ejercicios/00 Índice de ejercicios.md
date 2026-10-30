@@ -16,28 +16,32 @@ tags:
 
 # Ejercicios de determinantes
 
-Los ejercicios **41–58** de las fichas de ALGA 2026/27 estudian el cálculo de determinantes y sus aplicaciones a invertibilidad y sistemas. La numeración pertenece al boletín completo; la distribución por capítulos sigue el contenido matemático de cada problema.[^1]
+Los ejercicios **41–58** de ALGA 2026/27 recorren tres usos del determinante: calcularlo a partir de una matriz, decidir si existe una inversa y obtener una inversa o una solución mediante cofactores y Cramer. Se mantienen los números del boletín completo.[^1]
 
 > [!tip] Práctica y corrección
-> Intenta resolver el enunciado antes de abrir la resolución. Después, repite la comprobación independiente. Las resoluciones de estos cuadernos están añadidas por IA (🤖); la letra «S» de la ficha identifica la existencia de una respuesta oficial, sin atribuirle los desarrollos propios de estos cuadernos.
+> Intenta resolver el enunciado antes de abrir la resolución y utiliza después la comprobación para contrastar tu resultado. 🤖 identifica las resoluciones añadidas por IA. La letra «S» del boletín indica que existe una respuesta oficial; los desarrollos de estos cuadernos son propios.
 
 ## Recorrido por técnicas
 
 ### Cálculo y propiedades · 41–48
 
-[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/01 Cálculo y propiedades — ejercicios 41–48|Ejercicios 41–48]]: fórmulas de órdenes dos y tres, Sarrus, Laplace, triangularidad, filas y columnas nulas, operaciones elementales, transposición y factores de escala.
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/01 Cálculo y propiedades — ejercicios 41–48|ejercicios 41–48]] combinan las fórmulas de órdenes dos y tres, Sarrus y Laplace con el reconocimiento de matrices triangulares y filas o columnas nulas. Las operaciones elementales, la transposición y los factores de escala permiten simplificar el cálculo y justificar cada cambio de signo.
 
 ### Productos, invertibilidad y parámetros · 49–54
 
-[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/02 Productos, invertibilidad y parámetros — ejercicios 49–54|Ejercicios 49–54]]: determinantes de productos, potencias e inversas, discusión de matrices con parámetros y relación entre determinante, rango y compatibilidad.
+En los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/02 Productos, invertibilidad y parámetros — ejercicios 49–54|ejercicios 49–54]], conocer los determinantes de los factores evita calcular productos, potencias e inversas completos. La discusión con parámetros relaciona los valores que anulan un determinante con la pérdida de rango y con las posibles soluciones de un sistema.
 
 ### Cofactores, adjunta y Cramer · 55–58
 
-[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/03 Cofactores, adjunta y Cramer — ejercicios 55–58|Ejercicios 55–58]]: matriz de complementos algebraicos, adjunta clásica, cálculo de inversas y de entradas aisladas, demostración sobre la adjunta e identificación y resolución de sistemas de Cramer.
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/03 Cofactores, adjunta y Cramer — ejercicios 55–58|ejercicios 55–58]] utilizan la matriz de complementos algebraicos y la adjunta clásica para calcular una inversa completa o sólo algunas de sus entradas. Incluyen una demostración sobre la inversa de la adjunta y terminan distinguiendo qué sistemas pueden resolverse por Cramer y calculando sus soluciones.
 
 ## Continuidad con matrices y sistemas
 
-Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ejercicios/05 Sistemas e invertibilidad — ejercicios 35–40|ejercicios 35–40]] siguen perteneciendo al capítulo de matrices y sistemas: practican parámetros, soluciones homogéneas y pruebas de invertibilidad por pivotes y conjugación. Su presencia en el mismo PDF no los convierte en ejercicios de determinantes.
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ejercicios/05 Sistemas e invertibilidad — ejercicios 35–40|ejercicios 35–40]] pertenecen al capítulo de matrices y sistemas. En ellos, la discusión de parámetros y soluciones homogéneas se apoya en pivotes, y la conjugación permite obtener inversas. Los determinantes ofrecen ahora otro criterio para estudiar esas mismas cuestiones.
+
+## Continuación en espacios vectoriales
+
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/ejercicios/00 Índice de ejercicios|ejercicios 59–90 de espacios vectoriales]] continúan con axiomas, subespacios, combinaciones lineales, bases y dimensión. Los determinantes vuelven a intervenir como criterio de independencia y para detectar valores singulares de parámetros.
 
 ## 📚 Fuentes
 

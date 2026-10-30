@@ -23,10 +23,10 @@ tags:
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 ```
 
-Los [[Matemáticas/Álgebra lineal/Determinantes|cofactores]] permiten pasar del determinante a la [[Matemáticas/Álgebra lineal/Matriz inversa|inversa]]. La transposición de sus índices es decisiva: para hallar una entrada de $A^{-1}$ se necesita el cofactor de la posición intercambiada. En un sistema con solución única, la regla de Cramer utiliza determinantes para obtener cada incógnita directamente.[^teoria]
+La [[Matemáticas/Álgebra lineal/Matriz inversa|inversa]] se obtiene transponiendo la matriz de [[Matemáticas/Álgebra lineal/Determinantes|cofactores]] y dividiendo sus entradas por el determinante de $A$. Por eso, para calcular una sola entrada de la inversa basta hallar un cofactor, pero hay que intercambiar sus índices. La regla de Cramer utiliza también un cociente de determinantes para calcular cada incógnita de un sistema cuadrado con determinante no nulo.[^teoria]
 
 > [!tip] Procedencia
-> Todas las resoluciones y comprobaciones de estos ejercicios son propias (🤖). Los enunciados conservan la notación de las fichas del curso; en particular, $\widehat A$ y $\operatorname{adj}(A)$ no designan la misma matriz.[^base]
+> 🤖 identifica las resoluciones y comprobaciones añadidas por IA. Se mantiene la notación del boletín: $\widehat A$ es la matriz de complementos algebraicos y $\operatorname{adj}(A)$ es su transpuesta.[^base]
 
 ## Cofactores e inversa
 
@@ -54,7 +54,7 @@ tags:
 > [!definicion] Adjunta clásica
 > La **adjunta clásica** es la transpuesta de la matriz de cofactores: $\operatorname{adj}(A)=\widehat A^T$. Su entrada $(i,j)$ es $C_{ji}$.
 
-Esta adjunta clásica se construye con menores y signos. La [[Matemáticas/Álgebra lineal/Conjugada transpuesta de una matriz|conjugada transpuesta]] $A^*$ se construye conjugando entradas y transponiendo, mediante una operación distinta.[^teoria]
+La adjunta clásica utiliza los cofactores. En cambio, para calcular la [[Matemáticas/Álgebra lineal/Conjugada transpuesta de una matriz|conjugada transpuesta]] $A^*$ se conjugan las entradas de $A$ y después se transpone: no intervienen menores ni cofactores.[^teoria]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -97,7 +97,7 @@ $$
 **a)** Calcula $\det A$ y concluye que $A$ es invertible. **b)** Determina $\widehat A$, matriz de complementos algebraicos. **c)** Calcula $A^{-1}$ usando b).
 
 > [!resolucion]- Resolución
-> **a)** La tercera columna tiene un único elemento no nulo, $a_{23}=1$, de signo de cofactor negativo:
+> **a)** Conviene desarrollar por la tercera columna, porque sólo contiene una entrada no nula, $a_{23}=1$. Su cofactor tiene signo $(-1)^{2+3}=-1$:
 >
 > $$
 > \det A=-\begin{vmatrix}2&1\\2&2\end{vmatrix}=-(4-2)=\boxed{-2}.
@@ -108,25 +108,31 @@ $$
 > **b)** Calculamos cada cofactor eliminando su fila y su columna. Los signos de las tres filas son $(+,-,+)$, $(-,+,-)$ y $(+,-,+)$. Para la primera fila:
 >
 > $$
-> C_{11}=0\cdot0-1\cdot2=-2,\quad
-> C_{12}=-(1\cdot0-1\cdot2)=2,\quad
-> C_{13}=1\cdot2-0\cdot2=2.
+> \begin{aligned}
+> C_{11}&=0\cdot0-1\cdot2=-2,\\
+> C_{12}&=-(1\cdot0-1\cdot2)=2,\\
+> C_{13}&=1\cdot2-0\cdot2=2.
+> \end{aligned}
 > $$
 >
 > Para la segunda:
 >
 > $$
-> C_{21}=-(1\cdot0-0\cdot2)=0,\quad
-> C_{22}=2\cdot0-0\cdot2=0,\quad
-> C_{23}=-(2\cdot2-1\cdot2)=-2.
+> \begin{aligned}
+> C_{21}&=-(1\cdot0-0\cdot2)=0,\\
+> C_{22}&=2\cdot0-0\cdot2=0,\\
+> C_{23}&=-(2\cdot2-1\cdot2)=-2.
+> \end{aligned}
 > $$
 >
 > Para la tercera:
 >
 > $$
-> C_{31}=1\cdot1-0\cdot0=1,\quad
-> C_{32}=-(2\cdot1-0\cdot1)=-2,\quad
-> C_{33}=2\cdot0-1\cdot1=-1.
+> \begin{aligned}
+> C_{31}&=1\cdot1-0\cdot0=1,\\
+> C_{32}&=-(2\cdot1-0\cdot1)=-2,\\
+> C_{33}&=2\cdot0-1\cdot1=-1.
+> \end{aligned}
 > $$
 >
 > Así,
@@ -135,11 +141,17 @@ $$
 > \boxed{\widehat A=\begin{pmatrix}-2&2&2\\0&0&-2\\1&-2&-1\end{pmatrix}.}
 > $$
 >
-> **c)** La fórmula $A^{-1}=\operatorname{adj}(A)/\det A$ exige transponer $\widehat A$ antes de dividir:
+> **c)** La adjunta se obtiene transponiendo la matriz anterior:
 >
 > $$
-> A^{-1}=-\frac12\begin{pmatrix}-2&0&1\\2&0&-2\\2&-2&-1\end{pmatrix}
-> =\boxed{\begin{pmatrix}1&0&-1/2\\-1&0&1\\-1&1&1/2\end{pmatrix}}.
+> \operatorname{adj}(A)=\widehat A^T
+> =\begin{pmatrix}-2&0&1\\2&0&-2\\2&-2&-1\end{pmatrix}.
+> $$
+>
+> La fórmula $A^{-1}=\operatorname{adj}(A)/\det A$ pide ahora dividir cada entrada por $-2$, es decir, multiplicar por $-1/2$:
+>
+> $$
+> \boxed{A^{-1}=\begin{pmatrix}1&0&-1/2\\-1&0&1\\-1&1&1/2\end{pmatrix}}.
 > $$
 
 > [!recuerda]- Comprobación
@@ -172,13 +184,21 @@ $$
 **a)** Calcula $\det A$ y concluye que $A$ es invertible. **b)** Sin calcular toda $A^{-1}$, calcula sus entradas en las posiciones $(2,3)$ y $(3,2)$.
 
 > [!resolucion]- Resolución
-> **a)** Hacemos $R_3\leftarrow R_3-R_1$ y $R_4\leftarrow R_4-R_1$. La primera columna queda $(4,0,0,0)^T$, de modo que
+> **a)** Las filas primera, tercera y cuarta empiezan por $4$. Restar $R_1$ de $R_3$ y de $R_4$ deja la primera columna con una única entrada no nula, sin cambiar el determinante. Desarrollando por ella,
 >
 > $$
 > \det A=4\begin{vmatrix}-3&-3&1\\-2&-1&8\\-4&-3&-4\end{vmatrix}.
 > $$
 >
-> Laplace por la primera fila de este menor da
+> Para calcular el menor de orden tres, desarrollamos por su primera fila:
+>
+> $$
+> -3\begin{vmatrix}-1&8\\-3&-4\end{vmatrix}
+> +3\begin{vmatrix}-2&8\\-4&-4\end{vmatrix}
+> +\begin{vmatrix}-2&-1\\-4&-3\end{vmatrix}.
+> $$
+>
+> Los determinantes de orden dos permiten evaluar cada término:
 >
 > $$
 > (-3)(4+24)+3(8+32)+(6-4)=-84+120+2=38.
@@ -199,7 +219,21 @@ $$
 > C_{32}=-\begin{vmatrix}4&1&6\\0&-3&1\\4&-2&2\end{vmatrix}.
 > $$
 >
-> El menor vale $4(-6+2)-(0-4)+6(0+12)=-16+4+72=60$. Luego $C_{32}=-60$ y
+> Desarrollando el menor por la primera fila se obtiene
+>
+> $$
+> 4\begin{vmatrix}-3&1\\-2&2\end{vmatrix}
+> -\begin{vmatrix}0&1\\4&2\end{vmatrix}
+> +6\begin{vmatrix}0&-3\\4&-2\end{vmatrix}.
+> $$
+>
+> Su valor es
+>
+> $$
+> 4(-6+2)-(0-4)+6(0+12)=-16+4+72=60.
+> $$
+>
+> El signo negativo del cofactor da $C_{32}=-60$. Por tanto,
 >
 > $$
 > \boxed{(A^{-1})_{23}=-\frac{60}{152}=-\frac{15}{38}.}
@@ -217,7 +251,11 @@ $$
 > 4\begin{vmatrix}-2&8\\-4&-4\end{vmatrix}=4(8+32)=160.
 > $$
 >
-> Así, $C_{23}=-160$ y $\boxed{(A^{-1})_{32}=-160/152=-20/19}$.
+> Así, $C_{23}=-160$. Al dividir por el determinante de $A$,
+>
+> $$
+> \boxed{(A^{-1})_{32}=-\frac{160}{152}=-\frac{20}{19}.}
+> $$
 
 > [!recuerda]- Comprobación
 > Se pueden comprobar las dos entradas resolviendo sólo dos sistemas, sin formar la inversa entera. Las columnas
@@ -286,7 +324,19 @@ La notación $|A|$ significa $\det A$.
 > La hipótesis de invertibilidad permite todas las divisiones por $d$ y el uso de $A^{-1}$.
 
 > [!recuerda]- Comprobación
-> Para $A=\operatorname{diag}(2,3,4)$ se tiene $d=24$ y $\operatorname{adj}(A)=\operatorname{diag}(12,8,6)$. Su inversa es $\operatorname{diag}(1/12,1/8,1/6)=A/24$. La adjunta de $A^{-1}=\operatorname{diag}(1/2,1/3,1/4)$ da las mismas tres entradas por productos de los otros dos elementos diagonales.
+> Toma $A=\operatorname{diag}(2,3,4)$, de determinante $d=24$. Sus cofactores diagonales son los productos de los otros dos elementos de la diagonal; por tanto,
+>
+> $$
+> \operatorname{adj}(A)=\operatorname{diag}(12,8,6).
+> $$
+>
+> La inversa de esa matriz es
+>
+> $$
+> \operatorname{diag}(1/12,1/8,1/6)=\frac A{24}.
+> $$
+>
+> Por otro lado, $A^{-1}=\operatorname{diag}(1/2,1/3,1/4)$. Al calcular su adjunta, los productos $(1/3)(1/4)$, $(1/2)(1/4)$ y $(1/2)(1/3)$ dan también $1/12,1/8,1/6$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -325,7 +375,13 @@ tags:
 > Que su matriz de coeficientes sea cuadrada y que su determinante sea no nulo. Tener el mismo número de ecuaciones e incógnitas sólo verifica la primera condición.
 ```
 
-Si $A_j$ se obtiene de $A$ sustituyendo su columna $j$ por el término independiente $B$, la regla es $x_j=\det(A_j)/\det A$. En el ejercicio siguiente se comprueban primero las condiciones y se calculan los cocientes sólo en los casos que las cumplen.[^teoria]
+Si $A_j$ se obtiene de $A$ sustituyendo su columna $j$ por el término independiente $B$, la regla de Cramer da[^teoria]
+
+$$
+x_j=\frac{\det(A_j)}{\det A}.
+$$
+
+El denominador es el mismo para todas las incógnitas. Antes de calcular los cocientes hay que comprobar que la matriz sea cuadrada y que ese denominador no se anule.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -380,42 +436,61 @@ $$
 > (3,3,-3)=(4,2,-1)-(1,-1,2).
 > $$
 >
-> Así, $R_3\leftarrow R_3-R_2+R_1$ produce una fila nula y el determinante vale cero. Los términos independientes cumplen también $4=1-(-3)$, pero la compatibilidad no subsana la ausencia de determinante no nulo. El enunciado sólo pide resolver por Cramer los casos que sean de Cramer.
+> Así, $R_3\leftarrow R_3-R_2+R_1$ produce una fila nula y el determinante vale cero. Los términos independientes cumplen también $4=1-(-3)$: la tercera ecuación completa es la segunda menos la primera. Esa redundancia no causa una contradicción, pero impide tener una solución única y un determinante no nulo. Por eso el sistema no es de Cramer.
 
 > [!resolucion]- Resolución de c)
 > La matriz y el término independiente son
 >
 > $$
-> A=\begin{pmatrix}1&1&2\\-1&0&1\\2&1&-1\end{pmatrix},\qquad B=\begin{pmatrix}2\\-1\\1\end{pmatrix}.
+> A=\begin{pmatrix}1&1&2\\-1&0&1\\2&1&-1\end{pmatrix}.
 > $$
 >
-> Laplace por la segunda fila da
+> $$
+> B=\begin{pmatrix}2\\-1\\1\end{pmatrix}.
+> $$
+>
+> La segunda fila tiene un cero. Laplace por ella deja dos menores:
 >
 > $$
 > D=\det A=\begin{vmatrix}1&2\\1&-1\end{vmatrix}
 > -\begin{vmatrix}1&1\\2&1\end{vmatrix}=-3-(-1)=-2.
 > $$
 >
-> Es distinto de cero; el sistema es de Cramer. Sustituimos una columna cada vez:
+> Como $D=-2\ne0$, el sistema es de Cramer. Para calcular $x$, sustituimos la primera columna por $B$:
 >
 > $$
-> D_x=\begin{vmatrix}2&1&2\\-1&0&1\\1&1&-1\end{vmatrix}
-> =\begin{vmatrix}1&2\\1&-1\end{vmatrix}
+> D_x=\begin{vmatrix}2&1&2\\-1&0&1\\1&1&-1\end{vmatrix}.
+> $$
+>
+> Su segunda fila conserva un cero, así que usamos de nuevo Laplace por esa fila:
+>
+> $$
+> D_x=\begin{vmatrix}1&2\\1&-1\end{vmatrix}
 > -\begin{vmatrix}2&1\\1&1\end{vmatrix}=-3-1=-4.
 > $$
 >
-> Para la segunda columna, Laplace por la primera fila da
+> Para $y$, sustituimos la segunda columna:
 >
 > $$
-> D_y=\begin{vmatrix}1&2&2\\-1&-1&1\\2&1&-1\end{vmatrix}
-> =1(1-1)-2(1-2)+2(-1+2)=4.
+> D_y=\begin{vmatrix}1&2&2\\-1&-1&1\\2&1&-1\end{vmatrix}.
 > $$
 >
-> Para la tercera columna, desarrollamos por la segunda fila:
+> En esta matriz no hay ceros. Desarrollar por la primera fila da
 >
 > $$
-> D_z=\begin{vmatrix}1&1&2\\-1&0&-1\\2&1&1\end{vmatrix}
-> =\begin{vmatrix}1&2\\1&1\end{vmatrix}
+> D_y=1(1-1)-2(1-2)+2(-1+2)=4.
+> $$
+>
+> Para $z$, sustituimos la tercera columna:
+>
+> $$
+> D_z=\begin{vmatrix}1&1&2\\-1&0&-1\\2&1&1\end{vmatrix}.
+> $$
+>
+> La segunda fila vuelve a tener un cero. Su desarrollo de Laplace da
+>
+> $$
+> D_z=\begin{vmatrix}1&2\\1&1\end{vmatrix}
 > +\begin{vmatrix}1&1\\2&1\end{vmatrix}=-1-1=-2.
 > $$
 >
@@ -429,8 +504,11 @@ $$
 > Escribimos
 >
 > $$
-> A=\begin{pmatrix}-5&0&0&1\\1&1&-1&2\\-1&1&0&1\\2&2&1&-1\end{pmatrix},
-> \qquad B=\begin{pmatrix}1\\1\\1\\0\end{pmatrix}.
+> A=\begin{pmatrix}-5&0&0&1\\1&1&-1&2\\-1&1&0&1\\2&2&1&-1\end{pmatrix}.
+> $$
+>
+> $$
+> B=\begin{pmatrix}1\\1\\1\\0\end{pmatrix}.
 > $$
 >
 > Laplace por la primera fila deja dos términos:
@@ -461,7 +539,7 @@ $$
 > \boxed{(x_1,x_2,x_3,x_4)=\left(\frac04,\frac04,\frac44,\frac44\right)=(0,0,1,1).}
 > $$
 >
-> La resolución sigue siendo por Cramer: se han calculado sus cuatro determinantes por propiedades en lugar de expandirlos entrada por entrada.
+> La relación $B=c_3+c_4$ permite calcular los cuatro numeradores de Cramer mediante linealidad y columnas repetidas. Al dividirlos por el mismo $D=4$ se obtiene la solución única.
 
 > [!recuerda]- Comprobación
 > En c), sustituir $(2,-2,1)$ produce $2,-1,1$ en los tres miembros izquierdos. En d), sustituir $(0,0,1,1)$ produce $1,1,1,0$. Estas igualdades comprueban las soluciones en las ecuaciones originales, sin recurrir a los determinantes utilizados para obtenerlas.
@@ -479,7 +557,7 @@ tags:
 > Se descompone en la suma de dos determinantes, cambiando sólo esa columna. Si uno de los sumandos produce dos columnas iguales, ese determinante es cero.
 ```
 
-El [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/00 Índice de ejercicios|recorrido de ejercicios de determinantes]] conecta el cálculo por operaciones elementales con estas fórmulas de inversión y solución. En ambos casos, la condición decisiva es comprobar que el determinante usado como divisor no sea cero.
+Las operaciones elementales, los cofactores y Cramer permiten calcular el determinante, la inversa o una solución según qué dato se necesite. Para elegir entre ellos, puede retomarse el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/00 Índice de ejercicios|recorrido de ejercicios de determinantes]]. Tanto en la fórmula de la inversa como en Cramer, la división exige comprobar antes que el determinante no sea cero.
 
 ## 📚 Fuentes
 
@@ -495,7 +573,11 @@ El [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Actúa como profesor de Álgebra Lineal de primer curso. Elige un ejercicio entre 55 y 58 y deja que lo intente antes de abrir la resolución. Pide que indique qué fila y columna elimina, el signo del cofactor y cuándo intercambia sus índices. En el ejercicio 57, exige verificar los dos productos de la inversa propuesta. Antes de aplicar Cramer, pregunta si la matriz es cuadrada y si su determinante es no nulo. Comprueba las respuestas por multiplicación o sustitución en el sistema original y corrige primero el paso donde aparezca el error. Mantén visibles $C_{ij}=(-1)^{i+j}\det A_{ij}$, $\operatorname{adj}(A)=\widehat A^T$, $(A^{-1})_{ij}=C_{ji}/\det A$ y $x_j=\det(A_j)/\det A$, con $\det A\ne0$ y $A_j$ obtenida sustituyendo la columna $j$ por $B$. Por ejemplo, el sistema 58 c) tiene determinantes $D=-2,D_x=-4,D_y=4,D_z=-2$ y solución $(2,-2,1)$. Examina una pregunta cada vez, espera mi respuesta y alterna prueba, cálculo y repetición espaciada.
+Actúa como profesor de Álgebra Lineal de primer curso. Elige un ejercicio entre 55 y 58, haz una pregunta cada vez y espera mi intento antes de mostrar la resolución. Si hay un error, señala el primer paso que necesita corregirse y deja que lo revise.
+
+Para calcular un cofactor, pide indicar qué fila y columna se eliminan y justificar el signo en $C_{ij}=(-1)^{i+j}\det A_{ij}$. Comprueba que uso $\operatorname{adj}(A)=\widehat A^T$ y que, al calcular $(A^{-1})_{ij}=C_{ji}/\det A$, intercambio los índices. En el ejercicio 57, pide verificar los dos productos de la inversa propuesta.
+
+Antes de aplicar Cramer, exige comprobar que la matriz sea cuadrada y $\det A\ne0$. Para $x_j=\det(A_j)/\det A$, comprueba que sustituyo sólo la columna $j$ por todo el término independiente $B$. Como referencia, en 58 c) se tiene $D=-2$, $D_x=-4$, $D_y=4$, $D_z=-2$ y solución $(2,-2,1)$. Pide verificar cada solución en el sistema original; alterna cálculo y demostración y retoma más adelante las dificultades que hayan aparecido.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })

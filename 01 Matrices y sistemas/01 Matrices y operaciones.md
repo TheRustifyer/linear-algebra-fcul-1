@@ -1519,7 +1519,7 @@ Con estas operaciones, $M_{m\times n}(K)$ es un [[Matemáticas/Álgebra lineal/
 
 Para multiplicar dos matrices se combinan las filas de la primera con las columnas de la segunda. Cada fila y cada columna deben tener igual número de entradas.
 
-Sean $A\in M_{m\times n}(K)$ y $B\in M_{p\times q}(K)$.
+Sean $A=(a_{ij})\in M_{m\times n}(K)$ y $B=(b_{ij})\in M_{p\times q}(K)$, donde $K$ es un cuerpo —por ejemplo, $\mathbb R$ o $\mathbb C$— y $m,n,p,q\in\mathbb N_{>0}$.
 
 > [!definicion] Producto de matrices
 > El [[Matemáticas/Álgebra lineal/Producto matricial|producto matricial]] $AB$ ==está definido si y sólo si $n=p$==. Sus entradas se calculan mediante
@@ -1529,6 +1529,14 @@ Sean $A\in M_{m\times n}(K)$ y $B\in M_{p\times q}(K)$.
 > $\forall i\in\{1,\ldots,m\},\ \forall j\in\{1,\ldots,q\}$.
 
 Para obtener la entrada $(i,j)$, se multiplican las entradas de la fila $i$ de $A$ por las entradas correspondientes de la columna $j$ de $B$ y se suman los $n$ productos. El resultado pertenece a $M_{m\times q}(K)$.[^8]
+
+El sumatorio abrevia la expresión
+
+$$
+(AB)_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{in}b_{nj}.
+$$
+
+Cada término $a_{ik}b_{kj}$ es un **producto de dos escalares** de $K$; al sumar los $n$ términos se obtiene otro escalar, la entrada $(AB)_{ij}$. No se multiplican únicamente las entradas que ocupan la misma posición en ambas matrices.[^37]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1671,9 +1679,70 @@ tags:
 
 ### Producto como composición
 
-Una matriz representa una [[Matemáticas/Álgebra lineal/Aplicaciones lineales|aplicación lineal]] cuando se eligen bases en el dominio y el codominio. Cada columna contiene las coordenadas de la imagen de uno de los vectores de la base del dominio.
+> [!opcional]- Ampliación — Por qué el producto representa una composición
+> Una matriz $A\in M_{m\times n}(K)$ define una [[Matemáticas/Álgebra lineal/Aplicaciones lineales|aplicación lineal]] que recibe una columna de $n$ coordenadas y devuelve una de $m$:
+>
+> $$
+> T_A:K^n\longrightarrow K^m,\qquad T_A(\mathbf x)=A\mathbf x.
+> $$
+>
+> Para $B\in M_{n\times q}(K)$, la aplicación correspondiente es
+>
+> $$
+> T_B:K^q\longrightarrow K^n,\qquad T_B(\mathbf x)=B\mathbf x.
+> $$
+>
+> Componerlas significa usar la salida de $T_B$ como entrada de $T_A$:
+>
+> $$
+> K^q\xrightarrow{\ T_B\ }K^n\xrightarrow{\ T_A\ }K^m.
+> $$
+>
+> Las $n$ filas de $B$ dan las $n$ coordenadas que necesita $A$. Ésta es la razón de la condición de compatibilidad: el codominio de $T_B$ coincide con el dominio de $T_A$. El producto tiene $q$ columnas y $m$ filas porque la composición recibe $q$ coordenadas y devuelve $m$.
+>
+> La regla fila-columna garantiza que, para cada $\mathbf x\in K^q$,
+>
+> $$
+> T_A(T_B(\mathbf x))=A(B\mathbf x)=(AB)\mathbf x.
+> $$
+>
+> Por tanto,
+>
+> $$
+> \boxed{T_A\circ T_B=T_{AB}}.
+> $$
+>
+> ==En $AB$ actúa primero $B$ y después $A$==. Por ejemplo, una matriz $3\times2$ multiplicada por otra $2\times2$ representa el recorrido $K^2\to K^2\to K^3$.
+>
+> Para aplicaciones $S:U\to V$ y $T:V\to W$ entre espacios vectoriales, se eligen bases: cada columna de su matriz contiene las coordenadas de la imagen de un vector de la base del dominio. Si sus matrices son $B$ y $A$, respectivamente, la matriz de $T\circ S$ es $AB$, usando **la misma base de $V$** para escribir la salida de $S$ y la entrada de $T$.[^37]
 
-Si $B$ representa $S:U\to V$ y $A$ representa $T:V\to W$, la composición $T\circ S$ consiste en aplicar primero $S$ y después $T$. Su matriz es $AB$: primero se multiplica por $B$ y después por $A$.[^2]
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - matrices
+  - aplicaciones-lineales
+---
+> [!note] Pregunta
+> Si $A$ tiene $m$ filas y $n$ columnas, ¿entre qué espacios actúa la aplicación $T_A(\mathbf x)=A\mathbf x$?
+===
+> [!important] Respuesta
+> $T_A:K^n\to K^m$: recibe $n$ coordenadas y devuelve $m$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - matrices
+  - aplicaciones-lineales
+---
+> [!note] Pregunta
+> Para obtener la matriz de $T\circ S$ multiplicando las matrices de $S:U\to V$ y $T:V\to W$, ¿cómo deben elegirse las bases de $V$?
+===
+> [!important] Respuesta
+> Debe usarse la misma base de $V$ para las coordenadas de salida de $S$ y las de entrada de $T$.
+```
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -3453,6 +3522,8 @@ La matriz ampliada reúne los coeficientes y los términos independientes del si
 [^35]: University of Manitoba, *Math 1220*, §3.3, «Scalar Multiplication», ejercicio 3, solución por entradas de $0A=0$. [Texto y solución](https://linearalgebra.math.umanitoba.ca/math1220/section-17.html). Adaptación a la notación $0_K$ para el cero escalar y $0_{m\times n}$ para la matriz nula, sobre $K=\mathbb R$ o $\mathbb C$.
 
 [^36]: Isaiah Lankham, Bruno Nachtergaele y Anne Schilling, *Linear Algebra*, §4.2, «Elementary Properties of Vector Spaces», proposiciones 4.2.5 y 4.2.2: producto por $-1$ y unicidad del inverso aditivo. [UC Davis / LibreTexts](https://math.libretexts.org/Bookshelves/Linear_Algebra/Book%3A_Linear_Algebra_%28Schilling_Nachtergaele_and_Lankham%29/04%3A_Vector_spaces/4.02%3A_Elementary_properties_of_vector_spaces). Adaptación al caso matricial usando las leyes de suma y producto por escalar demostradas previamente; no se presupone la estructura de espacio vectorial.
+
+[^37]: Dan Margalit y Joseph Rabinoff, *Interactive Linear Algebra*, §3.4, «Matrix Multiplication», apartados 3.4.1–3.4.3: compatibilidad de dominios, regla fila-columna y representación de la composición mediante el producto de las matrices estándar. [Georgia Institute of Technology](https://textbooks.math.gatech.edu/ila/matrix-multiplication.html). El desarrollo sobre $K$ y la formulación en bases compatibles adaptan la explicación «Producto matricial: definición formal» aportada por el usuario; el texto de contraste presenta las transformaciones sobre $\mathbb R$.
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 

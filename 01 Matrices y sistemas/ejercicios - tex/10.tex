@@ -1,0 +1,90 @@
+
+% ---------- Exercise 10 ----------
+\item Let
+
+$$
+A = \begin{bmatrix}
+    \frac{1}{2} & -\frac{1}{2} \\
+    -\frac{1}{2} & \frac{1}{2}
+\end{bmatrix}.
+$$
+
+Compute $A^2$, $A^3$, $A^4$, and $A^5$.\\
+
+\textbf{Solution:}
+
+
+\begin{answer}
+    $$
+        A^2 = A \cdot A = \begin{bmatrix}
+            \frac{1}{2} & -\frac{1}{2} \\
+            -\frac{1}{2} & \frac{1}{2}
+        \end{bmatrix} \cdot \begin{bmatrix}
+            \frac{1}{2} & -\frac{1}{2} \\
+            -\frac{1}{2} & \frac{1}{2}
+        \end{bmatrix} = \begin{bmatrix}
+            \frac{1}{2} & -\frac{1}{2} \\
+            -\frac{1}{2} & \frac{1}{2}
+        \end{bmatrix}.
+    $$
+
+    Since $A^2=A$, it's clearer that, by the definition of the matrix power:
+
+    $$
+        \forall p \in \mathbb{N^+}, \quad A^p = A^{p-1} \cdot A \implies
+    $$
+
+    Therefore:
+    $$\begin{aligned}
+        \implies A^3 & = \underbrace{A^2}_{A} \cdot A = A \cdot A = A^2 = A \\
+        \implies A^4 & = \underbrace{A^3}_{A} \cdot A = A \cdot A = A^2 = A \\
+        \implies A^5 & = \underbrace{A^4}_{A} \cdot A = A \cdot A = A^2 = A \\
+    \end{aligned}$$
+\end{answer} \\
+
+\textbf{Alternative solution: (extra)} \\[0.5em]
+Since \\
+$$
+    \boxed{A^2 = A}
+$$ \\
+we may avoid the efford of calculte the other powers using induction.\\
+
+This means:
+
+    $$
+    \boxed{\forall n\in\mathbb{N^+},\quad A^n=A}
+    $$
+
+    \textbf{Base case ($n=1$):}
+
+    $$
+    A^1=A.
+    $$
+
+    \textbf{Inductive hypothesis:}
+
+    Let $n\in\mathbb{N}_{>0}$ and assume that $A^n=A$.\\
+
+    \textbf{Inductive step:}
+
+    Multiplying both sides of the inductive hypothesis
+    by $A$ on the right:
+
+    $$
+    A^n=A \implies A^nA=AA.
+    $$
+
+    Therefore,
+
+    $$
+    \begin{aligned}
+        A^{n+1}
+        &= A^nA \\
+        &= AA \\
+        &= A^2 \\
+        &= A.
+    \end{aligned}
+    $$
+
+    Therefore, $P(n)\implies P(n+1) \implies \boxed{A^n = A}$
+
