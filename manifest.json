@@ -2,7 +2,7 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "bd91367226816059854f72b2badf3b0fec20c849",
+  "sourceCommit": "815c86b217e34d6fe5ee1aac2f75472f4e7c84f2",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
@@ -14,7 +14,7 @@
     },
     {
       "path": "01 Matrices y sistemas/01 Matrices y operaciones.md",
-      "sourceHash": "f546ff6d1c81cc64ac2f1c17a27ee7643a96f8ccf4345edd19a09428861136a6"
+      "sourceHash": "94510049ef5e1424161d6f857d2127005a33951d2d59847499f751acaaffdf94"
     },
     {
       "path": "01 Matrices y sistemas/02 Eliminación y matrices elementales.md",
@@ -34,7 +34,7 @@
     },
     {
       "path": "01 Matrices y sistemas/ejercicios/00 Índice de ejercicios.md",
-      "sourceHash": "81f72abd1065d9ba1df605f7a3381dea801365e246433234136b55b15dd6f507"
+      "sourceHash": "7ebd98fa2df435cab34f5896e71d261c574861df2ac7cd1218212de98d246731"
     },
     {
       "path": "01 Matrices y sistemas/ejercicios/01 Operaciones, potencias y transposición.md",
@@ -54,7 +54,7 @@
     },
     {
       "path": "01 Matrices y sistemas/ejercicios/05 Sistemas e invertibilidad — ejercicios 35–40.md",
-      "sourceHash": "fdde3f307c7a0cb5cb44dfd6898d98666df9e6a2428b4f4ca08c84c76cda5b3b"
+      "sourceHash": "1c12438e4b40bce3e98194b28cc5dd8dcf5ee6e4c42aa6e7cc96602504dd5d14"
     },
     {
       "path": "02 Determinantes/01 Definición y cálculo de determinantes.md",
@@ -70,19 +70,19 @@
     },
     {
       "path": "02 Determinantes/ejercicios/00 Índice de ejercicios.md",
-      "sourceHash": "0be31d800f17d689c3ea8701bc97d6f7be97cdb32d84b85dd12fda1d416b3de3"
+      "sourceHash": "c3a376364cba3bf3726e66aa85cda4b841f4e5b862345e436587c5ef812f36b1"
     },
     {
       "path": "02 Determinantes/ejercicios/01 Cálculo y propiedades — ejercicios 41–48.md",
-      "sourceHash": "bc4bd06eb34c59795d7ace87f30b0aab1bcabf7a3ac1fb40e29c56dd6edc5762"
+      "sourceHash": "c25158dfa50206b75bdf88c31d4f78e232a9317108957a601e41a4850e148c57"
     },
     {
       "path": "02 Determinantes/ejercicios/02 Productos, invertibilidad y parámetros — ejercicios 49–54.md",
-      "sourceHash": "ac5ada4f6ccbefd08b49ef3a2b33829c0c4878278fae14f152ab8edb33554ad4"
+      "sourceHash": "c71e71f2f7c51a84c9ffe7642e58b390d0fa1ca342963bdcb084f2d14565a452"
     },
     {
       "path": "02 Determinantes/ejercicios/03 Cofactores, adjunta y Cramer — ejercicios 55–58.md",
-      "sourceHash": "b9a3e64ca2cb59857fabba5fe82e49d040aea7515cac601a3b3b9e39f4002f2d"
+      "sourceHash": "6d2c8aec49234770cfe49a68074ca833b82318e8fd81c07be88eda6cde06ab5f"
     },
     {
       "path": "03 Espacios vectoriales/01 Espacios vectoriales y axiomas.md",
@@ -109,12 +109,24 @@
       "sourceHash": "d6def69b896e5579af4783bbbc9aaafa7ac6b3050c3d92695dd6905b2f53eec7"
     },
     {
+      "path": "03 Espacios vectoriales/ejercicios/00 Índice de ejercicios.md",
+      "sourceHash": "ab941f69464aea6684977471dcc7fcf18d0e5e89f877c0b37dc70de0d2b8dafd"
+    },
+    {
       "path": "03 Espacios vectoriales/ejercicios/01 Axiomas y subespacios — ejercicios 59–65.md",
-      "sourceHash": "2ce7781fe34c25814a7bf131b9f6a539f160d739789c288a34dbcc5d98086ece"
+      "sourceHash": "6b05e48b3bb19edb5390e458530a58f890b16ff898ac4c1d48ca95b0e1c3492c"
     },
     {
       "path": "03 Espacios vectoriales/ejercicios/02 Combinaciones lineales y espacio generado — ejercicios 66–77.md",
-      "sourceHash": "c798a3f7fdd34c27a7109f1097db6268e8d9ba733806d846b5fd15f169609534"
+      "sourceHash": "e315bcf9707441cc3eea7945ebf6c1baa7972d81ea884e10745c4de32fc62088"
+    },
+    {
+      "path": "03 Espacios vectoriales/ejercicios/03 Independencia, bases y coordenadas — ejercicios 78–88.md",
+      "sourceHash": "3211512693d50fdcbbbcbbaa0ef9c9b1554545a359420724810a08619599ff32"
+    },
+    {
+      "path": "03 Espacios vectoriales/ejercicios/04 Dimensión, intersección y suma — ejercicios 89–90.md",
+      "sourceHash": "2f0b8cfa3ba6530e283cd65855c1a5cb3f093e1ba303e87eb72c051bf8d12687"
     },
     {
       "path": "04 Transformaciones lineales/01 Aplicaciones entre conjuntos.md",
@@ -179,14 +191,14 @@
   ],
   "stats": {
     "en": {
-      "translated": 1271,
-      "reused": 6196,
-      "total": 7467
+      "translated": 976,
+      "reused": 7185,
+      "total": 8161
     },
     "pt": {
-      "translated": 1271,
-      "reused": 6196,
-      "total": 7467
+      "translated": 976,
+      "reused": 7185,
+      "total": 8161
     }
   }
 }
