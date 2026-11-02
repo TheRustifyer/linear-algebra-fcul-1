@@ -1,0 +1,33 @@
+
+% ---------- Exercise 14 ----------
+\item {\bfseries\boldmath
+    Let $A_1,A_2,\ldots,A_n$ be matrices such that
+    the product $A_1A_2\cdots A_n$ is defined.
+
+    Express $(A_1A_2\cdots A_n)^T$ in terms of
+    $A_1^T,A_2^T,\ldots,A_n^T$.
+}
+
+\begin{answer}
+    Using the transpose property
+
+    $$
+    (AB)^T=B^TA^T,
+    $$
+
+    and applying it successively, we obtain:
+
+    $$
+    \begin{aligned}
+        (A_1A_2\cdots A_n)^T
+        &=\left((A_1A_2\cdots A_{n-1})A_n\right)^T\\
+        &=A_n^T(A_1A_2\cdots A_{n-1})^T\\
+        &=A_n^TA_{n-1}^T
+          (A_1A_2\cdots A_{n-2})^T\\
+        &\ \vdots\\
+        &=\boxed{A_n^TA_{n-1}^T\cdots A_2^TA_1^T}.
+    \end{aligned}
+    $$
+
+    So the transpose of a matrix product is the product of the transposed matrices in reverse order.
+\end{answer}
