@@ -2,7 +2,7 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "6d62506e889c4753c863b67e05a1396b7120d97f",
+  "sourceCommit": "4df16534d27265e35e9b06df5462bb751a4dba4b",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
