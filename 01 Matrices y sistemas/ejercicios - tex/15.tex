@@ -1,0 +1,28 @@
+
+% ---------- Exercise 15 ----------
+\item {\bfseries\boldmath
+    Show that, for any square matrix $A$,
+    the matrix $A+A^T$ is symmetric.
+}
+
+\begin{answer}
+    By definition, a matrix $A$ is symmetric
+    if and only if $A=A^T$.\\
+
+    Let $A\in\mathcal{M}_n(\mathbb{K})$.\\
+    Note that $A^T\in\mathcal{M}_n(\mathbb{K})$, so $A+A^T$ is defined.\\
+
+    Using the properties of transposition:
+
+    $$
+    \begin{aligned}
+        (A+A^T)^T
+        &= A^T+(A^T)^T \\
+        &= A^T+A \\
+        &= A+A^T \implies
+    \end{aligned}
+    $$
+    $$
+        \implies \boxed{(A+A^T)^T=A+A^T}.
+    $$
+\end{answer}
