@@ -1,0 +1,210 @@
+
+% ---------- Exercise 16 ----------
+\item {\bfseries\boldmath
+    Indicate which of the following matrices are in
+    echelon form and which are in reduced echelon form.
+}
+
+\begin{enumerate}[label=\alph*)]
+
+    \item $A=
+    \begin{bmatrix}
+        1&1&5\\
+        0&-1&1\\
+        0&0&1
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Echelon form, not reduced.}
+        The pivots move strictly to the right,
+        but the second pivot is $-1$, not $1$.
+    \end{answer}
+
+    \item $B=
+    \begin{bmatrix}
+        1&0&0\\
+        0&1&0\\
+        5&1&1
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Neither.}
+        The first nonzero entries of the rows
+        are in columns $1$, $2$ and $1$,
+        respectively.
+    \end{answer}
+
+    \item $C=
+    \begin{bmatrix}
+        1&5&-4\\
+        0&0&1\\
+        0&0&1
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Neither.}
+        The second and third rows have
+        their first nonzero entry in the same column.
+    \end{answer}
+
+    \item $D=
+    \begin{bmatrix}
+        1&0&-4\\
+        0&0&1\\
+        0&0&0
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Echelon form, not reduced.}
+        The pivots are in positions $(1,1)$ and $(2,3)$,
+        but $d_{13}=-4$ is nonzero above the second pivot.
+    \end{answer}
+
+    \item $E=
+    \begin{bmatrix}
+        1&5&0\\
+        0&0&1\\
+        0&0&0
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Reduced echelon form.}
+        The pivots are $1$, move strictly to the right
+        and have only zeros above them.
+        The zero row is at the bottom.
+    \end{answer}
+
+    \item $F=
+    \begin{bmatrix}
+        1&0&0\\
+        0&0&1\\
+        0&0&0
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Reduced echelon form.}
+        The pivots are in positions $(1,1)$ and $(2,3)$,
+        both equal $1$, with zeros above them.
+        The zero row is at the bottom.
+    \end{answer}
+
+    \item $G=
+    \begin{bmatrix}
+        0&0&0\\
+        1&5&0\\
+        0&0&1
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Neither.}
+        The first row is zero, but there are
+        nonzero rows below it.
+    \end{answer}
+
+    \item $H=
+    \begin{bmatrix}
+        0&2&4&0\\
+        0&0&8&3\\
+        0&0&0&0\\
+        0&0&0&0
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Echelon form, not reduced.}
+        The pivots are in positions $(1,2)$ and $(2,3)$,
+        and the zero rows are at the bottom.
+        However, the pivots are $2$ and $8$, not $1$.
+    \end{answer}
+
+    \item $I=
+    \begin{bmatrix}
+        1&5&0\\
+        0&0&0\\
+        0&0&1
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Neither.}
+        The second row is zero, but the third is not.
+    \end{answer}
+
+    \item $J=
+    \begin{bmatrix}
+        1&5&0\\
+        0&0&0\\
+        0&0&0
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Reduced echelon form.}
+        There is only one pivot, equal to $1$,
+        and all remaining rows are zero.
+    \end{answer}
+
+    \item $K=
+    \begin{bmatrix}
+        1&0&-2&0\\
+        0&0&0&1\\
+        0&0&0&0\\
+        0&0&0&0
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Reduced echelon form.}
+        The pivots are in positions $(1,1)$ and $(2,4)$,
+        both equal $1$, with zeros above them.
+        The zero rows are at the bottom.
+    \end{answer}
+
+    \item $L=
+    \begin{bmatrix}
+        0&1&-7\\
+        0&0&0\\
+        0&0&0
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Reduced echelon form.}
+        The only pivot is $l_{12}=1$,
+        and all remaining rows are zero.
+    \end{answer}
+
+    \item $M=
+    \begin{bmatrix}
+        0&1&-7
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Reduced echelon form.}
+        The only pivot is $m_{12}=1$.
+        The remaining conditions hold trivially.
+    \end{answer}
+
+    \item $N=
+    \begin{bmatrix}
+        1\\
+        1\\
+        0
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Neither.}
+        The first two rows have their first
+        nonzero entry in the same column.
+    \end{answer}
+
+    \item $O=
+    \begin{bmatrix}
+        0&0&0\\
+        0&0&0\\
+        0&0&0
+    \end{bmatrix}$
+
+    \begin{answer}
+        \textbf{Reduced echelon form.}
+        All rows are zero. Since there are no pivots,
+        the conditions concerning them hold
+        vacuously.
+    \end{answer}
+
+\end{enumerate}
