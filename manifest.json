@@ -2,7 +2,7 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "f1de4aa94c4c7b5cc478ad969a3100763ec35d54",
+  "sourceCommit": "0b3932aac52eda1652946045753ab037df48236f",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
@@ -22,15 +22,15 @@
     },
     {
       "path": "01 Matrices y sistemas/03 Compatibilidad, rango e inversa.md",
-      "sourceHash": "63900adf6bd3e4b10c73155fe45371d7dd2a51f14d487899baa0f05cef343762"
+      "sourceHash": "facbfd128d24b2778ee2b43b4756f2e7efb3b21071cd4ad50ccecf87c315315e"
     },
     {
       "path": "01 Matrices y sistemas/04 Factorización LU.md",
-      "sourceHash": "296cfed1d2143d129fecb80dc5147e8ad367a96ed8b804b27d165218da432d9c"
+      "sourceHash": "926a5062363cfaa9fb5b5e7bbffc719480bd0d71856a71f62109d2e18ffdc64d"
     },
     {
       "path": "01 Matrices y sistemas/05 Sistemas de ecuaciones lineales.md",
-      "sourceHash": "1350af90825a9ba5b4dd448120db9c3465b8d8cd7f5afc898d98ff6aadacfdc2"
+      "sourceHash": "1ee4792451c5f8f52b4a98127cffe8b77e1f356560c437246e3e269369c96711"
     },
     {
       "path": "01 Matrices y sistemas/ejercicios/00 Índice de ejercicios.md",
@@ -191,14 +191,14 @@
   ],
   "stats": {
     "en": {
-      "translated": 0,
-      "reused": 8161,
-      "total": 8161
+      "translated": 818,
+      "reused": 7656,
+      "total": 8474
     },
     "pt": {
-      "translated": 0,
-      "reused": 8161,
-      "total": 8161
+      "translated": 818,
+      "reused": 7656,
+      "total": 8474
     }
   }
 }
