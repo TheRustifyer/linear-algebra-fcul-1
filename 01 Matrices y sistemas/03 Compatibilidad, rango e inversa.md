@@ -24,7 +24,7 @@ relacionado:
 fsrs_goal: Clasifica sistemas por sus rangos, calcula la inversa por Gauss–Jordan, comprueba inversas bilaterales de matrices elementales, escalares, transpuestas y conjugadas transpuestas, resuelve AX=B con una matriz invertible y justifica por qué AB invertible fuerza la invertibilidad de A y B.
 simbolos:
   - \operatorname{rg}(A)
-  - - A\mid\mathbf b
+  - "[A\\mid\\mathbf b]"
   - A^{-1}
   - I_n
 tags:
@@ -42,36 +42,161 @@ await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 
 # Compatibilidad, rango e inversa
 
-> [!important] Alcance de las clases
-> Integra el rango de las aulas 5–6, las diapositivas 11–14 del aula 6 y el aula 7 completa sobre inversas. El criterio de compatibilidad amplía lo necesario para clasificar sistemas; el aula 8 se desarrolla por separado.
+Una fila $0=1$ basta para concluir que un sistema no tiene solución. Si no aparecen contradicciones, los pivotes indican qué incógnitas se pueden calcular y cuáles quedan libres. Contarlos permite clasificar el sistema sin necesidad de escribir primero todas sus soluciones.[^a9]
 
-La forma escalonada permite leer tres aspectos de un [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|sistema lineal]]: si existe solución, cuántas variables quedan libres y si una matriz cuadrada puede deshacer una transformación. El mismo dato —la posición de los pivotes— conecta compatibilidad, rango e invertibilidad.
+En lo que sigue, $K$ es $\mathbb R$ o $\mathbb C$, y los vectores que aparecen en productos matriciales se representan mediante columnas.
 
 ## Rango y pivotes
 
+### Rango de una matriz
+
 > [!definicion] Rango
-> El rango de una matriz $A$, denotado $\operatorname{rg}(A)$, es el número de pivotes de cualquiera de sus formas escalonadas por filas. Equivale a la dimensión del espacio generado por sus filas y también por sus columnas.
+> El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de una matriz $A$, denotado $\operatorname{rg}(A)$, es el número de pivotes de cualquiera de sus formas escalonadas por filas.[^a6-rango]
 
-Las operaciones elementales por filas no cambian el rango. Por eso puede calcularse reduciendo la matriz: cada fila no nula de la forma escalonada aporta un pivote, y las filas nulas no aportan ninguno. Si $A$ tiene $m$ filas y $n$ columnas,
+==Las operaciones elementales no cambian ese número.== Para calcularlo, se reduce la matriz y se cuentan las filas no nulas de la forma escalonada: cada una contiene un pivote.
+
+#### Ejemplo: contar pivotes
+
+La matriz
 
 $$
-0\leq \operatorname{rg}(A)\leq\min(m,n).
+R=\begin{pmatrix}1&1\\0&0\end{pmatrix}
 $$
 
-Una columna pivote identifica una variable básica; una columna sin pivote identifica una variable libre. En el sistema homogéneo, las variables libres parametrizan las soluciones. El rango y estas subestructuras se relacionan con el [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo y la imagen]] de la aplicación representada por la matriz.[^2]
+ya está escalonada. Tiene un solo pivote, en la primera columna, por lo que $\operatorname{rg}(R)=1$.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - rango
+---
+> [!note] Pregunta
+> ¿Cómo se calcula el rango de una matriz mediante eliminación por filas?
+===
+> [!important] Respuesta
+> Se obtiene una forma escalonada y se cuentan sus pivotes, uno por fila no nula. Las operaciones elementales conservan el rango.
+```
+
+### Cotas del rango
+
+#### Propiedad
+
+> [!teorema] El rango está limitado por el tamaño
+> Para $A\in M_{m\times n}(K)$,
+>
+> $$
+> \boxed{0\leq\operatorname{rg}(A)\leq\min(m,n)}.
+> $$
+
+#### Demostración
+
+> [!demostracion] Demostración
+> El rango cuenta pivotes, por lo que no puede ser negativo. En una forma escalonada hay como máximo un pivote por fila y uno por columna. Por tanto, su número no supera ni las $m$ filas ni las $n$ columnas. Así,
+>
+> $$
+> 0\leq\operatorname{rg}(A)\leq\min(m,n).\qquad\blacksquare
+> $$
+> [^a9]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - rango
+---
+> [!note] Pregunta
+> ¿Cuál es el mayor rango posible de una matriz $m\times n$?
+===
+> [!important] Respuesta
+> $\min(m,n)$: no puede haber más de un pivote en una misma fila ni en una misma columna.
+```
+
+> [!opcional]- Relación con los espacios generados
+> El rango también es la dimensión del espacio generado por las columnas y del generado por las filas. El espacio generado reúne todas sus combinaciones lineales; su dimensión es el número de vectores de una base, es decir, de una familia independiente que genera ese espacio. Esta interpretación se desarrolla en [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo, imagen, rango y nulidad]].[^rango-espacios]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - rango
+---
+> [!note] Pregunta
+> ¿Cómo se relaciona el rango de una matriz con los espacios generados por sus filas y sus columnas?
+===
+> [!important] Respuesta
+> Es la dimensión de ambos espacios: el número de vectores de una base de cada uno.
+```
 
 ## Criterio de compatibilidad
 
-Sea $A\in K^{m\times n}$ y $\mathbf b\in K^m$, con $K=\mathbb R$ o $\mathbb C$. El rango de la matriz ampliada nunca es menor que el de $A$, porque sólo se añade una columna.
+### Sistema compatible
 
-> [!definicion] Teorema de Rouché–Capelli
-> El sistema $A\mathbf x=\mathbf b$ es compatible si y sólo si
-> $$
-> \operatorname{rg}(A)=\operatorname{rg}([A\mid\mathbf b]).
-> $$
-> Si los rangos difieren, una fila reducida contiene una igualdad imposible $0=c$ con $c\ne0$.
+> [!definicion] Compatibilidad
+> Un [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|sistema lineal]] es **compatible** si tiene al menos una solución.[^a9]
 
-Cuando el sistema es compatible y el rango común es $r$, hay $n-r$ variables libres. Por tanto, si $r=n$ la solución es única; si $r<n$, en los cuerpos $\mathbb R$ y $\mathbb C$ hay infinitas soluciones parametrizadas. El rango de $A$ no basta por sí solo para decidir compatibilidad: hay que comparar con el rango de la matriz ampliada.[^1][^2]
+Por ejemplo, $x+y=2$ es compatible: $(2,0)$ satisface la ecuación. Para decidir la compatibilidad de un sistema completo, se compara el rango de sus coeficientes con el de su matriz ampliada.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - compatibilidad
+---
+> [!note] Pregunta
+> ¿Qué significa que un sistema sea compatible?
+===
+> [!important] Respuesta
+> Que existe al menos una tupla que satisface todas sus ecuaciones.
+```
+
+### Teorema de Rouché–Capelli
+
+Sean $A\in M_{m\times n}(K)$ y $\mathbf b\in K^m$. Añadir una columna a $A$ puede aumentar su rango en uno o dejarlo igual. En particular,
+
+$$
+\operatorname{rg}(A)\leq\operatorname{rg}([A\mid\mathbf b])\leq\operatorname{rg}(A)+1.
+$$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - rango
+---
+> [!note] Pregunta
+> ¿Cuánto puede aumentar el rango al añadir una columna a una matriz?
+===
+> [!important] Respuesta
+> Como máximo, en uno: la nueva columna aporta a lo sumo un pivote. El rango nunca disminuye.
+```
+
+#### Propiedad
+
+> [!teorema] Criterio de Rouché–Capelli
+> El sistema $A\mathbf x=\mathbf b$ es compatible si, y sólo si,
+>
+> $$
+> \boxed{\operatorname{rg}(A)=\operatorname{rg}([A\mid\mathbf b])}.
+> $$
+> [^a9]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Reducimos la matriz ampliada mediante operaciones elementales. Estas conservan las soluciones y los rangos.
+>
+> **Si los rangos son distintos**, la última columna añade un pivote que no está en la parte de coeficientes. Aparece entonces una fila
+>
+> $$
+> [0\ \cdots\ 0\mid c],\qquad c\ne0.
+> $$
+>
+> Su ecuación es $0=c$, imposible para cualquier valor de las incógnitas. El sistema es incompatible.
+>
+> **Si los rangos son iguales**, no hay pivote en la última columna y no aparece ninguna ecuación imposible. Se pueden elegir las variables sin pivote y resolver las restantes por sustitución desde la última fila no nula. Si no hay variables libres, la sustitución determina directamente todas las incógnitas. En ambos casos se obtiene al menos una solución.
+>
+> Por tanto, la igualdad de rangos equivale a la compatibilidad. $\blacksquare$[^a9]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -89,503 +214,1032 @@ tags:
 
 ## Clasificación de los sistemas
 
-La clasificación depende de la comparación de rangos y del número $n$ de incógnitas.
+Una vez comprobada la compatibilidad, se cuentan las columnas de coeficientes sin pivote. Si hay $n$ incógnitas y $r$ pivotes, quedan $n-r$ variables libres.[^a9]
 
 ### Sistema compatible determinado
 
-Es compatible determinado si tiene una única solución. Esto ocurre exactamente cuando
+> [!definicion] Compatible determinado
+> Un sistema es compatible determinado cuando tiene **una única solución**. El criterio es
+>
+> $$
+> \boxed{\operatorname{rg}(A)=\operatorname{rg}([A\mid\mathbf b])=n}.
+> $$
 
-$$
-\operatorname{rg}(A)=\operatorname{rg}([A\mid\mathbf b])=n.
-$$
+Cada incógnita tiene un pivote. Por ejemplo, si la ampliada reducida es $[I_n\mid\mathbf c]$, la única solución es $\mathbf x=\mathbf c$.
 
-Cada incógnita corresponde entonces a una columna pivote.
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - compatibilidad
+---
+> [!note] Pregunta
+> ¿Cuándo es compatible determinado un sistema de $n$ incógnitas?
+===
+> [!important] Respuesta
+> Cuando tiene una única solución, lo que equivale a $\operatorname{rg}(A)=\operatorname{rg}([A\mid\mathbf b])=n$.
+```
 
 ### Sistema compatible indeterminado
 
-Es compatible indeterminado si tiene más de una solución. Para $K=\mathbb R$ o $\mathbb C$, esto equivale a
+> [!definicion] Compatible indeterminado
+> Un sistema es compatible indeterminado cuando tiene **más de una solución**. Sobre $\mathbb R$ o $\mathbb C$, el criterio es
+>
+> $$
+> \boxed{\operatorname{rg}(A)=\operatorname{rg}([A\mid\mathbf b])<n}.
+> $$
 
-$$
-\operatorname{rg}(A)=\operatorname{rg}([A\mid\mathbf b])<n.
-$$
+Al menos una variable es libre. Puede tomar infinitos valores reales o complejos, y cada valor distinto cambia una coordenada de la solución. Por eso un sistema lineal compatible indeterminado sobre estos cuerpos tiene infinitas soluciones.
 
-Las columnas sin pivote determinan las variables libres y, con ellas, los parámetros de la solución general. En $\mathbb R$ o $\mathbb C$ un parámetro puede tomar infinitos valores; al variar una variable libre se obtienen soluciones distintas, pues esa coordenada cambia.
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - compatibilidad
+---
+> [!note] Pregunta
+> ¿Cuándo es compatible indeterminado un sistema real o complejo de $n$ incógnitas?
+===
+> [!important] Respuesta
+> Cuando $\operatorname{rg}(A)=\operatorname{rg}([A\mid\mathbf b])<n$. Tiene variables libres y, por tanto, infinitas soluciones.
+```
 
 ### Sistema incompatible
 
-Es incompatible si no tiene solución:
+> [!definicion] Incompatible
+> Un sistema es incompatible cuando **no tiene solución**. Esto equivale a
+>
+> $$
+> \boxed{\operatorname{rg}(A)<\operatorname{rg}([A\mid\mathbf b])}.
+> $$
+
+La ampliada escalonada contiene una fila $[0\ \cdots\ 0\mid c]$ con $c\ne0$.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - compatibilidad
+---
+> [!note] Pregunta
+> ¿Cómo se reconoce un sistema incompatible en su matriz ampliada escalonada?
+===
+> [!important] Respuesta
+> Aparece una fila $[0\ \cdots\ 0\mid c]$ con $c\ne0$: expresa $0=c$. Entonces el rango de la ampliada supera al de los coeficientes.
+```
+
+### Grado de indeterminación
+
+> [!definicion] Grado de indeterminación
+> Para un sistema compatible indeterminado de $n$ incógnitas, el grado de indeterminación es el número de parámetros independientes de su solución general:
+>
+> $$
+> \boxed{p=n-\operatorname{rg}(A)}.
+> $$
+> [^a9]
+
+Por ejemplo, un sistema compatible de cinco incógnitas y rango tres tiene dos parámetros. **Discutir** un sistema consiste en clasificarlo e indicar, si procede, ese número; **resolverlo** exige además determinar sus soluciones.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - variables-libres
+---
+> [!note] Pregunta
+> ¿Cuál es el grado de indeterminación de un sistema compatible indeterminado con $n$ incógnitas y rango $r$?
+===
+> [!important] Respuesta
+> $n-r$: el número de variables libres y de parámetros independientes de su solución general.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - compatibilidad
+---
+> [!note] Pregunta
+> ¿Qué diferencia hay entre discutir un sistema lineal y resolverlo?
+===
+> [!important] Respuesta
+> Discutirlo es clasificarlo e indicar su grado de indeterminación, si procede. Resolverlo es determinar su conjunto solución.
+```
+
+### Ejemplo trabajado: el segundo miembro decide la compatibilidad
+
+Clasifiquemos la ampliada escalonada
 
 $$
-\operatorname{rg}(A)<\operatorname{rg}([A\mid\mathbf b]).
+\left[\begin{array}{cc|c}1&1&2\\0&0&0\end{array}\right].
 $$
 
-Al reducir la matriz ampliada aparece una fila cuyo lado de coeficientes es nulo y cuyo término independiente no lo es; representa $0=c$, con $c\ne0$.
-
-### Ejemplo trabajado: lectura de pivotes
-
-La forma escalonada ampliada
+Ambos rangos valen $1$. Hay dos incógnitas y un pivote; queda una variable libre. La única ecuación efectiva es $x+y=2$. Si $y=t$,
 
 $$
-\begin{pmatrix}1&1&\mid&2\\0&0&\mid&0\end{pmatrix}
+\operatorname{Sol}(S)=\{(2-t,t):t\in K\}.
 $$
 
-tiene un pivote en la matriz de coeficientes y uno en la ampliada: ambos rangos valen $1$. Hay $n-r=2-1=1$ variable libre. Tomando $y=t$, la primera fila da $x=2-t$; el sistema es compatible indeterminado.
+La sustitución da $(2-t)+t=2$ para cualquier $t$. El sistema es compatible indeterminado, de grado uno.
 
-En cambio,
+Si sólo cambia el último término independiente,
 
 $$
-\begin{pmatrix}1&1&\mid&2\\0&0&\mid&1\end{pmatrix}
+\left[\begin{array}{cc|c}1&1&2\\0&0&1\end{array}\right],
 $$
 
-tiene $\operatorname{rg}(A)=1$ y $\operatorname{rg}([A\mid\mathbf b])=2$. La última fila expresa $0=1$, así que el sistema es incompatible. La lectura de rangos evita confundir “menos pivotes que incógnitas” con incompatibilidad: ese caso también puede ser compatible, pero con variables libres.[^1]
+la última fila exige $0=1$. Ahora $\operatorname{rg}(A)=1$ y $\operatorname{rg}([A\mid\mathbf b])=2$: el sistema es incompatible.
+
+> [!advertencia] El rango de $A$ no basta
+> Los dos ejemplos tienen la misma matriz de coeficientes. Para decidir si un segundo miembro concreto admite solución, hay que estudiar también la columna ampliada.
 
 ## Inversa de una matriz cuadrada
 
+En los números reales, multiplicar por $\frac13$ deshace una multiplicación por $3$; de igual modo, $\sqrt5\cdot\frac1{\sqrt5}=1$. La existencia del inverso depende del conjunto en el que se trabaja: $3$ tiene inverso en $\mathbb R$, pero no dentro de $\mathbb N$.[^a6]
+
+Para matrices cuadradas, el papel de $1$ corresponde a $I_n$.
+
+### Matriz inversa e invertibilidad
+
 > [!definicion] Matriz inversa
-> Para $A\in K^{n\times n}$, una matriz $B\in K^{n\times n}$ es una [[Matemáticas/Álgebra lineal/Matriz inversa|matriz inversa]] de $A$ si
+> Sea $A\in M_n(K)$. Una matriz $B\in M_n(K)$ es una [[Matemáticas/Álgebra lineal/Matriz inversa|inversa]] de $A$ si
+>
 > $$
-> AB=BA=I_n.
+> \boxed{AB=BA=I_n}.
 > $$
-> Si existe, es única y se denota $A^{-1}$.
+>
+> Si existe, $A$ se llama **invertible**. La inversa es única y se denota $A^{-1}$.[^a6]
 
-Gauss–Jordan calcula la inversa reduciendo simultáneamente $A$ e $I_n$:
+La identidad es su propia inversa, puesto que $I_nI_n=I_n$. Una matriz sin inversa se llama **singular**. A diferencia de un escalar real, una matriz puede ser no nula y no tener inversa.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+---
+> [!note] Pregunta
+> ¿Qué debe cumplir $B\in M_n(K)$ para ser la inversa de $A\in M_n(K)$?
+===
+> [!important] Respuesta
+> $AB=BA=I_n$. Si existe tal $B$, la matriz $A$ es invertible y se escribe $B=A^{-1}$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+---
+> [!note] Pregunta
+> ¿Qué significa que una matriz cuadrada sea singular?
+===
+> [!important] Respuesta
+> Que no tiene inversa. Ser una matriz no nula no garantiza la invertibilidad.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - inversa
+---
+> [!note] Pregunta
+> ¿Cuál es la inversa de la matriz identidad?
+===
+> [!important] Respuesta
+> $I_n^{-1}=I_n$, porque $I_nI_n=I_n$.
+```
+
+#### Ejemplo: una fila o una columna nula
+
+La matriz
 
 $$
-[A\mid I_n]\longrightarrow[I_n\mid A^{-1}].
+C=\begin{pmatrix}1&0\\0&0\end{pmatrix}
 $$
 
-La reducción sólo puede dejar $I_n$ a la izquierda si hay un pivote en cada columna de $A$. Si falta un pivote, Gauss–Jordan no produce la identidad; más adelante se justifica que, para una matriz cuadrada, esto equivale a que no exista inversa. El procedimiento se apoya en que cada operación elemental es reversible; las matrices que representan esas operaciones se estudian y verifican en la sección siguiente.[^2]
+no es nula, pero no puede tener inversa. Para cualquier matriz $D$, la segunda fila de $CD$ es nula; por tanto, $CD\ne I_2$.
+
+En general, una fila nula de $A$ permanece nula en $AB$, y una columna nula permanece nula en $BA$. Cualquiera de esas condiciones impide que ambos productos sean la identidad.[^a6]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+---
+> [!note] Pregunta
+> ¿Por qué una matriz cuadrada con una fila nula no puede ser invertible?
+===
+> [!important] Respuesta
+> Esa fila permanece nula en cualquier producto $AB$, por lo que $AB$ nunca puede ser la identidad. Una columna nula impide análogamente que $BA=I$.
+```
+
+### Unicidad de la inversa
+
+#### Propiedad
+
+> [!teorema] La inversa es única
+> Si $B,C\in M_n(K)$ son inversas de $A\in M_n(K)$, entonces
+>
+> $$
+> \boxed{B=C}.
+> $$
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Por las hipótesis, $BA=I_n$ y $AC=I_n$. Calculamos el producto $BAC$ agrupándolo de dos formas:
+>
+> $$
+> B(AC)=BI_n=B,
+> $$
+>
+> $$
+> (BA)C=I_nC=C.
+> $$
+>
+> La asociatividad garantiza que $B(AC)=(BA)C$. Por tanto, $B=C$: dos inversas de la misma matriz necesariamente coinciden. $\blacksquare$[^unicidad]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+---
+> [!note] Pregunta
+> ¿Qué producto permite demostrar que dos inversas $B$ y $C$ de una misma matriz $A$ coinciden?
+===
+> [!important] Respuesta
+> $BAC$: por un lado, $B(AC)=B$; por otro, $(BA)C=C$. La asociatividad da $B=C$.
+```
 
 ### Ejemplo trabajado: cálculo por Gauss–Jordan
 
-Para $A=\begin{pmatrix}1&2\\3&7\end{pmatrix}$,
+Calculemos la inversa de
+
+$$
+A=\begin{pmatrix}1&2\\3&7\end{pmatrix}.
+$$
+
+Escribimos $A$ junto a $I_2$ y aplicamos las mismas operaciones a toda la fila. Primero, $R_2\leftarrow R_2-3R_1$:
 
 $$
 \left[\begin{array}{cc|cc}1&2&1&0\\3&7&0&1\end{array}\right]
-\xrightarrow{R_2\leftarrow R_2-3R_1}
-\left[\begin{array}{cc|cc}1&2&1&0\\0&1&-3&1\end{array}\right]
-\xrightarrow{R_1\leftarrow R_1-2R_2}
+\longrightarrow
+\left[\begin{array}{cc|cc}1&2&1&0\\0&1&-3&1\end{array}\right].
+$$
+
+Después, $R_1\leftarrow R_1-2R_2$:
+
+$$
 \left[\begin{array}{cc|cc}1&0&7&-2\\0&1&-3&1\end{array}\right].
 $$
 
-Por tanto,
+A la izquierda ha quedado la identidad. El bloque derecho es
 
 $$
 A^{-1}=\begin{pmatrix}7&-2\\-3&1\end{pmatrix}.
 $$
 
-La comprobación directa da $AA^{-1}=A^{-1}A=I_2$.
+La comprobación por ambos lados da
 
-## Inventario completo de invertibilidad: aulas 6 y 7
+$$
+AA^{-1}=\begin{pmatrix}7-6&-2+2\\21-21&-6+7\end{pmatrix}=I_2,
+$$
 
-El aula 6 motiva la inversa comparando $\sqrt5\cdot(1/\sqrt5)=1$ y $3\cdot(1/3)=1$ en $\mathbb R$ con el hecho de que $3$ no tiene inversa *dentro de* $\mathbb N$. En $M_n(K)$ el neutro es $I_n$, pero la multiplicación no es conmutativa: por eso la definición pide $AB=BA=I_n$. No toda matriz no nula es invertible; una fila o columna completamente nula impide la inversa. $I_n^{-1}=I_n$. El ejemplo de ambas clases es
+$$
+A^{-1}A=\begin{pmatrix}7-6&14-14\\-3+3&-6+7\end{pmatrix}=I_2.
+$$
 
-$$A=\begin{pmatrix}1&0&-1\\2&2&-1\\1&4&2\end{pmatrix},\qquad B=\begin{pmatrix}4&-2&1\\-5/2&3/2&-1/2\\3&-2&1\end{pmatrix},\qquad AB=BA=I_3,$$
+La justificación general de este procedimiento se apoya en las inversas de las matrices elementales.[^a7-calculo]
 
-de modo que $B=A^{-1}$. La unicidad de esta inversa se demuestra en [[#Unicidad de la inversa|la propiedad correspondiente]]. Las matrices elementales también son invertibles: $P_{ij}^{-1}=P_{ij}$, $D_i(\lambda)^{-1}=D_i(1/\lambda)$ para $\lambda\ne0$, y $E_{ij}(\lambda)^{-1}=E_{ij}(-\lambda)$.
+## Inversas y operaciones matriciales
 
 ### Inversa de una matriz elemental de permutación
 
-> [!formula] La propiedad
-> Si $P_{ij}$ se obtiene de $I_n$ intercambiando las filas distintas $i$ y $j$, entonces $P_{ij}^{-1}=P_{ij}$. (Aula 6, diap. 14.)[^a6]
+#### Propiedad
 
-#### Demostración paso a paso
+> [!teorema] Deshacer un intercambio
+> Sea $P_{ij}$ la matriz obtenida de $I_n$ al intercambiar las filas distintas $i$ y $j$. Entonces
+>
+> $$
+> \boxed{P_{ij}^{-1}=P_{ij}}.
+> $$
+> [^a6-elementales]
 
-Probaremos que $P_{ij}$ es inversa por ambos lados. Por el resultado sobre multiplicación por la izquierda, multiplicar una matriz por $P_{ij}$ intercambia en ella las filas $i$ y $j$; en particular, aplicado a $I_n$ produce $P_{ij}$.
+#### Demostración
 
-**1. Componer el intercambio consigo mismo.** La primera aplicación cambia las filas $i$ y $j$; la segunda las devuelve a sus lugares. Por tanto,
+> [!demostracion] Demostración
+> Multiplicar por $P_{ij}$ a la izquierda intercambia esas dos filas. Al hacerlo dos veces sobre $I_n$, cada fila vuelve a su lugar:
+>
+> $$
+> P_{ij}P_{ij}=I_n.
+> $$
+>
+> Como el candidato a inversa es el propio $P_{ij}$, ambos órdenes producen exactamente este mismo producto. Por la definición de inversa, $P_{ij}^{-1}=P_{ij}$. $\blacksquare$
 
-$$
-P_{ij}P_{ij}=I_n.
-$$
-
-**2. Verificar ambos órdenes.** La matriz y el candidato a inversa son el mismo factor, $P_{ij}$. Por ello, el producto de la matriz por el candidato y el del candidato por la matriz coinciden en la expresión ya calculada; ambos valen $I_n$. Por tanto, $P_{ij}^{-1}=P_{ij}$.
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+  - matrices-elementales
+---
+> [!note] Pregunta
+> ¿Cuál es la inversa de una matriz elemental que intercambia dos filas?
+===
+> [!important] Respuesta
+> Ella misma: repetir el intercambio devuelve las filas a sus posiciones iniciales.
+```
 
 ### Inversa de una matriz elemental de escalado
 
-> [!formula] La propiedad
-> Si $\lambda\in K\setminus\{0\}$, entonces $D_i(\lambda)^{-1}=D_i(\lambda^{-1})$. (Aula 6, diap. 14.)[^a6]
+#### Propiedad
 
-#### Demostración paso a paso
+> [!teorema] Deshacer un escalado
+> Si $D_i(\lambda)$ multiplica la fila $i$ por $\lambda\ne0$, entonces
+>
+> $$
+> \boxed{D_i(\lambda)^{-1}=D_i(\lambda^{-1})}.
+> $$
+> [^a6-elementales]
 
-Como $\lambda\ne0$, existe el escalar inverso $\lambda^{-1}$. El producto $D_i(\lambda)D_i(\lambda^{-1})$ aplica a $I_n$ primero el escalado por $\lambda^{-1}$ y después el escalado por $\lambda$ a la fila $i$.
+#### Demostración
 
-**1. Calcular la fila modificada.** En la columna $i$, el valor diagonal pasa de $1$ a $\lambda^{-1}$ y luego a $\lambda\lambda^{-1}=1$; en las demás columnas de esa fila, los ceros siguen siendo cero. La fila $i$ vuelve a ser la fila $i$ de $I_n$.
+> [!demostracion] Demostración
+> Como $\lambda\ne0$, existe $\lambda^{-1}\in K$. Escalar la fila $i$ por $\lambda$ y después por $\lambda^{-1}$ la multiplica en total por $\lambda^{-1}\lambda=1$. Las otras filas no cambian.
+>
+> En el orden contrario, el factor total es $\lambda\lambda^{-1}=1$. Aplicando ambas composiciones a $I_n$,
+>
+> $$
+> D_i(\lambda^{-1})D_i(\lambda)=I_n,
+> $$
+>
+> $$
+> D_i(\lambda)D_i(\lambda^{-1})=I_n.
+> $$
+>
+> Queda comprobada la inversa bilateral. $\blacksquare$
 
-**2. Comprobar las demás filas y el orden inverso.** Ninguna de las dos operaciones modifica filas distintas de $i$, así que las otras filas siguen siendo las de $I_n$. Repetir primero el factor $D_i(\lambda)$ y después $D_i(\lambda^{-1})$ también da diagonal $\lambda^{-1}\lambda=1$ en esa fila. Por tanto,
-
-$$
-D_i(\lambda)D_i(\lambda^{-1})=I_n,
-\qquad
-D_i(\lambda^{-1})D_i(\lambda)=I_n.
-$$
-
-El candidato es una inversa bilateral y $D_i(\lambda)^{-1}=D_i(\lambda^{-1})$.
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+  - matrices-elementales
+---
+> [!note] Pregunta
+> ¿Cómo se invierte el escalado de una fila por $\lambda\ne0$?
+===
+> [!important] Respuesta
+> Escalándola por $1/\lambda$: $D_i(\lambda)^{-1}=D_i(1/\lambda)$.
+```
 
 ### Inversa de una matriz elemental de reemplazo
 
-> [!formula] La propiedad
-> Si $i\ne j$ y $\lambda\in K$, entonces $E_{ij}(\lambda)^{-1}=E_{ij}(-\lambda)$. (Aula 6, diap. 14.)[^a6]
-
-#### Demostración paso a paso
-
-Partimos de las filas $R_1,\ldots,R_n$ de $I_n$. La operación $E_{ij}(\lambda)$ reemplaza la fila $i$ por $R_i+\lambda R_j$ y deja intacta la fila fuente $j$. Como $i\ne j$, la operación inversa puede restar el mismo múltiplo de esa fila fuente.
-
-**1. Aplicar primero $E_{ij}(\lambda)$ y luego $E_{ij}(-\lambda)$.** La fila $i$ pasa a
-
-$$
-(R_i+\lambda R_j)-\lambda R_j=R_i.
-$$
-
-La fila $j$ y todas las demás no cambian. Como cada producto por la izquierda ejecuta la operación indicada, esto prueba
-
-$$
-E_{ij}(-\lambda)E_{ij}(\lambda)=I_n.
-$$
-
-**2. Aplicar las operaciones en el orden contrario.** La fila $i$ pasa a
-
-$$
-(R_i-\lambda R_j)+\lambda R_j=R_i,
-$$
-
-porque la fila $j$ permanece intacta también en este orden. Las otras filas siguen iguales y, por tanto,
-
-$$
-E_{ij}(\lambda)E_{ij}(-\lambda)=I_n.
-$$
-
-Los dos productos son la identidad; así, $E_{ij}(\lambda)^{-1}=E_{ij}(-\lambda)$.
-
-### Inversa de un producto
-
-> [!formula] La propiedad
-> Si $A,B\in M_n(K)$ son invertibles, entonces $(AB)^{-1}=B^{-1}A^{-1}$. (Aula 7, diap. 2, propiedad 2.)[^a7]
-
-Para que el producto $AB$ se cancele por la derecha, el primer factor del candidato debe cancelar $B$ y el segundo debe cancelar $A$. Esto propone $B^{-1}A^{-1}$, en ese orden. Verificamos ambos órdenes: una inversa tiene que cancelar tanto a izquierda como a derecha.
-
-**1. Multiplicar en el orden $AB$ y el candidato.**
-
-$$
-(AB)(B^{-1}A^{-1})
-=A\bigl(B(B^{-1}A^{-1})\bigr).
-$$
-
-La primera igualdad usa asociatividad para reagrupar los factores sin cambiar su orden. Ahora se agrupa $B$ con su inversa:
-
-$$
-B(B^{-1}A^{-1})=(BB^{-1})A^{-1}=I_nA^{-1}.
-$$
-
-Al sustituir esta simplificación,
-
-$$
-A(I_nA^{-1})=AA^{-1}=I_n.
-$$
-
-Se usaron las identidades bilaterales $BB^{-1}=I_n$ y $AA^{-1}=I_n$, junto con que $I_n$ es neutro.
-
-**2. Multiplicar en el orden contrario.**
-
-$$
-(B^{-1}A^{-1})(AB)
-=B^{-1}\bigl(A^{-1}(AB)\bigr).
-$$
-
-De nuevo, asociatividad cambia solo los paréntesis. Agrupamos $A^{-1}$ con $A$:
-
-$$
-A^{-1}(AB)=(A^{-1}A)B=I_nB.
-$$
-
-Al sustituir y usar que $I_n$ es neutro,
-
-$$
-B^{-1}(I_nB)=B^{-1}B=I_n.
-$$
-
-Así, el candidato multiplica a $AB$ por ambos lados para dar $I_n$; por definición, $(AB)^{-1}=B^{-1}A^{-1}$.
-
-
-Si $BA=C$ y $B$ es invertible, multiplicar por $B^{-1}$ a la izquierda da $A=B^{-1}C$; en general **no** $A=CB^{-1}$, porque el factor que multiplica por la izquierda se deshace por la izquierda.[^a7]
-
-### Inversa de un múltiplo escalar
-
-> [!formula] La propiedad
-> Si $A\in M_n(K)$ es invertible y $\alpha\in K\setminus\{0\}$, entonces $\alpha A$ es invertible y $(\alpha A)^{-1}=\alpha^{-1}A^{-1}$. (Aula 7, diap. 2, propiedad 3; propuesta como TPC en diap. 3.)[^a7]
-
-#### Demostración paso a paso
-
-La hipótesis $\alpha\ne0$ garantiza que existe $\alpha^{-1}$. Verificaremos que $\alpha^{-1}A^{-1}$ es inversa por ambos lados. Usaremos la compatibilidad del producto matricial con escalares, demostrada antes: un escalar puede factorizarse fuera del producto.
-
-**1. Producto en el orden $\alpha A$ seguido de $\alpha^{-1}A^{-1}$.**
-
-$$
-(\alpha A)(\alpha^{-1}A^{-1})
-=\alpha\alpha^{-1}(AA^{-1})
-=1_K I_n=I_n.
-$$
-
-**2. Producto en el orden contrario.**
-
-$$
-(\alpha^{-1}A^{-1})(\alpha A)
-=\alpha^{-1}\alpha(A^{-1}A)
-=1_K I_n=I_n.
-$$
-
-Ambos productos son la identidad, así que el candidato es la inversa bilateral de $\alpha A$. Si $\alpha=0$, no existe $\alpha^{-1}$ y la matriz nula de orden positivo no es invertible.
-
-### Inversa de la transpuesta
-
-> [!formula] La propiedad
-> Si $A\in M_n(K)$ es invertible, entonces $A^T$ también lo es y $(A^T)^{-1}=(A^{-1})^T$. (Aula 7, diap. 2, propiedad 4; propuesta como TPC en diap. 3.)[^a7]
-
-#### Demostración paso a paso
-
-La definición de inversa bilateral da las dos igualdades $AA^{-1}=I_n$ y $A^{-1}A=I_n$. Transpondremos cada una por separado. Usamos la propiedad ya demostrada de que la transpuesta de un producto invierte el orden de sus factores y que $I_n^T=I_n$.[^a4]
-
-**1. Transponer $AA^{-1}=I_n$.**
-
-$$
-(AA^{-1})^T=(A^{-1})^TA^T=I_n.
-$$
-
-**2. Transponer $A^{-1}A=I_n$.**
-
-$$
-(A^{-1}A)^T=A^T(A^{-1})^T=I_n.
-$$
-
-El candidato $(A^{-1})^T$ multiplica a $A^T$ por la izquierda y por la derecha para dar $I_n$. Por definición, $(A^T)^{-1}=(A^{-1})^T$.
-
-### Inversa de la conjugada transpuesta
-
-> [!formula] La propiedad
-> Si $A\in M_n(\mathbb C)$ es invertible, entonces $A^*$ también lo es y $(A^*)^{-1}=(A^{-1})^*$. (Aula 7, diap. 2, propiedad 4; propuesta como TPC en diap. 3.)[^a7]
-
-#### Demostración paso a paso
-
-Para justificar la regla $(XY)^*=Y^*X^*$ para matrices cuadradas complejas, usamos la definición $X^*=\overline X^{\,T}$. La conjugación conserva el orden del producto y la transposición lo invierte, según las leyes establecidas para estas operaciones.[^a4]
-
-$$
-(XY)^*=\overline{XY}^{\,T}
-=(\overline X\,\overline Y)^T
-=(\overline Y)^T(\overline X)^T
-=Y^*X^*.
-$$
-
-Ahora partimos de las dos igualdades de inversa. Como $I_n^*=I_n$, la primera da
-
-$$
-(AA^{-1})^*=(A^{-1})^*A^*=I_n.
-$$
-
-La segunda, $A^{-1}A=I_n$, da
-
-$$
-(A^{-1}A)^*=A^*(A^{-1})^*=I_n.
-$$
-
-Por tanto, $(A^{-1})^*$ es inversa por ambos lados de $A^*$ y $(A^*)^{-1}=(A^{-1})^*$.
-
-### Criterio y cálculo por Gauss–Jordan (aula 7, diapositivas 6–9)
-
-Sea $A\in M_n(K)$. Al reducir $[A\mid I_n]$ por filas se obtiene una matriz equivalente $[B\mid Q]$. Si las operaciones efectuadas están representadas, en su orden, por $E_1,\ldots,E_p$, entonces
-
-$$
-Q=E_p\cdots E_1.
-$$
-
-Cada $E_k$ es invertible, como se probó antes; por tanto, también lo es su producto $Q$. Las operaciones actúan por multiplicación a la izquierda, de modo que
-
-$$
-QA=B.
-$$
-
-La matriz $B$ es la forma escalonada reducida de $A$.
-
-**Caso $B=I_n$.** De $QA=I_n$, multiplicando por $Q^{-1}$ a la izquierda, resulta $A=Q^{-1}$. Así, $A$ es invertible y $A^{-1}=Q$; el bloque derecho de la reducción contiene la inversa.
-
-**Caso $B\ne I_n$.** Una matriz cuadrada en forma escalonada reducida sin filas nulas tendría $n$ pivotes en sus $n$ columnas. Cada pivote sería un $1$ y el único elemento no nulo de su columna; por ello, la matriz sería $I_n$. Como $B$ no es la identidad, tiene una fila nula. Entonces el sistema $B\mathbf x=\mathbf e_i$, donde $i$ es el índice de esa fila y $\mathbf e_i$ tiene un $1$ en la posición $i$ y ceros en las demás, no tiene solución: la componente $i$ de $B\mathbf x$ siempre es cero.
-
-Si $B$ tuviera inversa, $B^{-1}\mathbf e_i$ sería una solución; por tanto, $B$ no es invertible. Si $A$ lo fuera, el producto $QA$ también lo sería, por la regla de la inversa de un producto; esto contradice $QA=B$. Así, $A$ no es invertible.
-
-En consecuencia, $A$ es invertible si y solo si su forma escalonada reducida es $I_n$, lo que equivale a tener un pivote en cada columna, es decir, $n$ pivotes y rango $n$. Además, si $B=I_n$, entonces
-
-$$
-A=Q^{-1}=(E_p\cdots E_1)^{-1}=E_1^{-1}\cdots E_p^{-1},
-$$
-
-un producto de matrices elementales. Recíprocamente, todo producto finito de matrices elementales es invertible, pues cada factor lo es y la inversa de un producto se construye invirtiendo el orden de los factores. La reducción de $[A\mid I_n]$ decide así la invertibilidad y, cuando existe, calcula $A^{-1}$.
-
-El cálculo completo mostrado en el aula 7 usa el $A$ anterior:
-
-$$\left[\begin{array}{ccc|ccc}1&0&-1&1&0&0\\2&2&-1&0&1&0\\1&4&2&0&0&1\end{array}\right]\xrightarrow{R_2-2R_1,\ R_3-R_1}\left[\begin{array}{ccc|ccc}1&0&-1&1&0&0\\0&2&1&-2&1&0\\0&4&3&-1&0&1\end{array}\right]$$
-
-$$\xrightarrow{R_3-2R_2}\left[\begin{array}{ccc|ccc}1&0&-1&1&0&0\\0&2&1&-2&1&0\\0&0&1&3&-2&1\end{array}\right]\xrightarrow{R_2-R_3,\ R_1+R_3}\left[\begin{array}{ccc|ccc}1&0&0&4&-2&1\\0&2&0&-5&3&-1\\0&0&1&3&-2&1\end{array}\right]$$
-
-$$\xrightarrow{R_2/2}\left[\begin{array}{ccc|ccc}1&0&0&4&-2&1\\0&1&0&-5/2&3/2&-1/2\\0&0&1&3&-2&1\end{array}\right]=[I_3\mid A^{-1}].$$
-
-Multiplicar el resultado por $A$ en ambos órdenes verifica el cálculo. La diapositiva final denomina a este procedimiento **método de eliminación de Gauss–Jordan para la inversa**. Fuentes: FCUL, [aula 6, pp. 11–14](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf) y [aula 7](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula7-MatrizesInv-impressao.pdf).
-
-## Equivalencias y unicidad
-
-Para una matriz cuadrada $A\in K^{n\times n}$ son equivalentes:
-
-- $A$ es invertible.
-- La forma escalonada de $A$ tiene $n$ pivotes.
-- $\operatorname{rg}(A)=n$.
-- Para todo $\mathbf b\in K^n$, el sistema $A\mathbf x=\mathbf b$ tiene solución única.
-
-### Relación entre invertibilidad, rango y solución única
-
-La reducción por filas explica las equivalencias. En forma escalonada, tener $n$ pivotes significa que cada columna contiene un pivote; por definición, esto equivale a que el rango sea $n$.
-
-**1. Relacionar pivotes e invertibilidad.** Si hay $n$ pivotes, cada columna tiene pivote y Gauss–Jordan transforma $A$ en $I_n$. El criterio anterior muestra entonces que $A$ es invertible. En sentido contrario, si $A$ es invertible, el criterio dice que su forma escalonada reducida es $I_n$, que tiene $n$ pivotes. Así, la invertibilidad equivale a tener $n$ pivotes, y esto equivale a $\operatorname{rg}(A)=n$ por la definición de rango mediante el número de pivotes.
-
-**2. De invertibilidad a solución única para todo término independiente.** Sea $\mathbf b\in K^n$ y definamos $\mathbf x=A^{-1}\mathbf b$. Esta elección da una solución porque
-
-$$
-A\mathbf x=A(A^{-1}\mathbf b)=(AA^{-1})\mathbf b=I_n\mathbf b=\mathbf b.
-$$
-
-Si $\mathbf x_1$ y $\mathbf x_2$ fueran dos soluciones, entonces $A\mathbf x_1=A\mathbf x_2$. Multiplicar ambos miembros por $A^{-1}$ a la izquierda da
-
-$$
-A^{-1}(A\mathbf x_1)=A^{-1}(A\mathbf x_2),
-$$
-
-y, por asociatividad y $A^{-1}A=I_n$, se obtiene $\mathbf x_1=\mathbf x_2$. La solución existe y es única.
-
-**3. De solución única a $n$ pivotes.** En particular, para $\mathbf b=\mathbf 0$ la solución debe ser solo $\mathbf x=\mathbf 0$. Si faltara un pivote en alguna columna, la variable de esa columna sería libre: se le podría asignar el valor $1$, fijar las demás variables libres en $0$ y determinar hacia atrás las variables pivote. Así se obtendría una solución no nula de $A\mathbf x=\mathbf 0$, contradiciendo la unicidad. Por tanto, hay pivote en cada columna.
-
-Esto demuestra el ciclo entre invertibilidad, rango completo, $n$ pivotes y solución única para todo $\mathbf b$. Para matrices no cuadradas no se aplica este criterio de inversa bilateral; las nociones de inversa lateral requieren un tratamiento propio. El [[Matemáticas/Álgebra lineal/Determinantes|determinante]] ofrece otro criterio de invertibilidad para matrices cuadradas, desarrollado en su nota correspondiente.[^2][^3]
-
-### Unicidad de la inversa
-
-> [!teorema] La inversa es única
-> Si $B$ y $C$ son inversas de una misma matriz $A$, entonces $B=C$.
-
-Como $B$ es inversa por la izquierda y $C$ por la derecha, $BA=I_n$ y $AC=I_n$. Primero, $I_n$ es el neutro por la derecha, así que
-
-$$
-B=BI_n.
-$$
-
-Ahora sustituimos $I_n=AC$, usando que $C$ es inversa por la derecha:
-
-$$
-BI_n=B(AC).
-$$
-
-La asociatividad permite reagrupar sin cambiar el orden de los factores:
-
-$$
-B(AC)=(BA)C.
-$$
-
-Finalmente, $BA=I_n$ y $I_n$ es neutro por la izquierda:
-
-$$
-(BA)C=I_nC=C.
-$$
-
-Por tanto, $B=C$. La prueba usa las dos identidades de inversa y la asociatividad del producto.
+#### Propiedad
+
+> [!teorema] Deshacer la suma de un múltiplo
+> Si $i\ne j$ y $E_{ij}(\lambda)$ representa $R_i\leftarrow R_i+\lambda R_j$, entonces
+>
+> $$
+> \boxed{E_{ij}(\lambda)^{-1}=E_{ij}(-\lambda)}.
+> $$
+> [^a6-elementales]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> La fila $j$ no cambia, porque $i\ne j$. Por eso podemos deshacer la operación restando el mismo múltiplo:
+>
+> $$
+> (R_i+\lambda R_j)-\lambda R_j=R_i.
+> $$
+>
+> En el orden contrario ocurre lo mismo:
+>
+> $$
+> (R_i-\lambda R_j)+\lambda R_j=R_i.
+> $$
+>
+> Las demás filas permanecen intactas. Aplicadas a $I_n$, estas operaciones prueban
+>
+> $$
+> E_{ij}(-\lambda)E_{ij}(\lambda)=I_n
+> =E_{ij}(\lambda)E_{ij}(-\lambda).
+> $$
+>
+> Por tanto, cada matriz es la inversa de la otra. $\blacksquare$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+  - matrices-elementales
+---
+> [!note] Pregunta
+> ¿Qué operación deshace $R_i\leftarrow R_i+\lambda R_j$, con $i\ne j$?
+===
+> [!important] Respuesta
+> $R_i\leftarrow R_i-\lambda R_j$. La fila fuente $j$ permanece intacta, por lo que $E_{ij}(\lambda)^{-1}=E_{ij}(-\lambda)$.
+```
 
 ### Doble inversa
 
-> [!formula] La propiedad
-> Si $A$ es invertible, entonces $(A^{-1})^{-1}=A$. (Aula 7, diap. 2, propiedad 1.)[^a7]
+#### Propiedad
 
-La definición de $A^{-1}$ da ambos productos
+> [!teorema] Inversa de la inversa
+> Para toda matriz invertible $A\in M_n(K)$,
+>
+> $$
+> \boxed{(A^{-1})^{-1}=A}.
+> $$
+> [^a7]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Las igualdades $A^{-1}A=I_n$ y $AA^{-1}=I_n$ muestran que $A$ es una inversa bilateral de $A^{-1}$. Como la inversa es única, $(A^{-1})^{-1}=A$. $\blacksquare$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+---
+> [!note] Pregunta
+> Si $A$ es invertible, ¿cuál es la inversa de $A^{-1}$?
+===
+> [!important] Respuesta
+> La propia matriz $A$: $(A^{-1})^{-1}=A$.
+```
+
+### Inversa de un producto
+
+#### Propiedad
+
+> [!teorema] Invertir un producto
+> Si $A,B\in M_n(K)$ son invertibles, entonces
+>
+> $$
+> \boxed{(AB)^{-1}=B^{-1}A^{-1}}.
+> $$
+> [^a7]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Comprobamos que $B^{-1}A^{-1}$ da la identidad al multiplicar por $AB$ en ambos órdenes. La asociatividad permite agrupar los factores contiguos $B$ y $B^{-1}$:
+>
+> $$
+> (AB)(B^{-1}A^{-1})
+> =A(BB^{-1})A^{-1}
+> =AI_nA^{-1}
+> =I_n.
+> $$
+>
+> En el otro orden, los factores contiguos que se cancelan primero son $A^{-1}$ y $A$:
+>
+> $$
+> (B^{-1}A^{-1})(AB)
+> =B^{-1}(A^{-1}A)B
+> =B^{-1}I_nB
+> =I_n.
+> $$
+>
+> Ambos productos valen $I_n$, por lo que $(AB)^{-1}=B^{-1}A^{-1}$. No se ha intercambiado ningún factor: sólo se han cambiado los paréntesis. $\blacksquare$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+---
+> [!note] Pregunta
+> Si $A$ y $B$ son matrices invertibles del mismo orden, ¿cuál es la inversa de $AB$?
+===
+> [!important] Respuesta
+> $(AB)^{-1}=B^{-1}A^{-1}$: se invierte el orden de los factores.
+```
+
+### Inversa de un múltiplo escalar
+
+#### Propiedad
+
+> [!teorema] Invertir un múltiplo no nulo
+> Si $A\in M_n(K)$ es invertible y $\alpha\in K\setminus\{0\}$, entonces
+>
+> $$
+> \boxed{(\alpha A)^{-1}=\alpha^{-1}A^{-1}}.
+> $$
+> [^a7-tpc][^escalar]
+
+#### Demostración
+
+> [!demostracion] Demostración · TPC resuelto
+> La condición $\alpha\ne0$ permite usar el escalar $\alpha^{-1}$. Para comprobar la fórmula, multiplicamos $\alpha A$ por $\alpha^{-1}A^{-1}$.
+>
+> Los escalares pueden sacarse del producto matricial. Así,
+>
+> $$
+> (\alpha A)(\alpha^{-1}A^{-1})
+> =(\alpha\alpha^{-1})(AA^{-1})
+> =1_KI_n=I_n.
+> $$
+>
+> En el orden contrario,
+>
+> $$
+> (\alpha^{-1}A^{-1})(\alpha A)
+> =(\alpha^{-1}\alpha)(A^{-1}A)
+> =I_n.
+> $$
+>
+> El candidato es inversa por ambos lados; por tanto, $(\alpha A)^{-1}=\alpha^{-1}A^{-1}$. $\blacksquare$
+
+Si $\alpha=0$, el producto $\alpha A$ es la matriz nula y no tiene inversa para $n\geq1$.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+---
+> [!note] Pregunta
+> Para $A$ invertible, ¿cuándo es invertible $\alpha A$ y cuál es su inversa?
+===
+> [!important] Respuesta
+> Cuando $\alpha\ne0$; su inversa es $\alpha^{-1}A^{-1}$. Si $\alpha=0$, se obtiene la matriz nula.
+```
+
+### Inversa de la transpuesta
+
+#### Propiedad
+
+> [!teorema] Transponer una inversa
+> Si $A\in M_n(K)$ es invertible, entonces $A^T$ es invertible y
+>
+> $$
+> \boxed{(A^T)^{-1}=(A^{-1})^T}.
+> $$
+> [^a7-tpc][^transpuesta]
+
+#### Demostración
+
+> [!demostracion] Demostración · TPC resuelto
+> Partimos de las dos igualdades que definen la inversa: $AA^{-1}=I_n$ y $A^{-1}A=I_n$.
+>
+> Al transponer un producto se invierte el orden de sus factores. Por tanto, transponer la primera igualdad da
+>
+> $$
+> (AA^{-1})^T=(A^{-1})^TA^T=I_n,
+> $$
+>
+> porque $I_n^T=I_n$. Transponer la segunda da
+>
+> $$
+> (A^{-1}A)^T=A^T(A^{-1})^T=I_n.
+> $$
+>
+> Así, $(A^{-1})^T$ es inversa de $A^T$ por los dos lados. Por definición,
+>
+> $$
+> \boxed{(A^T)^{-1}=(A^{-1})^T}.\qquad\blacksquare
+> $$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+  - transpuesta
+---
+> [!note] Pregunta
+> ¿Cómo se calcula la inversa de $A^T$ si se conoce $A^{-1}$?
+===
+> [!important] Respuesta
+> Se transpone la inversa: $(A^T)^{-1}=(A^{-1})^T$.
+```
+
+### Inversa de la conjugada transpuesta
+
+#### Propiedad
+
+> [!teorema] Conjugar y transponer una inversa
+> Si $A\in M_n(\mathbb C)$ es invertible y $A^*=\overline A^{\,T}$, entonces
+>
+> $$
+> \boxed{(A^*)^{-1}=(A^{-1})^*}.
+> $$
+> [^a7-tpc]
+
+#### Demostración
+
+> [!demostracion] Demostración · TPC resuelto
+> La conjugada transpuesta invierte el orden de un producto. La conjugación conserva el orden y la transposición lo invierte:
+>
+> $$
+> (XY)^*=\overline{XY}^{\,T}
+> =(\overline X\,\overline Y)^T
+> =(\overline Y)^T(\overline X)^T
+> =Y^*X^*.
+> $$
+>
+> Aplicamos esta regla a $AA^{-1}=I_n$. Como $I_n^*=I_n$, resulta
+>
+> $$
+> (AA^{-1})^*=(A^{-1})^*A^*=I_n.
+> $$
+>
+> Aplicándola a $A^{-1}A=I_n$, obtenemos el otro orden:
+>
+> $$
+> (A^{-1}A)^*=A^*(A^{-1})^*=I_n.
+> $$
+>
+> Las dos igualdades prueban que $(A^{-1})^*$ es la inversa de $A^*$. $\blacksquare$[^conjugada]
+
+Para matrices reales, la conjugación no cambia las entradas: esta propiedad coincide con la de la transpuesta.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+  - conjugada-transpuesta
+---
+> [!note] Pregunta
+> Si $A$ es una matriz compleja invertible, ¿cuál es la inversa de su conjugada transpuesta $A^*$?
+===
+> [!important] Respuesta
+> $(A^*)^{-1}=(A^{-1})^*$. Sobre $\mathbb R$, coincide con la regla de la transpuesta.
+```
+
+### Despejar una matriz multiplicada por la izquierda
+
+Si $BA=C$ y $B$ es invertible, se multiplica **ambos miembros por la izquierda** por $B^{-1}$:
 
 $$
-A^{-1}A=I_n,\qquad AA^{-1}=I_n.
+B^{-1}(BA)=B^{-1}C.
 $$
 
-Por tanto, $A$ es inversa bilateral de $A^{-1}$. La unicidad de la inversa, demostrada antes, permite concluir $(A^{-1})^{-1}=A$.
-
-## Sistemas cuadrados e inversas para resolver $AX=B$ (aula 10, diapositivas 8–10)
-
-Para $A\in M_n(K)$, el sistema $AX=B$ es compatible determinado si y solo si $r(A)=n$, condición equivalente a que $A$ sea invertible. En tal caso, para cualquier $B\in K^n$,
+Por asociatividad, $(B^{-1}B)A=I_nA=A$. Por tanto,
 
 $$
-AX=B\quad\Longrightarrow\quad X=A^{-1}B.
+\boxed{A=B^{-1}C}.
 $$
 
-La multiplicación por $A^{-1}$ se hace por la izquierda y conserva el orden: $A^{-1}(AX)=A^{-1}B$, así que $X=A^{-1}B$.
+El orden importa: $CB^{-1}$ no es, en general, el resultado de ese despeje.[^a7-despeje]
 
-> [!example] Resolver con la inversa
-> Para $A=\begin{pmatrix}1&0&-1\\2&2&-1\\1&4&2\end{pmatrix}$, ya se obtuvo $A^{-1}=\begin{pmatrix}4&-2&1\\-5/2&3/2&-1/2\\3&-2&1\end{pmatrix}$. Si $B=(1,2,3)^T$, entonces $X=A^{-1}B=(3,-1,2)^T$. La comprobación da $AX=(1,2,3)^T$.
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+---
+> [!note] Pregunta
+> Si $BA=C$ y $B$ es invertible, ¿cómo se despeja $A$?
+===
+> [!important] Respuesta
+> Multiplicando ambos miembros por $B^{-1}$ a la izquierda: $A=B^{-1}C$.
+```
+
+## Criterio y cálculo por Gauss–Jordan
+
+### Por qué el bloque derecho contiene la inversa
+
+Al reducir $[A\mid I_n]$, cada operación elemental equivale a multiplicar por una matriz elemental a la izquierda. Si se aplican, en ese orden, $E_1,\ldots,E_p$, el producto total es
+
+$$
+Q=E_p\cdots E_2E_1.
+$$
+
+La primera operación queda junto a $A$; cada nueva operación se añade a la izquierda. Por eso el resultado de actuar sobre los dos bloques es
+
+$$
+[A\mid I_n]\longrightarrow[QA\mid QI_n]=[QA\mid Q].
+$$
+
+Cada matriz elemental es invertible y su producto $Q$ también lo es.[^a7-calculo]
+
+#### Propiedad
+
+> [!teorema] Criterio de Gauss–Jordan para la inversa
+> Para $A\in M_n(K)$, existe $A^{-1}$ si, y sólo si, la forma escalonada reducida de $A$ es $I_n$. En ese caso,
+>
+> $$
+> \boxed{[A\mid I_n]\longrightarrow[I_n\mid A^{-1}]}.
+> $$
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Sea $R=QA$ la forma escalonada reducida de $A$, con $Q$ el producto invertible de las matrices elementales aplicadas.
+>
+> **Si $R=I_n$**, tenemos $QA=I_n$. Multiplicando por $Q^{-1}$ a la izquierda,
+>
+> $$
+> A=Q^{-1}.
+> $$
+>
+> Así, $A$ es invertible y su inversa es $Q$, precisamente el bloque derecho de la reducción.
+>
+> **Si $R\ne I_n$**, a $R$ le falta algún pivote. En efecto, una matriz cuadrada reducida con $n$ pivotes tiene un $1$ en cada posición diagonal y ceros en las demás: es $I_n$. Como $R$ no lo es, tiene una fila nula.
+>
+> Esa fila sigue siendo nula en cualquier producto $RD$, de modo que $RD$ nunca puede ser $I_n$. Por tanto, $R$ no es invertible.
+>
+> Si $A$ fuera invertible, $R=QA$ sería un producto de matrices invertibles y también tendría inversa. Esto contradice lo anterior. Luego $A$ no es invertible.
+>
+> Quedan probados ambos casos y la fórmula del bloque derecho. $\blacksquare$[^a7-calculo]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+  - gauss-jordan
+---
+> [!note] Pregunta
+> ¿Cómo decide y calcula Gauss–Jordan si una matriz cuadrada $A$ tiene inversa?
+===
+> [!important] Respuesta
+> Se reduce $[A\mid I]$ aplicando cada operación a ambos bloques. Si el izquierdo llega a $I$, el derecho es $A^{-1}$; si la forma reducida de $A$ no es $I$, no hay inversa.
+```
+
+### Matrices invertibles como productos de elementales
+
+#### Propiedad
+
+> [!teorema] Caracterización por matrices elementales
+> Una matriz $A\in M_n(K)$ es invertible si, y sólo si, puede escribirse como producto finito de matrices elementales.[^a7-calculo]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Si $A$ es invertible, su reducción produce $E_p\cdots E_1A=I_n$. Despejando,
+>
+> $$
+> A=(E_p\cdots E_1)^{-1}=E_1^{-1}\cdots E_p^{-1}.
+> $$
+>
+> Cada inversa $E_i^{-1}$ es otra matriz elemental: deshace el intercambio, el escalado o el reemplazo correspondiente. Así se obtiene la factorización pedida. Para $A=I_n$ puede usarse, por ejemplo, $D_1(2)D_1(1/2)$.
+>
+> Recíprocamente, cada matriz elemental es invertible y un producto de matrices invertibles es invertible. Por tanto, cualquier producto finito de elementales tiene inversa. $\blacksquare$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+  - matrices-elementales
+---
+> [!note] Pregunta
+> ¿Qué matrices cuadradas pueden expresarse como productos de matrices elementales?
+===
+> [!important] Respuesta
+> Exactamente las invertibles: la reducción a $I$ da $A=E_1^{-1}\cdots E_p^{-1}$, y cada inversa elemental sigue siendo elemental.
+```
+
+### Ejemplo trabajado: invertir una matriz de orden tres
+
+Calculemos la inversa de[^a7-ejemplo]
+
+$$
+A=\begin{pmatrix}1&0&-1\\2&2&-1\\1&4&2\end{pmatrix}.
+$$
+
+**Primera columna.** Partimos de
+
+$$
+\left[\begin{array}{rrr|rrr}
+1&0&-1&1&0&0\\
+2&2&-1&0&1&0\\
+1&4&2&0&0&1
+\end{array}\right].
+$$
+
+Las operaciones $R_2\leftarrow R_2-2R_1$ y $R_3\leftarrow R_3-R_1$ dan
+
+$$
+\left[\begin{array}{rrr|rrr}
+1&0&-1&1&0&0\\
+0&2&1&-2&1&0\\
+0&4&3&-1&0&1
+\end{array}\right].
+$$
+
+**Segunda columna.** Como $4=2\cdot2$, hacemos $R_3\leftarrow R_3-2R_2$:
+
+$$
+\left[\begin{array}{rrr|rrr}
+1&0&-1&1&0&0\\
+0&2&1&-2&1&0\\
+0&0&1&3&-2&1
+\end{array}\right].
+$$
+
+**Eliminación hacia arriba.** El último pivote vale $1$. Con $R_2\leftarrow R_2-R_3$ y $R_1\leftarrow R_1+R_3$ queda
+
+$$
+\left[\begin{array}{rrr|rrr}
+1&0&0&4&-2&1\\
+0&2&0&-5&3&-1\\
+0&0&1&3&-2&1
+\end{array}\right].
+$$
+
+Sólo falta normalizar el segundo pivote: $R_2\leftarrow\frac12R_2$. Se obtiene $[I_3\mid A^{-1}]$, con
+
+$$
+\boxed{A^{-1}=\begin{pmatrix}
+4&-2&1\\
+-\frac52&\frac32&-\frac12\\
+3&-2&1
+\end{pmatrix}}.
+$$
+
+Los productos $AA^{-1}$ y $A^{-1}A$ son ambos $I_3$. Por ejemplo, la primera fila de $AA^{-1}$ es
+
+$$
+(4-3,\,-2+2,\,1-1)=(1,0,0),
+$$
+
+y la segunda fila es
+
+$$
+(8-5-3,\,-4+3+2,\,2-1-1)=(0,1,0).
+$$
+
+## Equivalencias y sistemas cuadrados
+
+### Relación entre invertibilidad, rango y solución única
+
+#### Propiedad
+
+> [!teorema] Matriz cuadrada de rango completo
+> Para $A\in M_n(K)$ son equivalentes:
+>
+> - $A$ es invertible.
+> - Su forma escalonada tiene $n$ pivotes.
+> - $\operatorname{rg}(A)=n$.
+> - Para **todo** $\mathbf b\in K^n$, el sistema $A\mathbf x=\mathbf b$ tiene una única solución.[^a7-calculo][^a10]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> **Invertibilidad, pivotes y rango.** Por el criterio de Gauss–Jordan, $A$ es invertible exactamente cuando su forma reducida es $I_n$. Esto equivale a tener $n$ pivotes y, por definición, rango $n$.
+>
+> **De la inversa a la solución única.** Para cualquier $\mathbf b$, el vector $\mathbf x=A^{-1}\mathbf b$ es solución, porque
+>
+> $$
+> A(A^{-1}\mathbf b)=(AA^{-1})\mathbf b=\mathbf b.
+> $$
+>
+> Además, cualquier solución debe ser ese vector: al multiplicar $A\mathbf x=\mathbf b$ por $A^{-1}$ a la izquierda, resulta $\mathbf x=A^{-1}\mathbf b$. Esto prueba existencia y unicidad.
+>
+> **De la solución única al rango completo.** Si hay solución única para todo $\mathbf b$, la ecuación homogénea $A\mathbf x=0$ sólo tiene la solución nula. Si alguna columna careciese de pivote, habría una variable libre. Asignarle $1$ y asignar $0$ a las demás libres permitiría calcular las básicas y producir una solución no nula. La contradicción muestra que todas las columnas tienen pivote, es decir, que el rango es $n$.
+>
+> Las implicaciones cierran la equivalencia. $\blacksquare$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+  - rango
+---
+> [!note] Pregunta
+> Para $A\in M_n(K)$, ¿qué condición de rango equivale a tener inversa y qué implica para $A\mathbf x=\mathbf b$?
+===
+> [!important] Respuesta
+> $\operatorname{rg}(A)=n$. Entonces, para cada $\mathbf b\in K^n$, existe una única solución: $\mathbf x=A^{-1}\mathbf b$.
+```
+
+### Resolver un sistema con la inversa
+
+Cuando $A$ es cuadrada e invertible, la igualdad
+
+$$
+\boxed{\mathbf x=A^{-1}\mathbf b}
+$$
+
+da la solución de $A\mathbf x=\mathbf b$. La multiplicación debe hacerse en ese orden: $A^{-1}$ actúa por la izquierda sobre la columna $\mathbf b$.[^a10]
+
+#### Ejemplo: usar la inversa calculada
+
+Para la matriz de orden tres del ejemplo anterior y
+
+$$
+\mathbf b=\begin{pmatrix}1\\2\\3\end{pmatrix},
+$$
+
+el producto es
+
+$$
+\mathbf x=
+\begin{pmatrix}4&-2&1\\-\frac52&\frac32&-\frac12\\3&-2&1\end{pmatrix}
+\begin{pmatrix}1\\2\\3\end{pmatrix}
+=
+\begin{pmatrix}4-4+3\\-\frac52+3-\frac32\\3-4+3\end{pmatrix}
+=
+\begin{pmatrix}3\\-1\\2\end{pmatrix}.
+$$
+
+La comprobación en el sistema original da
+
+$$
+A\mathbf x=
+\begin{pmatrix}3-2\\6-2-2\\3-4+4\end{pmatrix}
+=
+\begin{pmatrix}1\\2\\3\end{pmatrix}=\mathbf b.
+$$
 
 ### Una identidad de producto fuerza ambas inversas
 
-> [!formula] Resultado auxiliar de Aula 10, diap. 10, item 1
-> Si $A,B\in M_n(K)$ y $AB=I_n$, entonces $A$ y $B$ son invertibles y $A^{-1}=B$.[^a10]
+#### Propiedad
 
-#### Demostración paso a paso
+> [!teorema] Basta una identidad para matrices cuadradas
+> Si $A,B\in M_n(K)$ y $AB=I_n$, entonces ambas matrices son invertibles y
+>
+> $$
+> \boxed{A^{-1}=B\quad\text{y}\quad B^{-1}=A}.
+> $$
+> [^a10-corolarios][^lateral]
 
-**1. Mostrar que el sistema homogéneo $B\mathbf x=0$ sólo tiene la solución nula.** Sea $\mathbf x\in K^n$ una columna con $B\mathbf x=0$. Multiplicar esta igualdad por $A$ a la izquierda da
+#### Demostración
 
-$$
-A(B\mathbf x)=A\mathbf 0=\mathbf 0.
-$$
+> [!demostracion] Demostración
+> **El homogéneo de $B$ sólo tiene la solución nula.** Si $B\mathbf x=0$, multiplicar por $A$ a la izquierda da
+>
+> $$
+> A(B\mathbf x)=0.
+> $$
+>
+> Por asociatividad y por $AB=I_n$, ese mismo miembro es
+>
+> $$
+> A(B\mathbf x)=(AB)\mathbf x=I_n\mathbf x=\mathbf x.
+> $$
+>
+> Luego $\mathbf x=0$.
+>
+> **Esto obliga a que $B$ tenga rango $n$.** Si le faltara un pivote, se podría dar valor $1$ a una variable libre y resolver las básicas, obteniendo una solución no nula del homogéneo. Por tanto, $B$ tiene $n$ pivotes y es invertible.
+>
+> **Identificamos las inversas.** Multiplicamos $AB=I_n$ por $B^{-1}$ a la derecha:
+>
+> $$
+> A(BB^{-1})=B^{-1},
+> $$
+>
+> de donde $A=B^{-1}$. Así, $A$ también es invertible y $A^{-1}=B$. $\blacksquare$
 
-Por asociatividad y por la hipótesis $AB=I_n$, el miembro izquierdo también es
+La hipótesis de que ambas matrices sean cuadradas del mismo orden es esencial. Para matrices rectangulares, un producto puede ser una identidad sin que el producto en el orden contrario lo sea.[^lateral]
 
-$$
-A(B\mathbf x)=(AB)\mathbf x=I_n\mathbf x=\mathbf x.
-$$
-
-Igualar estos dos resultados da $\mathbf x=\mathbf 0$. Así, el núcleo de $B$ contiene sólo el vector nulo.
-
-**2. Concluir que $B$ es invertible.** Como $B$ es cuadrada, si su forma escalonada no tuviera pivote en alguna columna, la variable correspondiente sería libre. Se le podría asignar el valor $1$, fijar las demás variables libres en $0$ y resolver las variables pivote hacia atrás. Eso produciría una solución no nula de $B\mathbf x=\mathbf 0$, en contradicción con el paso 1. Por tanto, hay pivote en cada columna; el criterio de invertibilidad ya establecido implica que $B$ es invertible.
-
-**3. Identificar la inversa de $A$.** Multiplicamos la igualdad $AB=I_n$ por $B^{-1}$ a la derecha:
-
-$$
-(AB)B^{-1}=I_nB^{-1}.
-$$
-
-Por asociatividad, el miembro izquierdo es $A(BB^{-1})$. Como $BB^{-1}=I_n$, resulta
-
-$$
-A I_n=B^{-1}.
-$$
-
-El neutro $I_n$ deja fija a $A$, así que $A=B^{-1}$ y, por tanto, $A^{-1}=B$.
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matrices
+  - inversa
+---
+> [!note] Pregunta
+> Si $A,B\in M_n(K)$ y $AB=I_n$, ¿es necesario comprobar por separado que $BA=I_n$ para concluir que son inversas?
+===
+> [!important] Respuesta
+> No: para matrices cuadradas del mismo orden, $AB=I_n$ implica $BA=I_n$ y $A^{-1}=B$. La hipótesis cuadrada es esencial.
+```
 
 ### Invertibilidad de ambos factores de un producto invertible
 
-> [!formula] La propiedad — Aula 10, diap. 10, item 2
-> Si $A,B\in M_n(K)$ y $AB$ es invertible, entonces $A$ y $B$ son invertibles.[^a10]
+#### Propiedad
 
-#### Demostración paso a paso
+> [!teorema] Factores de un producto invertible
+> Si $A,B\in M_n(K)$ y $AB$ es invertible, entonces $A$ y $B$ son invertibles.[^a10-corolarios]
 
-Supongamos que $A,B\in M_n(K)$ y definamos $C=(AB)^{-1}$. Entonces $C$ también es $n\times n$ y, por definición de inversa bilateral,
+#### Demostración
 
-$$
-(AB)C=I_n,
-\qquad
-C(AB)=I_n.
-$$
-
-**1. Obtener una identidad cuyo primer factor sea $A$.** Por asociatividad del producto,
-
-$$
-A(BC)=(AB)C=I_n.
-$$
-
-Los factores $A$ y $BC$ son matrices cuadradas de orden $n$. El resultado auxiliar anterior aplicado a $A(BC)=I_n$ demuestra que $A$ es invertible.
-
-**2. Obtener una identidad cuyo segundo factor sea $B$.** La segunda igualdad da, de nuevo por asociatividad,
-
-$$
-(CA)B=C(AB)=I_n.
-$$
-
-Los factores $CA$ y $B$ también son cuadrados de orden $n$. Aplicar el resultado auxiliar a $(CA)B=I_n$ demuestra que $B$ es invertible. Concluimos que ambos factores de $AB$ son invertibles.
+> [!demostracion] Demostración · TPC resuelto
+> Sea $C=(AB)^{-1}$. Por definición, $(AB)C=I_n$ y $C(AB)=I_n$.
+>
+> Reagrupamos la primera igualdad para que $A$ aparezca como un factor:
+>
+> $$
+> A(BC)=(AB)C=I_n.
+> $$
+>
+> Las matrices $A$ y $BC$ son cuadradas de orden $n$. Por la propiedad anterior, $A$ es invertible y su inversa es $BC$.
+>
+> La segunda igualdad permite hacer lo mismo con $B$:
+>
+> $$
+> (CA)B=C(AB)=I_n.
+> $$
+>
+> Aplicando la misma propiedad a $CA$ y $B$, concluimos que $B$ es invertible y su inversa es $CA$.
+>
+> Ambos factores de $AB$ son, por tanto, invertibles. $\blacksquare$[^factores]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -603,49 +1257,80 @@ tags:
 
 ## Condiciones de validez y errores frecuentes
 
-La igualdad de rangos decide compatibilidad, pero sólo para comparar el sistema completo $A\mathbf x=\mathbf b$; el rango de $A$ aislado no indica si un término independiente concreto produce contradicción. El número de variables libres es $n-r$ sólo cuando el sistema es compatible. La matriz inversa bilateral se define aquí para matrices cuadradas; no se debe aplicar el criterio de $n$ pivotes a una matriz rectangular.
+- **Compatibilidad antes que parámetros.** La cuenta $n-r$ describe las variables libres de una solución general sólo si el sistema tiene solución.
+- **Matriz cuadrada en los criterios de inversa.** Una matriz rectangular puede tener un pivote en cada columna sin poseer una inversa bilateral.
+- **Mismo orden de factores en los despejes.** Multiplicar por una inversa a la izquierda o a la derecha produce igualdades distintas.
 
-Comprueba cada clasificación sustituyendo la solución obtenida en las ecuaciones originales o identificando la fila imposible. Comprueba una inversa multiplicando en ambos órdenes por $A$. Estos controles detectan errores de signos y de orden de factores.
+Para comprobar una clasificación, se sustituye la solución en el sistema original o se identifica una fila imposible. Para comprobar una inversa, multiplicar por ambos lados permite detectar errores de signos y de orden, aunque el teorema anterior establezca que una sola identidad exacta basta para matrices cuadradas.
 
 ## Práctica graduada
 
-1. Usa $A^{-1}$ del ejemplo para resolver $AX=(1,2,3)^T$ y comprueba la respuesta en el sistema original.
-2. Demuestra que si $AB=I_n$, entonces $B$ es invertible, usando el núcleo de $B$.
-3. Si $AB$ es invertible, explica cómo obtener un producto igual a la identidad que permita concluir la invertibilidad de ambos factores.
+### Ejercicio 1 — Resolver y comprobar
 
-### Soluciones razonadas
+Usa la inversa de la matriz de orden tres para resolver $AX=(1,2,3)^T$ y comprueba la respuesta.
 
-1. $X=A^{-1}(1,2,3)^T=(3,-1,2)^T$. Multiplicando, $AX=(3-2,6-2-2,3-4+4)^T=(1,2,3)^T$.
-2. Si $B$ fuera singular, existiría $C\ne0$ con $BC=0$. Entonces $C=(AB)C=A(BC)=0$, contradicción. Así $B$ es invertible y $A=B^{-1}$.
-3. Sea $C=(AB)^{-1}$. Se tienen $A(BC)=I_n$ y $(CA)B=I_n$. El resultado anterior, aplicado a cada igualdad, implica que $A$ y $B$ son invertibles.
+> [!resolucion]- Resolución
+> El producto $X=A^{-1}(1,2,3)^T$ da $X=(3,-1,2)^T$.
+>
+> Al sustituir,
+>
+> $$
+> AX=(3-2,\,6-2-2,\,3-4+4)^T=(1,2,3)^T.
+> $$
+
+### Ejercicio 2 — Usar el núcleo para probar invertibilidad
+
+Demuestra que, si $A,B\in M_n(K)$ y $AB=I_n$, entonces $B$ es invertible.
+
+> [!resolucion]- Resolución
+> Si $B$ fuera singular, su homogéneo tendría una solución no nula $\mathbf c\in K^n$, pues existiría alguna variable libre. Pero entonces
+>
+> $$
+> \mathbf c=I_n\mathbf c=(AB)\mathbf c=A(B\mathbf c)=0,
+> $$
+>
+> contradiciendo $\mathbf c\ne0$. Luego $B$ es invertible; al multiplicar $AB=I_n$ por $B^{-1}$ a la derecha se obtiene $A=B^{-1}$.
+
+### Ejercicio 3 — Separar los factores
+
+Si $AB$ es invertible, con $A,B\in M_n(K)$, obtén dos productos iguales a la identidad que prueben la invertibilidad de ambos factores.
+
+> [!resolucion]- Resolución
+> Con $C=(AB)^{-1}$, las identidades buscadas son $A(BC)=I_n$ y $(CA)B=I_n$. Todos los factores son cuadrados del mismo orden; por el criterio de la inversa lateral, $A$ y $B$ son invertibles.
+
+La inversa resuelve de una vez la ecuación con cualquier segundo miembro. Si se quiere reutilizar la eliminación sin calcular toda la inversa, los factores triangulares de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Factorización LU|LU]] permiten resolver sucesivos sistemas mediante dos sustituciones. El [[Matemáticas/Álgebra lineal/Determinantes|determinante]] ofrece, por su parte, otro criterio de invertibilidad.
 
 ## 📚 Fuentes
 
 ### Material base aportado
 
-- FCUL, [aula 6, pp. 11–14](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf), [aula 7](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula7-MatrizesInv-impressao.pdf), [aula 9, pp. 2–11](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula9-Sistemas-impressao.pdf) y [aula 10, pp. 8–10](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula10-Sistemas-impressao.pdf). Diapositivas del curso FCUL 2026/27 sobre rango, inversa y sistemas.
+[^a6-rango]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 6, 28/09/2026, diapositivas 2–10. Archivo privado `ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf`. Rango —«característica» en el material— y reducción por filas.
+[^a6]: FCUL, aula 6, diapositivas 11–13. Mismo archivo. Inversos escalares, definición matricial y ejemplos de invertibilidad.
+[^a6-elementales]: FCUL, aula 6, diapositiva 14. Mismo archivo. Inversas de los tres tipos de matrices elementales; las demostraciones desarrollan las operaciones inversas que allí se identifican.
+[^a7]: FCUL, aula 7, 30/09/2026, diapositivas 2–3. Archivo privado `ALGA-2026-27-AulasTeo-slides-Aula7-MatrizesInv-impressao.pdf`. Demostraciones de la doble inversa y de la inversa del producto, adaptadas al castellano.
+[^a7-tpc]: FCUL, aula 7, diapositivas 2–3. Mismo archivo. Las propiedades 3–4 —múltiplo escalar, transpuesta y conjugada transpuesta— se asignan como TPC. Se desarrollan aquí con las leyes del producto matricial.
+[^a7-despeje]: FCUL, aula 7, diapositiva 5. Mismo archivo. Despeje de $BA=C$ por multiplicación a la izquierda.
+[^a7-calculo]: FCUL, aula 7, diapositivas 6–7 y 9. Mismo archivo. Argumento con $Q$, criterio de reducción a la identidad y producto de matrices elementales. La demostración conserva sus dos casos y explicita por qué una fila nula impide la inversa.
+[^a7-ejemplo]: FCUL, aula 7, diapositiva 8. Mismo archivo. Cálculo de la inversa de orden tres y operaciones intermedias.
+[^a9]: FCUL, aula 9, 07/10/2026, diapositivas 2–11. Archivo privado `ALGA-2026-27-AulasTeo-slides-Aula9-Sistemas-impressao.pdf`. Compatibilidad por comparación de rangos, clasificación, grado de indeterminación y cotas del rango. La demostración del criterio reconstruye los casos de las diapositivas 4–7.
+[^a10]: FCUL, aula 10, 09/10/2026, diapositivas 8–9. Archivo privado `ALGA-2026-27-AulasTeo-slides-Aula10-Sistemas-impressao.pdf`. Equivalencias para sistemas cuadrados y solución mediante inversa.
+[^a10-corolarios]: FCUL, aula 10, diapositiva 10. Mismo archivo. El corolario 1 incluye prueba; el corolario 2 se propone como TPC. En la prueba, la columna no nula pertenece a $M_{n\times1}(K)$, no a $M_n(K)$ como figura por errata en la diapositiva.
 
-### Alcance curricular
+### Contraste académico
 
-[^1]: [Faculdade de Ciências, Universidade de Lisboa, *Álgebra Linear e Geometria Analítica*, programa 2025/2026](https://fenix.ciencias.ulisboa.pt/courses/algana-2817829258658182/programa). Incluye característica/rango, eliminación de Gauss–Jordan e inversión de matrices.
-
-[^a4]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 4, 23/09/2026, diapositivas 9–10. [PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf). Enuncia las leyes de transposición y conjugación usadas para construir la regla de la adjunta.
-
-[^a6]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 6, 28/09/2026, diapositiva 14. [PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf). Enuncia la inversibilidad y las inversas de los tres tipos de matrices elementales; las pruebas por operaciones se deducen aquí.
-
-[^a7]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 7, 30/09/2026, diapositivas 2–3. [PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula7-MatrizesInv-impressao.pdf). Las propiedades 1–2 se demuestran en la fuente; las propiedades 3–4 se proponen como TPC y sus pruebas aquí se deducen de las definiciones y de las leyes establecidas para productos, transpuesta y adjunta.
-
-[^a10]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 10, 09/10/2026, diapositiva 10, corolarios 1–2. [PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula10-Sistemas-impressao.pdf). El argumento del corolario 2 se desarrolla aquí usando el corolario 1 y la asociatividad del producto.
-
-### Ampliación académica
-
-[^2]: [MIT OpenCourseWare, Gilbert Strang, *Multiplication and Inverse Matrices*](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/multiplication-and-inverse-matrices/). Inversa por eliminación, criterio de pivotes y relación con los sistemas $A\mathbf x=\mathbf b$.
-
-[^3]: [Jim Hefferon, *Linear Algebra*, texto universitario abierto](https://hefferon.net/linearalgebra/). Sistemas, rango, invertibilidad y métodos elementales de álgebra lineal.
+[^unicidad]: University of Manitoba, [*Linear Algebra*, §2.7, teorema 2.7.3](https://mblinalg.math.umanitoba.ca/section-14.html). Prueba de unicidad comparando las dos agrupaciones de $BAC$, adaptada al castellano.
+[^transpuesta]: W. Keith Nicholson, [*Linear Algebra with Applications*, §2.4, ejemplo 2.4.8](https://math.libretexts.org/Bookshelves/Linear_Algebra/Linear_Algebra_with_Applications_%28Nicholson%29/02%3A_Matrix_Algebra/2.04%3A_Matrix_Inverses). Demostración bilateral de la inversa de la transpuesta. El teorema 2.4.4 también enuncia la regla del múltiplo escalar, pero deja su prueba como ejercicio.
+[^rango-espacios]: TU Delft, [*Linear Algebra*, §4.2.4, “Row space and rank”, proposición 4.2.5](https://interactivetextbooks.tudelft.nl/linear-algebra/Chapter4/BasisAndDimension.html). Igualdad entre las dimensiones de los espacios de filas y de columnas y su relación con los pivotes.
+[^escalar]: Robert A. Beezer, [*A First Course in Linear Algebra*, sección MISLE, teorema MISM](https://linear.pugetsound.edu/fcla/section-MISLE.html), University of Puget Sound. Demostración completa de la inversa de un múltiplo escalar, adaptada al castellano y a la notación del curso.
+[^conjugada]: Bruce Ikenaga, [“Unitary Matrices and Hermitian Matrices”](https://sites.millersville.edu/bikenaga/linear-algebra/unitary-and-hermitian-matrices/unitary-and-hermitian-matrices.html), Millersville University, proposición (c) y su demostración: $(UV)^*=V^*U^*$. La prueba aquí desarrolla la inversa de la conjugada transpuesta aplicando esa ley a las dos identidades de inversa; adapta el argumento bilateral de Nicholson, §2.4, ejemplo 2.4.8, citado arriba. No es una transcripción literal de una prueba de Ikenaga.
+[^lateral]: University of Manitoba, [§2.7, lemas 2.7.6–2.7.7 y proposición 2.7.8](https://mblinalg.math.umanitoba.ca/section-14.html). Argumento mediante el homogéneo y criterio de inversa lateral.
+[^factores]: Desarrollo del TPC de FCUL a partir del criterio de inversa lateral demostrado en University of Manitoba, [§2.7, proposición 2.7.8](https://mblinalg.math.umanitoba.ca/section-14.html). Se explicitan sus dos aplicaciones, a $A(BC)$ y a $(CA)B$; la fuente acredita el criterio utilizado, no esta redacción del TPC.
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Diagnostica si el estudiante compara correctamente $\operatorname{rg}(A)$ y $\operatorname{rg}([A\mid\mathbf b])$, cuenta variables libres sólo en sistemas compatibles, y distingue compatibilidad de unicidad. Para la inversa, comprueba que aplica Gauss–Jordan a $[A\mid I]$, verifica pivotes en todas las columnas y justifica bilateralmente las inversas de matrices elementales, escalares, transpuestas y conjugadas transpuestas. Pídele que explique por qué $AB$ invertible implica que $A$ y $B$ lo son, sin usar determinantes. No generes ejercicios nuevos; usa ejemplos funcionales breves y pide comprobaciones algebraicas.
+Usa los ejemplos y ejercicios existentes, sin añadir otros. Pide clasificar las dos matrices ampliadas del ejemplo y justificar la diferencia mediante sus filas. Comprueba que el estudiante cuenta $n-r$ parámetros sólo tras establecer compatibilidad.
+
+Para las inversas, pide explicar por qué cada operación se aplica también a la identidad y cómo aparece el producto $Q$. Después, selecciona una propiedad: solicita sus hipótesis, la matriz propuesta como inversa y las dos multiplicaciones que la verifican. Trabaja con pistas graduales. No aceptes intercambiar factores para cancelarlos ni aplicar un resultado cuadrado a matrices rectangulares. Termina comprobando un resultado numérico en la matriz original.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })

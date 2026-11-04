@@ -39,48 +39,40 @@ await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 
 # Factorización LU
 
-> [!info] Ampliación curricular externa
-> La factorización $LU$ organiza en dos matrices triangulares los multiplicadores y pivotes de una eliminación gaussiana. Aquí se desarrolla el caso que no necesita permutar filas; el pivoteo se señala como límite del procedimiento.[^1]
-
-## La eliminación como producto de matrices
-
-Resolver $A\mathbf x=\mathbf b$ por eliminación transforma $A$ en una matriz triangular superior. Si los pasos no intercambian filas, cada eliminación usa un multiplicador que puede conservarse. Reuniendo esos multiplicadores se forma una matriz triangular inferior $L$; la matriz ya eliminada es $U$. Así, la secuencia de operaciones se puede expresar como
-
-$$
-A=LU.
-$$
-
-La igualdad no es una aproximación: es una factorización exacta. Su utilidad es separar una eliminación en dos sustituciones sencillas, especialmente cuando se resolverán varios sistemas con la misma matriz $A$ y distintos vectores de términos independientes.[^1][^2]
+Al resolver un sistema por [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales#Procedimiento de Gauss|eliminación de Gauss]], se transforma la matriz de coeficientes en una matriz triangular superior. Si después cambia el segundo miembro, sería útil aprovechar los cálculos ya hechos. La factorización $LU$ permite conservarlos y resolver cada nuevo sistema mediante dos sustituciones.[^nicholson]
 
 ## Definición y estructura de los factores
 
-> [!definicion] Factorización LU
-> Una factorización $A=LU$ expresa una matriz cuadrada $A$ como producto de una matriz triangular inferior $L$ y una matriz triangular superior $U$. En la convención unitaria, los elementos diagonales de $L$ valen $1$; sus elementos debajo de la diagonal almacenan los multiplicadores de eliminación.
+### Factorización LU
 
-Para una matriz de orden $n$,
+> [!definicion] Factorización LU con diagonal unitaria
+> Para $A\in M_n(K)$, una [[Matemáticas/Álgebra lineal/Factorización LU|factorización LU]] es una igualdad
+>
+> $$
+> \boxed{A=LU},
+> $$
+>
+> donde $L$ es triangular inferior e invertible y $U$ es triangular superior. Se usará la convención en la que todos los elementos de la diagonal de $L$ valen $1$.[^mit]
+
+Aquí $K$ es $\mathbb R$ o $\mathbb C$. En orden tres, los factores tienen la forma
 
 $$
 L=\begin{pmatrix}
-1&0&\cdots&0\\
-\ell_{21}&1&\cdots&0\\
-\vdots&\ddots&\ddots&\vdots\\
-\ell_{n1}&\cdots&\ell_{n,n-1}&1
-\end{pmatrix},\qquad
+1&0&0\\
+\ell_{21}&1&0\\
+\ell_{31}&\ell_{32}&1
+\end{pmatrix},
+$$
+
+$$
 U=\begin{pmatrix}
-u_{11}&u_{12}&\cdots&u_{1n}\\
-0&u_{22}&\cdots&u_{2n}\\
-\vdots&\ddots&\ddots&\vdots\\
-0&\cdots&0&u_{nn}
+u_{11}&u_{12}&u_{13}\\
+0&u_{22}&u_{23}\\
+0&0&u_{33}
 \end{pmatrix}.
 $$
 
-La diagonal de $L$ unitaria fija una convención y evita trasladar factores escalares entre $L$ y $U$. En la eliminación de la columna $k$, si el pivote es $u_{kk}\ne0$, el multiplicador para anular la entrada de la fila $i$ es
-
-$$
-m_{ik}=\frac{a_{ik}^{(k)}}{u_{kk}},\qquad i>k,
-$$
-
-donde $a_{ik}^{(k)}$ es la entrada que se va a eliminar en la etapa $k$. Se guarda $m_{ik}$ en la posición $(i,k)$ de $L$, y se reemplaza la fila de trabajo por $R_i-m_{ik}R_k$. Los pivotes y las entradas que sobreviven forman $U$.
+La diagonal de unos fija la convención para $L$. Los pivotes de la eliminación quedan en $U$; no se divide cada fila de $U$ para convertirlos en unos. La igualdad $A=LU$ es exacta.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Factorización LU
@@ -90,7 +82,57 @@ tags:
   - factorización-lu
 ---
 > [!note] Pregunta
-> ¿Qué representan las entradas de $L$ situadas debajo de su diagonal en la convención $A=LU$ con $L$ unitaria?
+> ¿Qué exige una factorización $A=LU$ con diagonal unitaria en $L$?
+===
+> [!important] Respuesta
+> $L$ es triangular inferior con todos sus elementos diagonales iguales a $1$; $U$ es triangular superior, y su producto debe ser exactamente $A$.
+```
+
+### Multiplicadores de eliminación
+
+En la etapa $k$, se usa la fila del pivote para anular las entradas que tiene debajo. Sea $a_{ik}^{(k)}$ la entrada de la fila $i$, columna $k$, **después de las etapas anteriores**, y sea $u_{kk}\ne0$ el pivote actual.
+
+> [!definicion] Multiplicador de eliminación
+> El multiplicador para anular esa entrada es
+>
+> $$
+> \boxed{m_{ik}=\frac{a_{ik}^{(k)}}{u_{kk}}},
+> \qquad i\in\{k+1,\ldots,n\}.
+> $$
+>
+> Se aplica la operación $R_i\leftarrow R_i-m_{ik}R_k$.[^mit]
+
+La entrada de la columna $k$ pasa a ser
+
+$$
+a_{ik}^{(k)}-\frac{a_{ik}^{(k)}}{u_{kk}}u_{kk}=0.
+$$
+
+Sin intercambios de filas, el multiplicador $m_{ik}$ se conserva en la posición $(i,k)$ de $L$. ==El signo se interpreta según la operación==: para $R_i\leftarrow R_i-2R_k$, se guarda $2$; para $R_i\leftarrow R_i+2R_k$, se guarda $-2$.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> ¿Cómo se calcula el multiplicador que anula una entrada $a_{ik}^{(k)}$ bajo el pivote $u_{kk}\ne0$?
+===
+> [!important] Respuesta
+> $m_{ik}=a_{ik}^{(k)}/u_{kk}$, usando la entrada actual de la matriz de trabajo. Se aplica $R_i\leftarrow R_i-m_{ik}R_k$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> ¿Qué representan las entradas de $L$ situadas debajo de su diagonal en la convención $A=LU$ con diagonal de unos en $L$?
 ===
 > [!important] Respuesta
 > Los multiplicadores usados para eliminar las entradas debajo de los pivotes durante la reducción de $A$ a $U$.
@@ -98,101 +140,416 @@ tags:
 
 ## Construcción sin permutaciones
 
-En cada columna $k$, se usa el pivote actual $u_{kk}$ para anular las entradas inferiores. No se intercambian filas. Los multiplicadores se guardan en $L$ en el mismo orden de eliminación; los pivotes y las filas transformadas construyen $U$. Para una matriz de orden $n$, hacen falta pivotes no nulos en cada etapa:
-
-$$
-u_{kk}\ne0\quad (k=1,\ldots,n-1).
-$$
-
-La última entrada diagonal de $U$ también debe ser no nula si se desea resolver cualquier segundo miembro de forma única. La forma de eliminar sigue el método de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|Gauss]]; la diferencia es que ahora los multiplicadores se conservan en lugar de descartarse.
-
 ### Ejemplo trabajado: construir y comprobar $A=LU$
 
-Sea
+Factoricemos
 
 $$
 A=\begin{pmatrix}2&1\\4&3\end{pmatrix}.
 $$
 
-El único multiplicador es $m_{21}=4/2=2$. Al hacer $R_2\leftarrow R_2-2R_1$, se obtiene $U$ y se registra ese multiplicador en $L$:
+Para anular el $4$ situado bajo el primer pivote, el multiplicador es $m_{21}=4/2=2$. La operación $R_2\leftarrow R_2-2R_1$ transforma la segunda fila en
 
 $$
-U=\begin{pmatrix}2&1\\0&1\end{pmatrix},\qquad
+(4,3)-2(2,1)=(0,1).
+$$
+
+Por tanto,
+
+$$
+U=\begin{pmatrix}2&1\\0&1\end{pmatrix}.
+$$
+
+El multiplicador se coloca debajo de la diagonal de $L$:
+
+$$
 L=\begin{pmatrix}1&0\\2&1\end{pmatrix}.
 $$
 
-La comprobación reconstruye la matriz original:
+La comprobación reconstruye la matriz inicial:
 
 $$
-LU=\begin{pmatrix}1&0\\2&1\end{pmatrix}
+LU=
+\begin{pmatrix}1&0\\2&1\end{pmatrix}
 \begin{pmatrix}2&1\\0&1\end{pmatrix}
-=\begin{pmatrix}2&1\\4&3\end{pmatrix}=A.
+=
+\begin{pmatrix}2&1\\4&3\end{pmatrix}=A.
 $$
 
-La entrada $2$ de $L$ conserva el multiplicador, mientras que la fila segunda de $U$ contiene el resultado de la eliminación. Verificar el producto detecta errores de orden o de signo.[^1]
+En particular, la segunda fila del producto es dos veces la primera fila de $U$ más la segunda: $2(2,1)+(0,1)=(4,3)$.
+
+### Por qué en $L$ aparece el multiplicador con ese signo
+
+La matriz que **elimina** el $4$ del ejemplo es
+
+$$
+E=\begin{pmatrix}1&0\\-2&1\end{pmatrix},
+\qquad EA=U.
+$$
+
+Para recuperar la segunda fila original hay que sumar lo que se restó. La operación inversa se representa mediante
+
+$$
+E^{-1}=\begin{pmatrix}1&0\\2&1\end{pmatrix}=L.
+$$
+
+Al multiplicar $EA=U$ por $E^{-1}$ a la izquierda, resulta $A=E^{-1}U=LU$. Por eso el $-2$ de la matriz de eliminación corresponde al $+2$ de $L$.[^mit]
+
+### Justificación de la factorización
+
+#### Propiedad
+
+> [!teorema] De la eliminación a los factores
+> Si una matriz cuadrada $A$ se transforma en una triangular superior $U$ mediante eliminación bajo los pivotes, sin intercambiar ni escalar filas, entonces admite una factorización
+>
+> $$
+> \boxed{A=LU},
+> $$
+>
+> con $L$ triangular inferior y diagonal de unos.[^mit][^nicholson]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Sean $E_1,\ldots,E_p$ las matrices de las operaciones, en el orden en que se aplican. Cada operación suma a una fila un múltiplo de una fila anterior. La eliminación completa se escribe
+>
+> $$
+> E_p\cdots E_2E_1A=U.
+> $$
+>
+> Cada $E_i$ es invertible: su inversa resta el múltiplo que antes se sumó. Al invertir el producto se invierte también el orden de los factores, por lo que
+>
+> $$
+> A=E_1^{-1}E_2^{-1}\cdots E_p^{-1}U.
+> $$
+>
+> Definimos $L=E_1^{-1}\cdots E_p^{-1}$. Cada factor es triangular inferior con diagonal de unos, pues sólo modifica una entrada situada bajo la diagonal.
+>
+> **El producto sigue siendo triangular inferior.** Sean $P,Q$ dos matrices triangulares inferiores de orden $n$. Por definición del producto,
+>
+> $$
+> (PQ)_{ij}=\sum_{k=1}^{n}p_{ik}q_{kj}.
+> $$
+>
+> Si $i<j$, un sumando no nulo exigiría $k\leq i$ —para que $p_{ik}\ne0$— y $k\geq j$ —para que $q_{kj}\ne0$—. Es imposible cumplir ambas condiciones. Por eso todas las entradas por encima de la diagonal son cero.
+>
+> **La diagonal sigue siendo unitaria.** En la entrada $(i,i)$, sólo puede contribuir el índice $k=i$. Si las diagonales de $P$ y $Q$ son de unos,
+>
+> $$
+> (PQ)_{ii}=p_{ii}q_{ii}=1\cdot1=1.
+> $$
+>
+> Aplicando este argumento a los factores de $L$, resulta que $L$ es triangular inferior con diagonal de unos y $A=LU$. $\blacksquare$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> Si la eliminación sin intercambios ni escalados da $E_p\cdots E_1A=U$, ¿qué producto constituye $L$?
+===
+> [!important] Respuesta
+> $L=E_1^{-1}\cdots E_p^{-1}$, pues al deshacer la eliminación resulta $A=LU$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - factorización-lu
+---
+> [!note] Pregunta
+> ¿Qué forma tiene el producto de dos matrices triangulares inferiores con diagonal de unos?
+===
+> [!important] Respuesta
+> Es triangular inferior y su diagonal también es de unos: por encima de la diagonal todos los sumandos se anulan; en cada entrada diagonal sólo contribuye el producto de los dos unos.
+```
+
+### Procedimiento y condiciones de validez
+
+> [!procedimiento] Construir los factores
+> 1. Se comienza con una copia de $A$ como matriz de trabajo y con $L=I_n$.
+> 2. En la columna $k$, se calcula cada $m_{ik}$ usando el pivote y las entradas actuales.
+> 3. Se hace $R_i\leftarrow R_i-m_{ik}R_k$ y se guarda $m_{ik}$ en $L_{ik}$.
+> 4. Tras eliminar por debajo de la diagonal, la matriz de trabajo es $U$. Se comprueba $LU=A$.
+
+Este procedimiento, aplicado sin saltar etapas ni intercambiar filas, puede ejecutarse si los pivotes usados como divisores son no nulos:
+
+$$
+u_{kk}\ne0,
+\qquad k\in\{1,\ldots,n-1\}.
+$$
+
+La última entrada $u_{nn}$ no se usa para eliminar otra fila. Puede ser cero aunque la factorización ya esté construida. Para resolver cualquier segundo miembro con solución única sí se necesita que **toda la diagonal de $U$ sea no nula**.[^nicholson]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> ¿Qué condición permite calcular todos los multiplicadores del algoritmo LU sin intercambios, para una matriz de orden $n$?
+===
+> [!important] Respuesta
+> Que los pivotes usados como divisores, $u_{11},\ldots,u_{n-1,n-1}$, sean no nulos. Para tener solución única en la sustitución final también se requiere $u_{nn}\ne0$.
+```
 
 ## Resolver sistemas con los factores
 
-Si $A=LU$, entonces
+Si $A=LU$, la ecuación $A\mathbf x=\mathbf b$ se escribe $L(U\mathbf x)=\mathbf b$. Introducimos la columna auxiliar $\mathbf y=U\mathbf x$ y resolvemos en este orden:[^nicholson]
 
 $$
-A\mathbf x=\mathbf b\iff LU\mathbf x=\mathbf b.
+L\mathbf y=\mathbf b,
 $$
 
-Se introduce $\mathbf y=U\mathbf x$ y se resuelven dos sistemas triangulares:
+$$
+U\mathbf x=\mathbf y.
+$$
 
-1. **Sustitución hacia delante:** resolver $L\mathbf y=\mathbf b$. Como $L$ es triangular inferior unitaria, cada componente se calcula desde la primera fila hacia abajo.
-2. **Sustitución hacia atrás:** resolver $U\mathbf x=\mathbf y$. Como $U$ es triangular superior, se empieza en la última fila y se avanza hacia arriba.
+### Sustitución hacia delante
 
-En el ejemplo anterior, con $\mathbf b=(5,11)^T$, primero
+> [!definicion] Sustitución hacia delante
+> Resuelve un sistema triangular inferior comenzando por la primera ecuación. Cada nueva incógnita se calcula con los valores obtenidos en las filas anteriores.
+
+Como la diagonal de $L$ vale $1$, la primera ecuación determina $y_1$ directamente; la segunda determina $y_2$ a partir de $y_1$, y así sucesivamente.
+
+### Ejemplo: calcular la columna auxiliar
+
+Con los factores del ejemplo y
+
+$$
+\mathbf b=\begin{pmatrix}5\\11\end{pmatrix},
+$$
+
+el sistema $L\mathbf y=\mathbf b$ es
 
 $$
 \begin{pmatrix}1&0\\2&1\end{pmatrix}
 \begin{pmatrix}y_1\\y_2\end{pmatrix}
-=\begin{pmatrix}5\\11\end{pmatrix}
-\quad\Longrightarrow\quad \mathbf y=\begin{pmatrix}5\\1\end{pmatrix}.
+=\begin{pmatrix}5\\11\end{pmatrix}.
 $$
 
-Después,
+La primera fila da $y_1=5$. La segunda exige $2y_1+y_2=11$, de donde
+
+$$
+y_2=11-2(5)=1.
+$$
+
+Por tanto,
+
+$$
+\mathbf y=\begin{pmatrix}5\\1\end{pmatrix}.
+$$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> ¿En qué orden se resuelve $L\mathbf y=\mathbf b$ cuando $L$ es triangular inferior con diagonal de unos?
+===
+> [!important] Respuesta
+> Desde la primera fila hacia la última: se calcula $y_1$, luego $y_2$ usando $y_1$, y se continúa por sustitución hacia delante.
+```
+
+### Sustitución hacia atrás
+
+> [!definicion] Sustitución hacia atrás
+> Resuelve un sistema triangular superior comenzando por la última ecuación. Cada incógnita se calcula con los valores ya obtenidos en las filas inferiores. La sustitución que determina una solución única requiere entradas diagonales no nulas.
+
+### Ejemplo: obtener la solución del sistema original
+
+Ahora resolvemos $U\mathbf x=\mathbf y$:
 
 $$
 \begin{pmatrix}2&1\\0&1\end{pmatrix}
 \begin{pmatrix}x_1\\x_2\end{pmatrix}
-=\begin{pmatrix}5\\1\end{pmatrix}
-\quad\Longrightarrow\quad \mathbf x=\begin{pmatrix}2\\1\end{pmatrix}.
+=\begin{pmatrix}5\\1\end{pmatrix}.
 $$
 
-La sustitución en $A\mathbf x=\mathbf b$ confirma que $A(2,1)^T=(5,11)^T$. Si se mantienen fijos $L$ y $U$, cada nuevo vector $\mathbf b$ requiere sólo resolver los dos sistemas triangulares, no repetir la eliminación completa.[^1][^2]
+La última fila da $x_2=1$. Al sustituirlo en la primera,
+
+$$
+2x_1+1=5
+\quad\Longrightarrow\quad
+x_1=2.
+$$
+
+Así,
+
+$$
+\boxed{\mathbf x=\begin{pmatrix}2\\1\end{pmatrix}}.
+$$
+
+Comprobamos con la matriz original:
+
+$$
+A\mathbf x=
+\begin{pmatrix}2&1\\4&3\end{pmatrix}
+\begin{pmatrix}2\\1\end{pmatrix}
+=
+\begin{pmatrix}5\\11\end{pmatrix}=\mathbf b.
+$$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> ¿En qué orden se resuelve $U\mathbf x=\mathbf y$ cuando $U$ es triangular superior con diagonal no nula?
+===
+> [!important] Respuesta
+> Desde la última fila hacia la primera, calculando cada incógnita a partir de las que ya se conocen: sustitución hacia atrás.
+```
+
+### Reutilizar la factorización
+
+Si cambia $\mathbf b$ pero se mantiene $A$, los factores $L$ y $U$ siguen siendo los mismos. Sólo se repiten las dos sustituciones. La eliminación, que depende de los coeficientes de $A$, se hace una sola vez.[^nicholson]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> Conocidos $L$ y $U$, ¿qué hay que repetir para resolver otro sistema con la misma matriz $A$ y un segundo miembro distinto?
+===
+> [!important] Respuesta
+> Sólo las sustituciones $L\mathbf y=\mathbf b$ y $U\mathbf x=\mathbf y$, en ese orden; no se repite la eliminación de $A$.
+```
 
 ## Pivoteo y límites de la factorización
 
-Las condiciones de validez de esta construcción exigen que cada pivote usado sea no nulo. Si un pivote es cero, no se puede calcular $m_{ik}$; un intercambio de filas puede permitir continuar. En ese caso se registra la permutación mediante una matriz $P$ y se escribe, con la convención habitual,
+### Qué significa encontrar un pivote nulo
+
+Si el divisor $u_{kk}$ es cero, la fórmula del multiplicador no puede aplicarse. Un intercambio con una fila inferior que tenga una entrada no nula en esa columna permite continuar la eliminación.
+
+> [!advertencia] Un pivote nulo no decide por sí solo la invertibilidad
+> Que el procedimiento sin intercambios se detenga no prueba que $A$ sea singular. Tampoco excluye por sí solo cualquier igualdad $A=LU$: hay que examinar la matriz y la etapa que se intenta realizar.
+
+#### Ejemplo: una matriz invertible que exige intercambio
 
 $$
-PA=LU.
+A=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
 $$
 
-Una matriz invertible puede necesitar un intercambio aunque admita una factorización con permutación. Por tanto, que falle este algoritmo sin permutar no implica que $A$ sea singular. El alcance de esta exposición es la factorización sin pivoteo; el análisis de $PA=LU$ y las estrategias numéricas de pivoteo constituyen una ampliación adicional.[^2]
+Es invertible, porque $A^2=I_2$. Sin embargo, la entrada inicial $a_{11}=0$ impide eliminar el $1$ que tiene debajo mediante la división habitual.
+
+En este caso tampoco puede existir $A=LU$ con $L$ inferior de diagonal unitaria: la entrada $(1,1)$ del producto sería $u_{11}=0$, y entonces la entrada $(2,1)$ sería $\ell_{21}u_{11}=0$, en contradicción con $a_{21}=1$.
+
+#### Ejemplo: una diagonal nula que no impide factorizar
+
+Para la matriz ya triangular
+
+$$
+T=\begin{pmatrix}0&1\\0&0\end{pmatrix},
+$$
+
+existe la factorización $T=I_2T$. No hace falta dividir por el cero de la primera posición para anular la entrada inferior, porque ésta ya es cero. La factorización existe aunque $T$ sea singular. Estos dos ejemplos separan la existencia de factores triangulares, la posibilidad de usar una división concreta y la invertibilidad.[^nicholson]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> ¿Encontrar un pivote nulo en el algoritmo LU sin intercambios demuestra que la matriz es singular?
+===
+> [!important] Respuesta
+> No. Impide esa división, pero una matriz invertible puede necesitar un intercambio. Hay que distinguir el fallo de ese paso del algoritmo de la invertibilidad de la matriz.
+```
+
+### Factorización con permutación
+
+> [!definicion] Factorización con permutación de filas
+> Los intercambios de filas se reúnen en una matriz de permutación $P$. Con la convención de actuar sobre $A$ por la izquierda, la factorización se escribe
+>
+> $$
+> \boxed{PA=LU}.
+> $$
+>
+> Es $PA$, la matriz con las filas permutadas, la que se descompone en los factores triangulares.[^nicholson]
+
+Para la matriz de intercambio del ejemplo, tomar $P=A$ da $PA=I_2$; basta elegir $L=U=I_2$.
+
+Al resolver un sistema, la misma permutación debe aplicarse al segundo miembro:
+
+$$
+A\mathbf x=\mathbf b
+\quad\Longleftrightarrow\quad
+PA\mathbf x=P\mathbf b.
+$$
+
+Por tanto, los dos sistemas triangulares pasan a ser
+
+$$
+L\mathbf y=P\mathbf b,
+\qquad U\mathbf x=\mathbf y.
+$$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> ¿Qué representa $P$ en la factorización $PA=LU$?
+===
+> [!important] Respuesta
+> La permutación de filas necesaria para factorizar: $PA$ es la matriz original con las filas en el nuevo orden.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Factorización LU
+tags:
+  - matemáticas
+  - matrices
+  - factorización-lu
+---
+> [!note] Pregunta
+> Si se conoce $PA=LU$, ¿qué dos sistemas se resuelven para encontrar la solución de $A\mathbf x=\mathbf b$?
+===
+> [!important] Respuesta
+> Primero $L\mathbf y=P\mathbf b$ y después $U\mathbf x=\mathbf y$. La permutación también afecta al segundo miembro.
+```
 
 ## Conexión con la resolución de sistemas
 
-La factorización $A=LU$ no cambia el conjunto solución: reescribe la matriz del sistema como dos transformaciones triangulares. Cuando los pivotes de $U$ son no nulos, el sistema tiene solución única, y la secuencia de sustituciones la encuentra. Esto se conecta con la clasificación por rango y con la inversa de una matriz en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|compatibilidad, rango e inversa]]. La eliminación de Gauss que origina los multiplicadores se desarrolla en la sección canónica de [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales#5. Eliminación de Gauss|eliminación de Gauss]].
+Con $L$ invertible, $A=LU$ tiene el mismo rango que $U$. Si todas las entradas diagonales de la triangular $U$ son no nulas, hay un pivote en cada columna y las dos sustituciones determinan una única solución para cualquier segundo miembro. Si alguna es cero, hay que estudiar la compatibilidad y las posibles variables libres mediante los criterios de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|rango e invertibilidad]].[^nicholson]
 
 ## 📚 Fuentes
 
 ### Material base aportado
 
-- Ninguno aportado. El índice curricular señala esta factorización como ampliación; no es una fuente matemática.
+No se ha aportado material específico de FCUL sobre factorización LU. Este desarrollo corresponde a una ampliación académica externa.
 
 ### Ampliación académica
 
-[^1]: [MIT OpenCourseWare, Gilbert Strang, *Factorization into A = LU*](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/factorization-into-a-lu/). Multiplicadores de eliminación, factores triangulares y resolución de sistemas.
-
-[^2]: [Jim Hefferon, *Linear Algebra*, texto universitario abierto](https://hefferon.net/linearalgebra/). Eliminación, sistemas triangulares y factorización matricial en un curso introductorio.
+[^mit]: Gilbert Strang, MIT OpenCourseWare, [*Factorization into A = LU*, resumen de la sesión 1.4, pp. 1–3](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/c5961452fbb31f8a0b34ecd0ffc5cdc4_MIT18_06SCF11_Ses1.4sum.pdf). Construcción de $L$ mediante las inversas de las matrices de eliminación, diagonal unitaria y conservación de multiplicadores. El ejemplo numérico se desarrolla con los datos propios de esta nota.
+[^nicholson]: W. Keith Nicholson, [*Linear Algebra with Applications*, §2.7, “LU-Factorization”](https://math.libretexts.org/Bookshelves/Linear_Algebra/Linear_Algebra_with_Applications_%28Nicholson%29/02%3A_Matrix_Algebra/2.07%3A_LU-Factorization). Dos sustituciones, argumento mediante matrices elementales y factorización con permutación. El libro admite otra normalización de los factores; aquí se mantiene la convención de diagonal unitaria en $L$ descrita por Strang.
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Comprueba que el estudiante conserva en $L$ los multiplicadores usados para obtener $U$, mantiene la diagonal de $L$ unitaria, verifica $LU=A$ y resuelve en el orden correcto $L\mathbf y=\mathbf b$ y $U\mathbf x=\mathbf y$. Si encuentra un pivote nulo, pregunta por qué el método sin permutaciones se detiene y cómo se expresa el caso con una matriz de permutación. No generes ejercicios nuevos; usa ejemplos funcionales breves y exige comprobaciones.
+Usa los ejemplos de esta nota, sin generar ejercicios nuevos. Pide factorizar la matriz $2\times2$ y justificar el signo del multiplicador en $L$ mediante la operación inversa. Antes de resolver el sistema, comprueba que el estudiante sabe qué representa $\mathbf y$ y por qué se resuelve primero $L\mathbf y=\mathbf b$.
+
+Pide verificar $LU=A$ y la solución en $A\mathbf x=\mathbf b$. Contrasta los dos ejemplos con diagonal nula: el estudiante debe distinguir una división no permitida, la existencia de LU y la invertibilidad. Para $PA=LU$, exige explicar por qué el segundo miembro también se permuta. Ofrece pistas graduales y detente en el primer paso que no pueda justificar.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
