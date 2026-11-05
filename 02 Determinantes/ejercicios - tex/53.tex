@@ -1,0 +1,27 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 53 ----------
+\setcounter{enumi}{52}
+\item {\bfseries\boldmath
+Let
+}
+
+\[
+A=\begin{bmatrix}1&-1\\-1&0\\0&-1\end{bmatrix},\qquad B=\begin{bmatrix}-1&0&2\\-3&1&3\end{bmatrix}.
+\]
+Compute $\det(AB)$ and $\det(BA)$.
+
+\begin{answer}
+Direct multiplication gives
+\[
+ AB=\begin{bmatrix}2&-1&-1\\1&0&-2\\3&-1&-3\end{bmatrix},\qquad
+ BA=\begin{bmatrix}-1&-1\\-4&0\end{bmatrix}.
+\]
+Row $3$ of $AB$ is the sum of its first two rows, so $\det(AB)=0$.
+Also $\det(BA)=(-1)0-(-1)(-4)=-4$.
+Exercise 52 does not apply: here $A$ and $B$ are rectangular, and the two
+square products have different orders.
+\end{answer}

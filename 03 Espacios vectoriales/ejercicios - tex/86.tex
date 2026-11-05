@@ -1,0 +1,40 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 86 ----------
+\setcounter{enumi}{85}
+\item {\bfseries\boldmath
+Determine a basis of each of the following vector subspaces of $\mathcal F(\RR)$.
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item $F=\langle f_1,f_2,f_3,f_4\rangle$, where $f_1,f_2,f_3,f_4:\RR\to\RR$ are defined, for every $x\in\RR$, by
+\[
+f_1(x)=1,\quad f_2(x)=x,\quad f_3(x)=\cos x,\quad f_4(x)=\cos^2(x/2).
+\]
+
+\begin{answer}
+The identity $\cos^2(x/2)=(1+\cos x)/2$ shows
+$f_4=\frac12f_1+\frac12f_3$.
+Thus $F=\langle1,x,\cos x\rangle$.
+If $a+bx+c\cos x=0$ for all $x$, evaluation at $\pi$ and $-\pi$ gives $b=0$.
+Evaluation at $0$ and $\pi$ then gives $a+c=0$, $a-c=0$, so $a=c=0$.
+Therefore $(f_1,f_2,f_3)$ is a basis of $F$.
+\end{answer}
+
+\item $G=\langle g_1,g_2,g_3\rangle$, where $g_1,g_2,g_3:\RR\to\RR$ are defined, for every $x\in\RR$, by
+\[
+\begin{gathered}g_1(x)=\cos^2x-\sin^2x,\\g_2(x)=\cos(2x)-3\sin x,\qquad g_3(x)=\sin x.\end{gathered}
+\]
+
+\begin{answer}
+Since $g_1(x)=\cos(2x)$ and $g_2=g_1-3g_3$,
+$G=\langle g_1,g_3\rangle$.
+If $a\cos(2x)+b\sin x=0$ for all $x$, evaluation at $0$ gives $a=0$,
+and evaluation at $\pi/2$ then gives $b=0$.
+Thus $(g_1,g_3)$ is a basis of $G$.
+\end{answer}
+\end{enumerate}

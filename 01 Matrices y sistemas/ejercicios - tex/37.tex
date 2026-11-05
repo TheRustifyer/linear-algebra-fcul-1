@@ -1,0 +1,29 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 37 ----------
+\setcounter{enumi}{36}
+\item {\bfseries\boldmath
+Consider the following linear system in the unknowns $x,y,z,w$:
+}
+
+\[
+(S):\quad\begin{cases}x+2y-2z-w=0,\\2x+y-z+4w=0,\\-x-y+z-w=0.\end{cases}
+\]
+Give a linear system whose associated homogeneous system is $(S)$ and which has $(2,-1,0,-1)$ as a solution.
+
+\begin{answer}
+Keep the given left sides and evaluate them at $(2,-1,0,-1)$:
+\[
+ 2-2+1=1,\qquad 4-1-4=-1,\qquad -2+1+1=0.
+\]
+A suitable system is therefore
+\[
+ \begin{cases}
+ x+2y-2z-w=1,\\2x+y-z+4w=-1,\\-x-y+z-w=0.
+ \end{cases}
+\]
+Its associated homogeneous system is exactly the given system.
+\end{answer}

@@ -1,0 +1,49 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 68 ----------
+\setcounter{enumi}{67}
+\item {\bfseries\boldmath
+State, with justification, whether in $M_{2\times3}(\RR)$ the matrix
+}
+
+\[
+\begin{bmatrix}1&-2&3\\-4&5&-6\end{bmatrix}
+\]
+is a linear combination of
+
+\begin{enumerate}[label=\alph*)]
+
+\item $\left(\begin{bmatrix}3&2&3\\4&5&6\end{bmatrix},\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix}\right)$.
+
+\begin{answer}
+Let $P=\begin{bmatrix}1&-2&3\\-4&5&-6\end{bmatrix}$.
+Matrix equality is checked entrywise.
+
+No. Each of the two generators has entry $(2,3)$ equal to twice entry
+$(1,3)$, so every linear combination has this property. For $P$, $-6\ne2\cdot3$.
+\end{answer}
+
+\item $\left(\begin{bmatrix}3&-2&2\\-5&0&-3\end{bmatrix},\begin{bmatrix}0&-3&1\\4&0&5\end{bmatrix},\begin{bmatrix}-1&1&0\\2&1&1\end{bmatrix}\right)$.
+
+\begin{answer}
+No. Let the three coefficients be $\alpha,\beta,\gamma$, in the order
+given. Entry $(2,2)$ requires $\gamma=5$; entry $(1,1)$ then requires
+$3\alpha-5=1$, so $\alpha=2$; entry $(1,3)$ requires $2\alpha+\beta=3$,
+so $\beta=-1$. But entry $(1,2)$ would be
+$-2\alpha-3\beta+\gamma=4$, not $-2$.
+\end{answer}
+
+\item $\left(\begin{bmatrix}3&2&2\\-5&1&-3\end{bmatrix},\begin{bmatrix}-4&-8&2\\2&8&-6\end{bmatrix},\begin{bmatrix}2&4&-6\\8&-10&-12\end{bmatrix}\right)$.
+
+\begin{answer}
+Yes:
+\[
+ P=\begin{bmatrix}3&2&2\\-5&1&-3\end{bmatrix}
+ +\tfrac12\begin{bmatrix}-4&-8&2\\2&8&-6\end{bmatrix}
+ +0\begin{bmatrix}2&4&-6\\8&-10&-12\end{bmatrix}.
+\]
+\end{answer}
+\end{enumerate}

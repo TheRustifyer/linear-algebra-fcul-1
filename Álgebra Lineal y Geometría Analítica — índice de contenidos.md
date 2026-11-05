@@ -56,9 +56,9 @@ Alcance oficial: matrices, operaciones, transformaciones elementales, rango, eli
 
 Presentaciones de FCUL: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ALGA-2026-27-AulasTeo-slides-aula2-VectMatrizes-impressao.pdf|Aula 2 — vectores y matrices]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ALGA-2026-27-AulasTeo-slides-aula3-Matrizes-impressao.pdf|Aula 3 — operaciones matriciales]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf|Aula 4 — transpuesta, conjugada y traza, pp. 2–12]]. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|nota curricular]].
 
-* [ ] Construir y operar vectores coordenados de $\mathbb R^n$ y $\mathbb C^n$; distinguir escalar, vector, matriz fila y columna; usar el paralelogramo y las propiedades de las operaciones.
-* [ ] Definir [[Matemáticas/Álgebra lineal/Matrices|matrices]], dimensiones, entradas y tipos notables sobre $\mathbb R$ y $\mathbb C$.
-* [ ] Dominar suma, opuesto, producto por escalar, producto matricial, potencias, transposición, conjugación, adjunción y traza; reconocer matrices simétricas y hermíticas y justificar sus propiedades.
+* [x] Construir y operar vectores coordenados de $\mathbb R^n$ y $\mathbb C^n$; distinguir escalar, vector, matriz fila y columna; usar el paralelogramo y las propiedades de las operaciones. ✅ 2026-11-04
+* [x] Definir [[Matemáticas/Álgebra lineal/Matrices|matrices]], dimensiones, entradas y tipos notables sobre $\mathbb R$ y $\mathbb C$. ✅ 2026-11-04
+* [x] Dominar suma, opuesto, producto por escalar, producto matricial, potencias, transposición, conjugación, adjunción y traza; reconocer matrices simétricas y hermíticas y justificar sus propiedades. ✅ 2026-11-04
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|Eliminación y matrices elementales]]
 

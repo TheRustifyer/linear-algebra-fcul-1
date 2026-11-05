@@ -1,0 +1,60 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 34 ----------
+\setcounter{enumi}{33}
+\item {\bfseries\boldmath
+Discuss the following systems in the unknowns $x,y,z$ in terms of the parameter $a$. When there are infinitely many solutions, state the degree of indeterminacy.
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item
+\[
+\begin{cases}x+y-az=0,\\ax+y-z=1-a,\\x+ay-z=1-a.\end{cases}
+\]
+
+\begin{answer}
+The system is
+\[
+ x+y-az=0,\qquad ax+y-z=1-a,\qquad x+ay-z=1-a.
+\]
+Subtract the first equation from the second and third:
+\[
+ (a-1)(x+z)=1-a,\qquad (a-1)(y+z)=1-a.
+\]
+For $a=1$, all three original equations reduce to $x+y-z=0$.
+The general solution is $(x,y,z)=(s,t,s+t)$; the degree of indeterminacy is $2$.
+
+For $a\ne1$, $x+z=y+z=-1$. Substitution in the first equation gives
+$(a+2)z=-2$. If $a=-2$, this is impossible. If $a\notin\{-2,1\}$,
+the unique solution is
+\[
+ (x,y,z)=\left(-\frac a{a+2},-\frac a{a+2},-\frac2{a+2}\right).
+\]
+\end{answer}
+
+\item
+\[
+\begin{cases}x+y-z=0,\\ay+(2a-1)z=a,\\ax+2ay=0,\\ax+ay+(1-2a)z=a-1.\end{cases}
+\]
+
+\begin{answer}
+The four equations are
+\[
+\begin{aligned}
+x+y-z&=0, & ay+(2a-1)z&=a,\\
+ax+2ay&=0, & ax+ay+(1-2a)z&=a-1.
+\end{aligned}
+\]
+The left side of equation $2$ plus equation $4$ minus equation $3$ is zero;
+the same combination on the right is $2a-1$. Consistency therefore requires
+$a=\frac12$. At this value, equation $2$ gives $y=1$, equation $3$ gives
+$x=-2$, and equation $1$ gives $z=-1$. These values satisfy equation $4$.
+Thus the system is uniquely solvable for $a=\frac12$, with solution
+$(-2,1,-1)$, and is inconsistent for every other $a$. There is no
+indeterminate case.
+\end{answer}
+\end{enumerate}

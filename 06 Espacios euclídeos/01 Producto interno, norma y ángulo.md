@@ -88,6 +88,7 @@ La positividad garantiza que la raíz existe y que $\|v\|=0$ sólo para $v=0_V$.
 Normalizar conserva la dirección y, para escalares positivos, el sentido. No se puede normalizar el vector cero.
 
 ```anki
+id: null
 deck: Física::Álgebra Lineal::Espacios euclídeos
 tags:
   - matematicas

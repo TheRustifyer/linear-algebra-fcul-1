@@ -1,0 +1,19 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 88 ----------
+\setcounter{enumi}{87}
+\item {\bfseries\boldmath
+Give a basis and the dimension of the vector space $\RR^+$ defined in Exercise 59(a).
+}
+
+\begin{answer}
+Use the operations of Exercise 59(a): $x\oplus y=xy$ and
+$\alpha\otimes x=x^\alpha$, with zero vector $1$.
+A basis is the one-element system $(e)$.
+Every $x>0$ has the form $x=e^{\ln x}=(\ln x)\otimes e$, so this system generates.
+If $\alpha\otimes e$ equals the zero vector, then $e^\alpha=1$, hence
+$\alpha=0$. Thus the system is independent, and the dimension is $1$.
+\end{answer}

@@ -1,0 +1,77 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 35 ----------
+\setcounter{enumi}{34}
+\item {\bfseries\boldmath
+For each $a,b\in\RR$, consider the following linear system in the unknowns $x,y,z$:
+}
+
+\[
+(S_{a,b}):\quad\begin{cases}-x+ay+bz=b,\\x-y+z=2,\\x-ay+z=1.\end{cases}
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Discuss $(S_{a,b})$ in terms of $a$ and $b$.
+
+\begin{answer}
+\[
+ (S_{a,b}):\quad
+ -x+ay+bz=b,\qquad x-y+z=2,\qquad x-ay+z=1.
+\]
+
+Add equations $1,3$, and subtract equation $3$ from equation $2$.
+Together with equation $2$, this gives the equivalent system
+\[
+ (b+1)z=b+1,\qquad (a-1)y=1,\qquad x-y+z=2.
+\]
+If $a=1$, the system is inconsistent. If $a\ne1$ and $b\ne-1$, it has the
+unique solution
+\[
+ (x,y,z)=\left(\frac a{a-1},\frac1{a-1},1\right).
+\]
+If $a\ne1$ and $b=-1$, its general solution is
+\[
+ (x,y,z)=\left(2+\frac1{a-1}-t,\frac1{a-1},t\right),\qquad t\in\RR.
+\]
+The degree of indeterminacy is $1$.
+\end{answer}
+
+\item Give the values of $a,b$ for which the associated homogeneous system has a nonzero solution.
+
+\begin{answer}
+The associated homogeneous system is equivalent to
+\[
+ (b+1)z=0,\qquad(a-1)y=0,\qquad x-y+z=0.
+\]
+It has a nonzero solution exactly when $a=1$ or $b=-1$.
+Indeed, when $a=1$ take $(1,1,0)$, and when $b=-1$ take $(-1,0,1)$.
+If neither equality holds, $z=y=x=0$.
+\end{answer}
+
+\item Give the values of $a,b$ for which the coefficient matrix is invertible.
+
+\begin{answer}
+The coefficient matrix is invertible exactly when its homogeneous
+system has only the zero solution, namely $a\ne1$ and $b\ne-1$.
+\end{answer}
+
+\item Solve $(S_{-3,-1})$ by Gauss--Jordan elimination.
+
+\begin{answer}
+For $(a,b)=(-3,-1)$, start with
+\[
+\left[\begin{array}{rrr|r}-1&-3&-1&-1\\1&-1&1&2\\1&3&1&1\end{array}\right].
+\]
+Apply $F_1\leftrightarrow F_2$, $F_2\gets F_2+F_1$,
+$F_3\gets F_3-F_1$, $F_2\gets-\frac14F_2$,
+$F_3\gets F_3-4F_2$, $F_1\gets F_1+F_2$. This gives
+\[
+\left[\begin{array}{rrr|r}1&0&1&7/4\\0&1&0&-1/4\\0&0&0&0\end{array}\right].
+\]
+Therefore $(x,y,z)=(\frac74-t,-\frac14,t)$, $t\in\RR$.
+\end{answer}
+\end{enumerate}

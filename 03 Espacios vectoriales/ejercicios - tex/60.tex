@@ -1,0 +1,36 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 60 ----------
+\setcounter{enumi}{59}
+\item {\bfseries\boldmath
+Let $V$ be a vector space over $\KK$. Let $u,v,w\in V$ and $\alpha,\beta\in\KK$. Show that
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item if $u+w=v+w$, then $u=v$.
+
+\begin{answer}
+Let $V$ be a vector space over $\KK$.
+
+From $u+w=v+w$, add $-w$ on both sides. Associativity gives $u=v$.
+\end{answer}
+
+\item if $\alpha u=\alpha v$ and $\alpha\ne0$, then $u=v$.
+
+\begin{answer}
+If $\alpha u=\alpha v$ and $\alpha\ne0$, multiplication by $\alpha^{-1}$
+gives $u=v$.
+\end{answer}
+
+\item if $\alpha u=\beta u$ and $u\ne0$, then $\alpha=\beta$.
+
+\begin{answer}
+From $\alpha u=\beta u$ we obtain $(\alpha-\beta)u=0$.
+If $\alpha\ne\beta$, part (b) applied to $(\alpha-\beta)u=(\alpha-\beta)0$
+would give $u=0$, contrary to the hypothesis. Thus $\alpha=\beta$.
+\end{answer}
+\end{enumerate}

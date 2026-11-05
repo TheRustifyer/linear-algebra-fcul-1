@@ -1,0 +1,53 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 90 ----------
+\setcounter{enumi}{89}
+\item {\bfseries\boldmath
+Consider the vector subspaces of $\RR^4$
+}
+
+\[
+F=\{(x_1,x_2,x_3,x_4)\in\RR^4:x_1=x_3\text{ and }x_4=2x_2\}
+\]
+and
+\[
+G=\langle(2,2,2,1),(0,2,0,1),(-1,2,-1,1)\rangle.
+\]
+Determine the dimensions and bases of $F$, $G$, $F\cap G$ and $F+G$.
+
+\begin{answer}
+Write $f_1=(1,0,1,0)$, $f_2=(0,1,0,2)$ and $g_2=(0,2,0,1)$.
+The equations for $F$ give
+\[
+ F=\{(a,b,a,2b):a,b\in\RR\}=\langle f_1,f_2\rangle.
+\]
+The two generators are independent, so a basis of $F$ is $(f_1,f_2)$ and
+$\dim F=2$.
+
+The three generators of $G$ satisfy
+\[
+ (2,2,2,1)=2f_1+g_2,\qquad(-1,2,-1,1)=-f_1+g_2,
+ \qquad f_1=\tfrac12\bigl((2,2,2,1)-g_2\bigr).
+\]
+Thus $G=\langle f_1,g_2\rangle=\{(a,2b,a,b):a,b\in\RR\}$.
+The generators $f_1,g_2$ are independent, so they form a basis and $\dim G=2$.
+
+A vector $(a,2b,a,b)\in G$ lies in $F$ exactly when $b=2(2b)$, hence $b=0$.
+Therefore
+\[
+ F\cap G=\langle f_1\rangle,\qquad \dim(F\cap G)=1.
+\]
+Its basis is $(f_1)$.
+
+Finally $F+G=\langle f_1,f_2,g_2\rangle$.
+If $\alpha f_1+\beta f_2+\gamma g_2=0$, coordinate $1$ gives $\alpha=0$;
+coordinates $2,4$ give $\beta+2\gamma=0$, $2\beta+\gamma=0$.
+Thus $\beta=\gamma=0$. A basis and dimension are consequently
+\[
+ \boxed{\mathcal B_{F+G}=\bigl((1,0,1,0),(0,1,0,2),(0,2,0,1)\bigr),
+ \qquad\dim(F+G)=3.}
+\]
+\end{answer}

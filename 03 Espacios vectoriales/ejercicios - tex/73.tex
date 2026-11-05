@@ -1,0 +1,38 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 73 ----------
+\setcounter{enumi}{72}
+\item {\bfseries\boldmath
+In the real vector space $\RR^4$, consider the vectors
+}
+
+\[
+u=(3,0,-2,1),\qquad v=(0,-2,1,0),\qquad w=(2,-3,0,2).
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Give matrices $A$ and $B$ such that $\langle u,v,w\rangle=C(A)=L(B)$.
+
+\begin{answer}
+Let $u=(3,0,-2,1)$, $v=(0,-2,1,0)$ and $w=(2,-3,0,2)$.
+
+Use these vectors as columns for $A$ and as rows for $B$:
+\[
+ A=\begin{bmatrix}3&0&2\\0&-2&-3\\-2&1&0\\1&0&2\end{bmatrix},\qquad
+ B=A^T=\begin{bmatrix}3&0&-2&1\\0&-2&1&0\\2&-3&0&2\end{bmatrix}.
+\]
+Then $\langle u,v,w\rangle=C(A)=L(B)$ by the definitions of column and row spaces.
+\end{answer}
+
+\item Does $(0,-7,3,4)$ belong to $\langle u,v,w\rangle$? Does $(3,0,0,1)$ belong to $\langle u,v,w\rangle$?
+
+\begin{answer}
+Yes, $(0,-7,3,4)=-2u-v+3w$.
+The vector $(3,0,0,1)$ does not belong to the span:
+every generator satisfies $5x+4y+8z+w=0$, whereas this vector gives $16\ne0$.
+\end{answer}
+\end{enumerate}

@@ -1,0 +1,61 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 49 ----------
+\setcounter{enumi}{48}
+\item {\bfseries\boldmath
+Consider the matrices
+}
+
+\[
+A=\begin{bmatrix}1&2&-1&2\\2&0&2&1\\-1&1&0&0\\0&1&-1&0\end{bmatrix},\qquad B=\begin{bmatrix}1&-1&1&-3\\2&1&0&-2\\-1&1&2&-2\\-2&-1&3&0\end{bmatrix}.
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Compute the determinants of $A$, $B$, $AB$, $A^2$, $AB^T$ and $A+B$.
+
+\begin{answer}
+\[
+ A=\begin{bmatrix}1&2&-1&2\\2&0&2&1\\-1&1&0&0\\0&1&-1&0\end{bmatrix},\qquad
+ B=\begin{bmatrix}1&-1&1&-3\\2&1&0&-2\\-1&1&2&-2\\-2&-1&3&0\end{bmatrix}.
+\]
+
+On $A$, apply $F_2\gets F_2-2F_1$, $F_3\gets F_3+F_1$,
+$F_3\gets F_3+\frac34F_2$, $F_4\gets F_4+\frac14F_2$.
+These determinant-preserving operations give
+\[
+ U_A=\begin{bmatrix}1&2&-1&2\\0&-4&4&-3\\0&0&2&-1/4\\0&0&0&-3/4\end{bmatrix},
+ \quad\det A=1(-4)2(-3/4)=6.
+\]
+On $B$, apply $F_2\gets F_2-2F_1$, $F_3\gets F_3+F_1$,
+$F_4\gets F_4+2F_1$, $F_4\gets F_4+F_2$, $F_4\gets F_4-F_3$:
+\[
+ U_B=\begin{bmatrix}1&-1&1&-3\\0&3&-2&4\\0&0&3&-5\\0&0&0&3\end{bmatrix},
+ \quad\det B=27.
+\]
+By multiplicativity and invariance under transpose,
+\[
+ \det(AB)=162,\qquad\det(A^2)=36,\qquad\det(AB^T)=162.
+\]
+Finally,
+\[
+ A+B=\begin{bmatrix}2&1&0&-1\\4&1&2&-1\\-2&2&2&-2\\-2&0&2&0\end{bmatrix}
+\]
+has column $4$ equal to minus column $2$, so $\det(A+B)=0$.
+\end{answer}
+
+\item State, with justification, which of $A$, $B$, $AB$ and $A+B$ are invertible. Give the determinant of each of their inverses.
+
+\begin{answer}
+A square matrix is invertible exactly when its determinant is nonzero.
+Thus $A$, $B$ and $AB$ are invertible, whereas $A+B$ is not. Their inverse
+determinants are
+\[
+ \det(A^{-1})=\frac16,\qquad\det(B^{-1})=\frac1{27},\qquad
+ \det((AB)^{-1})=\frac1{162}.
+\]
+\end{answer}
+\end{enumerate}

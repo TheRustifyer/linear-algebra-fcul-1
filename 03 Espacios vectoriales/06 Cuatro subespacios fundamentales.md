@@ -192,6 +192,7 @@ Las dimensiones son $1,1,1,1$ en los espacios ambiente correspondientes. Se comp
 Ahora toma $b=(3,6)$. El sistema $Ax=b$ se reduce a $x_1+x_2=3$ y tiene soluciones $(t,3-t)$. $\operatorname{Row}(A)=\operatorname{span}\{(1,1)\}$; su única solución en ese espacio es $(3/2,3/2)$, que satisface la ecuación y es ortogonal a la dirección nula $(-1,1)$.
 
 ```anki
+id: null
 deck: Física::Álgebra Lineal::Espacios vectoriales
 tags:
   - matematicas

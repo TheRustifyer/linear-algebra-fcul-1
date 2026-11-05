@@ -1,0 +1,33 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 24 ----------
+\setcounter{enumi}{23}
+\item {\bfseries\boldmath
+Let $A\in M_n(\KK)$ satisfy $A^3+A=5I_n$.
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item Justify that $A$ is invertible and determine $A^{-1}$ in terms of $A$.
+
+\begin{answer}
+Assume $A^3+A=5I_n$.
+
+Since
+\[
+ A\frac{A^2+I_n}{5}=\frac{A^3+A}{5}=I_n
+ =\frac{A^2+I_n}{5}A,
+\]
+$A$ is invertible and $A^{-1}=\frac15(A^2+I_n)$.
+\end{answer}
+
+\item Justify that $7A$ is invertible and determine $(7A)^{-1}$ in terms of $A$.
+
+\begin{answer}
+As $7\ne0$, $7A$ is invertible and
+$(7A)^{-1}=\frac17A^{-1}=\frac1{35}(A^2+I_n)$.
+\end{answer}
+\end{enumerate}

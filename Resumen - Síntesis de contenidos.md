@@ -309,6 +309,7 @@ $$
 Para $B=(1,3,5)^T$, $u=(-7,-4,1,0)^T$ es particular y todas las soluciones son $u$ más esas dos direcciones. El rango es $2$, así que todo término independiente compatible comparte los mismos dos grados de libertad; si no es compatible, no hay solución. *(Aula 10, diap. 2–7.)*
 
 ```anki
+id: 1793798106789
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
 tags:
   - sistemas-lineales
@@ -372,3 +373,11 @@ Examina una idea por vez de las aulas 2–10 de ALGA: operaciones y tamaños de 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
 ```
+
+# Bibliografía extra (Confirmada por o profe Mario)
+
+## How to prove it
+Author: Daniel Velleman
+
+## The elements of advanced Mathematics
+Author: Steven Krantz

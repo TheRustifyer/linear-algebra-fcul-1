@@ -111,6 +111,7 @@ Las columnas son vectores unitarios ortogonales: la primera es la imagen de $(1,
 Su imagen es el eje $x$ y su núcleo es el eje $y$. Como $P_x(P_x(v))=P_x(v)$ para todo $v$, satisface $P_x^2=P_x$: proyectar una segunda vez no cambia el resultado. Esta idempotencia caracteriza algebraicamente a las proyecciones, aunque una proyección lineal general no tiene por qué ser ortogonal.
 
 ```anki
+id: null
 deck: Física::Álgebra Lineal::Transformaciones lineales
 tags:
   - matematicas

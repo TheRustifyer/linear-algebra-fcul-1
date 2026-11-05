@@ -59,6 +59,7 @@ La geometría y el álgebra coinciden porque las imágenes de dos o tres vectore
 > Para una transformación lineal $T_A$ de $\mathbb R^2$ o $\mathbb R^3$, el área o volumen de cualquier región se multiplica por $|\det(A)|$. En particular, el paralelogramo o paralelepípedo formado por las imágenes de los vectores de la base estándar tiene área o volumen $|\det(A)|$.[^1]
 
 ```anki
+id: 1793798107039
 deck: Matemáticas::Álgebra lineal::Determinantes
 tags:
   - matemáticas

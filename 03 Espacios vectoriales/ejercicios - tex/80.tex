@@ -1,0 +1,34 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 80 ----------
+\setcounter{enumi}{79}
+\item {\bfseries\boldmath
+Determine a basis for each of the subspaces in Exercise 61.
+}
+
+\begin{answer}
+Only $V_1,V_2,V_7,V_{10},V_{11}$ are subspaces, as established in Exercise 61.
+\begin{enumerate}
+\item[$\mathbf{(a)}$] The equation $x-y+z=0$ gives
+$(x,y,z)=y(1,1,0)+z(-1,0,1)$.
+Thus $\bigl((1,1,0),(-1,0,1)\bigr)$ is a basis of $V_1$.
+\item[$\mathbf{(b)}$] Solving the two equations gives $y=3x$, $z=2x$.
+Thus $\bigl((1,3,2)\bigr)$ is a basis of $V_2$.
+\item[$\mathbf{(g)}$] Since $(0,a,b)=a(0,1,0)+b(0,0,1)$,
+a basis of $V_7$ is $\bigl((0,1,0),(0,0,1)\bigr)$.
+\item[$\mathbf{(j)}$] Since
+\[
+ (2a,b,-3a)=a(2,1,-3)+(b-a)(0,1,0),
+\]
+a basis of $V_{10}$ is $\bigl((2,1,-3),(0,1,0)\bigr)$.
+\item[$\mathbf{(k)}$] Its elements have the form $(x,y,z)=y(-2,1,0)$,
+so $\bigl((-2,1,0)\bigr)$ is a basis of $V_{11}$.
+\end{enumerate}
+Each displayed generating system is independent: in the two-vector cases
+the coefficients are fixed by separate coordinates; in the one-vector cases
+the generator is nonzero. The other sets in Exercise 61 are not vector
+subspaces and therefore have no vector space basis with the inherited operations.
+\end{answer}

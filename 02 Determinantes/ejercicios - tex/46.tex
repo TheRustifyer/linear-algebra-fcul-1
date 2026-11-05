@@ -1,0 +1,73 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 46 ----------
+\setcounter{enumi}{45}
+\item {\bfseries\boldmath
+Let
+}
+
+\[
+M=\begin{bmatrix}a&b&c&d\\1&3&4&1\\5&2&0&8\\-1&-1&-3&-4\end{bmatrix}.
+\]
+Knowing that $\det M=5$, compute the determinants of the following matrices.
+
+\begin{enumerate}[label=\alph*)]
+
+\item $A=\begin{bmatrix}3a&3b&3c&3d\\1&3&4&1\\5&2&0&8\\1&1&3&4\end{bmatrix}$
+
+\begin{answer}
+Let $R_1,R_2,R_3,R_4$ be the rows of
+\[
+ M=\begin{bmatrix}a&b&c&d\\1&3&4&1\\5&2&0&8\\-1&-1&-3&-4\end{bmatrix},
+ \qquad\det M=5.
+\]
+
+$A$ has rows $3R_1,R_2,R_3,-R_4$.
+Thus $\det A=3(-1)\det M=-15$.
+\end{answer}
+
+\item $B=\begin{bmatrix}5&2&0&8\\1&3&4&1\\a&b&c&d\\-1&-1&-3&-4\end{bmatrix}$
+
+\begin{answer}
+$B$ has rows $R_3,R_2,R_1,R_4$, obtained by interchanging rows $1,3$.
+Thus $\det B=-\det M=-5$.
+\end{answer}
+
+\item $C=\begin{bmatrix}1&3&4&1\\-1&-1&-3&-4\\5&2&0&8\\a&b&c&d\end{bmatrix}$
+
+\begin{answer}
+$C$ has rows $R_2,R_4,R_3,R_1$.
+One way to obtain this order is to interchange positions $1,2$, then $2,4$.
+Two interchanges give $\det C=\det M=5$.
+\end{answer}
+
+\item $D=\begin{bmatrix}-1&-4&-1&-3\\1&1&3&4\\5&8&2&0\\a&d&b&c\end{bmatrix}$
+
+\begin{answer}
+First interchange rows $1,4$ in $M$, obtaining the order $R_4,R_2,R_3,R_1$.
+Then reorder the columns as $(1,4,2,3)$, which requires two column interchanges.
+The resulting matrix is
+\[
+ D=\begin{bmatrix}-1&-4&-1&-3\\1&1&3&4\\5&8&2&0\\a&d&b&c\end{bmatrix}.
+\]
+Consequently $\det D=(-1)(-1)^2\det M=-5$.
+\end{answer}
+
+\item $E=\begin{bmatrix}a&b&c&d\\1+\sqrt7a&3+\sqrt7b&4+\sqrt7c&1+\sqrt7d\\5-a&2-b&-c&8-d\\-1&-1&-3&-4\end{bmatrix}$
+
+\begin{answer}
+$E$ is obtained by $F_2\gets F_2+\sqrt7F_1$ and
+$F_3\gets F_3-F_1$. These operations preserve the determinant, so $\det E=5$.
+\end{answer}
+
+\item $F=\begin{bmatrix}5&1&a&-1\\2&3&b&-1\\0&4&c&-3\\8&1&d&-4\end{bmatrix}$
+
+\begin{answer}
+$F$ is the transpose of the matrix with rows $R_3,R_2,R_1,R_4$.
+Transposition preserves the determinant; the row interchange changes its sign.
+Hence $\det F=-5$.
+\end{answer}
+\end{enumerate}

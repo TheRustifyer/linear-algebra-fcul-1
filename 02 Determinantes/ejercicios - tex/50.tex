@@ -1,0 +1,51 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 50 ----------
+\setcounter{enumi}{49}
+\item {\bfseries\boldmath
+Let $A\in M_3(\KK)$ and $B\in M_4(\KK)$ satisfy $\det A=5=\det B$. Compute
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item $\det(2A)$, $\det(2B)$, $\det(-2A)$ and $\det(-2B)$.
+
+\begin{answer}
+Here $A\in M_3(\KK)$, $B\in M_4(\KK)$ and $\det A=\det B=5$.
+Use $\det(cM)=c^n\det M$ for a matrix of order $n$,
+$\det(M^T)=\det M$ and $\det(M^{-1})=1/\det M$.
+
+\[
+ \det(2A)=2^3\cdot5=40,\qquad \det(2B)=2^4\cdot5=80,
+\]
+\[
+ \det(-2A)=(-2)^3\cdot5=-40,\qquad \det(-2B)=(-2)^4\cdot5=80.
+\]
+\end{answer}
+
+\item $\det(-A)$ and $\det(-B)$.
+
+\begin{answer}
+$\det(-A)=(-1)^3\cdot5=-5$ and
+$\det(-B)=(-1)^4\cdot5=5$.
+\end{answer}
+
+\item $\det(A^T)$, $\det(A^{-1})$, $\det((2A)^T)$, $\det(2A^{-1})$, $\det((2A)^{-1})$ and $\det(B^TB^{-1})$.
+
+\begin{answer}
+Both $A$ and $B$ are invertible because their determinants are nonzero.
+In the order requested,
+\[
+\begin{aligned}
+ \det(A^T)&=5, & \det(A^{-1})&=\tfrac15, &
+ \det((2A)^T)&=40,\\
+ \det(2A^{-1})&=2^3\det(A^{-1})=\tfrac85, &
+ \det((2A)^{-1})&=\tfrac1{40}, &
+ \det(B^TB^{-1})&=5\cdot\tfrac15=1.
+\end{aligned}
+\]
+\end{answer}
+\end{enumerate}

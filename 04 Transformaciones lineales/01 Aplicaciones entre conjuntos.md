@@ -80,6 +80,7 @@ La notación $f^{-1}(B)$ nombra una operación sobre subconjuntos y tiene sentid
 En el ejemplo cuadrático, $f^{-1}([1,4])=[-2,-1]\cup[1,2]$: buscamos todas las entradas cuyos cuadrados están entre $1$ y $4$.
 
 ```anki
+id: null
 deck: Física::Álgebra Lineal::Transformaciones lineales
 tags:
   - matematicas

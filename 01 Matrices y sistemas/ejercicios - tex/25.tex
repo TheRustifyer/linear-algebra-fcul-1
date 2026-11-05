@@ -1,0 +1,41 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 25 ----------
+\setcounter{enumi}{24}
+\item {\bfseries\boldmath
+Let $A\in M_n(\KK)$ be invertible. Show that
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item if $B\in M_{n\times m}(\KK)$ satisfies $AB=0_{n\times m}$, then $B=0_{n\times m}$.
+
+\begin{answer}
+$AB=0_{n\times m}$ implies
+$B=A^{-1}(AB)=A^{-1}0_{n\times m}=0_{n\times m}$.
+\end{answer}
+
+\item if $B\in M_{m\times n}(\KK)$ satisfies $BA=0_{m\times n}$, then $B=0_{m\times n}$.
+
+\begin{answer}
+$BA=0_{m\times n}$ implies
+$B=(BA)A^{-1}=0_{m\times n}A^{-1}=0_{m\times n}$.
+\end{answer}
+
+\item if $B,C\in M_{n\times m}(\KK)$ satisfy $AB=AC$, then $B=C$.
+
+\begin{answer}
+$AB=AC$ implies $A^{-1}AB=A^{-1}AC$, hence $B=C$.
+\end{answer}
+
+\item if $B,C\in M_{m\times n}(\KK)$ satisfy $BA=CA$, then $B=C$.
+
+\begin{answer}
+$BA=CA$ implies $BAA^{-1}=CAA^{-1}$, hence $B=C$.
+
+All products have the dimensions specified in the question.
+\end{answer}
+\end{enumerate}

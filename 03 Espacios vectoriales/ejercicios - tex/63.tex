@@ -1,0 +1,33 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 63 ----------
+\setcounter{enumi}{62}
+\item {\bfseries\boldmath
+State, with justification, whether
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item $V=\{A\in M_3(\RR):A+A^T=0\}$ is a subspace of the real vector space $M_3(\RR)$.
+
+\begin{answer}
+Yes. The zero matrix is in $V$. If $A+A^T=B+B^T=0$ and
+$\alpha,\beta\in\RR$, then
+\[
+ (\alpha A+\beta B)+(\alpha A+\beta B)^T
+ =\alpha(A+A^T)+\beta(B+B^T)=0.
+\]
+Thus $V$ is a real subspace of $M_3(\RR)$.
+\end{answer}
+
+\item $W=\{A\in M_3(\CC):A+\overline A^{\,T}=0\}$ is a subspace of the complex vector space $M_3(\CC)$.
+
+\begin{answer}
+No. For $A=iI_3$, we have $A+\overline A^{\,T}=0$.
+But $iA=-I_3$, and $iA+\overline{iA}^{\,T}=-2I_3\ne0$.
+Thus $W$ is not closed under complex scalar multiplication.
+\end{answer}
+\end{enumerate}

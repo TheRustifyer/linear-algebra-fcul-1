@@ -1,0 +1,64 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 44 ----------
+\setcounter{enumi}{43}
+\item {\bfseries\boldmath
+Compute the determinant of each of the following matrices.
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item $A=\begin{bmatrix}2&1&0&3\\1+2\alpha&2+\alpha&1&1+3\alpha\\2+\beta&1+2\beta&\beta&\beta\\-4&-2&5&0\end{bmatrix}$.
+
+\begin{answer}
+For
+\[
+ A=\begin{bmatrix}
+2&1&0&3\\1+2\alpha&2+\alpha&1&1+3\alpha\\
+2+\beta&1+2\beta&\beta&\beta\\-4&-2&5&0
+\end{bmatrix},
+\]
+use $F_2\gets F_2-\alpha F_1$, $F_3\gets F_3-\beta F_2$,
+$F_1\gets F_1-F_3$, $F_4\gets F_4+2F_3$. Row additions preserve the determinant,
+so
+\[
+ \det A=\det\begin{bmatrix}0&0&0&3\\1&2&1&1\\2&1&0&0\\0&0&5&0\end{bmatrix}
+ =-3\det\begin{bmatrix}1&2&1\\2&1&0\\0&0&5\end{bmatrix}
+ =-15(1-4)=45.
+\]
+This holds for every $\alpha,\beta$.
+\end{answer}
+
+\item $B=\begin{bmatrix}-1&1&2&0&1\\-1&1&1&-1&2\\-1&3&9&-1&2\\1&1&6&7&2\\2&0&4&3&0\end{bmatrix}$.
+
+\begin{answer}
+For
+\[
+ B=\begin{bmatrix}
+-1&1&2&0&1\\-1&1&1&-1&2\\-1&3&9&-1&2\\1&1&6&7&2\\2&0&4&3&0
+\end{bmatrix},
+\]
+apply
+\[
+\begin{gathered}
+F_2\gets F_2-F_1,\quad F_3\gets F_3-F_1,\quad
+F_4\gets F_4+F_1,\\
+F_5\gets F_5+2F_1,\quad F_2\leftrightarrow F_3,\\
+F_4\gets F_4-F_2,\quad F_5\gets F_5-F_2,\\
+F_4\gets F_4+F_3,\quad F_5\gets F_5+F_3,\quad
+F_5\gets F_5-\tfrac37F_4.
+\end{gathered}
+\]
+The resulting upper triangular matrix is
+\[
+ U=\begin{bmatrix}
+ -1&1&2&0&1\\0&2&7&-1&1\\0&0&-1&-1&1\\0&0&0&7&3\\0&0&0&0&5/7
+ \end{bmatrix}.
+\]
+There was one row interchange and all other operations were row additions.
+Therefore $\det B=-\det U=-(-1)(2)(-1)(7)(5/7)=-10$.
+\end{answer}
+\end{enumerate}

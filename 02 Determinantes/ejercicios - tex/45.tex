@@ -1,0 +1,27 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 45 ----------
+\setcounter{enumi}{44}
+\item {\bfseries\boldmath
+Compute the determinant of the matrix
+}
+
+\[
+A=\begin{bmatrix}3&2&0&0&0&0\\3&3&2&0&0&0\\3&3&3&2&0&0\\3&3&3&3&2&0\\3&3&3&3&3&2\\3&3&3&3&3&3\end{bmatrix}.
+\]
+
+\begin{answer}
+For the given $6\times6$ matrix, apply
+$F_j\gets F_j-F_{j-1}$ in the order $j=6,5,4,3,2$.
+Each subtraction uses the preceding row before it is changed. The result is
+\[
+ U=\begin{bmatrix}
+ 3&2&0&0&0&0\\0&1&2&0&0&0\\0&0&1&2&0&0\\
+ 0&0&0&1&2&0\\0&0&0&0&1&2\\0&0&0&0&0&1
+ \end{bmatrix}.
+\]
+These operations preserve the determinant. Hence $\det A=\det U=3$.
+\end{answer}

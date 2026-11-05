@@ -1,0 +1,41 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 81 ----------
+\setcounter{enumi}{80}
+\item {\bfseries\boldmath
+Determine a basis for each of the subspaces in Exercise 62.
+}
+
+\begin{answer}
+Write $E_{ij}$ for the $3\times3$ matrix with entry $1$ in position $(i,j)$
+and all other entries zero.
+\begin{enumerate}
+\item[$\mathbf{(a)}$] The decomposition in Exercise 62(a) gives the basis
+\[
+ \left(\begin{bmatrix}0&1&0\\-1&0&0\\2&0&0\end{bmatrix},
+       \begin{bmatrix}0&0&1\\0&2&0\\0&0&-1\end{bmatrix}\right)
+\]
+of $W_1$. Independence follows from entries $(1,2)$ and $(1,3)$.
+\item[$\mathbf{(c)}$] A general matrix in $W_3$ is
+\[
+ \begin{bmatrix}a&b&c\\5g&d&-a\\e&f&g\end{bmatrix}.
+\]
+Consequently a basis is
+\[
+ \bigl(E_{11}-E_{23},\ E_{12},\ E_{13},\ 5E_{21}+E_{33},\ E_{22},\ E_{31},\ E_{32}\bigr).
+\]
+The seven coefficients are uniquely determined by the entries of the matrix,
+which proves independence as well as generation.
+\item[$\mathbf{(d)}$] Every matrix in $W_4$ has first row $(a,a,a)$, with
+its other six entries free. Therefore a basis is
+\[
+ \bigl(E_{11}+E_{12}+E_{13},\ E_{21},\ E_{22},\ E_{23},\ E_{31},\ E_{32},\ E_{33}\bigr).
+\]
+Again the seven coefficients are uniquely determined by the entries.
+\end{enumerate}
+The sets $W_2,W_5$ are not subspaces and have no vector space basis with the
+inherited operations.
+\end{answer}

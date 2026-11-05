@@ -1,0 +1,31 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 57 ----------
+\setcounter{enumi}{56}
+\item {\bfseries\boldmath
+Let $A\in M_n(\KK)$, where $n\ge2$. Show that if $A$ is invertible, then $\operatorname{adj}(A)$ is invertible and
+}
+
+\[
+(\operatorname{adj}(A))^{-1}=\frac1{|A|}A=\operatorname{adj}(A^{-1}).
+\]
+
+\begin{answer}
+Since $A$ is invertible, $\det A\ne0$, and the adjugate identity gives
+\[
+ \operatorname{adj}(A)=(\det A)A^{-1}.
+\]
+It is a nonzero scalar multiple of an invertible matrix, so
+\[
+ (\operatorname{adj}(A))^{-1}=\frac1{\det A}A.
+\]
+Applying the same identity to $A^{-1}$ gives
+\[
+ \operatorname{adj}(A^{-1})=\det(A^{-1})(A^{-1})^{-1}
+ =\frac1{\det A}A,
+\]
+which proves both required equalities.
+\end{answer}

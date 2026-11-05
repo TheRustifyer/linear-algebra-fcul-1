@@ -1,0 +1,57 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 79 ----------
+\setcounter{enumi}{78}
+\item {\bfseries\boldmath
+Determine a basis of each of the following vector subspaces. Do this in two ways: using the row space of a matrix and using the column space of a matrix.
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item $V=\langle(1,2,-1),(-3,0,-3),(4,2,-2),(-1,4,-1)\rangle$ in $\RR^3$.
+
+\begin{answer}
+For the row-space method, place the generators in the rows and reduce:
+the nonzero rows of an echelon form are a basis of the same row space.
+For the column-space method, place the generators in the columns and
+use the pivot column indices to select columns of the original matrix.
+
+Let $v_1=(1,2,-1)$, $v_2=(-3,0,-3)$, $v_3=(4,2,-2)$,
+$v_4=(-1,4,-1)$. The row matrix reduces as follows:
+\[
+ R=\begin{bmatrix}1&2&-1\\-3&0&-3\\4&2&-2\\-1&4&-1\end{bmatrix}
+ \sim\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\\0&0&0\end{bmatrix}.
+\]
+Thus $\bigl((1,0,0),(0,1,0),(0,0,1)\bigr)$ is a row-space basis and $V=\RR^3$.
+For the column matrix $C=R^T$,
+\[
+ C\sim\begin{bmatrix}1&0&0&3\\0&1&0&0\\0&0&1&-1\end{bmatrix}.
+\]
+The pivot indices are $1,2,3$. A basis selected from the original generators
+is $(v_1,v_2,v_3)$. The last column relation is $v_4=3v_1-v_3$.
+\end{answer}
+
+\item $W=\langle(2,-2,4,2),(-2,8,2,1),(-1,1,-2,-1),(0,4,8,3)\rangle$ in $\RR^4$.
+
+\begin{answer}
+Let $w_1=(2,-2,4,2)$, $w_2=(-2,8,2,1)$,
+$w_3=(-1,1,-2,-1)$, $w_4=(0,4,8,3)$. For the row matrix,
+\[
+ R=\begin{bmatrix}2&-2&4&2\\-2&8&2&1\\-1&1&-2&-1\\0&4&8&3\end{bmatrix}
+ \sim\begin{bmatrix}1&0&0&3/4\\0&1&0&1/4\\0&0&1&1/4\\0&0&0&0\end{bmatrix}.
+\]
+A row-space basis is
+\[
+ \bigl((1,0,0,3/4),(0,1,0,1/4),(0,0,1,1/4)\bigr).
+\]
+For $C=R^T$,
+\[
+ C\sim\begin{bmatrix}1&0&-1/2&0\\0&1&0&0\\0&0&0&1\\0&0&0&0\end{bmatrix}.
+\]
+The pivot indices are $1,2,4$, so $(w_1,w_2,w_4)$ is a second basis of $W$.
+The omitted generator satisfies $w_3=-\frac12w_1$.
+\end{answer}
+\end{enumerate}

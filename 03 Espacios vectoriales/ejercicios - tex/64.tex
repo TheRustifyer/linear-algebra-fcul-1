@@ -1,0 +1,47 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 64 ----------
+\setcounter{enumi}{63}
+\item {\bfseries\boldmath
+Consider the real vector space $\RR_3[x]$ of real polynomials in $x$ of degree at most $3$. State, with justification, whether each of the following sets is a subspace of $\RR_3[x]$.
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item $E_1=\{ax^3+bx^2+cx+d\in\RR_3[x]:2a-5c=0,\ b-c+d=0\}$.
+
+\begin{answer}
+Yes. For $p=ax^3+bx^2+cx+d$, the coefficient conditions
+$2a-5c=0$ and $b-c+d=0$ are homogeneous and linear. They hold for the zero
+polynomial and are preserved by linear combinations.
+\end{answer}
+
+\item $E_2=\{ax^3+bx^2+cx+d\in\RR_3[x]:2a-5c=-1,\ b-c+d=0\}$.
+
+\begin{answer}
+No. The zero polynomial does not satisfy $2a-5c=-1$.
+\end{answer}
+
+\item $E_3=\{ax^3+bx^2+cx+d\in\RR_3[x]:2a-5c\ge-1\}$.
+
+\begin{answer}
+No. The polynomial $p=x^3$ satisfies $2a-5c=2\ge-1$,
+but $-p$ gives $-2<-1$.
+\end{answer}
+
+\item $E_4=\{ax^3+bx^2+c\in\RR_3[x]:a,b,c\in\RR\}$.
+
+\begin{answer}
+Yes. $E_4=\{ax^3+bx^2+c:a,b,c\in\RR\}=\langle x^3,x^2,1\rangle$.
+\end{answer}
+
+\item $E_5=\{ax^3+bx^2+x+c\in\RR_3[x]:a,b,c\in\RR\}$.
+
+\begin{answer}
+No. Every element of $E_5$ has coefficient of $x$ equal to $1$,
+so $E_5$ does not contain the zero polynomial.
+\end{answer}
+\end{enumerate}

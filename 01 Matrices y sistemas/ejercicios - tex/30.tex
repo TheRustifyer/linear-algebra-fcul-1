@@ -1,0 +1,18 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 30 ----------
+\setcounter{enumi}{29}
+\item {\bfseries\boldmath
+Let $A\in M_{m\times n}(\KK)$ and let $P\in M_m(\KK)$ be invertible. Show that $\rank(PA)=\rank(A)$.
+}
+
+\begin{answer}
+Since $P$ is invertible, row reduction takes it to $I_m$:
+$E_s\cdots E_1P=I_m$, where the $E_j$ are elementary matrices. Thus
+$P=E_1^{-1}\cdots E_s^{-1}$. Each inverse is elementary, so $PA$ is obtained
+from $A$ by elementary row operations. Such operations preserve rank;
+therefore $\rank(PA)=\rank(A)$.
+\end{answer}

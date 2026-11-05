@@ -1,0 +1,89 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 58 ----------
+\setcounter{enumi}{57}
+\item {\bfseries\boldmath
+Determine whether each of the following systems is a Cramer system and, if it is, solve it by Cramer\textquotesingle{}s rule.
+}
+
+\begin{enumerate}[label=\alph*)]
+
+\item
+\[
+\begin{cases}8x_1-x_2+x_3=1,\\x_1+x_2-x_4=2,\\3x_2+x_3-x_4=0.\end{cases}
+\]
+The unknowns are $x_1,x_2,x_3,x_4$.
+
+\begin{answer}
+A Cramer system has a square coefficient matrix with nonzero determinant.
+For such a system, let $A_j$ be obtained from $A$ by replacing column $j$
+with the right-hand side; then $x_j=\det(A_j)/\det A$.
+
+There are three equations and four unknowns. The coefficient matrix
+is $3\times4$, so this is not a Cramer system.
+\end{answer}
+
+\item
+\[
+\begin{cases}x-y+2z=-3,\\4x+2y-z=1,\\3x+3y-3z=4.\end{cases}
+\]
+The unknowns are $x,y,z$.
+
+\begin{answer}
+Here
+$A=\begin{bmatrix}1&-1&2\\4&2&-1\\3&3&-3\end{bmatrix}$.
+Its third row is row $2$ minus row $1$, so $\det A=0$.
+This is not a Cramer system.
+\end{answer}
+
+\item
+\[
+\begin{cases}x+y+2z=2,\\-x+z=-1,\\2x+y-z=1.\end{cases}
+\]
+The unknowns are $x,y,z$.
+
+\begin{answer}
+Here
+\[
+ A=\begin{bmatrix}1&1&2\\-1&0&1\\2&1&-1\end{bmatrix},\quad
+ B=\begin{bmatrix}2\\-1\\1\end{bmatrix},\quad \det A=-2.
+\]
+The replacement determinants are
+\[
+\begin{aligned}
+ \det A_1&=\det\begin{bmatrix}2&1&2\\-1&0&1\\1&1&-1\end{bmatrix}=-4,\\
+ \det A_2&=\det\begin{bmatrix}1&2&2\\-1&-1&1\\2&1&-1\end{bmatrix}=4,\\
+ \det A_3&=\det\begin{bmatrix}1&1&2\\-1&0&-1\\2&1&1\end{bmatrix}=-2.
+\end{aligned}
+\]
+Cramer's rule gives $(x,y,z)=(2,-2,1)$.
+\end{answer}
+
+\item
+\[
+\begin{cases}-5x_1+x_4=1,\\x_1+x_2-x_3+2x_4=1,\\-x_1+x_2+x_4=1,\\2x_1+2x_2+x_3-x_4=0.\end{cases}
+\]
+The unknowns are $x_1,x_2,x_3,x_4$.
+
+\begin{answer}
+Here
+\[
+ A=\begin{bmatrix}-5&0&0&1\\1&1&-1&2\\-1&1&0&1\\2&2&1&-1\end{bmatrix},\quad
+ B=\begin{bmatrix}1\\1\\1\\0\end{bmatrix}.
+\]
+Expansion along row $1$ gives $\det A=-5(-2)-6=4$.
+For the four replacement matrices,
+\[
+\begin{aligned}
+ \det A_1&=\det\begin{bmatrix}1&0&0&1\\1&1&-1&2\\1&1&0&1\\0&2&1&-1\end{bmatrix}=0,\\
+ \det A_2&=\det\begin{bmatrix}-5&1&0&1\\1&1&-1&2\\-1&1&0&1\\2&0&1&-1\end{bmatrix}=0,\\
+ \det A_3&=\det\begin{bmatrix}-5&0&1&1\\1&1&1&2\\-1&1&1&1\\2&2&0&-1\end{bmatrix}=4,\\
+ \det A_4&=\det\begin{bmatrix}-5&0&0&1\\1&1&-1&1\\-1&1&0&1\\2&2&1&0\end{bmatrix}=4.
+\end{aligned}
+\]
+Therefore $(x_1,x_2,x_3,x_4)=(0,0,1,1)$.
+\end{answer}
+\end{enumerate}

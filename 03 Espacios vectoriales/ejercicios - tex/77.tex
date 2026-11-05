@@ -1,0 +1,58 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 77 ----------
+\setcounter{enumi}{76}
+\item {\bfseries\boldmath
+Consider the vector subspace of $M_2(\RR)$
+}
+
+\[
+V=\left\langle\begin{bmatrix}-1&1\\2&1\end{bmatrix},\begin{bmatrix}5&-1\\1&2\end{bmatrix}\right\rangle.
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Describe $V$ by conditions on the entries of its matrices.
+
+\begin{answer}
+Put $A_1=\begin{bmatrix}-1&1\\2&1\end{bmatrix}$ and
+$A_2=\begin{bmatrix}5&-1\\1&2\end{bmatrix}$, so $V=\langle A_1,A_2\rangle$.
+
+Write
+\[
+ \begin{bmatrix}x&y\\z&w\end{bmatrix}=pA_1+qA_2
+ =\begin{bmatrix}-p+5q&p-q\\2p+q&p+2q\end{bmatrix}.
+\]
+The last expression implies $3x+7y-4w=0$ and $9x+22y-z-11w=0$.
+Conversely, the first two entries give
+$q=(x+y)/4$, $p=(x+5y)/4$.
+The two displayed conditions then give exactly $w=p+2q$, $z=2p+q$.
+Thus
+\[
+ V=\left\{\begin{bmatrix}x&y\\z&w\end{bmatrix}:
+ 3x+7y-4w=0,\quad9x+22y-z-11w=0\right\}.
+\]
+\end{answer}
+
+\item Consider the vector subspace
+\[
+W=\left\{\begin{bmatrix}x&y\\z&w\end{bmatrix}\in M_2(\RR):x+2y-2w=0\right\}.
+\]
+Using your answer to (a), determine a finite generating system for $V\cap W$.
+
+\begin{answer}
+Add $x+2y-2w=0$. Subtracting twice this equation from
+$3x+7y-4w=0$ gives $x+3y=0$. Hence
+\[
+ x=-3y,\quad w=-y/2,\quad z=y/2.
+\]
+Set $y=-2t$. Then
+\[
+ V\cap W=\left\{t\begin{bmatrix}6&-2\\-1&1\end{bmatrix}:t\in\RR\right\}.
+\]
+The single matrix $\begin{bmatrix}6&-2\\-1&1\end{bmatrix}$ is a finite generating system.
+\end{answer}
+\end{enumerate}

@@ -1,0 +1,65 @@
+\providecommand{\rank}{\operatorname{r}}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\providecommand{\KK}{\mathbb K}
+
+% ---------- Exercise 39 ----------
+\setcounter{enumi}{38}
+\item {\bfseries\boldmath
+For $a,b\in\RR$, consider the matrices
+}
+
+\[
+A=\begin{bmatrix}8&-2&1&3\\0&a^2-4&a-2&6\\0&0&a^2-4&b\\0&0&0&a\end{bmatrix},\qquad B=\begin{bmatrix}b\\1\\2\\2b\end{bmatrix}.
+\]
+
+\begin{enumerate}[label=\alph*)]
+
+\item Let $(S)$ be the linear system with augmented matrix $[A\mid B]$. Discuss $(S)$ in terms of $a$ and $b$.
+
+\begin{answer}
+The coefficient and right-hand-side matrices are
+\[
+ A=\begin{bmatrix}
+8&-2&1&3\\0&a^2-4&a-2&6\\0&0&a^2-4&b\\0&0&0&a
+\end{bmatrix},\qquad B=\begin{bmatrix}b\\1\\2\\2b\end{bmatrix}.
+\]
+
+Use the equations from bottom to top.
+\begin{itemize}[leftmargin=*]
+\item If $a\notin\{-2,0,2\}$, all four diagonal entries are nonzero, so the
+system has a unique solution. Explicitly, writing the unknowns as $x,y,z,w$,
+\[
+ w=\frac{2b}{a},\quad z=\frac{2-bw}{a^2-4},\quad
+ y=\frac{1-(a-2)z-6w}{a^2-4},\quad x=\frac{b+2y-z-3w}{8}.
+\]
+\item If $a=0$, the last equation requires $b=0$. For $b\ne0$ the system is
+inconsistent. For $b=0$, the remaining equations give
+\[
+ (x,y,z,w)=\left(\tfrac1{16},\tfrac32t,-\tfrac12,t\right),\qquad t\in\RR.
+\]
+Its degree of indeterminacy is $1$.
+\item If $a=2$, row $2$ gives $w=1/6$. Row $4$ gives $w=b$, so $b=1/6$;
+row $3$ gives $bw=2$, which would instead require $b=12$. The system is inconsistent.
+\item If $a=-2$, row $4$ gives $w=-b$ and row $3$ gives $bw=2$.
+Thus $-b^2=2$, impossible for real $b$. The system is inconsistent.
+\end{itemize}
+\end{answer}
+
+\item Determine the values of $a,b$ for which $A-5I_4$ is invertible.
+
+\begin{answer}
+The upper triangular matrix $A-5I_4$ has diagonal entries
+$3,a^2-9,a^2-9,a-5$. It is invertible exactly when all are nonzero:
+\[
+ a\notin\{-3,3,5\},\qquad b\in\RR\text{ arbitrary}.
+\]
+\end{answer}
+
+\item For the values found in (b), state, with justification, whether there exists a nonzero column matrix $C\in M_{4\times1}(\RR)$ such that $AC=5C$.
+
+\begin{answer}
+For those values, $AC=5C$ is equivalent to $(A-5I_4)C=0$.
+Multiplication by $(A-5I_4)^{-1}$ gives $C=0$. There is no nonzero such column.
+\end{answer}
+\end{enumerate}
