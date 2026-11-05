@@ -2,7 +2,7 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "0b3932aac52eda1652946045753ab037df48236f",
+  "sourceCommit": "404dd93c089f14b2001b6bf08325054d50198eab",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
@@ -14,11 +14,11 @@
     },
     {
       "path": "01 Matrices y sistemas/01 Matrices y operaciones.md",
-      "sourceHash": "94510049ef5e1424161d6f857d2127005a33951d2d59847499f751acaaffdf94"
+      "sourceHash": "3917491280eacaaf702e77ac67af6388d72fb35fd326b592389a25fd10172b87"
     },
     {
       "path": "01 Matrices y sistemas/02 Eliminación y matrices elementales.md",
-      "sourceHash": "6e30c272081201c491ed1f0d32967db9cd8f93c8af82118e3dcd41be2546d7e1"
+      "sourceHash": "0e18dabd60f586db6e2447d1b6c7b51fa49d3801d258cfcff0408cef75205671"
     },
     {
       "path": "01 Matrices y sistemas/03 Compatibilidad, rango e inversa.md",
@@ -182,23 +182,23 @@
     },
     {
       "path": "Resumen - Síntesis de contenidos.md",
-      "sourceHash": "eed8bec423f0c7f252a9b290c4cbdb39703aa3a024a4f1c521b6536c6564d075"
+      "sourceHash": "bda5837c13b58096ca9e12d9c733cd074a6ca3319b3f211217bc9cfabfd3794d"
     },
     {
       "path": "index.md",
-      "sourceHash": "9e39ebb6d55a63f711cd58c7a56a120ea3dbc4dedf25a894b789a90082d69a3c"
+      "sourceHash": "1c400325b65acf507d2315e0d34b7a4a6a32a8094831008b1485187173fd91dc"
     }
   ],
   "stats": {
     "en": {
-      "translated": 818,
-      "reused": 7656,
-      "total": 8474
+      "translated": 706,
+      "reused": 8084,
+      "total": 8790
     },
     "pt": {
-      "translated": 818,
-      "reused": 7656,
-      "total": 8474
+      "translated": 706,
+      "reused": 8084,
+      "total": 8790
     }
   }
 }
