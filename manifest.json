@@ -2,7 +2,7 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "0688569e18eea99e97c6b344c771c9bb28afc2ab",
+  "sourceCommit": "15cb9b18cb220be1ace79cb30954742ac8cfe9f6",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
@@ -14,15 +14,15 @@
     },
     {
       "path": "01 Matrices y sistemas/01 Matrices y operaciones.md",
-      "sourceHash": "3917491280eacaaf702e77ac67af6388d72fb35fd326b592389a25fd10172b87"
+      "sourceHash": "1322fe91709c15a2f7ed598294271cf5d7cd8a97a3bc41bb9cafb057c315fbd3"
     },
     {
       "path": "01 Matrices y sistemas/02 Eliminación y matrices elementales.md",
-      "sourceHash": "0e18dabd60f586db6e2447d1b6c7b51fa49d3801d258cfcff0408cef75205671"
+      "sourceHash": "8b1ec815e0af502c70c604d059260a448b695effdc18b05067946fd0381f8f27"
     },
     {
       "path": "01 Matrices y sistemas/03 Compatibilidad, rango e inversa.md",
-      "sourceHash": "facbfd128d24b2778ee2b43b4756f2e7efb3b21071cd4ad50ccecf87c315315e"
+      "sourceHash": "bde6b8ea15e68b2fc4825ccd70222e914cc610e6f140efd5fba2db78ce3b0db4"
     },
     {
       "path": "01 Matrices y sistemas/04 Factorización LU.md",
@@ -30,7 +30,71 @@
     },
     {
       "path": "01 Matrices y sistemas/05 Sistemas de ecuaciones lineales.md",
-      "sourceHash": "1ee4792451c5f8f52b4a98127cffe8b77e1f356560c437246e3e269369c96711"
+      "sourceHash": "6800f68ca6fd53c7d05b3b33f92231fd09de7795a3749404e61aa31c5689a741"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/01-desplazamiento-cartesiano.excalidraw.md",
+      "sourceHash": "a60ac6b2ee4609dbbe5b4b9b511e3d48fc3901a81c1aa7dd5f30cee3d332c3c0"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/01-example-different-vecs-graph.md",
+      "sourceHash": "938a34083c47621b9b7f64279c1221f6cf2f767fd38bdf800dcfa90ab073d48b"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/02-gauss-y-gauss-jordan.excalidraw.md",
+      "sourceHash": "0183b1d97991b8e56f19af916cc1802f38153063835def773319c43fef92befc"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/02-indices-y-diagonal.excalidraw.md",
+      "sourceHash": "f697a8c5d1ea9e8f463e3a0db656e9960594a4e855ab42191a8ad1ce0c767c6e"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/02-matriz-elemental-izquierda.excalidraw.md",
+      "sourceHash": "d44ed1be2f90ac3ba04f1fece1949104d2d3e1117b5737fd26298d03b48db3d6"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/02-operaciones-fila-completa.excalidraw.md",
+      "sourceHash": "9aed272147660ba516b4048050627982f3dd31d37e38657cd3856eaec5cf85a3"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/02-pivotes-y-formas-escalonadas.excalidraw.md",
+      "sourceHash": "ada78cef1c6562b0311f9a8632032a303792a463f188b1543dd17c5accc1adde"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/03-compatibilidad-rango-ampliada.excalidraw.md",
+      "sourceHash": "1c449cffda729ddefb2252ac1c24b09d0f55d4441964f23a6e931ac8a6ab7079"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/03-gauss-jordan-inversa-bilateral.excalidraw.md",
+      "sourceHash": "4133403526c0597be5907368df22b7a8d724a85c52788fb58c7ae5bf1403fe08"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/03-producto-fila-columna.excalidraw.md",
+      "sourceHash": "07803ec12a5723fe4a344e666553ea35ccbf9c7480dd12b113fc556c275f311f"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/04-transpuesta-y-adjunta.excalidraw.md",
+      "sourceHash": "7d111a1a68409ae1f2ab242ce09212ce44b80dc3c2e60a39cfd5ed4bc0c5ce55"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/05-intersecciones-rectas.excalidraw.md",
+      "sourceHash": "ec093110e1e25af97f622b04541100395b8f67656979da2ac53997f8b38603cb"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/05-plano-parametrico.excalidraw.md",
+      "sourceHash": "c55dd829c74b6f067cb21feb3f0a84d19128274ce3772bcfe86e884bc2959650"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/05-recta-y-homogenea.excalidraw.md",
+      "sourceHash": "f6da7440a263e7f0f2496ab38737e9a2ae22f18511833cbdac44db8c94f2c278"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/vector-addition-graph.excalidraw.md",
+      "sourceHash": "4e6ca01b8dcccf10e0161d2b4ce6fb8aebe9a13081c407589b612a21e431c820"
+    },
+    {
+      "path": "01 Matrices y sistemas/assets/x-y-coord-system-template.excalidraw 1.md",
+      "sourceHash": "800380f8d9bea71d27bc63fd0cc335d6283d7e5ae69f21d2e4e6f71df4bcd0da"
     },
     {
       "path": "01 Matrices y sistemas/ejercicios/00 Índice de ejercicios.md",
@@ -58,15 +122,43 @@
     },
     {
       "path": "02 Determinantes/01 Definición y cálculo de determinantes.md",
-      "sourceHash": "2e3d7b62e9ccdf004e228eb1e06a5a6b30ea6fd586439dc1941e4a08a8ff2385"
+      "sourceHash": "ef0caffed1fcb73b37d585f13c32715fc935d61a9be843ad6e9b6c5216b33fb6"
     },
     {
       "path": "02 Determinantes/02 Propiedades y aplicaciones.md",
-      "sourceHash": "48d6c0ceab3cad6e74396d83b2223d90d423ccad1c3d007a9cce6a9db677e102"
+      "sourceHash": "b47bb60a5d08ece60eb23e0a5609ff92a6058b1fe49bca956bd0ca1a8b50d6a9"
     },
     {
       "path": "02 Determinantes/03 Interpretación geométrica del determinante.md",
-      "sourceHash": "43eaf33afe4b434dc065de8a1b9b6d8c18173d713ee7474f46450034c9630446"
+      "sourceHash": "b0ac3cd1f55fb7eaf9f1424801c9bc85bc214809e00c97304aba783c8f77aee9"
+    },
+    {
+      "path": "02 Determinantes/assets/01-sarrus.excalidraw.md",
+      "sourceHash": "cc8cd7e885ebc1def756ff9b74afd609a2550d93892b722009371d2e6cf2c74a"
+    },
+    {
+      "path": "02 Determinantes/assets/01-submatriz-cofactor.excalidraw.md",
+      "sourceHash": "c206eb3c226cc9ad08cc1cdcdfabd10ef2356c92815ef7a36c86afda070215f8"
+    },
+    {
+      "path": "02 Determinantes/assets/02-adjunta-cramer.excalidraw.md",
+      "sourceHash": "31e87add6b1a9b5a2eb350cbafc98714f1670bb03d9d599e62fa9fb93ad8b57d"
+    },
+    {
+      "path": "02 Determinantes/assets/02-cramer-columna.excalidraw.md",
+      "sourceHash": "4ee402f43a5e3fa60b536637bd3c7acea650439242ac21f1bfc226dab09b0482"
+    },
+    {
+      "path": "02 Determinantes/assets/02-operaciones.excalidraw.md",
+      "sourceHash": "a620ecef49742e1fcc91d8b19d1a9d66be0dc87b527fb4add28bee15277dec33"
+    },
+    {
+      "path": "02 Determinantes/assets/03-area-orientacion.excalidraw.md",
+      "sourceHash": "e25caed768237d3da005dbd6a360d58a0aea310b795102ecd1bc27ccd3defd17"
+    },
+    {
+      "path": "02 Determinantes/assets/03-volumen.excalidraw.md",
+      "sourceHash": "6a12fe7ba85d1d9688e23d4d3734ed1b5dd793dbbd582e608c44eb220cea4f48"
     },
     {
       "path": "02 Determinantes/ejercicios/00 Índice de ejercicios.md",
@@ -86,27 +178,55 @@
     },
     {
       "path": "03 Espacios vectoriales/01 Espacios vectoriales y axiomas.md",
-      "sourceHash": "ec010e27306992b580ce22bb8d0db302fe73f31cae1b72fec899ccc39f1ae52c"
+      "sourceHash": "dc2fafa67ca44292ba32fe9eb1c10179ba67be50fde46f699463ad09a0d4a3c8"
     },
     {
       "path": "03 Espacios vectoriales/02 Propiedades derivadas de los axiomas.md",
-      "sourceHash": "2ec97b56207f50c4ba4fc171ca76702c9114758cec7113b2346a348e75d06aac"
+      "sourceHash": "d5f47cb3c7f0d893f29cc405a54ad674189382ead7263e9a4263dd117d679620"
     },
     {
       "path": "03 Espacios vectoriales/03 Subespacios y espacio generado.md",
-      "sourceHash": "d19f98d29211168ad7007db4bf6ac65b5774bda70338fcf0916a42816c6e83fe"
+      "sourceHash": "1dc3d562a1855d39eeff6bf5c4ec57d76e24bc22e50a09ff8b0a044355024111"
     },
     {
       "path": "03 Espacios vectoriales/04 Independencia, bases y coordenadas.md",
-      "sourceHash": "d4463934ecbc5dd0f0ccecbb6510e624776e6ecfe1a52c8b3735dfec6328c788"
+      "sourceHash": "28c236111556edc9f27bffb5de8a647bfb78edeb2f1fe0427ad78dda9d32ff3f"
     },
     {
       "path": "03 Espacios vectoriales/05 Sumas y espacios asociados a una matriz.md",
-      "sourceHash": "a71eb23f0a73c331893d99ea1a8466bc3645f98d7343e85ae704700eb12afdae"
+      "sourceHash": "7ff61dbd69b771d4766c3bac944ceae6f3e02ab45bd7afdb4877b8d3009fd9bd"
     },
     {
       "path": "03 Espacios vectoriales/06 Cuatro subespacios fundamentales.md",
-      "sourceHash": "d6def69b896e5579af4783bbbc9aaafa7ac6b3050c3d92695dd6905b2f53eec7"
+      "sourceHash": "9e2e76fa0cce3b8c1ae899e76ffec4cf7796e655cadade7c9b8e77b60ec9c0a0"
+    },
+    {
+      "path": "03 Espacios vectoriales/assets/01-circunferencia-cierre.excalidraw.md",
+      "sourceHash": "f88e423eda36b6814b9815c463880fbd7373e2daf356bbd46b2fe0b8f356d457"
+    },
+    {
+      "path": "03 Espacios vectoriales/assets/02-dependencias-de-propiedades.excalidraw.md",
+      "sourceHash": "f5859d81375f639bead76871e4a87ce1b60ce0f1d3d9cf9e9e91f4666e3e54e8"
+    },
+    {
+      "path": "03 Espacios vectoriales/assets/03-plano-generado.excalidraw.md",
+      "sourceHash": "aae4c2fbd199a4de2d5927bad3a5eecf375ab976562dd8a676c32c6f99ab96bc"
+    },
+    {
+      "path": "03 Espacios vectoriales/assets/03-union-interseccion.excalidraw.md",
+      "sourceHash": "c79fc1f88ab1d9a1dfe29563a99c574e7252c28195d2cd59be58c873bbffebf5"
+    },
+    {
+      "path": "03 Espacios vectoriales/assets/04-bases-y-coordenadas.excalidraw.md",
+      "sourceHash": "a777b3ce202d778e4fee9e50bff3d304ba074812d6814bc4756f39556ac22835"
+    },
+    {
+      "path": "03 Espacios vectoriales/assets/05-sumas-e-intersecciones.excalidraw.md",
+      "sourceHash": "a636fe8590c238bab0bc3e2ae42b1316a870e6fb897ad04f4aeaf713936276de"
+    },
+    {
+      "path": "03 Espacios vectoriales/assets/06-cuatro-subespacios.excalidraw.md",
+      "sourceHash": "093259b8cc058310b27ff5f263fd8f24f5610cfe2dac0e0db8c8f147e9137aa4"
     },
     {
       "path": "03 Espacios vectoriales/ejercicios/00 Índice de ejercicios.md",
@@ -186,19 +306,19 @@
     },
     {
       "path": "index.md",
-      "sourceHash": "1c400325b65acf507d2315e0d34b7a4a6a32a8094831008b1485187173fd91dc"
+      "sourceHash": "6b9d6dd3fe1f870676ddf3ffaf80693c8045b03abd18677849b80212a7f128b7"
     }
   ],
   "stats": {
     "en": {
-      "translated": 0,
-      "reused": 8790,
-      "total": 8790
+      "translated": 2701,
+      "reused": 7331,
+      "total": 10032
     },
     "pt": {
-      "translated": 0,
-      "reused": 8790,
-      "total": 8790
+      "translated": 2701,
+      "reused": 7331,
+      "total": 10032
     }
   }
 }
