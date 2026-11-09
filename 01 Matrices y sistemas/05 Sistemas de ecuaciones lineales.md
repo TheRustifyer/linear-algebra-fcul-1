@@ -27,13 +27,19 @@ await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 
 # Sistemas de ecuaciones lineales
 
-La ecuación $2x-3y=-6$ admite muchas soluciones: $(0,2)$ y $(3,4)$ son dos de ellas. Si se añade otra ecuación, las incógnitas deben satisfacer **las dos a la vez**. Resolver un sistema consiste en encontrar todos los valores que cumplen simultáneamente sus ecuaciones.[^a8-sistemas]
+Los pares $(0,2)$ y $(3,4)$ satisfacen $2x-3y=-6$:
+
+$$
+2\cdot0-3\cdot2=-6,\qquad 2\cdot3-3\cdot4=-6.
+$$
+
+Si añadimos la ecuación $x+y=2$, sólo el primero de esos dos pares sigue siendo solución. Para resolver el sistema tendremos que encontrar **todos** los pares que cumplan ambas ecuaciones, no resolver cada una con valores distintos de las incógnitas.[^a8-sistemas]
 
 ## Ecuaciones lineales
 
 ### Definición y coeficientes
 
-En una ecuación lineal, cada incógnita aparece multiplicada por un coeficiente. Esos productos se suman y el resultado se iguala a un término independiente. Los coeficientes son datos conocidos; las incógnitas son los valores que se buscan.
+En $3x+5y=-1$, los números $3$, $5$ y $-1$ son datos; buscamos valores de $x$ e $y$ que hagan cierta la igualdad. La expresión es lineal porque las incógnitas sólo intervienen mediante sus múltiplos $3x$ y $5y$, sumados entre sí.
 
 > [!definicion] Ecuación lineal
 > Una ecuación lineal en $x_1,\ldots,x_n$ tiene la forma
@@ -58,7 +64,7 @@ $$
 -2x_1+x_2-7x_3-x_4=5
 $$
 
-tiene cuatro incógnitas, con coeficientes $-2,1,-7,-1$.
+tiene cuatro incógnitas, con coeficientes $-2,1,-7,-1$. El coeficiente de $x_2$ es $1$, aunque no se escriba; el de $x_4$ es $-1$.
 
 Las expresiones
 
@@ -72,7 +78,7 @@ $$
 x-3y-5xz=0
 $$
 
-no son ecuaciones lineales en sus incógnitas: en la primera aparece $x^2$ y en la segunda, el producto $xz$.
+no son [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|ecuaciones lineales]] en sus incógnitas: en la primera aparece $x^2$ y en la segunda, el producto $xz$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -90,7 +96,7 @@ tags:
 ### Ecuación homogénea
 
 > [!definicion] Ecuación lineal homogénea
-> Una ecuación lineal es **homogénea** cuando su término independiente es cero:
+> Una [[#Definición y coeficientes|ecuación lineal]] es **homogénea** cuando su término independiente es cero:
 >
 > $$
 > a_1x_1+\cdots+a_nx_n=0.
@@ -104,7 +110,7 @@ $$
 \frac14x+\sqrt2\,y-z=0
 $$
 
-es lineal y homogénea. Sus coeficientes son $\frac14$, $\sqrt2$ y $-1$; que uno de ellos sea irracional no cambia la linealidad.[^a8-ecuaciones]
+es lineal y homogénea. Sus coeficientes son $\frac14$, $\sqrt2$ y $-1$, todos números reales conocidos. El cero del segundo miembro es lo que hace que sea homogénea.[^a8-ecuaciones]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -135,59 +141,145 @@ $$
 y=2+\frac23x.
 $$
 
-Se puede elegir cualquier valor real de $x$; una vez elegido, $y$ queda determinado. Si llamamos $\alpha$ a ese valor libre, las soluciones son
+Podemos elegir $x$; el valor de $y$ se obtiene sustituyendo esa elección. Con $x=0$ sale $y=2$ y, con $x=3$, sale $y=4$. Para reunir todas las elecciones en una expresión, escribimos $x=\alpha$:
 
 $$
 (x,y)=\left(\alpha,2+\frac23\alpha\right),
 \qquad \alpha\in\mathbb R.
 $$
 
-Separando la parte constante de la que depende de $\alpha$,
+> [!definicion] Parámetro libre
+> Un parámetro libre es una variable auxiliar que puede recorrer todo el dominio indicado. En esta expresión, $\alpha$ recorre $\mathbb R$; una vez elegido, determina el par solución.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - parametros
+---
+> [!note] Pregunta
+> ¿Qué significa que un parámetro sea libre en una descripción de las soluciones de un sistema?
+===
+> [!important] Respuesta
+> Que puede elegirse arbitrariamente en el dominio indicado, con independencia de los otros parámetros libres.
+```
+
+Para interpretar la expresión como una recta, separamos la parte constante de la que multiplica a $\alpha$:
 
 $$
 \boxed{(x,y)=(0,2)+\alpha\left(1,\frac23\right)},
 \qquad \alpha\in\mathbb R.
 $$
 
-Esta es la recta que pasa por $(0,2)$ y tiene vector director $\left(1,\frac23\right)$. Para comprobarlo en la ecuación original,
+Con $\alpha=0$ obtenemos el punto $(0,2)$. Si aumentamos $\alpha$ en una unidad, $x$ aumenta en $1$ e $y$ en $\frac23$; ése es el desplazamiento que recoge el **vector director** $\left(1,\frac23\right)$.
+
+> [!definicion] Vector director de una recta
+> Un vector no nulo $v$ es director de una recta si, fijado un punto $P$ de ella, todos sus puntos se describen mediante $P+\alpha v$, con $\alpha\in\mathbb R$.
+
+![La recta 2x−3y=−6 pasa por (0,2) y (3,4); la recta homogénea 2x−3y=0 pasa por el origen y tiene la misma dirección. Se destaca el desplazamiento (1,2/3) desde (0,2).](assets/05-recta-y-homogenea.svg)
+
+*La recta azul reúne las soluciones. La recta discontinua pasa por el origen y tiene la misma dirección; aparecerá de nuevo al estudiar el [[#Sistema homogéneo asociado|homogéneo asociado]].* [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/05-recta-y-homogenea.excalidraw|Dibujo editable]].
+
+Al sustituir en la ecuación original,
 
 $$
 2\alpha-3\left(2+\frac23\alpha\right)=-6.
 $$
 
-La igualdad se cumple para cualquier $\alpha$: la expresión describe toda la recta.[^a8-geometria]
+La expresión produce soluciones para cualquier $\alpha\in\mathbb R$. Recíprocamente, cualquier solución tiene un valor de $x$ que podemos tomar como $\alpha$; el despeje obliga entonces a que $y=2+\frac23\alpha$. No queda ninguna solución fuera de la parametrización.[^a8-geometria]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - geometria
+---
+> [!note] Pregunta
+> En $(x,y)=(0,2)+\alpha(1,2/3)$, ¿qué representa el vector que multiplica a $\alpha$?
+===
+> [!important] Respuesta
+> Es un vector director: al aumentar $\alpha$ en $1$, el punto se desplaza $(1,2/3)$. La recta pasa por $(0,2)$.
+>
+> ![Recta por (0,2), con desplazamiento director (1,2/3).](assets/05-recta-anki.png)
+```
 
 ### Ejemplo: un plano en el espacio
 
-En la ecuación
+Despejamos $x$ en
 
 $$
-x-3y+z=5,
+x-3y+z=5:
 $$
 
-podemos elegir $y$ y $z$ libremente y calcular después $x=5+3y-z$. Si $y=\alpha$ y $z=\beta$,
+$$
+x=5+3y-z.
+$$
+
+Podemos elegir $y$ y $z$ de manera independiente. Si $y=\alpha$ y $z=\beta$, obtenemos
 
 $$
 (x,y,z)=(5+3\alpha-\beta,\alpha,\beta).
 $$
 
-Al separar las dos contribuciones,
+Para obtener un punto del plano, fijamos ambos parámetros en cero:
+
+$$
+P=(5,0,0).
+$$
+
+Ahora dejamos $z=0$ y aumentamos $y$ de $0$ a $1$. La ecuación obliga a que $x$ pase de $5$ a $8$. El desplazamiento desde $P$ es
+
+$$
+(8,1,0)-(5,0,0)=(3,1,0).
+$$
+
+Si mantenemos $y=0$ y aumentamos $z$ de $0$ a $1$, $x$ pasa de $5$ a $4$. Obtenemos otra dirección:
+
+$$
+(4,0,1)-(5,0,0)=(-1,0,1).
+$$
+
+Reuniendo el punto y ambos desplazamientos,
 
 $$
 \boxed{(x,y,z)=(5,0,0)+\alpha(3,1,0)+\beta(-1,0,1)},
 \qquad \alpha,\beta\in\mathbb R.
 $$
 
-El punto $(5,0,0)$ pertenece al plano. Los vectores $(3,1,0)$ y $(-1,0,1)$ dan dos direcciones que no son múltiplos entre sí. La sustitución confirma que todos los puntos descritos cumplen la ecuación:
+Las dos direcciones no son múltiplos entre sí: la primera cambia la coordenada $y$ sin cambiar $z$ y la segunda cambia $z$ sin cambiar $y$. Al variar los dos parámetros recorremos el plano.
+
+![Proyección oblicua del plano x−3y+z=5: desde P=(5,0,0), aumentar y una unidad lleva a (8,1,0) con dirección (3,1,0); aumentar z una unidad lleva a (4,0,1) con dirección (−1,0,1).](assets/05-plano-parametrico.svg)
+
+*Se muestra una porción del plano y las flechas representan los cambios calculados. Es una proyección oblicua: las longitudes y los ángulos del espacio no se conservan en el dibujo.* [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/05-plano-parametrico.excalidraw|Dibujo editable]].
+
+La sustitución comprueba que cualquier elección de $\alpha$ y $\beta$ da una solución:
 
 $$
 (5+3\alpha-\beta)-3\alpha+\beta=5.
 $$
 
-> [!recuerda] Cuándo aparecen una recta y un plano
-> Sobre $\mathbb R$, una ecuación lineal en dos incógnitas representa una recta si sus coeficientes no son ambos cero. En tres incógnitas representa un plano si al menos un coeficiente es distinto de cero.[^a8-geometria]
+Además, cualquier punto que satisfaga la ecuación tiene ciertos valores de $y$ y $z$; tomándolos como $\alpha$ y $\beta$, el despeje recupera su coordenada $x$.[^a8-geometria]
 
-Si todos los coeficientes son cero, queda $0=b$: se cumple para cualquier elección de las incógnitas cuando $b=0$, y para ninguna cuando $b\ne0$.
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - geometria
+---
+> [!note] Pregunta
+> ¿Cómo se obtienen las dos direcciones de $(5,0,0)+\alpha(3,1,0)+\beta(-1,0,1)$ a partir de $x=5+3y-z$?
+===
+> [!important] Respuesta
+> Al aumentar $y$ en $1$ y fijar $z$, $x$ aumenta en $3$: dirección $(3,1,0)$. Al aumentar $z$ en $1$ y fijar $y$, $x$ disminuye en $1$: dirección $(-1,0,1)$.
+>
+> ![Dos direcciones del plano obtenidas variando y y z por separado.](assets/05-plano-anki.png)
+```
+
+> [!recuerda] Cuándo aparecen una recta y un plano
+> Sobre $\mathbb R$, una [[#Definición y coeficientes|ecuación lineal]] en dos incógnitas representa una recta si sus coeficientes no son ambos cero. En tres incógnitas representa un plano si al menos un coeficiente es distinto de cero.[^a8-geometria]
+
+> [!advertencia] Cuando todos los coeficientes son cero
+> La ecuación se reduce a $0=b$. Si $b=0$, cualquier tupla del dominio es solución; si $b\ne0$, no hay ninguna. En esos casos, la ecuación no representa una recta ni un plano.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -202,6 +294,19 @@ tags:
 > Una recta en $\mathbb R^2$ y un plano en $\mathbb R^3$, respectivamente.
 ```
 
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - ecuacion-lineal
+---
+> [!note] Pregunta
+> ¿Qué soluciones tiene $a_1x_1+\cdots+a_nx_n=b$ cuando todos los coeficientes $a_i$ son cero?
+===
+> [!important] Respuesta
+> Si $b=0$, todas las tuplas de $K^n$; si $b\ne0$, ninguna. La ecuación se reduce a $0=b$.
+```
+
 ## Sistemas, soluciones y equivalencia
 
 ### Sistema de ecuaciones lineales
@@ -209,7 +314,7 @@ tags:
 Un [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|sistema lineal]] exige que las mismas incógnitas cumplan varias ecuaciones. El número de ecuaciones no tiene por qué coincidir con el de incógnitas.
 
 > [!definicion] Sistema lineal
-> Un sistema de $m$ ecuaciones lineales en $n$ incógnitas tiene la forma
+> Un sistema de $m$ [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|ecuaciones lineales]] en $n$ incógnitas tiene la forma
 >
 > $$
 > \sum_{j=1}^{n}a_{ij}x_j=b_i,
@@ -255,7 +360,7 @@ x_1+3x_2+2x_4=-1.
 \end{cases}
 $$
 
-Hay tres ecuaciones y cuatro incógnitas. La ausencia de $x_1$ en la segunda ecuación significa que $a_{21}=0$; la ausencia de $x_3$ en la tercera significa que $a_{33}=0$. Esos ceros deben conservarse al escribir la matriz de coeficientes.
+Hay tres ecuaciones y cuatro incógnitas. La ausencia de $x_1$ en la segunda ecuación significa que $a_{21}=0$; la ausencia de $x_3$ en la tercera significa que $a_{33}=0$. Esos ceros deben conservarse al escribir la [[#Matriz de coeficientes y columnas del sistema|matriz de coeficientes]].
 
 #### Ejemplo: dos ecuaciones y dos incógnitas
 
@@ -266,7 +371,19 @@ $$
 \end{cases}
 $$
 
-Una solución debe satisfacer ambas ecuaciones con los mismos valores de $x$ e $y$.
+De la segunda ecuación obtenemos $y=-3x$. Al sustituir en la primera,
+
+$$
+2x-4(-3x)=14x=-1,
+$$
+
+por lo que $x=-\frac1{14}$ e $y=\frac3{14}$. El mismo par satisface las dos ecuaciones:
+
+$$
+2\left(-\frac1{14}\right)-4\left(\frac3{14}\right)=-1,
+\qquad
+3\left(-\frac1{14}\right)+\frac3{14}=0.
+$$
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -320,14 +437,16 @@ tags:
 > [!definicion] Conjunto solución
 > El conjunto solución de un sistema $S$, denotado $\operatorname{Sol}(S)$, reúne todas sus soluciones en $K^n$. **Resolver el sistema** significa determinar ese conjunto.[^a8-soluciones]
 
-Encontrar una tupla que funciona no basta si existen otras. En la recta anterior, por ejemplo, hay que conservar el parámetro:
+La tupla $(0,2)$ satisface $2x-3y=-6$, pero dar sólo esa tupla dejaría fuera otras soluciones, como $(3,4)$. La descripción completa conserva el parámetro:
 
 $$
 \operatorname{Sol}(2x-3y=-6)
 =\left\{(0,2)+\alpha\left(1,\frac23\right):\alpha\in K\right\}.
 $$
 
-El cuerpo elegido importa: con $K=\mathbb R$ se obtienen pares reales; con $K=\mathbb C$ también se admiten valores complejos del parámetro. En los ejemplos numéricos siguientes se buscan soluciones reales, salvo que se indique otro cuerpo.
+Si $K=\mathbb R$, el parámetro recorre los reales y obtenemos la recta dibujada. Si $K=\mathbb C$, también se permiten valores complejos: con $\alpha=i$ sale la solución $\left(i,2+\frac23i\right)$. La figura en el plano real no representa esas soluciones complejas.
+
+En los ejemplos numéricos siguientes buscamos soluciones reales, salvo que se indique otro cuerpo.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -342,10 +461,23 @@ tags:
 > Describir todas las tuplas de $K^n$ que satisfacen el sistema, y ninguna que no lo satisfaga; no basta con encontrar una solución particular.
 ```
 
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - cuerpo-de-resolucion
+---
+> [!note] Pregunta
+> ¿Qué determina el cuerpo $K$ al resolver un sistema sobre $K$?
+===
+> [!important] Respuesta
+> Los valores admitidos para las incógnitas y los parámetros. Resolver sobre $\mathbb R$ excluye coordenadas no reales; resolver sobre $\mathbb C$ las permite.
+```
+
 ### Sistemas equivalentes
 
 > [!definicion] Equivalencia de sistemas
-> Dos sistemas en las mismas incógnitas son equivalentes sobre $K$ si tienen el mismo conjunto solución en $K^n$.[^a8-soluciones]
+> Dos sistemas en las mismas incógnitas son equivalentes sobre $K$ si tienen el mismo [[#Conjunto solución y cuerpo de resolución|conjunto solución]] en $K^n$.[^a8-soluciones]
 
 Por ejemplo, $2x-3y=-6$ e $y=2+\frac23x$ son expresiones equivalentes de la misma ecuación: el despeje permite pasar de una a otra sin perder ni añadir soluciones.
 
@@ -387,8 +519,6 @@ $$
 
 En cambio, $(1,2,1)$ satisface la primera ecuación, pero en la segunda da $1+4+1=6$. Por ello no es solución del sistema.
 
-La tupla $(0,0,0)$ satisface ambas. Esto ocurre en cualquier sistema homogéneo: sustituir todas las incógnitas por cero hace cero cada primer miembro. Esta es la **solución nula** o **trivial**.
-
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
 tags:
@@ -401,6 +531,12 @@ tags:
 > [!important] Respuesta
 > Todos sus términos independientes son cero; en forma matricial, $AX=0$.
 ```
+
+También $(0,0,0)$ satisface ambas ecuaciones. En cualquier sistema homogéneo, cada producto $a_{ij}\cdot0$ vale cero; por eso la sustitución de todas las incógnitas por cero satisface todas las ecuaciones.
+
+> [!definicion] Solución nula o trivial
+> Es la solución cuyas [[Matemáticas/Geometría/Geometría analítica/Coordenada cartesiana|coordenadas]] son todas cero: $0\in K^n$. Todo sistema lineal homogéneo la admite.
+
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -417,9 +553,16 @@ tags:
 
 ### Interpretación geométrica del conjunto solución
 
-En $\mathbb R^2$, satisfacer varias ecuaciones de rectas significa pertenecer a todas ellas: el conjunto solución es su intersección. Puede ser una recta, un punto o el conjunto vacío.
+Un par que satisface dos ecuaciones de rectas pertenece a ambas. Por tanto, el [[#Conjunto solución y cuerpo de resolución|conjunto solución]] es su **intersección**. Dos rectas distintas que se cortan tienen una solución común; si coinciden, comparten toda la recta; si son paralelas distintas, no comparten ningún punto.
 
-En $\mathbb R^3$, la intersección de planos puede ser un plano, una recta, un punto o el conjunto vacío. Estas descripciones suponen que cada ecuación tiene algún coeficiente no nulo, de modo que realmente representa una recta o un plano.[^a8-geometria]
+![Tres sistemas de rectas: x+y=2 con x−y=0 se cortan en (1,1); x+y=2 con 2x+2y=4 coinciden; x+y=2 con x+y=4 son paralelas distintas.](assets/05-intersecciones-rectas.svg)
+
+*Cada panel exige satisfacer las dos ecuaciones a la vez.* [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/05-intersecciones-rectas.excalidraw|Dibujo editable]].
+
+En $\mathbb R^3$ se aplica el mismo razonamiento a los planos: buscamos los puntos que pertenecen a todos. Dos planos coincidentes comparten un plano y dos planos secantes comparten una recta; un tercer plano puede cortar esa recta en un solo punto. Si las condiciones son incompatibles, la intersección es vacía.
+
+> [!recuerda] Ecuaciones que representan rectas o planos
+> Esta interpretación supone que cada ecuación tiene algún coeficiente no nulo. Si todos son cero, hay que estudiar directamente $0=b$.[^a8-geometria]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -474,7 +617,14 @@ $$
 B=\begin{pmatrix}b_1\\\vdots\\b_m\end{pmatrix}\in M_{m\times1}(K).
 $$
 
-La fila $i$ del producto $AX$ es precisamente $a_{i1}x_1+\cdots+a_{in}x_n$. Por eso todas las ecuaciones del sistema quedan reunidas en
+Al multiplicar la fila $i$ de $A$ por la columna $X$, obtenemos
+
+$$
+(AX)_{i1}=a_{i1}x_1+\cdots+a_{in}x_n,
+\qquad \forall i\in\{1,\ldots,m\}.
+$$
+
+Exigir que esta entrada sea $b_i$ en cada fila equivale a exigir todas las ecuaciones del sistema:
 
 > [!formula] Ecuación matricial del sistema
 > $$
@@ -507,7 +657,9 @@ tags:
 >
 > La barra separa los coeficientes de los términos independientes.[^a8-matriz]
 
-Por ejemplo,
+#### Ejemplo: escribir la matriz ampliada
+
+El sistema
 
 $$
 \begin{cases}
@@ -553,7 +705,7 @@ x_1+2x_3-x_4=-3,\\
 \end{cases}
 $$
 
-Multiplicamos la matriz de coeficientes por la columna propuesta:
+Multiplicamos la [[#Matriz de coeficientes y columnas del sistema|matriz de coeficientes]] por la columna propuesta:
 
 $$
 \begin{pmatrix}
@@ -572,7 +724,7 @@ El resultado coincide con $B$, por lo que la tupla satisface las tres ecuaciones
 
 ### Identificación de vectores con columnas
 
-Al escribir $u=(u_1,\ldots,u_n)\in K^n$, se enumeran sus coordenadas. Para calcular $Au$, se representa ese vector mediante una columna:
+Al escribir $u=(u_1,\ldots,u_n)\in K^n$, se enumeran sus [[Matemáticas/Geometría/Geometría analítica/Coordenada cartesiana|coordenadas]]. Para calcular $Au$, se representa ese vector mediante una columna:
 
 $$
 u=(u_1,\ldots,u_n)
@@ -586,7 +738,7 @@ $$
 \operatorname{Sol}(AX=B)=\{u\in K^n:Au=B\}.
 $$
 
-En un producto escrito explícitamente se usará la columna, o bien $(u_1,\ldots,u_n)^T$. Una matriz fila $1\times n$ es otro objeto y no puede sustituir a la columna $n\times1$ en ese producto.[^a10-columna]
+En un producto escrito explícitamente se usará la columna, o bien $(u_1,\ldots,u_n)^T$. Una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Matriz fila|matriz fila]] $1\times n$ es otro objeto y no puede sustituir a la columna $n\times1$ en ese producto.[^a10-columna]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -611,9 +763,9 @@ Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y si
 |---|---|
 | Intercambiar dos ecuaciones | Intercambiarlas otra vez |
 | Multiplicar una ecuación por $\lambda\ne0$ | Multiplicarla por $1/\lambda$ |
-| Sumar a una ecuación un múltiplo de otra | Restar ese mismo múltiplo de la otra ecuación, que permanece intacta |
+| Reemplazar $R_i$ por $R_i+\lambda R_j$, con $i\ne j$ | Reemplazar $R_i$ por $R_i-\lambda R_j$; $R_j$ no cambia |
 
-La reversibilidad garantiza la equivalencia: toda solución del sistema inicial satisface el transformado, y la operación inversa permite volver al inicial.[^a8-gauss]
+Por ejemplo, sustituir la segunda ecuación por la segunda menos tres veces la primera se deshace sumando tres veces esa primera ecuación, que no se ha modificado. Una solución del sistema inicial satisface la nueva ecuación; como podemos reconstruir la anterior, tampoco hemos añadido soluciones. Ésta es la razón de la equivalencia, demostrada para cada operación en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Conservación de las soluciones|conservación de las soluciones]].[^a8-gauss]
 
 > [!advertencia] La operación afecta a toda la fila
 > Al operar en $[A\mid B]$, también se modifica el término independiente. Cambiar sólo los coeficientes produciría, en general, un sistema distinto.
@@ -631,11 +783,50 @@ tags:
 > Porque son operaciones reversibles sobre las ecuaciones: intercambio, escalado por un número no nulo y suma de un múltiplo de otra ecuación. Se aplican también al término independiente.
 ```
 
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - operaciones-elementales
+---
+> [!note] Pregunta
+> ¿Cómo se deshace el intercambio de dos ecuaciones de un sistema?
+===
+> [!important] Respuesta
+> Intercambiando de nuevo esas mismas ecuaciones.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - operaciones-elementales
+---
+> [!note] Pregunta
+> ¿Cómo se deshace la multiplicación de una ecuación por un escalar $\lambda\ne0$?
+===
+> [!important] Respuesta
+> Multiplicando la ecuación completa por $1/\lambda$, incluido el término independiente.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - operaciones-elementales
+---
+> [!note] Pregunta
+> ¿Cómo se deshace $R_i\leftarrow R_i+\lambda R_j$, con $i\ne j$?
+===
+> [!important] Respuesta
+> Mediante $R_i\leftarrow R_i-\lambda R_j$. La fila $R_j$ permanece sin modificar.
+```
+
 ### Eliminación de Gauss y de Gauss–Jordan
 
-La [[Matemáticas/Álgebra lineal/Eliminación de Gauss|eliminación de Gauss]] conduce a una forma escalonada: cada pivote está a la derecha del anterior y tiene ceros debajo. Si el sistema es compatible, se resuelve desde la última ecuación no nula hacia arriba, por **sustitución regresiva**.
+La [[Matemáticas/Álgebra lineal/Eliminación de Gauss|eliminación de Gauss]] obtiene una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] está a la derecha del anterior y tiene ceros debajo. Si el sistema es compatible, se resuelve desde la última ecuación no nula hacia arriba, por **[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Sustitución hacia atrás|sustitución regresiva]]**.
 
-La [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|eliminación de Gauss–Jordan]] continúa hasta la forma escalonada reducida: cada pivote vale $1$ y es el único elemento no nulo de su columna. Así se leen directamente las incógnitas básicas en función de las libres.[^a8-gauss]
+La [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|eliminación de Gauss–Jordan]] continúa hasta la [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma escalonada reducida]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] vale $1$ y es el único elemento no nulo de su columna. Así se leen directamente las incógnitas básicas en función de las libres.[^a8-gauss]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -690,7 +881,9 @@ tags:
 ### Variables básicas
 
 > [!definicion] Variable básica
-> Una incógnita es básica si su columna de coeficientes contiene un pivote en la forma escalonada. En un sistema compatible, se calcula a partir de las variables libres y de los términos independientes.[^a9]
+> Una incógnita es **básica** o **variable [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]** si su columna de coeficientes contiene un pivote en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]].[^a9]
+
+En una ecuación reducida como $x_1+2x_3=5$, con [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] en la columna de $x_1$, despejamos $x_1=5-2x_3$. La variable básica se calcula a partir del valor asignado a la [[#Variables libres|variable libre]].
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -708,7 +901,9 @@ tags:
 ### Variables libres
 
 > [!definicion] Variable libre
-> Una incógnita es libre si su columna de coeficientes no contiene un pivote en la forma escalonada. En un sistema compatible puede elegirse libremente en $K$.
+> Una incógnita es **libre** si su columna de coeficientes no contiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]. En un sistema compatible puede elegirse arbitrariamente en $K$.
+
+En el ejemplo $x_1=5-2x_3$, la columna de $x_3$ no contiene [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. Elegir $x_3=t$ da $x_1=5-2t$; cada $t\in K$ produce una solución.
 
 > [!recuerda] La última columna no es una incógnita
 > Los parámetros se cuentan entre las columnas de $A$. La columna $B$ contiene los términos independientes.
@@ -741,7 +936,7 @@ $$
 
 ### Obtener un primer pivote igual a uno
 
-Su matriz ampliada es
+Su [[Matemáticas/Álgebra lineal/Matriz ampliada|matriz ampliada]] es
 
 $$
 M_0=\left[\begin{array}{rrrr|r}
@@ -752,7 +947,7 @@ M_0=\left[\begin{array}{rrrr|r}
 \end{array}\right].
 $$
 
-La primera entrada es cero. Intercambiamos $R_1$ y $R_2$ y hacemos $R_1\leftarrow R_1-R_3$: como $4-3=1$, obtenemos un pivote que permite eliminar sin fracciones.
+La primera entrada es cero. Intercambiamos $R_1$ y $R_2$ y hacemos $R_1\leftarrow R_1-R_3$: como $4-3=1$, obtenemos un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] que permite eliminar sin fracciones.
 
 $$
 \left[\begin{array}{rrrr|r}
@@ -776,14 +971,14 @@ $$
 \end{array}\right].
 $$
 
-En la segunda columna ya hay un pivote igual a $1$. Hacemos
+En la segunda columna ya hay un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] igual a $1$. Hacemos
 
 $$
 R_3\leftarrow R_3+3R_2,
 \qquad R_4\leftarrow R_4-7R_2.
 $$
 
-La última fila resulta $(0,0,0,-4\mid4)$. Al multiplicarla por $-\frac14$, queda la forma escalonada
+La última fila resulta $(0,0,0,-4\mid4)$. Al multiplicarla por $-\frac14$, queda la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]
 
 $$
 M_E=\left[\begin{array}{rrrr|r}
@@ -796,15 +991,22 @@ $$
 
 ### Resolver por sustitución regresiva
 
-La última ecuación determina $x_4$. Sustituyendo sucesivamente hacia arriba,
+La última fila da $x_4=-1$. Sustituimos ese valor en la tercera ecuación, $x_3+4x_4=4$:
 
 $$
-\begin{aligned}
-x_4&=-1,\\
-x_3&=4-4x_4=8,\\
-x_2&=-7-x_3+x_4=-16,\\
-x_1&=-8-x_2-x_3+2x_4=-2.
-\end{aligned}
+x_3=4-4(-1)=8.
+$$
+
+La segunda ecuación, $x_2+x_3-x_4=-7$, permite calcular
+
+$$
+x_2=-7-8+(-1)=-16.
+$$
+
+Por último, de $x_1+x_2+x_3-2x_4=-8$ obtenemos
+
+$$
+x_1=-8-(-16)-8+2(-1)=-2.
 $$
 
 > [!ejemplo] Solución del sistema
@@ -812,11 +1014,11 @@ $$
 > \boxed{(x_1,x_2,x_3,x_4)=(-2,-16,8,-1)}.
 > $$
 >
-> Cada columna de coeficientes tiene un pivote; no hay variables libres.
+> Cada columna de coeficientes tiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]; no hay [[#Variables libres|variables libres]].
 
 ### Continuar con Gauss–Jordan
 
-También podemos partir de $M_E$ y anular las entradas situadas encima de cada pivote. Primero eliminamos las de la cuarta columna:
+También podemos partir de $M_E$ y anular las entradas situadas encima de cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. Primero eliminamos las de la cuarta columna:
 
 $$
 R_3\leftarrow R_3-4R_4,
@@ -857,7 +1059,7 @@ $$
 \end{array}\right].
 $$
 
-Ahora la solución se lee directamente. Ambos métodos han conservado el mismo conjunto solución.
+Ahora la solución se lee directamente. Ambos métodos han conservado el mismo [[#Conjunto solución y cuerpo de resolución|conjunto solución]].
 
 ### Comprobar en el sistema original
 
@@ -900,7 +1102,7 @@ M_0=\left[\begin{array}{rrrrr|r}
 \end{array}\right].
 $$
 
-Con $R_1\leftarrow R_1-R_3$ obtenemos la primera fila $(1,2,-1,-2,-4\mid-3)$. Usamos ese pivote para hacer
+Con $R_1\leftarrow R_1-R_3$ obtenemos la primera fila $(1,2,-1,-2,-4\mid-3)$. Usamos ese [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] para hacer
 
 $$
 R_2\leftarrow R_2-5R_1,
@@ -939,7 +1141,9 @@ M_E=\left[\begin{array}{rrrrr|r}
 \end{array}\right].
 $$
 
-Los pivotes están en las columnas **1, 2 y 4**. La tercera columna no tiene pivote: el siguiente aparece en la cuarta. Por ello, las variables libres son $x_3$ y $x_5$. La fila nula representa $0=0$ y no impide que existan soluciones.
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] están en las columnas **1, 2 y 4**: son las [[#Variables básicas|variables básicas]] $x_1,x_2,x_4$. Aunque queda una columna sin [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] entre la segunda y la cuarta, la matriz está escalonada. Las [[#Variables libres|variables libres]] son $x_3$ y $x_5$.
+
+La última fila expresa $0=0$, así que no aparece ninguna contradicción. Podemos elegir las dos [[#Variables libres|variables libres]] y calcular las tres básicas.
 
 ### Obtener la forma reducida
 
@@ -967,7 +1171,7 @@ $$
 
 ### Expresar todas las soluciones
 
-Las ecuaciones reducidas son
+La primera fila de $M_R$ expresa $x_1-5x_3+12x_5=-1$. Despejamos las [[#Variables básicas|variables básicas]] en las tres filas no nulas:
 
 $$
 \begin{cases}
@@ -977,7 +1181,7 @@ x_4=1-3x_5.
 \end{cases}
 $$
 
-Elegimos $x_3=a$ y $x_5=b$, con $a,b\in\mathbb R$ independientes. Al colocar las cinco coordenadas en su orden,
+Elegimos $x_3=a$ y $x_5=b$, con $a,b\in\mathbb R$ independientes. Al colocar las cinco [[Matemáticas/Geometría/Geometría analítica/Coordenada cartesiana|coordenadas]] en su orden,
 
 $$
 (x_1,x_2,x_3,x_4,x_5)=(-1+5a-12b,-2a+5b,a,1-3b,b).
@@ -990,7 +1194,7 @@ Separando la parte constante y los coeficientes de cada parámetro,
 > \boxed{X=u+a v_1+b v_2},\qquad a,b\in\mathbb R,
 > $$
 >
-> donde, representados por sus coordenadas,
+> donde, representados por sus [[Matemáticas/Geometría/Geometría analítica/Coordenada cartesiana|coordenadas]],
 >
 > $$
 > u=(-1,0,0,1,0),
@@ -1000,27 +1204,41 @@ Separando la parte constante y los coeficientes de cada parámetro,
 > v_1=(5,-2,1,0,0),\qquad v_2=(-12,5,0,-3,1).
 > $$
 
-Con $a=b=0$ se obtiene la solución $u$. Para comprobar la expresión completa usando la matriz original $A$, se obtiene
+Al fijar $a=b=0$ obtenemos $u$. El vector $v_1$ reúne los coeficientes de $a$ en las cinco [[Matemáticas/Geometría/Geometría analítica/Coordenada cartesiana|coordenadas]] y $v_2$, los de $b$.
+
+Comprobamos primero la parte constante en la matriz original:
 
 $$
-Au=\begin{pmatrix}-9\\-10\\-6\\-8\end{pmatrix}=B,
-\qquad Av_1=0,
-\qquad Av_2=0.
+Au=
+\begin{pmatrix}
+4(-1)-5\\
+5(-1)-5\\
+3(-1)-3\\
+2(-1)-6
+\end{pmatrix}
+=
+\begin{pmatrix}-9\\-10\\-6\\-8\end{pmatrix}=B.
 $$
 
-Por la distributividad del producto matricial,
+Las direcciones no cambian el segundo miembro:
+
+$$
+Av_1=0,\qquad Av_2=0.
+$$
+
+Por la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Distributividad por la derecha|distributividad]] del [[Matemáticas/Álgebra lineal/Producto matricial|producto matricial]],
 
 $$
 A(u+a v_1+b v_2)=Au+aAv_1+bAv_2=B.
 $$
 
-Todas las elecciones de $a,b$ dan soluciones. Además, ninguna queda fuera de la parametrización: cualquier solución tiene ciertos valores de $x_3$ y $x_5$, y las otras tres coordenadas quedan determinadas por las ecuaciones reducidas.
+Todas las elecciones de $a,b$ dan soluciones. Además, ninguna queda fuera de la parametrización: cualquier solución tiene ciertos valores de $x_3$ y $x_5$, y las otras tres [[Matemáticas/Geometría/Geometría analítica/Coordenada cartesiana|coordenadas]] quedan determinadas por las ecuaciones reducidas.
 
 ## Homogéneo asociado y solución general
 
 ### Sistema homogéneo asociado
 
-El ejemplo anterior separa una solución concreta, $u$, de dos direcciones que no modifican el segundo miembro. Estas direcciones satisfacen el sistema con términos independientes nulos.
+En el ejemplo anterior, $Au=B$, mientras que $Av_1=Av_2=0$. Por eso cambiar los parámetros modifica la solución sin modificar $B$: los términos que añadimos desaparecen al multiplicar por $A$. El sistema que satisfacen esas direcciones conserva los coeficientes y tiene ceros en el segundo miembro.
 
 > [!definicion] Sistema homogéneo asociado
 > Al sistema $AX=B$ le corresponde el sistema homogéneo asociado
@@ -1031,7 +1249,7 @@ El ejemplo anterior separa una solución concreta, $u$, de dos direcciones que n
 >
 > Se conserva la matriz $A$ y se sustituyen por cero todos los términos independientes.[^a10-general]
 
-El homogéneo asociado siempre tiene la solución nula, incluso si el sistema original es incompatible.
+El homogéneo asociado siempre tiene la [[#Sistema homogéneo y solución nula|solución nula]], incluso si el sistema original es incompatible.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1049,13 +1267,19 @@ tags:
 ### Núcleo de una matriz
 
 > [!definicion] Núcleo
-> El [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo]] de $A\in M_{m\times n}(K)$ es el conjunto de soluciones del sistema homogéneo:
+> El [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo]] de $A\in M_{m\times n}(K)$ es el conjunto de soluciones del [[#Sistema homogéneo y solución nula|sistema homogéneo]]:
 >
 > $$
 > \ker(A)=\{v\in K^n:Av=0\}.
 > $$
 
-En el ejemplo de cinco incógnitas, $v_1$ y $v_2$ pertenecen al núcleo. Sus combinaciones $a v_1+b v_2$ también pertenecen a él, porque $A(a v_1+b v_2)=aAv_1+bAv_2=0$.[^general]
+Los vectores $v_1$ y $v_2$ del ejemplo de cinco incógnitas pertenecen al [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo]]. Cualquier combinación suya también satisface el homogéneo:
+
+$$
+A(a v_1+b v_2)=aAv_1+bAv_2=0.
+$$
+
+En general, sumar soluciones del homogéneo o multiplicarlas por escalares produce otra solución del homogéneo. Esta propiedad es la que permitirá describir el [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo]] mediante unas direcciones generadoras.[^general]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1068,6 +1292,19 @@ tags:
 ===
 > [!important] Respuesta
 > Todos los vectores $v$ que satisfacen $Av=0$: las soluciones del sistema homogéneo asociado a $A$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - nucleo
+---
+> [!note] Pregunta
+> Si $Av=0$ y $Aw=0$, ¿por qué cualquier combinación $\alpha v+\beta w$ sigue en el núcleo?
+===
+> [!important] Respuesta
+> Porque $A(\alpha v+\beta w)=\alpha Av+\beta Aw=0$, para cualesquiera $\alpha,\beta\in K$.
 ```
 
 ### Solución particular
@@ -1095,18 +1332,18 @@ tags:
 #### Propiedad
 
 > [!teorema] Descripción de todas las soluciones
-> Sea $A\in M_{m\times n}(K)$. Si $u$ es una solución particular de $AX=B$, entonces
+> Sean $A\in M_{m\times n}(K)$ y $B\in K^m$. Si $u\in K^n$ satisface $Au=B$, entonces
 >
 > $$
 > \boxed{\operatorname{Sol}(AX=B)=u+\ker(A)}.
 > $$
 >
-> Esto significa que todas las soluciones, y sólo ellas, tienen la forma $u+v$ con $Av=0$.[^a10-general][^general]
+> Aquí $u+\ker(A)=\{u+v:v\in\ker(A)\}$. Es el conjunto de todas las sumas de $u$ con soluciones del homogéneo.[^a10-general][^ist-sobreposicion][^general]
 
 #### Demostración
 
 > [!demostracion] Demostración
-> **Primero, cualquier vector de esa forma es solución.** Sea $v\in\ker(A)$. Las hipótesis dan $Au=B$ y $Av=0$. Por la distributividad,
+> **De una solución del homogéneo a otra del sistema original.** Fijamos la [[#Solución particular|solución particular]] $u$ y tomamos cualquier $v\in\ker(A)$. Sabemos que $Au=B$ y $Av=0$. La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Distributividad por la derecha|distributividad]] permite comprobar qué ocurre al sumarlos:
 >
 > $$
 > A(u+v)=Au+Av=B+0=B.
@@ -1114,7 +1351,7 @@ tags:
 >
 > Por tanto, sumar a $u$ una solución del homogéneo produce otra solución del sistema original.
 >
-> **Después, toda solución se obtiene así.** Sea $X$ cualquier solución de $AX=B$. Su diferencia con $u$ satisface
+> **Por qué no falta ninguna solución.** Tomamos ahora cualquier solución $X\in K^n$ del sistema original. Queremos escribirla como $u+v$ con $Av=0$. La única elección posible es $v=X-u$; comprobamos que pertenece al [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo]]:
 >
 > $$
 > A(X-u)=AX-Au=B-B=0.
@@ -1141,16 +1378,57 @@ tags:
 > Sumando a $u$ cada solución del homogéneo: $\operatorname{Sol}(AX=B)=u+\ker(A)$. Si $X$ es cualquier solución, $A(X-u)=B-B=0$.
 ```
 
+#### Ejemplo: trasladar la recta homogénea
+
+Para $2x-3y=-6$, tomamos la particular $u=(0,2)$. El homogéneo $2x-3y=0$ tiene las soluciones
+
+$$
+v=\alpha\left(1,\frac23\right),\qquad \alpha\in\mathbb R.
+$$
+
+Al sumar $u$ a cada una, recuperamos $(x,y)=(0,2)+\alpha(1,2/3)$. Es el traslado de la recta discontinua a la azul en [[#Ejemplo: una recta en el plano|la figura inicial]]. El traslado lleva cada punto de la recta homogénea a otro de la recta solución; en particular, lleva el origen a $(0,2)$.
+
 ### Base del núcleo y parámetros
 
-Si el núcleo se describe mediante direcciones $v_1,\ldots,v_p$ que generan todas sus soluciones y son linealmente independientes —ninguna se obtiene combinando las otras—, esas direcciones forman una **base del núcleo**. La solución general queda entonces
+En el ejemplo de cinco incógnitas usamos dos direcciones para describir el homogéneo. Para que formen una base, deben producir todas sus soluciones sin que una de ellas pueda obtenerse combinando la otra.
+
+> [!definicion] Independencia lineal de una familia
+> Los vectores $v_1,\ldots,v_p\in K^n$ son [[Matemáticas/Álgebra lineal/Espacios vectoriales/04 Dependencia e independencia lineal|linealmente independientes]] si
+>
+> $$
+> \alpha_1v_1+\cdots+\alpha_pv_p=0
+> \quad\Longrightarrow\quad
+> \alpha_1=\cdots=\alpha_p=0.
+> $$
+>
+> Los coeficientes $\alpha_i$ pertenecen a $K$. La única combinación que da el vector nulo debe ser la que tiene todos sus coeficientes nulos.[^ist-bases]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - independencia-lineal
+---
+> [!note] Pregunta
+> ¿Qué debe ocurrir con los coeficientes de una combinación nula para que $v_1,\ldots,v_p$ sean linealmente independientes?
+===
+> [!important] Respuesta
+> La igualdad $\alpha_1v_1+\cdots+\alpha_pv_p=0$ debe implicar $\alpha_1=\cdots=\alpha_p=0$.
+```
+
+> [!definicion] Base del núcleo
+> Una familia de vectores $v_1,\ldots,v_p\in\ker(A)$ es una **base del núcleo** si sus [[Matemáticas/Álgebra lineal/Espacios vectoriales/03 Combinaciones lineales y espacio generado|combinaciones lineales]] generan todas las soluciones de $Av=0$ y la familia es linealmente independiente.[^ist-bases]
+
+En el ejemplo de cinco incógnitas, la tercera coordenada de $a v_1+b v_2$ es $a$ y la quinta es $b$. Para que la combinación sea nula deben anularse ambos parámetros: las dos direcciones son independientes. La reducción ya mostró además que producen todas las soluciones del homogéneo.
+
+Con una base del núcleo, la solución general del sistema compatible se escribe
 
 $$
 X=u+\alpha_1v_1+\cdots+\alpha_pv_p,
 \qquad \alpha_1,\ldots,\alpha_p\in K.
 $$
 
-Hay un parámetro independiente por dirección de la base. En un sistema compatible con $n$ incógnitas y rango $r$, su número es $n-r$, como se justifica en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]].[^a9][^rango-nulidad]
+Hay un parámetro independiente por vector de la base.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1162,7 +1440,37 @@ tags:
 > ¿Qué debe cumplir una familia de vectores para ser una base del núcleo de $A$?
 ===
 > [!important] Respuesta
-> Sus combinaciones lineales deben producir todas las soluciones de $Av=0$, y los vectores deben ser linealmente independientes. Cada vector de la base aporta un parámetro independiente.
+> Deben pertenecer al núcleo, generar todas las soluciones de $Av=0$ y ser linealmente independientes. Cada vector de la base aporta un parámetro independiente.
+```
+
+Cada columna sin pivote permite una elección libre. Si hay $n$ incógnitas y $r$ pivotes, quedan $n-r$ parámetros independientes. Las direcciones obtenidas al dar valor $1$ a una variable libre y $0$ a las restantes forman una base del núcleo: en las coordenadas libres, cada una tiene un $1$ en su posición y ceros en las otras. Es la relación entre [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa#Grado de indeterminación|rango y número de parámetros]].[^a9][^rango-nulidad]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - variables-libres
+---
+> [!note] Pregunta
+> ¿Cuántos parámetros independientes tiene la solución general de un sistema compatible con $n$ incógnitas y rango $r$?
+===
+> [!important] Respuesta
+> $n-r$, uno por cada variable libre. Si $r=n$, no hay parámetros y la solución es única.
+```
+
+Si no hay variables libres, el núcleo es $\{0\}$ y la solución particular es la única solución. En ese caso, la base del núcleo es la familia vacía: la suma sin sumandos da el vector nulo y no hacen falta direcciones adicionales.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - sistemas-lineales
+  - nucleo
+---
+> [!note] Pregunta
+> Si $\ker(A)=\{0\}$ y $AX=B$ es compatible, ¿cuántas soluciones tiene?
+===
+> [!important] Respuesta
+> Una: la solución particular $u$, porque $u+\ker(A)=\{u\}$. La base del núcleo es la familia vacía.
 ```
 
 > [!advertencia] Condiciones de validez: existencia de una solución particular
@@ -1181,7 +1489,7 @@ x_1-2x_2-x_4=0,\\
 \end{cases}
 $$
 
-La matriz de coeficientes y su forma reducida son
+La [[#Matriz de coeficientes y columnas del sistema|matriz de coeficientes]] y su forma reducida son
 
 $$
 A=\begin{pmatrix}
@@ -1199,7 +1507,17 @@ R=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-Para obtener $R$, se hacen $R_2\leftarrow R_2+3R_1$ y $R_3\leftarrow R_3+R_1$; las dos últimas filas quedan iguales. Después se aplican $R_3\leftarrow R_3-R_2$, $R_2\leftarrow-\frac12R_2$ y $R_1\leftarrow R_1+2R_2$.
+Para obtener $R$, anulamos la primera columna con $R_2\leftarrow R_2+3R_1$ y $R_3\leftarrow R_3+R_1$:
+
+$$
+\begin{pmatrix}
+1&-2&0&-1\\
+0&-2&-2&-4\\
+0&-2&-2&-4
+\end{pmatrix}.
+$$
+
+Las dos últimas filas son iguales. Hacemos $R_3\leftarrow R_3-R_2$ para anular la tercera y $R_2\leftarrow-\frac12R_2$ para normalizar el segundo [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. Finalmente, $R_1\leftarrow R_1+2R_2$ anula la entrada situada encima de él y da la matriz $R$.
 
 Las ecuaciones no nulas son
 
@@ -1223,7 +1541,9 @@ $$
 B=\begin{pmatrix}1\\3\\5\end{pmatrix}.
 $$
 
-El vector $u=(-7,-4,1,0)$ es una solución particular, porque
+Busquemos una [[#Solución particular|solución particular]]. La primera ecuación da $x_1=1+2x_2+x_4$. Sustituyendo en la segunda obtenemos $x_2+x_3+2x_4=-3$.
+
+Si fijamos $x_3=1$ y $x_4=0$, sale $x_2=-4$ y después $x_1=-7$. Nos queda comprobar la tercera ecuación. Con $u=(-7,-4,1,0)$, el producto completo da
 
 $$
 Au=\begin{pmatrix}-7+8\\21-16-2\\7-2\end{pmatrix}
@@ -1237,18 +1557,18 @@ $$
 \qquad \alpha,\beta\in\mathbb R.
 $$
 
-El rango de $A$ es $2$ y hay cuatro incógnitas. Cualquier segundo miembro compatible dará dos parámetros libres; si resulta incompatible, no habrá soluciones.
+El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de $A$ es $2$ y hay cuatro incógnitas. Cualquier segundo miembro compatible dará dos parámetros libres; si resulta incompatible, no habrá soluciones.
 
 ## Práctica graduada
 
 ### Ejercicio 1 — Justificar la solución general
 
-Si $Au=B$ y $Av=0$, demuestra que $u+v$ es solución de $AX=B$ y que toda solución $X$ se escribe $u+(X-u)$, con $X-u$ en el núcleo.
+Si $Au=B$ y $Av=0$, demuestra que $u+v$ es solución de $AX=B$ y que toda solución $X$ se escribe $u+(X-u)$, con $X-u$ en el [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo]].
 
 > [!resolucion]- Resolución
-> La distributividad da $A(u+v)=Au+Av=B+0=B$.
+> La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Distributividad por la derecha|distributividad]] da $A(u+v)=Au+Av=B+0=B$.
 >
-> Recíprocamente, si $AX=B$, entonces $A(X-u)=AX-Au=B-B=0$. Así, $X-u\in\ker(A)$ y $X=u+(X-u)$. Se han probado ambas inclusiones del conjunto solución.
+> Recíprocamente, si $AX=B$, entonces $A(X-u)=AX-Au=B-B=0$. Así, $X-u\in\ker(A)$ y $X=u+(X-u)$. Se han probado ambas inclusiones del [[#Conjunto solución y cuerpo de resolución|conjunto solución]].
 
 ### Ejercicio 2 — Elegir otra solución
 
@@ -1286,15 +1606,29 @@ En el último ejemplo, toma $u=(-7,-4,1,0)$ y las dos direcciones del homogéneo
 
 ### Contraste académico
 
-[^general]: Dan Margalit y Joseph Rabinoff, [*Interactive Linear Algebra*, §2.4, “Solution Sets”](https://textbooks.math.gatech.edu/ila/solution-sets.html), Georgia Institute of Technology. La subsección 2.4.2 demuestra las dos inclusiones de «particular más homogénea». La prueba se adapta al castellano y a la notación $AX=B$; la sección también respalda la interpretación de las direcciones paramétricas.
+[^ist-bases]: Instituto Superior Técnico, Universidade de Lisboa, [*Álgebra Linear — Apontamentos Integrados*](https://fenix.tecnico.ulisboa.pt/downloadFile/563568428979297/ApontamentosInteg.pdf), definición 3.22 y criterio equivalente de independencia, p. 44 impresa. Definiciones de independencia y base; se aplican aquí al núcleo de la matriz.
+
+[^ist-sobreposicion]: Instituto Superior Técnico, Universidade de Lisboa, [*Álgebra Linear — Apontamentos Integrados*](https://fenix.tecnico.ulisboa.pt/downloadFile/563568428979297/ApontamentosInteg.pdf), proposición 4.39, «Princípio da sobreposição», pp. 82–83 impresas. Demostración completa de las dos inclusiones. Se adapta del caso de una transformación lineal $f$ al producto $X\mapsto AX$, con notación del curso y explicación en castellano.
+
+[^general]: Dan Margalit y Joseph Rabinoff, [*Interactive Linear Algebra*, §2.4, “Solution Sets”](https://textbooks.math.gatech.edu/ila/solution-sets.html), Georgia Institute of Technology. Contraste de las dos inclusiones de «particular más homogénea» en §2.4.2 y de la interpretación de las direcciones paramétricas. El desarrollo usa la notación $AX=B$ del curso.
 
 [^rango-nulidad]: Dan Margalit y Joseph Rabinoff, [*Interactive Linear Algebra*, §2.9, “The Rank Theorem”](https://textbooks.math.gatech.edu/ila/rank-thm.html), Georgia Institute of Technology. Relación entre rango, número de variables libres y dimensión del núcleo.
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Trabaja con un estudiante que conoce las operaciones matriciales pero está aprendiendo a resolver sistemas. Usa exclusivamente los ejemplos y ejercicios de esta nota, sin generar otros. Pide primero distinguir ecuación, sistema, solución y conjunto solución; después, comprobar una tupla en todas las ecuaciones.
+Actúa como tutor de Álgebra Lineal de primero de Física. El estudiante conoce operaciones con matrices y reducción por filas. Formula una pregunta cada vez, espera su intento y ofrece pistas graduales antes de resolver. Distingue errores de concepto, de notación y de cálculo. Usa sólo los ejemplos y dos ejercicios existentes, sin generar ejercicios adicionales.
 
-En los ejemplos de eliminación, pide justificar una operación concreta y explicar por qué afecta también al segundo miembro. Comprueba que distingue una fila nula de una contradicción y que identifica $x_3,x_5$ como libres en el sistema de cinco incógnitas. Antes de usar la expresión $u+\ker(A)$, pide definir cada objeto y reconstruir las dos implicaciones de la demostración. Da pistas graduales, sin anticipar toda la resolución. La respuesta final debe verificarse en el sistema original.
+Una ecuación lineal tiene la forma $a_1x_1+\cdots+a_nx_n=b$, sobre $K=\mathbb R$ o $\mathbb C$. Un sistema exige satisfacer todas sus ecuaciones con la misma tupla. Recupera la recta $2x-3y=-6$, con $(x,y)=(0,2)+\alpha(1,2/3)$, y el plano $x-3y+z=5$, con $(x,y,z)=(5,0,0)+\alpha(3,1,0)+\beta(-1,0,1)$. Pide explicar de dónde salen el punto y las direcciones; no aceptes sólo reproducirlos.
+
+Para $m$ ecuaciones y $n$ incógnitas, $A$ tiene tamaño $m\times n$, $X$ es $n\times1$ y $B$ es $m\times1$. La ampliada es $[A\mid B]$. Las operaciones elementales se aplican a filas completas y conservan las soluciones porque son reversibles. Una fila $[0\ \cdots\ 0\mid c]$, con $c\ne0$, hace incompatible el sistema; una fila totalmente nula no impone restricciones. Gauss obtiene forma escalonada y continúa por sustitución regresiva; Gauss–Jordan normaliza pivotes y anula también lo situado encima.
+
+En el primer sistema largo, las ecuaciones son $x_2+x_3-x_4=-7$, $4x_1+x_2+2x_3-x_4=-7$, $3x_1+x_3+x_4=1$ y $-5x_1+2x_2+2x_3-x_4=-5$. La solución es $(-2,-16,8,-1)$. Pide justificar una operación y comprobar el resultado en estas ecuaciones.
+
+En el segundo, usa $A=\begin{pmatrix}4&9&-2&-5&-12\\5&11&-3&-5&-10\\3&7&-1&-3&-8\\2&3&-4&-6&-9\end{pmatrix}$ y $B=(-9,-10,-6,-8)^T$. Las columnas pivote son 1,2,4 y las variables libres, $x_3,x_5$. La solución es $u+a v_1+b v_2$, con $u=(-1,0,0,1,0)$, $v_1=(5,-2,1,0,0)$ y $v_2=(-12,5,0,-3,1)$. Comprueba que distingue $Au=B$ de $Av_1=Av_2=0$ y que mantiene las cinco coordenadas en su orden.
+
+El núcleo es $\ker(A)=\{v\in K^n:Av=0\}$. Si existe una particular $u$, todas las soluciones son $u+\ker(A)$. Pide reconstruir las dos inclusiones: $A(u+v)=B$ cuando $Av=0$, y $A(X-u)=0$ cuando $AX=Au=B$. Una base del núcleo debe generar sus soluciones y ser independiente; hay $n-r$ parámetros si el sistema es compatible y su rango es $r$.
+
+Para los dos ejercicios finales, usa $A=\begin{pmatrix}1&-2&0&-1\\-3&4&-2&-1\\-1&0&-2&-3\end{pmatrix}$, $B=(1,3,5)^T$, particular $u=(-7,-4,1,0)$ y direcciones $(-2,-1,1,0)$, $(-3,-2,0,1)$. No reveles esos resultados antes del intento que se esté evaluando. Cierra la sesión con recuperación de una idea trabajada anteriormente y una comprobación de la respuesta en el sistema original.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })

@@ -1,9 +1,8 @@
-$A=
+$B=
 \begin{bmatrix}
-    2 & 4 & 0 & 3 \\
-    0 & 0 & 2 & 3 \\
-    1 & 2 & 0 & 2 \\
-    -1 & 4 & 0 & 4
+    0 & 0 & 1 \\
+    4 & 1 & 0 \\
+    1 & 2 & -1
 \end{bmatrix}
 $ \\[1.0em]
 
@@ -11,29 +10,27 @@ $ \\[1.0em]
 \item
     \textbf{Row Echelon:} \\[1.0em]
     \begin{answer}
-        A $\xrightarrow[
-            t_1
-        ]{
-            \substack{
-                R_1 \leftrightarrow R_3 \\
-                R_2 \leftrightarrow R_4
-            }
-        }
+        B $\xrightarrow[t_1]{R_1 \leftrightarrow R_3}
         \begin{bmatrix}
-            1 & 2 & 0 & 2 \\
-            -1 & 4 & 0 & 4 \\
-            2 & 4 & 0 & 3 \\
-            0 & 0 & 2 & 3
+            1 & 2 & -1 \\
+            4 & 1 & 0 \\
+            0 & 0 & 1
         \end{bmatrix}
         $
-
+        $\xrightarrow[t_2]{R_2 \leftarrow R_2 - 4R_1}$
+        $\begin{bmatrix}
+            1 & 2  & -1 \\
+            0 & -7 & 4  \\
+            0 & 0  & 1
+        \end{bmatrix} = B'
+        $\\[1.0em]
     \end{answer}
 
 \item
     \textbf{Rank:}
     \begin{answer}
         $
-        \operatorname{rank}(A)=4.
+        \operatorname{rank}(B)=3.
         $
     \end{answer} \\
 
@@ -41,7 +38,30 @@ $ \\[1.0em]
     \textbf{Reduced Echelon form:} \\[1.0em]
 
     \begin{answer}
-
+        $B' \xrightarrow[t_3]{R_2 \leftarrow -\frac{1}{7}R_2}
+        \begin{bmatrix}
+            1 & 2  & -1 \\
+            0 &  1 & -\frac{4}{7}  \\
+            0 & 0  & 1
+        \end{bmatrix}
+        \xrightarrow[t_4]{R_1 \leftarrow R_1 - 2R_2}
+        \begin{bmatrix}
+            1 & 0  & \frac{1}{7}  \\
+            0 &  1 & -\frac{4}{7}  \\
+            0 & 0  & 1
+        \end{bmatrix} \\
+        \xrightarrow[t_5, t_6]{
+            \substack{
+                R_2 \leftarrow R_2 + \frac{4}{7}R_3 \\
+                R_1 \leftarrow R_1 - \frac{1}{7}R_3
+            }
+        }
+        \begin{bmatrix}
+            1 & 0 & 0  \\
+            0 & 1 & 0  \\
+            0 & 0 & 1
+        \end{bmatrix} = rref(B) = I_3
+        $
     \end{answer}
 
 \end{enumerate}

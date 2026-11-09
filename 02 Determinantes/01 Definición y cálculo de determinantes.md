@@ -42,11 +42,11 @@ await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 
 # Definición y cálculo de determinantes
 
-El [[Matemáticas/Álgebra lineal/Determinantes|determinante]] asigna un escalar a una matriz cuadrada y permite reconocer, entre otras cosas, cuándo un sistema cuadrado tiene solución única. Aquí se construye por recurrencia, se calculan los órdenes dos y tres y se desarrolla por menores y cofactores. La interpretación geométrica se reserva para la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/03 Interpretación geométrica del determinante|ampliación geométrica]].
+Al eliminar una incógnita de un [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|sistema lineal]] de dos ecuaciones aparece la expresión $ad-bc$. Si no se anula, podemos despejar ambas incógnitas; si se anula, la eliminación no deja dos pivotes. Esa expresión es el [[Matemáticas/Álgebra lineal/Determinantes|determinante]] de la matriz de coeficientes. Su definición para matrices de mayor orden conservará esta relación con la [[Matemáticas/Álgebra lineal/Matriz inversa|invertibilidad]].[^a13]
 
 ## Motivación: unicidad en un sistema de dos ecuaciones
 
-Sea $\mathbb K=\mathbb R$ o $\mathbb C$. Fijados $a,b,c,d,\alpha,\beta\in\mathbb K$, considérese el sistema
+Trabajaremos sobre el [[Matemáticas/Estructuras algebraicas/Cuerpos|cuerpo]] $K=\mathbb R$ o $K=\mathbb C$. Consideremos
 
 $$
 \begin{cases}
@@ -55,82 +55,148 @@ cx+dy=\beta.
 \end{cases}
 $$
 
+Si $a\ne0$, la [[Matemáticas/Álgebra lineal/Eliminación de Gauss|eliminación de Gauss]] permite restar $c/a$ veces la primera ecuación a la segunda. El coeficiente de $y$ que queda es
+
+$$
+d-\frac{cb}{a}=\frac{ad-bc}{a}.
+$$
+
+Con $ad-bc\ne0$ podemos despejar $y$ y, después, $x$. Falta comprobar que la condición sigue siendo válida cuando $a=0$.
+
 ### Criterio de unicidad para dos incógnitas
 
+#### Propiedad
+
 > [!teorema] Solución única de un sistema $2\times2$
-> Para cualesquiera $a,b,c,d,\alpha,\beta\in\mathbb K$, el sistema tiene solución única si y sólo si $ad-bc\ne0$. (Aula 13, diap. 2–3; TPC en diap. 3.)[^a13]
+> Para cualesquiera $a,b,c,d,\alpha,\beta\in K$, el sistema anterior tiene solución única si y solo si
+>
+> $$
+> \boxed{ad-bc\ne0.}
+> $$
+> [^unicidad]
 
-#### Demostración paso a paso
+#### Demostración
 
-La expresión $ad-bc$ depende solo de los coeficientes, no de los términos independientes. Analizamos todos los casos posibles para los coeficientes de $x$.
+> [!demostracion] Demostración · TPC resuelto
+> **Si $a\ne0$**, la eliminación da
+>
+> $$
+> \left[\begin{array}{cc|c}a&b&\alpha\\c&d&\beta\end{array}\right]
+> \xrightarrow{L_2\leftarrow L_2-\frac caL_1}
+> \left[\begin{array}{cc|c}a&b&\alpha\\0&\frac{ad-bc}{a}&\beta-\frac{c\alpha}{a}\end{array}\right].
+> $$
+>
+> Cuando $ad-bc\ne0$, la segunda fila fija un único $y$ y la primera fija un único $x$. Cuando $ad-bc=0$, la segunda fila expresa $0=\beta-c\alpha/a$: si el término derecho es distinto de cero, el sistema es incompatible; si vale cero, $y$ es libre. En ninguno de estos dos casos hay solución única.
+>
+> **Si $a=0$ y $c\ne0$**, intercambiamos las ecuaciones:
+>
+> $$
+> \left[\begin{array}{cc|c}c&d&\beta\\0&b&\alpha\end{array}\right].
+> $$
+>
+> Hay solución única exactamente cuando $b\ne0$: despejamos $y=\alpha/b$ y luego $x=(\beta-dy)/c$. Si $b=0$, la segunda fila es imposible o deja $y$ libre. En este caso $ad-bc=-bc$, que es no nulo exactamente cuando $b\ne0$.
+>
+> **Si $a=c=0$**, la incógnita $x$ no aparece. Si existe una solución, podemos cambiar $x$ sin dejar de satisfacer las ecuaciones; por tanto, nunca es única. También $ad-bc=0$.
+>
+> Los tres casos cubren todos los valores de $a$ y $c$. En cada uno se cumple la equivalencia anunciada. $\blacksquare$
 
-**1. Caso $a\ne0$: eliminar $x$ de la segunda ecuación.** Restamos $\frac ca$ veces la primera ecuación a la segunda. La matriz ampliada queda
-
-$$
-\left[\begin{array}{cc|c}
-a&b&\alpha\\
-c&d&\beta
-\end{array}\right]
-\longrightarrow
-\left[\begin{array}{cc|c}
-a&b&\alpha\\
-0&d-\frac{cb}{a}&\beta-\frac{c\alpha}{a}
-\end{array}\right].
-$$
-
-Llamemos $\delta=d-\frac{cb}{a}$ al coeficiente que queda junto a $y$. Al multiplicar por el número no nulo $a$,
-
-$$
-a\delta=ad-bc.
-$$
-
-Por tanto, $\delta\ne0$ exactamente cuando $ad-bc\ne0$. Si $\delta\ne0$, la segunda fila determina un único valor de $y$ y la primera determina después un único valor de $x$:
-
-$$
-y=\frac{\beta-\frac{c\alpha}{a}}{\delta},
-\qquad
-x=\frac{\alpha-by}{a}.
-$$
-
-Si $\delta=0$, la segunda fila se convierte en $0\,y=\beta-\frac{c\alpha}{a}$. Cuando el lado derecho no es cero, no hay solución. Cuando es cero, $y$ queda libre y cada valor de $y$ determina $x=\frac{\alpha-by}{a}$; como $\mathbb R$ y $\mathbb C$ contienen infinitos escalares, hay infinitas soluciones. En ninguno de esos dos casos la solución es única.
-
-**2. Caso $a=0$ y $c\ne0$: intercambiar las ecuaciones.** El intercambio no cambia las soluciones. La primera ecuación del sistema intercambiado tiene coeficiente no nulo $c$ junto a $x$; al eliminar $x$ de la otra ecuación queda
-
-$$
-\left[\begin{array}{cc|c}
-c&d&\beta\\
-0&b&\alpha
-\end{array}\right].
-$$
-
-Hay solución única exactamente cuando $b\ne0$: entonces la segunda fila fija $y$ y la primera fija $x$. Si $b=0$, la segunda fila es o bien incompatible o bien deja $y$ libre; en el segundo caso, como $c\ne0$, la primera ecuación determina $x$ para cada valor de $y$, así que no hay unicidad. Como $a=0$,
-
-$$
-ad-bc=-bc,
-$$
-
-y, dado que $c\ne0$, esta expresión es no nula exactamente cuando $b\ne0$.
-
-**3. Caso $a=0$ y $c=0$: la incógnita $x$ no aparece.** Ambas ecuaciones solo pueden imponer condiciones sobre $y$. Si son incompatibles, no hay solución; si son compatibles, cualquier solución puede acompañarse de cualquier valor de $x$, por lo que no es única. Además,
-
-$$
-ad-bc=0.
-$$
-
-Los casos cubren todas las posibilidades para $a$ y $c$. En cada caso el sistema tiene solución única exactamente cuando $ad-bc\ne0$, como se quería demostrar.
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - unicidad
+---
+> [!note] Pregunta
+> ¿Cuándo tiene solución única un sistema con matriz de coeficientes $\begin{pmatrix}a&b\\c&d\end{pmatrix}$?
+===
+> [!important] Respuesta
+> Exactamente cuando $ad-bc\ne0$, con independencia de los términos independientes.
+```
 
 ## Definición recursiva
 
-El determinante se define para matrices cuadradas, reduciendo el orden hasta llegar al caso escalar.
+Para definir el determinante de orden $n$ necesitamos determinantes de orden $n-1$. Primero debemos precisar qué matriz más pequeña corresponde a cada entrada.
+
+### Suprimir una fila y una columna
+
+> [!definicion] Submatriz $A(i|j)$
+> Sea $A\in M_n(K)$, con $n\ge2$. Para $i,j\in\mathbb N$ tales que $1\le i,j\le n$, $A(i|j)$ es la matriz que queda al suprimir la fila $i$ y la columna $j$:
+>
+> $$
+> A(i|j)\in M_{n-1}(K).
+> $$
+> Las filas y columnas restantes conservan su orden relativo.[^a13]
+
+#### Ejemplo — obtener dos submatrices de orden tres
+
+Tomemos la matriz de orden cuatro
+
+$$
+A=\begin{pmatrix}
+3&1&0&-1\\
+0&2&5&1\\
+1&-1&-1&1\\
+-2&1&1&0
+\end{pmatrix}.
+$$
+
+Para formar $A(2|3)$, eliminamos la segunda fila y la tercera columna. Leemos las entradas que quedan por filas:
+
+$$
+A(2|3)=\begin{pmatrix}3&1&-1\\1&-1&1\\-2&1&0\end{pmatrix}.
+$$
+
+Si eliminamos en cambio la tercera fila y la segunda columna, obtenemos
+
+$$
+A(3|2)=\begin{pmatrix}3&0&-1\\0&5&1\\-2&1&0\end{pmatrix}.
+$$
+
+La notación conserva los índices de la matriz original; no pide buscar la posición $(2,3)$ dentro de una matriz ya recortada.[^a13]
+
+![En la matriz de orden cuatro se tachan la fila 2 y la columna 3; las nueve entradas restantes forman A(2|3).](assets/01-submatriz-cofactor.svg)
+
+*Se eliminan una fila y una columna completas. [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/assets/01-submatriz-cofactor.excalidraw|Dibujo editable]].*
+
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - submatriz
+---
+> [!note] Pregunta
+> ¿Cómo se obtiene $A(i|j)$ de una matriz cuadrada de orden $n\ge2$?
+===
+> [!important] Respuesta
+> Suprimiendo la fila $i$ y la columna $j$, sin reordenar las demás. La matriz resultante tiene orden $n-1$.
+>
+> ![Ejemplo de supresión de fila 2 y columna 3.](assets/01-submatriz-cofactor-anki.png)
+```
+
+### Determinante
 
 > [!definicion] Determinante
-> Para $A=[a]\in M_1(\mathbb K)$, se define $\det(A)=a$. Si $A=[a_{ij}]\in M_n(\mathbb K)$, con $n\ge2$, se define
+> El **determinante** asigna a cada matriz cuadrada $A\in M_n(K)$ un escalar $\det(A)\in K$.
+>
+> Para el orden uno:
+>
 > $$
-> \det(A)=\sum_{j=1}^{n}a_{1j}(-1)^{1+j}\det\bigl(A(1|j)\bigr),
+> \det([a])=a.
 > $$
-> donde $A(1|j)$ se obtiene al suprimir la primera fila y la columna $j$.
+>
+> Para $n\ge2$, se define recursivamente por la primera fila:
+>
+> $$
+> \boxed{\det(A)=\sum_{j=1}^{n}a_{1j}(-1)^{1+j}\det\bigl(A(1|j)\bigr).}
+> $$
+> También se escribe $|A|$.[^a13]
 
-El resultado es un escalar de $\mathbb K$. La definición usa la primera fila; el teorema de Laplace permitirá elegir cualquier fila o columna. La notación del curso para la submatriz obtenida al suprimir fila $i$ y columna $j$ es $A(i|j)$. (Aula 13, pp. 4–5)[^a13]
+Cada entrada de la primera fila multiplica el determinante de la submatriz que le corresponde. Los signos alternan $+,-,+,\ldots$; al repetir el procedimiento, llegamos a matrices de una sola entrada. Por ejemplo, $\det([-4])=-4$.
+
+> [!warning] Las barras no indican valor absoluto
+> $|A|$ puede ser negativo o complejo. Si queremos el valor absoluto del determinante, escribimos $|\det(A)|$. La definición ordinaria requiere una [[Matemáticas/Álgebra lineal/Matrices#Formas notables|matriz cuadrada]].
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -146,9 +212,48 @@ tags:
 > A una matriz cuadrada; su determinante es un escalar del cuerpo de sus entradas.
 ```
 
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - notación
+---
+> [!note] Pregunta
+> ¿Indica valor absoluto la notación $|A|$ para una matriz cuadrada?
+===
+> [!important] Respuesta
+> No: significa $\det(A)$ y puede ser negativo o complejo. Su valor absoluto se escribe $|\det(A)|$.
+```
+
+
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - definición
+---
+> [!note] Pregunta
+> ¿Cuál es la definición recursiva del determinante por la primera fila?
+===
+> [!important] Respuesta
+> $\det([a])=a$; para $n\ge2$, $\det(A)=\sum_{j=1}^n a_{1j}(-1)^{1+j}\det(A(1|j))$.
+```
+
+
+
 ## Cálculo en órdenes dos y tres
 
 ### Orden dos
+
+> [!formula] Determinante de orden dos
+> Para una matriz de orden dos,
+>
+> $$
+> \boxed{\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc.}
+> $$
+
 
 Para $A=\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}$, la definición da
 
@@ -156,13 +261,32 @@ $$
 \det(A)=a_{11}a_{22}-a_{12}a_{21}.
 $$
 
-Se multiplica la diagonal principal y se resta el producto de la otra diagonal. Por ejemplo,
+El primer producto utiliza la [[Matemáticas/Álgebra lineal/Matrices#Diagonal principal|diagonal principal]]; el segundo utiliza las otras dos entradas. Al restarlos, el signo forma parte del resultado.
+
+#### Ejemplo — calcular un determinante de orden dos
+
+Para la matriz $\begin{pmatrix}3&2\\4&5\end{pmatrix}$ obtenemos
 
 $$
 \det\begin{pmatrix}3&2\\4&5\end{pmatrix}=3\cdot5-2\cdot4=7.
 $$
 
-(Aula 13, pp. 6–7)[^a13]
+[^a13]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - cálculo
+---
+> [!note] Pregunta
+> ¿Cómo se calcula el determinante de una matriz de orden dos?
+===
+> [!important] Respuesta
+> Para $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$, $\det(A)=ad-bc$.
+```
+
 
 ### Orden tres: regla de Sarrus
 
@@ -175,15 +299,37 @@ $$
 \end{aligned}
 $$
 
-Sarrus organiza tres productos de signo positivo y tres de signo negativo. Sólo es una regla directa para orden tres; el mismo patrón no define el determinante de orden cuatro o mayor.
+> [!definicion] Regla de Sarrus
+> La [[Matemáticas/Álgebra lineal/Regla de Sarrus|regla de Sarrus]] calcula un determinante de orden tres repitiendo las dos primeras columnas: se suman los tres productos que descienden hacia la derecha y se restan los tres que ascienden hacia la derecha.[^a13]
 
-Como ejemplo de la diapositiva, para
+![Esquema de los seis productos de Sarrus: tres diagonales descendentes se suman y tres ascendentes se restan.](assets/01-sarrus.svg)
+
+*Las columnas repetidas sirven de guía para leer los productos; no cambian el orden de la matriz. [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/assets/01-sarrus.excalidraw|Dibujo editable]].*
+
+> [!warning] Sarrus solo vale en orden tres
+> ==No se extiende a orden cuatro repitiendo columnas.== Allí la expansión completa tiene $4!=24$ términos, no ocho.
+
+#### Ejemplo — separar los dos grupos de productos
+
+Tomemos
 
 $$
 A=\begin{pmatrix}2&-1&3\\1&-1&4\\-5&2&1\end{pmatrix},
 $$
 
-los productos positivos suman $-2+20+6=24$ y los que se restan suman $15-1+16=30$. Así, $\det(A)=-6$. (Aula 13, pp. 8–10)[^a13]
+Los tres productos que se suman dan
+
+$$
+2(-1)(1)+(-1)(4)(-5)+3(1)(2)=-2+20+6=24.
+$$
+
+Los tres que se restan dan
+
+$$
+3(-1)(-5)+2(4)(2)+(-1)(1)(1)=15+16-1=30.
+$$
+
+Por tanto, $\det(A)=24-30=-6$. «Productos de signo positivo» nombra su signo en la fórmula; alguno de esos productos puede tener valor negativo.[^a13]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -203,14 +349,39 @@ tags:
 
 Suprimir una fila y una columna de $A\in M_n(\mathbb K)$, $n\ge2$, produce una matriz cuadrada de orden $n-1$.
 
+### Menor de una entrada
+
 > [!definicion] Menor $M_{ij}$
+> El [[Matemáticas/Álgebra lineal/Menor de una matriz|menor]] asociado a la entrada $(i,j)$ es el escalar
+>
 > $$
 > M_{ij}=\det\bigl(A(i|j)\bigr).
 > $$
 
-El menor es el determinante de la submatriz; el cofactor incluye además un signo.
+Para $A=\begin{pmatrix}1&2&0\\0&3&1\\2&1&4\end{pmatrix}$, suprimir la fila 1 y la columna 2 deja $\begin{pmatrix}0&1\\2&4\end{pmatrix}$, de modo que $M_{12}=0\cdot4-1\cdot2=-2$.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - menores
+---
+> [!note] Pregunta
+> ¿Qué diferencia hay entre la submatriz $A(i|j)$ y el menor $M_{ij}$?
+===
+> [!important] Respuesta
+> $A(i|j)$ es una matriz; $M_{ij}=\det(A(i|j))$ es un escalar.
+```
+
+
+### Cofactor de una entrada
+
+El menor anterior vale $-2$, pero la posición $(1,2)$ lleva signo negativo en el desarrollo. Su cofactor será $2$.
 
 > [!definicion] Cofactor $\widehat A_{ij}$
+> El [[Matemáticas/Álgebra lineal/Cofactor de una matriz|cofactor]] o **complemento algebraico** incorpora al menor el signo de su posición:
+>
 > $$
 > \widehat A_{ij}=(-1)^{i+j}\det\bigl(A(i|j)\bigr)=(-1)^{i+j}M_{ij}.
 > $$
@@ -236,18 +407,44 @@ $$
 \begin{pmatrix}+&-&+\\-&+&-\\+&-&+\end{pmatrix}.
 $$
 
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - cofactores
+---
+> [!note] Pregunta
+> ¿Qué signo corresponde a un cofactor de posición $(i,j)$?
+===
+> [!important] Respuesta
+> $(-1)^{i+j}$: positivo si $i+j$ es par y negativo si es impar.
+```
+
+
 ### Teorema de Laplace
 
-Para $A=[a_{ij}]\in M_n(\mathbb K)$ y cualquier $k\in\{1,\ldots,n\}$,
+La definición utiliza la primera fila. El [[Matemáticas/Álgebra lineal/Desarrollo de Laplace|teorema de Laplace]] permite escoger otra fila o una columna y obtener el mismo escalar.
 
-$$
-\det(A)=\sum_{j=1}^{n}a_{kj}\widehat A_{kj}
-\quad\text{(fila $k$)},\qquad
-\det(A)=\sum_{i=1}^{n}a_{ik}\widehat A_{ik}
-\quad\text{(columna $k$)}.
-$$
+#### Propiedad
 
-Cada sumando multiplica una entrada por su cofactor. Una fila o columna nula da determinante cero; para ahorrar cálculo, conviene desarrollar por la que tenga más ceros. (Aula 14, pp. 2–4)[^a14]
+> [!teorema] Desarrollo por cualquier fila o columna
+> Sea $A=(a_{ij})\in M_n(K)$, $n\ge2$, y fijemos $k\in\mathbb N$ con $1\le k\le n$.
+>
+> Por la **fila $k$**:
+>
+> $$
+> \boxed{\det(A)=\sum_{j=1}^{n}a_{kj}\widehat A_{kj}.}
+> $$
+>
+> Por la **columna $k$**:
+>
+> $$
+> \boxed{\det(A)=\sum_{i=1}^{n}a_{ik}\widehat A_{ik}.}
+> $$
+> [^laplace]
+
+En una fila, el índice de fila permanece fijo y recorremos sus columnas. En una columna ocurre lo contrario. En ambos desarrollos cada entrada multiplica **su propio cofactor**.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -258,11 +455,49 @@ tags:
   - laplace
 ---
 > [!note] Pregunta
-> ¿Cuál es el caso base y la recurrencia del determinante, y cómo se expresa el desarrollo de Laplace por una fila o una columna?
+> ¿Cómo se desarrolla un determinante por una fila elegida?
 ===
 > [!important] Respuesta
-> $\det([a])=a$. Para $A\in M_n(\mathbb K)$, $n\ge2$, $\det(A)=\sum_{j=1}^n a_{1j}(-1)^{1+j}\det(A(1|j))$. En general, por la fila $k$: $\det(A)=\sum_j a_{kj}\widehat A_{kj}$; por la columna $k$: $\det(A)=\sum_i a_{ik}\widehat A_{ik}$.
+> Para $A\in M_n(K)$, $n\ge2$, por la fila $k$: $\det(A)=\sum_{j=1}^n a_{kj}\widehat A_{kj}$.
 ```
+
+
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - laplace
+---
+> [!note] Pregunta
+> ¿Cómo se desarrolla un determinante por una columna elegida?
+===
+> [!important] Respuesta
+> Para la columna $k$, $\det(A)=\sum_{i=1}^n a_{ik}\widehat A_{ik}$. Se recorren las filas de esa columna.
+```
+
+#### Una fila o columna nula
+
+> [!consecuencia] Determinante nulo
+> Si $A$ tiene una fila o columna nula, entonces $\det(A)=0$.[^a14]
+
+> [!demostracion] Demostración
+> Desarrollamos por esa fila o columna. Todos los sumandos contienen una entrada igual a cero, de modo que todos valen cero y también su suma. $\blacksquare$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - laplace
+---
+> [!note] Pregunta
+> ¿Qué ocurre con el determinante si una fila o columna es nula?
+===
+> [!important] Respuesta
+> Es cero: al desarrollar por esa fila o columna, todos los sumandos tienen un factor cero.
+```
+
 
 ### Ejemplo trabajado: desarrollo por una fila con cero
 
@@ -285,9 +520,12 @@ $$
 \det(A)=1\cdot11+2\cdot2+0\cdot\widehat A_{13}=15.
 $$
 
-El signo del cofactor en $(1,2)$ cambia el menor $-2$ a $2$; el último término desaparece porque la entrada es cero. El resultado coincide con Sarrus. (Aula 14, pp. 2–4)[^a14]
+El signo del cofactor en $(1,2)$ cambia el menor $-2$ a $2$; el último término desaparece porque la entrada es cero. El resultado coincide con Sarrus.[^a14]
 
 ## Fórmula general y número de términos
+
+La fórmula siguiente agrupa los productos de la expansión recursiva. Para leerla, una permutación $\sigma$ asigna a cada fila $i$ una columna $\sigma(i)$ sin repetir ninguna; su signo es $+1$ o $-1$ según sea par o impar el número de inversiones de ese orden. Una inversión es un par $i<k$ para el que $\sigma(i)>\sigma(k)$: las columnas elegidas aparecen en el orden contrario al de sus filas. Por ejemplo, $(1,2,3)$ tiene signo positivo y $(2,1,3)$, negativo.[^recuento]
+
 
 Si $S_n$ es el conjunto de permutaciones de $\{1,\ldots,n\}$ y $\operatorname{sgn}(\sigma)$ es el signo de la permutación,
 
@@ -298,53 +536,82 @@ $$
 
 Cada producto selecciona exactamente una entrada de cada fila y de cada columna.
 
-Para un entero $n\ge1$, $n!=1\cdot2\cdots n$ es el factorial de $n$; por tanto, para $n\ge2$,
+El factorial $n!=1\cdot2\cdots n$ cuenta esas elecciones: hay $n$ columnas posibles para la primera fila, $n-1$ para la siguiente y así hasta la última. En particular, para $n\ge2$,
 
 $$
 n!=n(n-1)!.
 $$
 
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - permutaciones
+---
+> [!note] Pregunta
+> ¿Qué elige cada producto de la fórmula general del determinante?
+===
+> [!important] Respuesta
+> Una entrada de cada fila y de cada columna, sin repetir ninguna fila ni columna.
+```
+
+
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - permutaciones
+---
+> [!note] Pregunta
+> ¿Qué representa una permutación $\sigma$ en la fórmula de Leibniz?
+===
+> [!important] Respuesta
+> La elección de una columna $\sigma(i)$ distinta para cada fila $i$: ninguna columna se repite.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - permutaciones
+---
+> [!note] Pregunta
+> ¿Qué determina el signo de una permutación en la fórmula de Leibniz?
+===
+> [!important] Respuesta
+> La paridad de sus inversiones: $\operatorname{sgn}(\sigma)=(-1)^N$, donde $N$ cuenta los pares $i<k$ con $\sigma(i)>\sigma(k)$.
+```
+
 ### Número de términos de la fórmula del determinante
 
+#### Propiedad
+
 > [!teorema] Expansión con $n!$ términos
-> Para cada matriz cuadrada de orden $n$, la expansión recursiva del determinante contiene $n!$ términos formales. Cada término es una potencia de $-1$ multiplicada por un producto de $n$ entradas, una de cada fila y una de cada columna. (Aula 13, diap. 11.)[^a13]
+> Para cada matriz cuadrada de orden $n$, la expansión recursiva del determinante contiene $n!$ términos formales. Cada término es una potencia de $-1$ multiplicada por un producto de $n$ entradas, una de cada fila y una de cada columna.[^a13]
 
-#### Demostración paso a paso
+#### Demostración
 
-Sea $P(n)$ la afirmación de que la expansión recursiva de toda matriz cuadrada de orden $n$ tiene $n!$ términos, y que cada término es una potencia de $-1$ multiplicada por un producto que elige exactamente una entrada de cada fila y cada columna. Usamos inducción: comprobamos primero el caso inicial y luego deducimos el caso de orden $n$ a partir del de orden $n-1$.
-
-**1. Caso inicial $n=1$.** Si $A=[a_{11}]$, la definición establece $\det(A)=a_{11}$. Hay un solo término, y
-
-$$
-1=1!.
-$$
-
-Ese término contiene la única entrada, de la única fila y la única columna, y su coeficiente es $1=(-1)^0$, una potencia de $-1$. Así queda probado $P(1)$.
-
-**2. Hipótesis de inducción.** Fijemos un entero $n\ge2$ y supongamos que $P(n-1)$ se cumple: al desarrollar el determinante de cualquier matriz de orden $n-1$ aparecen exactamente $(n-1)!$ términos formales. Cada uno es un producto de $n-1$ entradas, una de cada fila y de cada columna de esa matriz, multiplicado por una potencia de $-1$.
-
-**3. Desarrollar una matriz de orden $n$ por la primera fila.** Para $A=[a_{ij}]\in M_n(\mathbb K)$, la definición recursiva da
-
-$$
-\det(A)=\sum_{j=1}^{n}a_{1j}(-1)^{1+j}\det\bigl(A(1|j)\bigr).
-$$
-
-La suma tiene $n$ bloques: el bloque $j$ empieza con la entrada $a_{1j}$ y continúa con la expansión de un determinante menor de orden $n-1$. Por la hipótesis de inducción, cada bloque aporta $(n-1)!$ términos. Así, antes de evaluar o reunir términos que pudieran tener el mismo valor numérico, el total es
-
-$$
-\underbrace{(n-1)!+\cdots+(n-1)!}_{n\text{ bloques}}
-=n(n-1)!.
-$$
-
-**4. Comprobar qué entradas contiene cada producto.** En un término del bloque $j$, el factor inicial $a_{1j}$ toma una entrada de la primera fila y de la columna $j$. El término procedente de $A(1|j)$ toma una entrada de cada una de las filas $2,\ldots,n$ y de cada columna distinta de $j$. Por eso, al combinar ambos factores, queda exactamente una entrada de cada fila original y una de cada columna original: la columna $j$ ya está representada por $a_{1j}$ y las demás aparecen en el menor. El signo interno del menor multiplicado por $(-1)^{1+j}$ sigue siendo una potencia de $-1$.
-
-**5. Cerrar el paso inductivo.** Los bloques con índices $j$ distintos son elecciones distintas de la entrada de la primera fila; por tanto, contamos todos los términos formales de la expansión, aunque después algunas entradas concretas coincidan en valor. Finalmente,
-
-$$
-n(n-1)!=n!.
-$$
-
-Hemos probado $P(n)$ bajo la hipótesis $P(n-1)$. Junto con el caso inicial, la inducción demuestra la afirmación para todo entero $n\ge1$. (Aula 13, diap. 11.)[^a13]
+> [!demostracion] Demostración · TPC resuelto
+> Probamos por inducción tanto el recuento como la elección de entradas. En orden uno, $\det([a_{11}])=a_{11}$: hay $1!=1$ término y utiliza la única fila y columna.
+>
+> Supongamos que cada determinante de orden $n-1$ tiene $(n-1)!$ términos de la forma descrita. Para una matriz de orden $n$, la definición da
+>
+> $$
+> \det(A)=\sum_{j=1}^{n}a_{1j}(-1)^{1+j}\det(A(1|j)).
+> $$
+>
+> Hay $n$ elecciones de $a_{1j}$. Para cada elección, el menor aporta $(n-1)!$ términos; por tanto, en total aparecen
+>
+> $$
+> n(n-1)!=n!
+> $$
+>
+> términos formales. El factor $a_{1j}$ usa la primera fila y la columna $j$. Por hipótesis, cada término del menor usa una entrada de cada fila restante y de cada columna distinta de $j$. Al multiplicarlos queda **una entrada de cada fila y de cada columna original**. Los signos se multiplican y siguen siendo $+1$ o $-1$.
+>
+> Así se prueba el paso de $n-1$ a $n$ y, por inducción, la afirmación vale para todo $n\ge1$. Contamos términos antes de sustituir valores: que algunos sean cero no altera el recuento formal. $\blacksquare$[^recuento]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Determinantes
@@ -367,6 +634,21 @@ tags:
 - En orden mayor, Laplace resulta útil si los menores son sencillos. La expansión completa tiene $n!$ términos, por lo que conviene aprovechar la estructura o usar las propiedades de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/02 Propiedades y aplicaciones|Propiedades y aplicaciones de determinantes]].
 
 **Condiciones de validez.** El determinante solo se define para matrices cuadradas y la regla de Sarrus solo se aplica a matrices de orden tres. Para órdenes mayores, usa Laplace u otras propiedades generales; la estructura de la matriz ayuda a elegir el método. La prueba de invertibilidad y las aplicaciones a sistemas se desarrollan en la nota siguiente.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Determinantes
+tags:
+  - matemáticas
+  - determinantes
+  - laplace
+---
+> [!note] Pregunta
+> ¿Qué fila o columna conviene escoger para desarrollar por Laplace?
+===
+> [!important] Respuesta
+> La que tenga más ceros o produzca los menores más sencillos; las entradas nulas eliminan sumandos.
+```
+
 
 ## Práctica graduada
 
@@ -414,36 +696,38 @@ usando la columna más conveniente.
 > M_{23}=0+5+6-(0-1+4)=8,\qquad
 > M_{33}=-2+20+6-(15-1+16)=-6.
 > $$
-> Los cofactores correspondientes son $\widehat B_{23}=(-1)^{2+3}M_{23}=-8$ y $\widehat B_{33}=(-1)^{3+3}M_{33}=-6$. Así, los dos términos son $(-3)(-8)=24$ y $2(-6)=-12$. La elección de la columna reduce cuatro posibles términos a dos. (Aula 14, p. 4; Aula 13, pp. 8–10)[^a14][^a13]
+> Los [[Matemáticas/Álgebra lineal/Cofactor de una matriz|cofactores]] correspondientes son $\widehat B_{23}=(-1)^{2+3}M_{23}=-8$ y $\widehat B_{33}=(-1)^{3+3}M_{33}=-6$. Así, los dos términos son $(-3)(-8)=24$ y $2(-6)=-12$. La elección de la columna reduce cuatro posibles términos a dos.[^a14][^a13]
 
 ### Ejercicio 3 — transferir el criterio de elección
 
 Una matriz cuadrada de orden cuatro no es triangular y tiene tres ceros en una columna. Decide entre Sarrus y Laplace, e indica cuántos términos no nulos como máximo aporta ese desarrollo y cuántos términos tendría la fórmula general completa.
 
 > [!resolucion]- Resolución
-> Se elige Laplace por esa columna: sólo queda un término potencialmente no nulo. Sarrus no es aplicable porque la matriz tiene orden cuatro. La fórmula general completa tiene $4!=24$ términos, aunque en este desarrollo concreto sólo haya uno potencialmente distinto de cero. (Aula 13, p. 11; Aula 14, p. 3)[^a13][^a14]
+> Se elige Laplace por esa columna: sólo queda un término potencialmente no nulo. Sarrus no es aplicable porque la matriz tiene orden cuatro. La fórmula general completa tiene $4!=24$ términos, aunque en este desarrollo concreto sólo haya uno potencialmente distinto de cero.[^a13][^a14]
 
 El recorrido parte de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|rango, compatibilidad e inversa]]: al estudiar una matriz de coeficientes surge la pregunta de cuándo un sistema cuadrado tiene solución única. El determinante convierte esa pregunta en un criterio escalar; la nota [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/02 Propiedades y aplicaciones|siguiente]] desarrolla cómo las operaciones elementales permiten calcularlo y cómo se aplica a la inversa y a Cramer.
 
 ## 📚 Fuentes
 
-### Material base aportado
+### Material base
 
-- FCUL, *Álgebra Linear e Geometria Analítica*, Aula 13, 16/10/2026, pp. 2–11 ([PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/02%20-%20Determinantes/ALGA-2026-27-AulasTeo-slides-aula13-Determinantes-impressao.pdf)).
-- FCUL, *Álgebra Linear e Geometria Analítica*, Aula 14, 19/10/2026, pp. 2–4 ([PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/02%20-%20Determinantes/ALGA-2026-27-AulasTeo-slides-Aula14-Determinantes-impressao.pdf)).
+[^a13]: FCUL, *Álgebra Linear e Geometria Analítica*, Aula 13, 16/10/2026, diapositivas 2–11. Archivo `ALGA-2026-27-AulasTeo-slides-aula13-Determinantes-impressao.pdf`. Motivación (2–3), submatrices (4), recurrencia (5), órdenes dos y tres (6–10).
 
-[^a13]: FCUL, *Álgebra Linear e Geometria Analítica*, Aula 13, 16/10/2026. [PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/02%20-%20Determinantes/ALGA-2026-27-AulasTeo-slides-aula13-Determinantes-impressao.pdf).
+[^a14]: FCUL, misma asignatura, Aula 14, 19/10/2026, diapositivas 2–4. Archivo `ALGA-2026-27-AulasTeo-slides-Aula14-Determinantes-impressao.pdf`. Menores, cofactores, Laplace y ejemplo de orden cuatro.
 
-[^a14]: FCUL, *Álgebra Linear e Geometria Analítica*, Aula 14, 19/10/2026. [PDF consultado](../../../../../../Física%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/02%20-%20Determinantes/ALGA-2026-27-AulasTeo-slides-Aula14-Determinantes-impressao.pdf).
+[^unicidad]: Aula 13, diapositivas 2–3: eliminación y encargo TPC para cubrir todos los coeficientes. Se completa aquí la prueba por casos; se contrasta el criterio general con ULisboa, Instituto Superior Técnico, *Álgebra Linear*, corolario 5.13, pp. 104–105, en los [apuntes integrados](https://fenix.tecnico.ulisboa.pt/downloadFile/563568428979297/ApontamentosInteg.pdf). El corolario respalda el criterio; no se atribuye al manual esta redacción de los tres casos.
 
-### Lecturas académicas opcionales
+[^recuento]: Aula 13, diapositiva 11, TPC: recuento y estructura de los términos por inducción. Desarrollo de la sugerencia de la fuente, contrastado con la expansión por permutaciones de los apuntes de IST, §5.5, pp. 100–103; no es una transcripción de una prueba completa publicada allí.
 
-- MIT OpenCourseWare, [*Determinant Formulas and Cofactors*](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/cc79f04d92ee282758780bac2ec5e403_MIT18_06SCF11_Ses2.6sum.pdf). Resumen de clase complementario sobre fórmulas del determinante y cofactores.
-- Jim Hefferon, [*Linear Algebra*](https://hefferon.net/linearalgebra/). Texto abierto de primer curso, con demostraciones, ejemplos y ejercicios; incluye determinantes.
+### Contraste académico
+
+[^laplace]: W. Keith Nicholson, *Linear Algebra with Applications*, [§3.1, «The Cofactor Expansion»](https://math.libretexts.org/Bookshelves/Linear_Algebra/Linear_Algebra_with_Applications_(Nicholson)/03%3A_Determinants_and_Diagonalization/3.01%3A_The_Cofactor_Expansion), y [§3.8, prueba del teorema](https://math.libretexts.org/Bookshelves/Linear_Algebra/Linear_Algebra_with_Applications_(Nicholson)/03%3A_Determinants_and_Diagonalization/3.08%3A_Proof_of_the_Cofactor_Expansion_Theorem). Definiciones, signos y expansión por filas y columnas. La canónica de desarrollo de Laplace contiene el argumento por intercambios consecutivos.
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
-Comprueba que el estudiante distingue el determinante —un escalar— de la matriz, justifica el criterio de unicidad en orden dos, aplica las fórmulas de órdenes dos y tres, construye $A(i|j)$ y $\widehat A_{ij}$ sin perder signos, y desarrolla por Laplace eligiendo una fila o columna conveniente. Pídele demostrar por inducción el recuento de $n!$ términos y explicar por qué Sarrus no se extiende a orden cuatro. No generes ejercicios nuevos; usa ejemplos funcionales breves y solicita comprobaciones.
+Trabaja a nivel de primer curso universitario con $K=\mathbb R$ o $\mathbb C$. Presupón matrices y eliminación de Gauss. El determinante es un escalar definido por $\det([a])=a$ y, para $n\ge2$, por $\sum_j a_{1j}(-1)^{1+j}\det(A(1|j))$. $A(i|j)$ suprime fila $i$ y columna $j$; su determinante es el menor $M_{ij}$ y el cofactor es $\widehat A_{ij}=(-1)^{i+j}M_{ij}$. Laplace permite desarrollar por cualquier fila o columna. En orden dos, $\det A=ad-bc$; Sarrus solo vale en orden tres. La expansión completa tiene $n!$ términos formales.
+
+Formula una pregunta cada vez y espera el intento antes de ofrecer una pista. Distingue un error de signo de una confusión entre submatriz, menor y cofactor. Usa los ejemplos existentes: $\det\begin{pmatrix}3&2\\4&5\end{pmatrix}=7$ y $\det\begin{pmatrix}2&-1&3\\1&-1&4\\-5&2&1\end{pmatrix}=-6$. En el ejercicio de orden cuatro, desarrollar por la tercera columna da $12$. Pide justificar la elección antes del cálculo y comprobar los menores. Recupera las pruebas de unicidad en orden dos y recuento por inducción; no reveles la solución antes del intento ni generes ejercicios nuevos. Repite más adelante los conceptos fallados con pistas cada vez menores.
 
 ```dataviewjs
 await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })

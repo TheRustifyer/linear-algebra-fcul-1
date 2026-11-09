@@ -36,13 +36,38 @@ await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
 
 ## De los pares ordenados a los vectores coordenados
 
-El par $(3,2)$ describe un desplazamiento de tres unidades en la dirección horizontal y dos en la vertical. Si lo dibujamos desde el origen, obtenemos un [[Matemáticas/Álgebra lineal/Vectores|vector geométrico]] del plano. El orden importa: $(2,3)$ describe otro desplazamiento.[^1]
+Para describir un desplazamiento en el plano, necesitamos indicar cuánto cambia la posición en cada eje. Si avanzamos tres unidades a la derecha y dos hacia arriba, reunimos ambos cambios en el par $(3,2)$.
+
+Podemos dibujarlo mediante una flecha desde el origen hasta el punto de [[Matemáticas/Geometría/Geometría analítica/Coordenada cartesiana|coordenadas]] $(3,2)$. La flecha representa un [[Matemáticas/Álgebra lineal/Vectores|vector geométrico]]; sus [[Matemáticas/Geometría/Vectores/Componentes cartesianas de un vector|componentes cartesianas]] son los cambios de posición en los ejes horizontal y vertical.[^1]
+
+![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/01-desplazamiento-cartesiano.svg|*Desde el origen hasta (3,2): tres unidades en horizontal y dos en vertical. La flecha diagonal representa el vector; los dos ejes tienen la misma escala.*|563]]
+
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/01-desplazamiento-cartesiano.excalidraw|Abrir el dibujo editable]]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+  - componentes-cartesianas
+---
+> [!note] Pregunta
+> ¿Qué representan las dos componentes cartesianas de un vector del plano?
+===
+> [!important] Respuesta
+> Los cambios de posición en los ejes horizontal y vertical, respectivamente.
+```
 
 ### Tuplas de $n$ componentes: $K^n$
 
-En el espacio hacen falta tres coordenadas. Para trabajar con dos, tres o más componentes usamos una misma notación: $K^n$. La letra $K$ indica qué números se admiten como componentes; el exponente $n$, cuántas componentes tiene cada tupla.
+El par $(3,2)$ tiene dos componentes reales. En la notación $\mathbb R^2$, $\mathbb R$ indica que trabajamos con el [[Cuerpos|cuerpo]] de los números reales y el exponente $2$ indica el número de componentes (o grados de libertad) que podemos fijar independientemente para determinar un vector del plano.
 
-En lo que sigue, $K=\mathbb R$ o $K=\mathbb C$ y $\mathbb N=\{1,2,3,\ldots\}$.
+Escribiremos $K^n$ cuando dejemos esos dos datos sin concretar: $K$ será el conjunto de escalares y $n$, el número de componentes.
+
+> [!note]
+> En lo que sigue, $K=\mathbb R$ o $K=\mathbb C$ y $\mathbb N=\{1,2,3,\ldots\}$.
+
+### Vectores coordenados
 
 > [!definicion] Vector coordenado y notación $K^n$
 > Un **vector coordenado** es una tupla ordenada de $n$ escalares de $K$:
@@ -54,9 +79,12 @@ En lo que sigue, $K=\mathbb R$ o $K=\mathbb C$ y $\mathbb N=\{1,2,3,\ldots\}$.
 >
 > El conjunto de todas estas tuplas se denota $K^n$.[^1]
 
-La componente $x_i$ ocupa la posición $i$. Así, $(3,2)\in\mathbb R^2$ y $(1+i,2)\in\mathbb C^2$. En el segundo ejemplo, $1+i$ es **un escalar complejo**; la tupla $(1+i,2)$ es **un vector con dos componentes**. El número de componentes no cambia porque una de ellas tenga parte real e imaginaria.
+La componente $x_i$ ocupa la posición $i$. Así, $(3,2)\in\mathbb R^2$ y $(1+i,2)\in\mathbb C^2$. En el segundo ejemplo, $1+i$ es **un escalar complejo**; la tupla $(1+i,\ 2)$ es **un vector con dos componentes**. El número de componentes se determina por cada valor coma-separado que se encuentre dentro de la tupla.
 
-Cuando $K=\mathbb R$ y $n=2$, ==$K^n=\mathbb R^2$==. Se trata de la misma notación particularizada al caso de dos coordenadas reales.
+> [!ejemplo]
+> Cuando $K=\mathbb R$ y $n=2$, ==$K^n=\mathbb R^2$==.
+>
+> Se trata de la misma notación particularizada al caso de dos coordenadas reales.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -127,7 +155,9 @@ tags:
 > $$
 > [^1]
 
-Por ejemplo, $(3,2)\ne(2,3)$: los dos números son los mismos, pero ocupan posiciones distintas.
+Por ejemplo, $a = (3,2)\ne \ (2,3) = b$: ambas tuplas contienen a los mismos escalares, pero estos ocupan posiciones distintas. Como se observa, $a_1 = 3$ y $b_1 = 2$, donde $3 \ne 2$ lo cuál es condición suficiente para determinar que ambos vectores son distintos.
+
+![[01-example-different-vecs-graph.svg|Gráficamente se puede observar a simple vista que el orden de los mismos valores escalares en la 2-tupla produce diferentes vectores|300]]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -146,6 +176,8 @@ tags:
 ## Operaciones con vectores coordenados
 
 ### Suma de vectores
+
+La [[Matemáticas/Geometría/Vectores/Suma de vectores|suma de dos desplazamientos]] corresponde a recorrer uno después del otro. En coordenadas, se suman por separado los cambios en cada eje.
 
 Sean $u=(x_1,\ldots,x_n)$ y $v=(y_1,\ldots,y_n)$ dos vectores de $K^n$.
 
@@ -167,8 +199,7 @@ $$
 
 En el plano, podemos recorrer primero el desplazamiento $(3,2)$ y, desde su extremo, recorrer $(2,3)$. Terminamos en $(5,5)$.
 
-> [!intuicion] Regla del paralelogramo
-> Si dibujamos los dos vectores desde el mismo origen, sus flechas forman dos lados de un paralelogramo. La diagonal que parte de ese origen representa la suma.[^vectores]
+![[vector-addition-graph.excalidraw.svg|Si dibujamos los dos vectores desde el mismo origen, sus flechas forman dos lados de un paralelogramo. La diagonal que parte de ese origen representa la suma.]][^vectores]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -193,7 +224,11 @@ tags:
 > ¿Cómo representa la regla del paralelogramo la suma de dos vectores del plano?
 ===
 > [!important] Respuesta
-> Se dibujan desde el mismo origen como lados contiguos; la diagonal que parte de ese origen representa la suma.
+> Se dibujan desde el mismo origen y se completa el paralelogramo. La diagonal que parte de ese origen representa la suma.
+>
+> En el dibujo, las flechas azul y roja son los sumandos $(3,2)$ y $(2,3)$; la negra representa $(5,5)$.
+>
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/vector-addition-graph-anki.png|Paralelogramo de la suma (3,2)+(2,3)=(5,5)|420]]
 ```
 
 ### Producto de un escalar por un vector
@@ -218,7 +253,24 @@ $$
 -\frac12u=\left(-\frac32,-1\right).
 $$
 
-En el plano, $2u$ tiene el mismo sentido que $u$ y el doble de longitud. El factor $-\frac12$ cambia el sentido y reduce la longitud a la mitad.[^vectores]
+En el plano, $2u$ tiene el mismo sentido que $u$ y el doble de longitud.
+El factor $-\frac12$ cambia el sentido y reduce la longitud a la mitad.[^vectores]
+
+> [!recuerda] El signo y el valor absoluto cumplen funciones distintas
+> Para un vector real no nulo, multiplicar por $\lambda\in\mathbb R\setminus\{0\}$ cambia su longitud por el factor $|\lambda|$. El sentido se conserva si $\lambda>0$ y se invierte si $\lambda<0$. La interpretación geométrica se desarrolla en [[Matemáticas/Geometría/Vectores/Producto por un escalar|producto de un vector por un escalar]].
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> Al multiplicar un vector real no nulo por un escalar real no nulo $\lambda$, ¿cómo cambian su longitud y su sentido?
+===
+> [!important] Respuesta
+> La longitud se multiplica por $|\lambda|$. El sentido se conserva si $\lambda>0$ y se invierte si $\lambda<0$.
+```
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -268,7 +320,7 @@ tags:
 > $$
 > [^vectores]
 
-El opuesto de $(3,2)$ es $(-3,-2)$. En el plano tiene la misma longitud y el sentido contrario.
+El opuesto de $(3,2)$ es $(-3,-2)$. En el plano, tienen la misma longitud, el sentido contrario y ambos se sientan sobre la misma dirección (recta en el plano).
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -285,7 +337,7 @@ tags:
 
 ## Leyes de las operaciones vectoriales
 
-Las siguientes igualdades se aplican a $u,v,w\in K^n$. Se comprueban usando las definiciones en cada posición y las leyes de suma de $K$.[^vectores]
+Las siguientes igualdades se aplican a $u,v,w\in K^n$. Se comprueban usando las definiciones en cada posición y las leyes de suma y multiplicación del [[Matemáticas/Estructuras algebraicas/Cuerpos|cuerpo]] $K$.[^vectores]
 
 ### Conmutatividad de la suma vectorial
 
@@ -488,7 +540,26 @@ tags:
 > $$
 > \boxed{-(\alpha u)=(-\alpha)u=\alpha(-u)}.
 > $$
-> En la posición $j$, las tres expresiones tienen componente $-\alpha x_j$. Por eso representan el mismo vector.[^vectores]
+> [^vectores]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Sea $u=(x_1,\ldots,x_n)$. Las tres expresiones pertenecen a $K^n$. Fijemos una posición arbitraria $j\in\mathbb N$, con $1\leq j\leq n$.
+>
+> Por la definición de opuesto, la componente $j$ de $-(\alpha u)$ es $-(\alpha x_j)$. Por la definición del producto por escalar, las componentes de las otras dos expresiones son $(-\alpha)x_j$ y $\alpha(-x_j)$.
+>
+> Las [[Matemáticas/Estructuras algebraicas/Cuerpos#Reglas de los signos|reglas de los signos en un cuerpo]] establecen que
+>
+> $$
+> -(\alpha x_j)=(-\alpha)x_j=\alpha(-x_j).
+> $$
+>
+> Las componentes coinciden en cualquier posición admisible. Por el criterio de igualdad de vectores,
+>
+> $$
+> \boxed{-(\alpha u)=(-\alpha)u=\alpha(-u)}\qquad\blacksquare
+> $$
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -503,14 +574,55 @@ tags:
 > Para $u\in K^n$ y $\alpha\in K$, $-(\alpha u)=(-\alpha)u=\alpha(-u)$.
 ```
 
-Estas leyes definen la estructura de [[Matemáticas/Álgebra lineal/Espacios vectoriales|espacio vectorial]] que tiene $K^n$ sobre $K$. Las operaciones conservan el número de componentes y el conjunto de escalares.[^vectores]
+La suma de dos elementos de $K^n$ [[Matemáticas/Estructuras algebraicas/Operaciones algebraicas#2. Cerradura y operaciones externas|vuelve a pertenecer a $K^n$]], igual que el [[Matemáticas/Estructuras algebraicas/Operaciones algebraicas#2. Cerradura y operaciones externas|producto de uno de ellos por un escalar de $K$]]. Junto con las leyes anteriores, esto hace de $K^n$ un [[Matemáticas/Álgebra lineal/Espacios vectoriales/01 Espacios vectoriales — definición y axiomas|espacio vectorial sobre $K$]]. Aquí los vectores son las tuplas y los escalares pertenecen a $K$.[^vectores]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué significa que $K^n$ sea cerrado bajo la suma de vectores?
+===
+> [!important] Respuesta
+> Que $u+v\in K^n$ para cualesquiera $u,v\in K^n$: sumar dos de sus elementos no produce un elemento exterior al conjunto.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué significa que $K^n$ sea estable bajo el producto por escalares de $K$?
+===
+> [!important] Respuesta
+> Que $\alpha u\in K^n$ para cualquier $\alpha\in K$ y cualquier $u\in K^n$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> En el espacio vectorial $K^n$ sobre $K$, ¿cuáles son los vectores y cuáles los escalares?
+===
+> [!important] Respuesta
+> Los vectores son las tuplas de $n$ componentes de $K$; los escalares son los elementos de $K$.
+```
 
 > [!advertencia] Distinguir escalar y vector al operar
 > Las operaciones definidas reciben dos vectores del mismo $K^n$ para sumarlos, o un escalar y un vector para multiplicarlos. No definen una suma entre un vector y un escalar ni un producto entre dos vectores.[^vectores]
 
 ## Matrices: filas, columnas y entradas
 
-Escribamos varias listas de igual longitud una debajo de otra. Para localizar un número necesitamos saber en qué fila está y qué posición ocupa dentro de ella. Esas dos posiciones serán los índices de una [[Matemáticas/Álgebra lineal/Matrices|matriz]].[^1]
+Supongamos que ahora, escribimos varias listas de igual longitud una debajo de otra. ¿Cómo hacemos para identificar unívocamente cada elemento escrito?
+
+Para localizar un número necesitamos saber en qué fila está y qué posición ocupa dentro de ella. Esas dos posiciones serán los índices de una [[Matemáticas/Álgebra lineal/Matrices|matriz]].[^1]
 
 ### Definición de matriz
 
@@ -543,6 +655,10 @@ A=\begin{pmatrix}
 $$
 
 Para encontrar $a_{23}$, tomamos la segunda fila, $(4,3,7)$, y su tercera entrada: $a_{23}=7$. Si intercambiamos los índices, llegamos a otra posición: $a_{32}=0$. La matriz tiene tres filas, tres columnas y nueve entradas.
+
+![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-indices-y-diagonal.svg|*La entrada a₂₃ ocupa la segunda fila y la tercera columna. En verde, las posiciones de la diagonal principal.*]]
+
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-indices-y-diagonal.excalidraw|Abrir el dibujo editable]]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -604,7 +720,7 @@ tags:
 ### Matriz rectangular no cuadrada
 
 > [!definicion] Matriz rectangular no cuadrada
-> Una matriz $A\in M_{m\times n}(K)$ es **rectangular no cuadrada** cuando $m\ne n$.[^1]
+> Una matriz $A\in M_{m\times n}(K)$ es **[[Matemáticas/Álgebra lineal/Matrices#Entradas y tamaño|rectangular no cuadrada]]** cuando $m\ne n$.[^1]
 
 #### Ejemplo — Tres filas y dos columnas
 
@@ -635,14 +751,14 @@ tags:
 ### Matriz cuadrada
 
 > [!definicion] Matriz cuadrada
-> Una matriz es **cuadrada de orden $n$** cuando tiene $n$ filas y $n$ columnas. Se escribe
+> Una matriz es **[[Matemáticas/Álgebra lineal/Matrices#Entradas y tamaño|cuadrada de orden $n$]]** cuando tiene $n$ filas y $n$ columnas. Se escribe
 >
 > $$
 > A\in M_n(K)=M_{n\times n}(K).
 > $$
 > [^1]
 
-En una matriz de orden tres hay nueve entradas. El orden indica el número de filas o de columnas, no el número total de entradas.
+La matriz $A$ del ejemplo «Localizar una entrada» es cuadrada de orden tres: tiene tres filas y tres columnas, con nueve entradas en total. ==El orden es $3$, no $9$==.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -661,7 +777,7 @@ tags:
 ### Diagonal principal
 
 > [!definicion] Diagonal principal
-> La diagonal principal de $A\in M_n(K)$ está formada por las entradas cuyos dos índices coinciden:
+> La [[Matemáticas/Álgebra lineal/Matrices#Diagonal principal|diagonal principal]] de $A\in M_n(K)$ está formada por las entradas cuyos dos índices coinciden:
 >
 > $$
 > a_{11},a_{22},\ldots,a_{nn}.
@@ -714,7 +830,7 @@ tags:
 ### Matriz fila
 
 > [!definicion] Matriz fila
-> Una **matriz fila** tiene una sola fila: su tamaño es $1\times n$, con $n\in\mathbb N$.[^1]
+> Una **[[Matemáticas/Álgebra lineal/Matrices#Entradas y tamaño|matriz fila]]** tiene una sola fila: su tamaño es $1\times n$, con $n\in\mathbb N$.[^1]
 
 #### Ejemplo — Una fila con tres entradas
 
@@ -741,7 +857,7 @@ tags:
 ### Matriz columna
 
 > [!definicion] Matriz columna
-> Una **matriz columna** tiene una sola columna: su tamaño es $m\times1$, con $m\in\mathbb N$.[^1]
+> Una **[[Matemáticas/Álgebra lineal/Matrices#Entradas y tamaño|matriz columna]]** tiene una sola columna: su tamaño es $m\times1$, con $m\in\mathbb N$.[^1]
 
 #### Ejemplo — Una columna con tres entradas
 
@@ -767,7 +883,7 @@ tags:
 
 ## Matrices notables
 
-Algunas clases de matrices se reconocen buscando ceros en determinadas posiciones. Otras se reconocen comparando parejas de entradas a ambos lados de la diagonal. Las condiciones siguientes se aplican a matrices cuadradas, salvo la de matriz nula.[^1][^4]
+Una diagonal puede contener ceros; una triangular puede ser también diagonal. Para clasificar una matriz hay que comprobar la condición que define cada clase, sin suponer que las clases se excluyen entre sí. Todas las de este apartado son cuadradas, salvo la matriz nula, que admite cualquier tamaño.[^1][^4]
 
 ### Matriz nula
 
@@ -811,7 +927,7 @@ tags:
 ### Matriz identidad
 
 > [!definicion] Matriz identidad
-> La **[[Matemáticas/Álgebra lineal/Matriz identidad|identidad]]** $I_n$ es cuadrada de orden $n$, con unos en la diagonal principal y ceros fuera de ella. Para $i,j\in\{1,\ldots,n\}$,
+> La **[[Matemáticas/Álgebra lineal/Matriz identidad|identidad]]** $I_n$ es cuadrada de orden $n$, con unos en la [[#Diagonal principal|diagonal principal]] y ceros fuera de ella. Para $i,j\in\{1,\ldots,n\}$,
 >
 > $$
 > (I_n)_{ij}=\begin{cases}
@@ -850,7 +966,7 @@ tags:
 ### Matriz diagonal
 
 > [!definicion] Matriz diagonal
-> Una matriz $D=(d_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz diagonal|diagonal]]** cuando todas las entradas exteriores a la diagonal principal son cero:
+> Una matriz $D=(d_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz diagonal|diagonal]]** cuando todas las entradas exteriores a la [[#Diagonal principal|diagonal principal]] son cero:
 >
 > $$
 > d_{ij}=0_K
@@ -940,7 +1056,7 @@ tags:
 ### Matriz triangular superior
 
 > [!definicion] Matriz triangular superior
-> Una matriz $U=(u_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz triangular superior|triangular superior]]** cuando tiene ceros debajo de la diagonal principal:
+> Una matriz $U=(u_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz triangular superior|triangular superior]]** cuando tiene ceros debajo de la [[#Diagonal principal|diagonal principal]]:
 >
 > $$
 > u_{ij}=0_K
@@ -979,7 +1095,7 @@ tags:
 ### Matriz triangular inferior
 
 > [!definicion] Matriz triangular inferior
-> Una matriz $L=(\ell_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz triangular inferior|triangular inferior]]** cuando tiene ceros por encima de la diagonal principal:
+> Una matriz $L=(\ell_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz triangular inferior|triangular inferior]]** cuando tiene ceros por encima de la [[#Diagonal principal|diagonal principal]]:
 >
 > $$
 > \ell_{ij}=0_K
@@ -1014,7 +1130,7 @@ tags:
 ```
 
 > [!recuerda] Las diagonales pertenecen a las dos clases
-> Una matriz diagonal tiene ceros tanto por encima como por debajo de su diagonal principal. Por tanto, ==es triangular superior e inferior a la vez==.[^1]
+> Una matriz diagonal tiene ceros tanto por encima como por debajo de su [[#Diagonal principal|diagonal principal]]. Por tanto, ==es triangular superior e inferior a la vez==.[^1]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1032,7 +1148,7 @@ tags:
 
 ### Matriz simétrica
 
-Las posiciones $(1,2)$ y $(2,1)$ se intercambian al reflejarse respecto de la diagonal. Lo mismo ocurre con cualquier pareja $(i,j)$ y $(j,i)$.
+Las posiciones $(1,2)$ y $(2,1)$ se intercambian al reflejarse respecto de la [[#Diagonal principal|diagonal principal]]. Lo mismo ocurre con cualquier pareja $(i,j)$ y $(j,i)$.
 
 > [!definicion] Matriz simétrica
 > Una matriz $A=(a_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz simétrica|simétrica]]** cuando coinciden las entradas de esas posiciones:
@@ -1042,7 +1158,7 @@ Las posiciones $(1,2)$ y $(2,1)$ se intercambian al reflejarse respecto de la di
 > $$
 > [^4]
 
-Al intercambiar filas y columnas se obtiene la **transpuesta**, que se denota $A^T$ y tiene entrada $(A^T)_{ij}=a_{ji}$. Por eso la condición de simetría también se escribe $A^T=A$.
+Al intercambiar filas y columnas se obtiene la **[[Matemáticas/Álgebra lineal/Transpuesta de una matriz|transpuesta]]**, que se denota $A^T$ y tiene entrada $(A^T)_{ij}=a_{ji}$. Por eso la condición de simetría también se escribe $A^T=A$.
 
 #### Ejemplo — Reflejo respecto de la diagonal
 
@@ -1078,8 +1194,8 @@ tags:
 > $a_{ij}=a_{ji}$ para todo $i,j\in\{1,\ldots,n\}$; equivalentemente, $A^T=A$.
 ```
 
-> [!advertencia] El uso de «simétrica» para el opuesto
-> Las diapositivas también llaman «simétrica de $A$» a la matriz $-A$. En ese contexto se refieren al opuesto aditivo. Aquí se emplea **opuesta** para $-A$ y **simétrica** para la condición $A^T=A$.[^8]
+> [!advertencia] Opuesta y simétrica
+> La **opuesta de $A$** es otra matriz, $-A$. Que $A$ sea **simétrica** expresa una condición sobre sus entradas: $A^T=A$.[^8]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1190,7 +1306,20 @@ tags:
 
 ### Matriz hermítica
 
-Para un número complejo $z=x+iy$, con $x,y\in\mathbb R$, el conjugado es $\overline z=x-iy$. Así, $1+2i$ y $1-2i$ son conjugados; cualquier número real es su propio conjugado.[^13]
+Para un número complejo $z=x+iy$, con $x,y\in\mathbb R$, el [[Matemáticas/Sistemas numéricos/Números complejos#🔄 Conjugación y módulo|conjugado]] es $\overline z=x-iy$. Así, $1+2i$ y $1-2i$ son conjugados; cualquier número real es su propio conjugado.[^13]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - números-complejos
+---
+> [!note] Pregunta
+> ¿Cómo se obtiene el conjugado de $z=x+iy$, con $x,y\in\mathbb R$?
+===
+> [!important] Respuesta
+> Se conserva la parte real y se cambia el signo de la parte imaginaria: $\overline z=x-iy$.
+```
 
 > [!definicion] Matriz hermítica
 > Una matriz $H=(h_{ij})\in M_n(\mathbb C)$ es **[[Matemáticas/Álgebra lineal/Matriz hermítica|hermítica]]** cuando sus entradas reflejadas son conjugadas:
@@ -1200,7 +1329,7 @@ Para un número complejo $z=x+iy$, con $x,y\in\mathbb R$, el conjugado es $\over
 > $$
 > [^6]
 
-Se escribe también $H^*=H$. El símbolo $H^*$ designa la **conjugada transpuesta**: se intercambian las filas con las columnas y se conjuga cada entrada, de modo que $(H^*)_{ij}=\overline{h_{ji}}$.
+Se escribe también $H^*=H$. El símbolo $H^*$ designa la **[[Matemáticas/Álgebra lineal/Conjugada transpuesta de una matriz|conjugada transpuesta]]**: se intercambian las filas con las columnas y se conjuga cada entrada, de modo que $(H^*)_{ij}=\overline{h_{ji}}$.
 
 #### Ejemplo — Conjugación al cruzar la diagonal
 
@@ -1228,8 +1357,30 @@ tags:
 > $a_{ij}=\overline{a_{ji}}$ para todo $i,j\in\{1,\ldots,n\}$; equivalentemente, $A^*=A$.
 ```
 
+#### Propiedad
+
 > [!consecuencia] La diagonal de una hermítica es real
-> Para $i=j$, la definición exige $h_{ii}=\overline{h_{ii}}$. Un complejo coincide con su conjugado exactamente cuando su parte imaginaria es cero. Por eso ==las entradas diagonales de una hermítica son reales==.[^6]
+> Si $H\in M_n(\mathbb C)$ es hermítica, entonces
+>
+> $$
+> \boxed{h_{ii}\in\mathbb R\qquad\forall i\in\{1,\ldots,n\}.}
+> $$
+> [^6]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Sea $r\in\mathbb N$, con $1\leq r\leq n$. En la diagonal, los índices coinciden, de modo que la condición $h_{ij}=\overline{h_{ji}}$ se reduce a $h_{rr}=\overline{h_{rr}}$.
+>
+> Escribimos $h_{rr}=x+iy$, con $x,y\in\mathbb R$. La igualdad con su conjugado exige
+>
+> $$
+> x+iy=x-iy.
+> $$
+>
+> Al comparar las partes imaginarias obtenemos $y=-y$, es decir, $2y=0$. Como $y$ es real, $y=0$, por lo que $h_{rr}=x\in\mathbb R$.
+>
+> El índice $r$ era arbitrario: todas las entradas diagonales son reales. $\blacksquare$[^6]
 
 En el ejemplo, cambiar $h_{33}=-2$ por $-2+i$ haría que la matriz dejase de ser hermítica, aunque no se alterase ninguna pareja fuera de la diagonal.
 
@@ -1345,7 +1496,7 @@ tags:
 > Son puramente imaginarias o cero, porque $q_{ii}=-\overline{q_{ii}}$.
 ```
 
-Una misma matriz puede pertenecer a varias clases. La identidad es escalar, diagonal y triangular de los dos tipos. La nula cuadrada cumple, además, las condiciones de simetría, antisimetría, hermiticidad y antihermiticidad: todas sus entradas reflejadas son cero.
+Una misma matriz puede pertenecer a varias clases. La [[#Matriz identidad|identidad]] es [[#Matriz escalar|escalar]], [[#Matriz diagonal|diagonal]], [[#Matriz triangular superior|triangular superior]] y [[#Matriz triangular inferior|triangular inferior]]. La [[#Matriz nula|nula cuadrada]] cumple, además, las condiciones de [[#Matriz simétrica|simetría]], [[#Matriz antisimétrica|antisimetría]], [[#Matriz hermítica|hermiticidad]] y [[#Matriz antihermítica|antihermiticidad]]: todas sus entradas reflejadas son cero.
 
 ## Suma, opuesto y producto por un escalar
 
@@ -1360,20 +1511,24 @@ Sean $A=(a_{ij})$ y $B=(b_{ij})$ dos matrices de $M_{m\times n}(K)$.
 > $$
 > (A+B)_{ij}=a_{ij}+b_{ij}.
 > $$
-> $\forall i\in\{1,\ldots,m\},\ \forall j\in\{1,\ldots,n\}$. Las dos matrices deben tener el mismo tamaño.
+> La fórmula vale en cualquier posición: $1\leq i\leq m$, $1\leq j\leq n$.
 
 El resultado pertenece a $M_{m\times n}(K)$. Una $2\times3$ y una $3\times2$ tienen seis entradas cada una, pero no se pueden sumar: la primera tiene una tercera columna que la segunda no tiene.[^8]
 
 #### Ejemplo — Sumar entradas correspondientes
 
 Sean
+
 $$
 A=\begin{pmatrix}5&-1&0\\2&0&1\end{pmatrix}.
 $$
+
 $$
 B=\begin{pmatrix}-3&8&1\\1&0&1\end{pmatrix}.
 $$
+
 Las dos matrices tienen tamaño $2\times3$, así que sus entradas se suman posición por posición. Por ejemplo, la entrada $(1,1)$ resulta $5+(-3)=2$, y la entrada $(2,3)$ resulta $1+1=2$. Al completar las seis posiciones, queda
+
 $$
 A+B=\begin{pmatrix}2&7&1\\3&0&2\end{pmatrix}.
 $$
@@ -1422,7 +1577,7 @@ tags:
 Sea $A=(a_{ij})\in M_{m\times n}(K)$.
 
 > [!definicion] Matriz opuesta
-> La **opuesta** de $A$ es la matriz del mismo tamaño que se obtiene cambiando el signo de cada entrada:
+> La **[[Matemáticas/Álgebra lineal/Suma de matrices#Neutro, opuesta y resta|opuesta]]** de $A$ es la matriz del mismo tamaño que se obtiene cambiando el signo de cada entrada:
 >
 > $$
 > -A=(-a_{ij}).
@@ -1458,7 +1613,7 @@ tags:
 Sean $A,B\in M_{m\times n}(K)$.
 
 > [!definicion] Resta de matrices
-> La diferencia de $A$ y $B$ es la suma de $A$ con la opuesta de $B$:
+> La [[Matemáticas/Álgebra lineal/Suma de matrices#Neutro, opuesta y resta|diferencia de $A$ y $B$]] es la suma de $A$ con la opuesta de $B$:
 >
 > $$
 > A-B=A+(-B).
@@ -1483,8 +1638,6 @@ Al efectuar las seis restas,
 $$
 A-B=\begin{pmatrix}8&-9&-1\\1&0&0\end{pmatrix}.
 $$
-
-La terminología «simétrica de $A$» empleada para $-A$ en las diapositivas se entiende aquí como **opuesta**, según la distinción anterior.[^8]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1726,9 +1879,9 @@ Sean $\lambda\in K$ un escalar y $A=(a_{ij})\in M_{m\times n}(K)$ una matriz.
 > $$
 > (\lambda A)_{ij}=\lambda a_{ij}.
 > $$
-> $\forall i\in\{1,\ldots,m\},\ \forall j\in\{1,\ldots,n\}$.
+> La fórmula vale para $1\leq i\leq m$ y $1\leq j\leq n$.
 
-El resultado tiene el mismo tamaño $m\times n$ que $A$.[^8]
+El resultado pertenece a $M_{m\times n}(K)$.[^8]
 
 #### Ejemplo — Escalar todas las entradas
 
@@ -1737,7 +1890,8 @@ $$
 =4\begin{pmatrix}5&-1&0\\2&0&1\end{pmatrix}
 =\begin{pmatrix}20&-4&0\\8&0&4\end{pmatrix}.
 $$
-El tamaño permanece $2\times3$ y los ceros siguen siendo cero.
+
+Por ejemplo, la entrada $-1$ da $4(-1)=-4$ y la entrada $2$ da $4\cdot2=8$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -2029,7 +2183,20 @@ tags:
 > $(-1_K)A=-A$.
 ```
 
-La suma y el producto por escalar dejan el resultado en $M_{m\times n}(K)$. Junto con las leyes demostradas y la igualdad $1_KA=A$, estas operaciones hacen de ese conjunto un [[Matemáticas/Álgebra lineal/Espacios vectoriales|espacio vectorial]] sobre $K$.[^8]
+También podemos sumar matrices de un tamaño fijo y multiplicarlas por escalares sin salir de $M_{m\times n}(K)$. Las leyes demostradas y la igualdad $1_KA=A$, justificada en la prueba anterior, hacen de este conjunto un [[Matemáticas/Álgebra lineal/Espacios vectoriales/01 Espacios vectoriales — definición y axiomas|espacio vectorial sobre $K$]]. En este caso, los «vectores» del espacio son matrices.[^8]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - matrices
+---
+> [!note] Pregunta
+> ¿Qué elementos desempeñan el papel de vectores en el espacio vectorial $M_{m\times n}(K)$?
+===
+> [!important] Respuesta
+> Las matrices de tamaño fijo $m\times n$ con entradas en $K$; los escalares pertenecen a $K$.
+```
 
 ## Producto matricial
 
@@ -2046,7 +2213,7 @@ Sean $A=(a_{ij})\in M_{m\times n}(K)$ y $B=(b_{ij})\in M_{p\times q}(K)$, con $m
 > $$
 > $\forall i\in\{1,\ldots,m\},\ \forall j\in\{1,\ldots,q\}$.
 
-Para obtener la entrada $(i,j)$, se multiplican las entradas de la fila $i$ de $A$ por las entradas correspondientes de la columna $j$ de $B$ y se suman los $n$ productos. El resultado pertenece a $M_{m\times q}(K)$.[^8]
+El resultado pertenece a $M_{m\times q}(K)$: hay una fila por cada fila de $A$ y una columna por cada columna de $B$.[^8]
 
 El sumatorio abrevia la expresión
 
@@ -2093,7 +2260,21 @@ $$
 > (AB)_{21}=(-1)\cdot2+3\cdot0+4\cdot3=10.
 > $$
 
-Para la primera fila obtenemos $1\cdot2+2\cdot0+0\cdot3=2$ y $1\cdot1+2(-1)+0\cdot2=-1$. La entrada restante es $(-1)\cdot1+3(-1)+4\cdot2=4$. Así,
+![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/03-producto-fila-columna.svg|*La segunda fila de A y la primera columna de B tienen tres entradas. Su combinación determina la entrada (2,1) del producto.*]]
+
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/03-producto-fila-columna.excalidraw|Abrir el dibujo editable]]
+
+Las otras tres entradas se calculan del mismo modo:
+
+$$
+\begin{aligned}
+(AB)_{11}&=1\cdot2+2\cdot0+0\cdot3=2,\\
+(AB)_{12}&=1\cdot1+2(-1)+0\cdot2=-1,\\
+(AB)_{22}&=(-1)\cdot1+3(-1)+4\cdot2=4.
+\end{aligned}
+$$
+
+Cada resultado ocupa la posición que fijan la fila y la columna utilizadas:
 
 $$
 AB=\begin{pmatrix}
@@ -2108,6 +2289,7 @@ $$
 E_{2\times3}=
 \begin{pmatrix}5&-1&0\\2&0&1\end{pmatrix}.
 $$
+
 $$
 F_{3\times4}=
 \begin{pmatrix}
@@ -2116,17 +2298,22 @@ F_{3\times4}=
 1&0&0&-1
 \end{pmatrix}.
 $$
+
 Las dimensiones interiores coinciden en $3$, así que el producto existe. Para calcular su entrada $(1,2)$, emparejamos la primera fila de $E$ con la segunda columna de $F$:
+
 $$
 (EF)_{12}=5(-3)+(-1)(-8)+0\cdot0=-7.
 $$
+
 El producto completo, de tamaño $2\times4$, es
+
 $$
 EF=\begin{pmatrix}
 3&-7&-1&-5\\
 3&-6&0&-3
 \end{pmatrix}_{2\times4}.
 $$
+
 En el orden contrario, $FE$ combinaría tamaños $3\times4$ y $2\times3$. Las dimensiones interiores, $4$ y $2$, no coinciden; por eso ==$FE$ no está definido==.[^8]
 
 ```anki
@@ -2159,6 +2346,8 @@ tags:
 
 ### Combinaciones lineales de vectores
 
+En la primera columna de $AB$ han intervenido las tres columnas de $A$, con coeficientes $2$, $0$ y $3$ tomados de $B$. Una suma de múltiplos de vectores recibe el nombre de **combinación lineal**.
+
 > [!definicion] Combinación lineal
 > Para vectores $v_1,\ldots,v_p$ del mismo espacio y escalares $\lambda_1,\ldots,\lambda_p\in K$, una **[[Matemáticas/Álgebra lineal/Espacios vectoriales/03 Combinaciones lineales y espacio generado|combinación lineal]]** es una expresión
 >
@@ -2166,6 +2355,19 @@ tags:
 > \lambda_1v_1+\cdots+\lambda_pv_p.
 > $$
 > [^2]
+
+#### Ejemplo — Combinar tres columnas
+
+Las columnas de $A$ pertenecen a $\mathbb R^2$. Con los coeficientes de la primera columna de $B$,
+
+$$
+2\begin{pmatrix}1\\-1\end{pmatrix}
++0\begin{pmatrix}2\\3\end{pmatrix}
++3\begin{pmatrix}0\\4\end{pmatrix}
+=\begin{pmatrix}2\\10\end{pmatrix}.
+$$
+
+Ésta es la primera columna del producto calculado. El coeficiente cero anula la contribución de la segunda columna de $A$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -2215,6 +2417,16 @@ tags:
 ```
 
 Para leer el producto por filas, fijamos una fila de $A$ y la multiplicamos por $B$. Si la fila $i$ es $\mathbf r_i$, la fila correspondiente de $AB$ es $\mathbf r_iB$: sus entradas se calculan emparejando esa fila con cada columna de $B$.
+
+#### Ejemplo — La primera fila del producto
+
+La primera fila de $A$ es $(1,2,0)$. Al multiplicarla por $B$, esos tres números actúan como coeficientes de sus filas:
+
+$$
+(1,2,0)B=1(2,1)+2(0,-1)+0(3,2)=(2,-1).
+$$
+
+Obtenemos así las dos entradas de la primera fila de $AB$ a la vez.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -2314,7 +2526,10 @@ tags:
 >
 > ==En $AB$ actúa primero $B$ y después $A$==. Por ejemplo, una matriz $3\times2$ multiplicada por otra $2\times2$ representa el recorrido $K^2\to K^2\to K^3$.
 >
-> Para aplicaciones $S:U\to V$ y $T:V\to W$ entre espacios vectoriales, se eligen bases: cada columna de su matriz contiene las coordenadas de la imagen de un vector de la base del dominio. Si sus matrices son $B$ y $A$, respectivamente, la matriz de $T\circ S$ es $AB$, usando **la misma base de $V$** para escribir la salida de $S$ y la entrada de $T$.[^37]
+> [^37]
+
+> [!opcional]- Ampliación — Representación en bases compatibles
+> Para aplicaciones $S:U\to V$ y $T:V\to W$ entre espacios vectoriales, se eligen [[Matemáticas/Álgebra lineal/Aplicaciones lineales#La matriz de una aplicación lineal|bases para obtener sus matrices]]: cada columna de su matriz contiene las coordenadas de la imagen de un vector de la base del dominio. Si sus matrices son $B$ y $A$, respectivamente, la matriz de $T\circ S$ es $AB$, usando **la misma base de $V$** para escribir la salida de $S$ y la entrada de $T$.[^37]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -2374,7 +2589,52 @@ tags:
 
 ### Cómo leer los sumatorios del producto
 
-En el producto matricial aparece una suma finita. La expresión $\sum_{k=1}^{n}x_k$ abrevia $x_1+x_2+\cdots+x_n$: $k$ recorre los enteros de $1$ a $n$. Al calcular una entrada del producto, $i$ y $j$ quedan fijos y $k$ recorre las posiciones interiores que se emparejan. Un factor que no depende de $k$ mantiene el mismo valor en todos los sumandos.
+Las pruebas del producto requieren operar con sumas finitas. El símbolo $\sum$ permite escribirlas sin enumerar todos sus términos:
+
+$$
+\sum_{k=1}^{n}x_k=x_1+x_2+\cdots+x_n.
+$$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - sumatorios
+---
+> [!note] Pregunta
+> ¿Qué suma abrevia la notación $\sum_{k=1}^{n}x_k$?
+===
+> [!important] Respuesta
+> $x_1+x_2+\cdots+x_n$: el índice $k$ recorre los enteros de $1$ a $n$.
+```
+
+El índice $k$ toma los valores enteros de $1$ a $n$. Por ejemplo, al calcular $(AB)_{21}$, los índices exteriores permanecen fijos en $i=2$, $j=1$ y sólo cambia $k$:
+
+$$
+\sum_{k=1}^{3}a_{2k}b_{k1}
+=a_{21}b_{11}+a_{22}b_{21}+a_{23}b_{31}.
+$$
+
+Si un factor no depende de $k$, aparece igual en todos los sumandos. La distributividad permite sacarlo fuera de la suma:
+
+$$
+\sum_{k=1}^{n}\alpha x_k
+=\alpha x_1+\cdots+\alpha x_n
+=\alpha\sum_{k=1}^{n}x_k.
+$$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - sumatorios
+---
+> [!note] Pregunta
+> ¿Por qué puede sacarse un factor $\alpha$ fuera de $\sum_{k=1}^{n}\alpha x_k$ cuando no depende de $k$?
+===
+> [!important] Respuesta
+> Porque multiplica por igual a todos los sumandos; la distributividad da $\sum_{k=1}^{n}\alpha x_k=\alpha\sum_{k=1}^{n}x_k$.
+```
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -2559,8 +2819,11 @@ tags:
 >
 > **1. Expandir la entrada del lado izquierdo.** La regla del producto da la primera suma; la regla de la suma reemplaza luego $(A_1+A_2)_{ik}$ por $(A_1)_{ik}+(A_2)_{ik}$:
 > $$
-> ((A_1+A_2)B)_{ij}=\sum_{k=1}^{n}(A_1+A_2)_{ik}b_{kj}
-> =\sum_{k=1}^{n}\bigl((A_1)_{ik}+(A_2)_{ik}\bigr)b_{kj}.
+> \begin{aligned}
+> ((A_1+A_2)B)_{ij}
+> &=\sum_{k=1}^{n}(A_1+A_2)_{ik}b_{kj}\\
+> &=\sum_{k=1}^{n}\bigl((A_1)_{ik}+(A_2)_{ik}\bigr)b_{kj}.
+> \end{aligned}
 > $$
 >
 > **2. Distribuir cada producto numérico.**
@@ -2840,17 +3103,22 @@ El producto matricial no es conmutativo: aun cuando $AB$ y $BA$ estén definidos
 $$
 C=\begin{pmatrix}1&1\\0&1\end{pmatrix}.
 $$
+
 $$
 D=\begin{pmatrix}1&0\\2&-1\end{pmatrix}.
 $$
+
 Se obtienen
+
 $$
 CD=\begin{pmatrix}3&-1\\2&-1\end{pmatrix}.
 $$
+
 $$
 DC=\begin{pmatrix}1&1\\2&1\end{pmatrix}.
 $$
-Las entradas $(1,1)$ ya son diferentes: ==$CD\ne DC$==. El orden determina qué matriz actúa primero.[^8]
+
+Las entradas $(1,1)$ ya son diferentes: ==$CD\ne DC$==. [^8]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -2887,9 +3155,11 @@ Todos los factores tienen tamaño $n\times n$, por lo que cada producto está de
 $$
 P=\begin{pmatrix}4&2\\-3&-1\end{pmatrix}.
 $$
+
 $$
 P^2=\begin{pmatrix}10&6\\-9&-5\end{pmatrix}.
 $$
+
 Por ejemplo, la entrada $(1,1)$ es $4\cdot4+2(-3)=10$. Como $P$ es cuadrada de orden dos, $P^2$ vuelve a tener ese mismo tamaño.
 
 ```anki
@@ -2911,9 +3181,11 @@ tags:
 $$
 R=\begin{pmatrix}1&1\\0&-1\end{pmatrix}.
 $$
+
 $$
 R^2=\begin{pmatrix}1&0\\0&1\end{pmatrix}=I_2.
 $$
+
 La entrada superior derecha es $1\cdot1+1(-1)=0$. Las dos entradas diagonales valen uno y la inferior izquierda vale cero, de modo que $R^2=I_2$. Por ello, al multiplicar dos veces una columna por $R$, se recupera la columna inicial.
 
 #### Ejemplo — Dos factores no nulos pueden dar cero
@@ -2921,10 +3193,22 @@ La entrada superior derecha es $1\cdot1+1(-1)=0$. Las dos entradas diagonales va
 $$
 N=\begin{pmatrix}1&i\\i&-1\end{pmatrix}.
 $$
+
 $$
 N^2=\begin{pmatrix}0&0\\0&0\end{pmatrix}=0_2.
 $$
-La entrada $(1,1)$ vale $1+i^2=0$, y las demás entradas también se anulan. Así, ==$N^2=0_2$ aunque $N\ne0_2$==. En los números reales o complejos, un producto es cero solo si alguno de sus factores es cero; en el producto matricial, esa propiedad no se cumple.[^8]
+
+Las cuatro entradas se anulan al usar $i^2=-1$:
+
+$$
+N^2=\begin{pmatrix}
+1+i^2&i-i\\
+i-i&i^2+1
+\end{pmatrix}
+=\begin{pmatrix}0&0\\0&0\end{pmatrix}.
+$$
+
+Así, ==$N^2=0_2$ aunque $N\ne0_2$==. En los números reales o complejos, un producto es cero solo si alguno de sus factores es cero; en el producto matricial, esa propiedad no se cumple.[^8]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -2978,7 +3262,9 @@ La fila $i$ de $A$ es la columna $i$ de $A^T$; por eso se invierten las dimensio
 $$
 A=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}_{2\times3}.
 $$
+
 La primera fila $(1,2,3)$ se convierte en la primera columna; la segunda fila, en la segunda columna:
+
 $$
 A^T=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}_{3\times2}.
 $$
@@ -3170,8 +3456,11 @@ Ambos lados miden $p\times m$.[^7]
 > **2. Calcular la entrada del lado derecho.** Aplicamos la definición del producto matricial y después las definiciones de las transpuestas:
 >
 > $$
-> (B^TA^T)_{ij}=\sum_{k=1}^{n}(B^T)_{ik}(A^T)_{kj}
-> =\sum_{k=1}^{n}b_{ki}a_{jk}.
+> \begin{aligned}
+> (B^TA^T)_{ij}
+> &=\sum_{k=1}^{n}(B^T)_{ik}(A^T)_{kj}\\
+> &=\sum_{k=1}^{n}b_{ki}a_{jk}.
+> \end{aligned}
 > $$
 >
 > **3. Comparar los sumandos.** Los factores son escalares de $K=\mathbb R$ o $\mathbb C$, por lo que su producto conmuta: $a_{jk}b_{ki}=b_{ki}a_{jk}$. Las dos sumas tienen los mismos términos y los mismos límites; así coinciden en cada posición. Concluimos $(AB)^T=B^TA^T$.[^25]
@@ -3195,7 +3484,7 @@ tags:
 Sea $A=(a_{ij})\in M_{m\times n}(\mathbb C)$.
 
 > [!definicion] Matriz conjugada
-> La **conjugada** $\overline A$ se obtiene conjugando cada entrada, sin cambiar su posición:
+> La **[[Matemáticas/Álgebra lineal/Conjugada de una matriz|conjugada]]** $\overline A$ se obtiene conjugando cada entrada, sin cambiar su posición:
 > $$
 > (\overline A)_{ij}=\overline{a_{ij}}.
 > $$
@@ -3208,9 +3497,11 @@ $\overline{a_{ij}}$ es un número complejo; $\overline A$ es la matriz completa.
 $$
 C=\begin{pmatrix}1+i&2&-i\\3-i&0&4i\end{pmatrix}.
 $$
+
 $$
 \overline C=\begin{pmatrix}1-i&2&i\\3+i&0&-4i\end{pmatrix}.
 $$
+
 Las entradas reales, como $2$, permanecen iguales. En las demás cambia el signo de la parte imaginaria.
 
 ```anki
@@ -3385,10 +3676,15 @@ C^*=\begin{pmatrix}
 i&-4i
 \end{pmatrix}_{3\times2}.
 $$
+
 La entrada $(1,2)$ de $C^*$ es $\overline{c_{21}}=3+i$: se toma la posición transpuesta y además se conjuga.
 
-[!recuerda] Caso real
-Si $A$ tiene solo entradas reales, $\overline A=A$ y, por tanto, ==$A^*=A^T$==. Esta es la razón de que «hermítica» y «simétrica» coincidan para matrices reales.[^7]
+![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/04-transpuesta-y-adjunta.svg|*La entrada c₂₁ pasa a la posición (1,2). La transpuesta conserva 3−i; la adjunta lo conjuga y da 3+i.*]]
+
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/04-transpuesta-y-adjunta.excalidraw|Abrir el dibujo editable]]
+
+> [!recuerda] Caso real
+> Si $A$ tiene solo entradas reales, $\overline A=A$ y, por tanto, ==$A^*=A^T$==. Esta es la razón de que «hermítica» y «simétrica» coincidan para matrices reales.[^7]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -3551,15 +3847,21 @@ tags:
 > La entrada del producto es una suma finita; al conjugarla,
 >
 > $$
-> (\overline{AB})_{ij}=\overline{(AB)_{ij}}
-> =\overline{\sum_{k=1}^{n}a_{ik}b_{kj}}.
+> \begin{aligned}
+> (\overline{AB})_{ij}
+> &=\overline{(AB)_{ij}}\\
+> &=\overline{\sum_{k=1}^{n}a_{ik}b_{kj}}.
+> \end{aligned}
 > $$
 >
 > La conjugación respeta tanto sumas como productos de escalares complejos:
 >
 > $$
-> (\overline{AB})_{ij}=\sum_{k=1}^{n}\overline{a_{ik}b_{kj}}
-> =\sum_{k=1}^{n}\overline{a_{ik}}\,\overline{b_{kj}}.
+> \begin{aligned}
+> (\overline{AB})_{ij}
+> &=\sum_{k=1}^{n}\overline{a_{ik}b_{kj}}\\
+> &=\sum_{k=1}^{n}\overline{a_{ik}}\,\overline{b_{kj}}.
+> \end{aligned}
 > $$
 >
 > Como $(\overline A)_{ik}=\overline{a_{ik}}$ y $(\overline B)_{kj}=\overline{b_{kj}}$, el sumatorio resultante es la entrada $(i,j)$ de $\overline A\,\overline B$. Esto vale en cada posición, así que $\overline{AB}=\overline A\,\overline B$. La conjugación sola conserva el orden de los factores.[^26]
@@ -3722,7 +4024,7 @@ tags:
 Sea $A=(a_{ij})\in M_n(K)$.
 
 > [!definicion] Traza
-> La **[[Matemáticas/Álgebra lineal/Traza de una matriz|traza]]** es la suma de las entradas de la diagonal principal:
+> La **[[Matemáticas/Álgebra lineal/Traza de una matriz|traza]]** es la suma de las entradas de la [[#Diagonal principal|diagonal principal]]:
 > $$
 > \operatorname{tr}(A)=\sum_{i=1}^{n}a_{ii}\in K.
 > $$
@@ -3738,6 +4040,7 @@ T=\begin{pmatrix}
 -3&6&-8
 \end{pmatrix}.
 $$
+
 La diagonal es $(3,0,-8)$, de modo que $\operatorname{tr}(T)=3+0-8=-5$. Las otras seis entradas no intervienen.[^7]
 
 En $I_n$, las $n$ entradas diagonales valen uno. Por tanto, $\operatorname{tr}(I_n)=n\cdot1_K$, que se escribe simplemente $n$ para $K=\mathbb R$ o $\mathbb C$.
@@ -3969,7 +4272,7 @@ tags:
 
 ## Sistemas lineales en forma matricial
 
-En un sistema lineal, los coeficientes de cada ecuación forman una fila y los de cada incógnita, una columna. Esta organización permite expresar todas las ecuaciones mediante un producto matricial.
+El producto de la fila $(2,-1)$ por la columna $(x,y)^T$ es $2x-y$. Por tanto, una fila de coeficientes puede representar el primer miembro de una ecuación lineal. Al colocar varias filas en una matriz, el producto devuelve una columna con esos primeros miembros, uno por ecuación.
 
 ### Ecuación $A\mathbf{x}=\mathbf{b}$
 
@@ -4049,7 +4352,9 @@ $$
 \end{array}\right].
 $$
 
-La matriz ampliada reúne los coeficientes y los términos independientes del sistema. En la [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales#Procedimiento de Gauss|eliminación de Gauss]], las operaciones se realizan sobre sus filas.
+en donde la barra separa los coeficientes del término independiente.
+
+La primera fila se lee $2x-y=3$ y la segunda, $x+4y=1$. Nótese que mediante la [[Matemáticas/Álgebra lineal/Eliminación de Gauss|eliminación de Gauss]], cada operación sobre una fila afectará también al número situado a la derecha de la barra.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -4072,7 +4377,7 @@ tags:
 - En matrices complejas, $A^T$ intercambia índices, $\overline A$ conjuga cada entrada y $A^*=\overline A^{\,T}$ realiza ambas operaciones.
 - En $A\mathbf{x}=\mathbf{b}$, hay una columna de $A$ por incógnita y una fila por ecuación.
 
-La matriz ampliada conserva en cada fila una ecuación completa. Aplicar operaciones reversibles a esas filas permitirá simplificar el sistema sin cambiar sus soluciones; ése es el fundamento de la eliminación de Gauss.
+El capítulo siguiente, [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|Eliminación y matrices elementales]], desarrolla las operaciones sobre filas y su uso para resolver sistemas.
 
 ## 📚 Fuentes
 
@@ -4087,7 +4392,7 @@ La matriz ampliada conserva en cada fila una ecuación completa. Aplicar operaci
 
 [^7]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 4, 23/09/2026. Archivo privado `ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf`. Diap. 4: conjugada transpuesta; diap. 8: caso real de hermíticas; diap. 9: propiedades de la transpuesta; diap. 10: propiedades de conjugación; diap. 12: propiedades de la traza. Los TPC se identifican por estos localizadores; las fuentes de las pruebas se citan por separado.
 
-[^8]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 3. Archivo privado `ALGA-2026-27-AulasTeo-slides-aula3-Matrizes-impressao.pdf`. Diap. 4, propiedades 1–4: suma; diap. 6, propiedades 1–5: producto por escalar; diap. 11, propiedades 1–6: producto matricial, sus distributividades y sus identidades y nulas. Fuente de los enunciados TPC; las pruebas se contrastan con las referencias indicadas junto a cada una.
+[^8]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 3. Archivo privado `ALGA-2026-27-AulasTeo-slides-aula3-Matrizes-impressao.pdf`. Diap. 4, propiedades 1–4: suma; diap. 6, propiedades 1–5: producto por escalar; diap. 11, propiedades 1–6: producto matricial, sus distributividades y sus identidades y nulas. En estas diapositivas también se llama «simétrica de $A$» a $-A$; aquí se reserva «opuesta» para esa matriz, para distinguirla de la condición $A^T=A$. Fuente de los enunciados TPC; las pruebas se contrastan con las referencias indicadas junto a cada una.
 
 ### Ampliación académica
 

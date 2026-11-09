@@ -54,7 +54,7 @@ Alcance oficial: matrices, operaciones, transformaciones elementales, rango, eli
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|Matrices y operaciones]]
 
-Presentaciones de FCUL: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ALGA-2026-27-AulasTeo-slides-aula2-VectMatrizes-impressao.pdf|Aula 2 — vectores y matrices]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ALGA-2026-27-AulasTeo-slides-aula3-Matrizes-impressao.pdf|Aula 3 — operaciones matriciales]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf|Aula 4 — transpuesta, conjugada y traza, pp. 2–12]]. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|nota curricular]].
+Presentaciones de FCUL: Aula 2 — vectores y matrices (`ALGA-2026-27-AulasTeo-slides-aula2-VectMatrizes-impressao.pdf`), Aula 3 — operaciones matriciales (`ALGA-2026-27-AulasTeo-slides-aula3-Matrizes-impressao.pdf`) y Aula 4 — transpuesta, conjugada y traza, pp. 2–12 (`ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf`). Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|nota curricular]].
 
 * [x] Construir y operar vectores coordenados de $\mathbb R^n$ y $\mathbb C^n$; distinguir escalar, vector, matriz fila y columna; usar el paralelogramo y las propiedades de las operaciones. ✅ 2026-11-04
 * [x] Definir [[Matemáticas/Álgebra lineal/Matrices|matrices]], dimensiones, entradas y tipos notables sobre $\mathbb R$ y $\mathbb C$. ✅ 2026-11-04
@@ -62,7 +62,7 @@ Presentaciones de FCUL: [[Física/Grado/1º/Álgebra Lineal y Geometría Analít
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|Eliminación y matrices elementales]]
 
-Presentaciones de FCUL: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf|Aula 4 — pivotes y forma escalonada, pp. 13–17]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ALGA-2026-27-AulasTeo-slides-aula5-TransfElem-impressao.pdf|Aula 5 — transformaciones elementales]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf|Aula 6 — rango y reducción, pp. 2–10]]. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|nota curricular]].
+Presentaciones de FCUL: Aula 4 — pivotes y forma escalonada, pp. 13–17 (`ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf`), Aula 5 — transformaciones elementales (`ALGA-2026-27-AulasTeo-slides-aula5-TransfElem-impressao.pdf`) y Aula 6 — rango y reducción, pp. 2–10 (`ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf`). Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|nota curricular]].
 
 * [ ] Ejecutar operaciones elementales y reconocer sus matrices elementales.
 * [ ] Obtener formas escalonada y escalonada reducida mediante Gauss y Gauss–Jordan.
@@ -71,7 +71,7 @@ Presentaciones de FCUL: [[Física/Grado/1º/Álgebra Lineal y Geometría Analít
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]
 
-Presentaciones de FCUL: [Aula 6 — invertibilidad, pp. 11–14](<file:///Users/therustifyer/Seafile/Fi%CC%81sica%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf>), [Aula 7 — matrices invertibles](<file:///Users/therustifyer/Seafile/Fi%CC%81sica%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula7-MatrizesInv-impressao.pdf>), [Aula 9 — discusión por rango, pp. 2–11](<file:///Users/therustifyer/Seafile/Fi%CC%81sica%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula9-Sistemas-impressao.pdf>) y [Aula 10 — inversa aplicada a sistemas, pp. 8–10](<file:///Users/therustifyer/Seafile/Fi%CC%81sica%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula10-Sistemas-impressao.pdf>). Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|nota curricular]].
+Presentaciones de FCUL: Aula 6 — invertibilidad, pp. 11–14, Aula 7 — matrices invertibles, Aula 9 — discusión por rango, pp. 2–11 y Aula 10 — inversa aplicada a sistemas, pp. 8–10. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|nota curricular]].
 
 * [ ] Clasificar sistemas compatibles determinados, compatibles indeterminados e incompatibles.
 * [ ] Interpretar pivotes, variables libres y parámetros; calcular el rango.
@@ -81,7 +81,7 @@ Presentaciones de FCUL: [Aula 6 — invertibilidad, pp. 11–14](<file:///Users/
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Sistemas de ecuaciones lineales|Sistemas de ecuaciones lineales]]
 
-Presentaciones de FCUL: [Aula 8 — sistemas lineales](<file:///Users/therustifyer/Seafile/Fi%CC%81sica%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula8-Sistemas-impressao.pdf>) y [Aula 10 — homogéneos y solución general, pp. 2–7 y 11](<file:///Users/therustifyer/Seafile/Fi%CC%81sica%20%28Completo%29/Carrera/1%C2%BA/ULisboa/ALGA/01%20-%20Matrizes%20e%20sistemas/ALGA-2026-27-AulasTeo-slides-Aula10-Sistemas-impressao.pdf>). Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Sistemas de ecuaciones lineales|nota curricular]].
+Presentaciones de FCUL: Aula 8 — sistemas lineales y Aula 10 — homogéneos y solución general, pp. 2–7 y 11. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Sistemas de ecuaciones lineales|nota curricular]].
 
 * [ ] Reconocer ecuaciones lineales, sistemas, soluciones, equivalencia y cuerpo de resolución; interpretar rectas y planos como conjuntos de soluciones.
 * [ ] Escribir $AX=B$, construir $[A\mid B]$ y verificar soluciones mediante producto matricial.
@@ -103,57 +103,66 @@ Ampliación del curso de Krista King, fuera del núcleo explícito de FCUL [^14]
 
 ## Unidad 2. Determinantes
 
-Alcance oficial: definición, órdenes 2 y 3, Laplace, propiedades, regla de Cramer e inversión por cofactores [^1].
+Alcance oficial: definición, órdenes dos y tres, desarrollo de Laplace, propiedades, regla de Cramer e inversión por cofactores.[^2] Las aulas 13–16 precisan el recorrido y los encargos de demostración.[^det-slides]
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/01 Definición y cálculo de determinantes|Definición y cálculo]]
 
-* [ ] Definir el [[Matemáticas/Álgebra lineal/Determinantes|determinante]] y calcularlo en órdenes 2 y 3.
-* [ ] Utilizar menores, cofactores y desarrollo de Laplace.
-* [ ] Elegir entre reducción y expansión según la estructura de la matriz.
+* [ ] Justificar en todos los casos el criterio $ad-bc\ne0$ para la unicidad de un sistema de dos ecuaciones.
+* [ ] Construir $A(i|j)$ y distinguir submatriz, [[Matemáticas/Álgebra lineal/Menor de una matriz|menor]] y [[Matemáticas/Álgebra lineal/Cofactor de una matriz|cofactor]].
+* [ ] Definir recursivamente el [[Matemáticas/Álgebra lineal/Determinantes|determinante]], incluido el caso de orden uno.
+* [ ] Calcular órdenes dos y tres; aplicar [[Matemáticas/Álgebra lineal/Regla de Sarrus|Sarrus]] únicamente en orden tres.
+* [ ] Desarrollar por cualquier fila o columna mediante [[Matemáticas/Álgebra lineal/Desarrollo de Laplace|Laplace]] y aprovechar los ceros.
+* [ ] Demostrar por inducción el recuento de $n!$ términos y reconocer una entrada de cada fila y columna en cada producto.
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/02 Propiedades y aplicaciones|Propiedades y aplicaciones]]
 
-* [ ] Dominar el efecto de las operaciones elementales, la transposición y el producto.
-* [ ] Justificar la relación entre determinante no nulo e invertibilidad.
-* [ ] Aplicar la regla de Cramer y la fórmula de la inversa mediante la adjunta.
-* [ ] Demostrar, al nivel del curso, las propiedades usadas en los cálculos.
+* [ ] Demostrar aditividad y homogeneidad por separado en una fila y en una columna.
+* [ ] Justificar el efecto de intercambiar, escalar o reemplazar filas o columnas y llevar cuenta de los factores al triangularizar.
+* [ ] Demostrar la anulación para filas y columnas repetidas o proporcionales, incluido el múltiplo cero.
+* [ ] Calcular el determinante triangular como producto de la diagonal y justificar $\det(I_n)=1$.
+* [ ] Demostrar las propiedades de transposición, conjugación y escala global $\det(\lambda A)=\lambda^n\det(A)$.
+* [ ] Justificar $\det(AB)=\det(A)\det(B)$ y obtener el determinante de la inversa; refutar la falsa aditividad global.
+* [ ] Relacionar determinante no nulo, rango completo, invertibilidad y solución única de un sistema cuadrado.
+* [ ] Construir la matriz de cofactores y la [[Matemáticas/Álgebra lineal/Matriz adjunta clásica|adjunta clásica]], distinguiéndola de la conjugada transpuesta.
+* [ ] Demostrar la identidad de la adjunta en ambos órdenes y calcular una inversa completa o una entrada aislada.
+* [ ] Reconocer un sistema de Cramer, demostrar la [[Matemáticas/Álgebra lineal/Regla de Cramer|regla]] y calcular una coordenada aislada o toda la solución.
+* [ ] Cuando $\det(A)=0$, clasificar el sistema mediante Gauss o rangos, sin dividir por cero.
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/03 Interpretación geométrica del determinante|Ampliación de contraste — interpretación geométrica del determinante]]
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/03 Interpretación geométrica del determinante|Ampliación — interpretación geométrica]]
 
-Ampliación de Khan Academy, fuera del núcleo explícito de FCUL [^12].
+Complemento geométrico externo; no se atribuye a las aulas de determinantes.[^12]
 
-* [ ] Interpretar $|\det A|$ como factor de escala de áreas o volúmenes y el signo como orientación.
-* [ ] Relacionar determinante nulo, colapso de dimensión y no invertibilidad de la transformación.
+* [ ] Obtener la imagen del cuadrado o cubo unidad a partir de las columnas de una matriz real.
+* [ ] Interpretar $|\det(A)|$ como factor de área o volumen y el signo como orientación.
+* [ ] Relacionar determinante nulo, dependencia de las columnas y pérdida de dimensión, sin inferir el rango exacto solo del determinante.
+* [ ] Interpretar la multiplicatividad mediante la composición y distinguir escala global de estiramientos por dirección.
 
-### Problemas y criterio de dominio
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/ejercicios/00 Índice de ejercicios|Práctica existente — ejercicios 41–58]]
 
-* [ ] Calcular determinantes eficientemente y estudiar parámetros.
-* [ ] Decidir invertibilidad sin calcular una inversa completa cuando sea posible.
-* [ ] Usar Cramer o cofactores sólo cuando sean métodos pertinentes y justificar la elección.
+* [ ] Elegir el método de cálculo según los ceros y la estructura de la matriz.
+* [ ] Discutir valores de parámetros que anulan el determinante.
+* [ ] Aplicar y comprobar cofactores, adjunta, inversa y Cramer en los problemas del boletín.
 
 ## Unidad 3. Espacios vectoriales
 
-Alcance oficial: espacios y subespacios, independencia, bases, dimensión, coordenadas, espacios fila y columna, sumas y cambio de base [^1] [^2].
+Alcance oficial: espacios vectoriales abstractos, subespacios, bases y dimensión, coordenadas, espacios fila y columna, suma y suma directa y cambio de base.[^1] Las aulas 17–20 disponibles desarrollan axiomas, consecuencias, subespacios, generadores y espacios asociados a matrices. Las bases y el cambio de base se completan con apuntes académicos de ULisboa; la síntesis ortogonal de la nota 06 queda como ampliación.[^ev3]
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/01 Espacios vectoriales y axiomas|Espacios vectoriales y axiomas]]
 
-* [ ] Definir [[Matemáticas/Álgebra lineal/Espacios vectoriales/01 Espacios vectoriales — definición y axiomas|espacio vectorial]] sobre un cuerpo $K$ distinguiendo suma interna, producto por escalares, vector cero y opuesto.
-* [ ] Enunciar y comprender los axiomas de grupo abeliano para la suma y los axiomas de la acción de los escalares.
-* [ ] Verificar todos los axiomas cuando se proponen operaciones no habituales.
-* [ ] Refutar una estructura candidata identificando exactamente un axioma incumplido.
-* [ ] Comparar $\mathbb C$ como espacio vectorial sobre $\mathbb R$ y sobre $\mathbb C$.
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/01 Espacios vectoriales y axiomas#Conjunto, escalares y operaciones|Distinguir el cuerpo, el conjunto de vectores y los dominios de las dos operaciones.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/01 Espacios vectoriales y axiomas#Los ocho axiomas|Enunciar A1–A4 y E1–E4 y distinguir los dos ceros y las dos distributividades.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/01 Espacios vectoriales y axiomas#Polinomios y funciones|Reconocer espacios de matrices, polinomios y funciones con sus operaciones.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/01 Espacios vectoriales y axiomas#El cuerpo forma parte de la estructura|Comparar las estructuras real y compleja y localizar un fallo de cierre.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/01 Espacios vectoriales y axiomas#Comprobar y descartar una estructura|Comprobar axiomas o exhibir un contraejemplo concreto.]]
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/02 Propiedades derivadas de los axiomas|Propiedades derivadas de los axiomas]]
 
-Este bloque se estudia **después** de conocer la definición y los axiomas. Reproduce el tipo de demostración exigido en los apuntes y boletines de MMII de la USC.[^21]
-
-* [ ] Distinguir axioma, definición, propiedad derivada y teorema; citar en cada paso la propiedad utilizada.
-* [ ] Demostrar la unicidad del vector cero y del inverso aditivo.
-* [ ] Demostrar la ley de cancelación para la suma de vectores.
-* [ ] Demostrar $0\mathbf v=\mathbf 0_V$ y $\lambda\mathbf 0_V=\mathbf 0_V$ usando distributividad y cancelación.
-* [ ] Demostrar $(-\lambda)\mathbf v=-(\lambda\mathbf v)$ y, como caso particular, $(-1)\mathbf v=-\mathbf v$.
-* [ ] Demostrar que $\lambda\mathbf v=\mathbf 0_V$ implica $\lambda=0$ o $\mathbf v=\mathbf 0_V$.
-* [ ] Reconocer y reutilizar el patrón «crear dos copias mediante distributividad, cancelar y concluir» sin razonamiento circular.
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/02 Propiedades derivadas de los axiomas#Axiomas, definiciones y resultados|Distinguir axioma, definición y resultado demostrado.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/02 Propiedades derivadas de los axiomas#Unicidad y cancelación|Demostrar unicidad del cero y del opuesto y cancelación aditiva.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/02 Propiedades derivadas de los axiomas#El escalar cero y el vector cero|Demostrar ambas reglas del cero; resolver el TPC del escalar cero.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/02 Propiedades derivadas de los axiomas#Opuestos y reglas de signo|Justificar los signos y resolver el TPC sobre el opuesto del vector.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/02 Propiedades derivadas de los axiomas#Distributividad sobre diferencias|Resolver los dos TPC de diferencias, indicando las leyes usadas.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/02 Propiedades derivadas de los axiomas#Producto nulo|Probar la equivalencia y utilizar el inverso sólo para un escalar no nulo.]]
 
 #### Infografía de recursos — axiomas y propiedades
 
@@ -169,42 +178,41 @@ flowchart LR
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado|Subespacios y espacio generado]]
 
-* [ ] Definir subespacio después de establecer la estructura de espacio vectorial ambiente.
-* [ ] Verificar o refutar que un subconjunto es subespacio usando el criterio de cierre.
-* [ ] Trabajar con combinaciones lineales, conjuntos generadores y espacio generado.
-* [ ] Demostrar que el espacio generado por $S$ es el menor subespacio que contiene a $S$.
-* [ ] Relacionar intersecciones de subespacios con intersecciones de conjuntos y explicar por qué una unión no suele ser subespacio.
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Subespacios: operaciones heredadas|Definir subespacio y demostrar sus criterios equivalentes.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Comprobar condiciones y encontrar un fallo|Verificar cierres con vectores arbitrarios y refutar mediante un testigo.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Combinaciones lineales|Distinguir sistema ordenado, coeficientes y combinación lineal; reconocer su posible falta de unicidad.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Espacio generado|Probar la propiedad mínima y justificar por qué los polinomios sin cota no son finitamente generados.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Comparar y simplificar generadores|Resolver los TPC de inclusión, igualdad, eliminación y tres transformaciones de generadores.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Pertenencia: convertir la pregunta en un sistema|Relacionar pertenencia, compatibilidad e igualdad de rangos y resolver el TPC de las aulas 19–20.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Intersecciones y uniones|Resolver el TPC de intersección y explicar cuándo una unión es subespacio.]]
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/04 Independencia, bases y coordenadas|Independencia, bases y coordenadas]]
 
-* [ ] Decidir dependencia e independencia lineal.
-* [ ] Extraer una base de un conjunto generador y completar un conjunto independiente.
-* [ ] Calcular dimensión y demostrar la unicidad de las coordenadas en una base.
-* [ ] Hallar matrices de cambio de base y transformar coordenadas.
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/04 Independencia, bases y coordenadas#Dependencia e independencia lineal|Decidir independencia y dependencia mediante relaciones no triviales o sistemas homogéneos.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/04 Independencia, bases y coordenadas#Bases y construcción|Extraer bases y completar listas independientes justificando cada incorporación.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/04 Independencia, bases y coordenadas#Dimensión|Demostrar la cota de intercambio y la igualdad de longitudes de las bases; calcular dimensiones.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/04 Independencia, bases y coordenadas#Coordenadas en una base|Demostrar existencia y unicidad y calcular columnas de coordenadas.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/04 Independencia, bases y coordenadas#Matrices de cambio de base|Construir las columnas, fijar el sentido del cambio y demostrar composición e inversa.]]
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/05 Sumas y espacios asociados a una matriz|Sumas y espacios asociados a una matriz]]
 
-* [ ] Determinar espacios de filas y de columnas y relacionarlos con el rango.
-* [ ] Calcular suma e intersección de subespacios.
-* [ ] Reconocer una suma directa y justificar el criterio de intersección trivial.
-* [ ] Demostrar y aplicar la fórmula de Grassmann.
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/05 Sumas y espacios asociados a una matriz#Suma e intersección|Calcular sumas reuniendo generadores e intersecciones mediante condiciones simultáneas.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/05 Sumas y espacios asociados a una matriz#Suma directa|Demostrar la equivalencia entre unicidad e intersección trivial y distinguir suplementariedad.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/05 Sumas y espacios asociados a una matriz#Fórmula de Grassmann|Demostrar Grassmann por extensión de bases y aplicarla con dimensiones finitas.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/05 Sumas y espacios asociados a una matriz#Espacios asociados a una matriz|Calcular núcleo, fila, columna y rango; distinguir ambientes, notaciones e invariancias.]]
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales|Ampliación de contraste — cuatro subespacios fundamentales]]
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales|Ampliación — Cuatro subespacios fundamentales]]
 
-Ampliación de Khan Academy, fuera del núcleo explícito de FCUL [^11] [^12].
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales#Los cuatro subespacios y sus ambientes|Identificar columna, núcleo, fila y núcleo izquierdo en sus espacios respectivos.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales#Dimensiones y rango|Demostrar rango–nulidad y obtener las cuatro dimensiones.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales#Ortogonalidad|Justificar las relaciones ortogonales por productos con filas o columnas.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales#Soluciones de un sistema compatible|Obtener la solución única del espacio fila y demostrar que tiene norma mínima.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales#Invertibilidad de $A^TA$|Justificar la igualdad de núcleos y el criterio de rango completo por columnas.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales#Alcance real y caso complejo|Usar el adjunto y el producto hermítico para matrices complejas.]]
 
-* [ ] Identificar los espacios columna, fila, nulo y nulo izquierdo de una matriz.
-* [ ] Relacionar $\ker A$ con $(\operatorname{im}A^*)^\perp$ y $\ker A^*$ con $(\operatorname{im}A)^\perp$, donde $A^*$ es la traspuesta conjugada ($A^T$ en el caso real).
-* [ ] Justificar la igualdad de rango fila y rango columna, y reconocer cuándo $A^*A$ es invertible (en matrices reales, $A^*A=A^TA$).
-* [ ] Obtener, cuando $A\mathbf x=\mathbf b$ es compatible, la solución particular única situada en el espacio fila.
+### Boletín de ejercicios
 
-### Problemas y criterio de dominio
-
-* [ ] Alternar entre descripciones por ecuaciones, generadores, bases y coordenadas.
-* [ ] Construir ejemplos y contraejemplos de afirmaciones sobre subespacios e independencia.
-* [ ] Justificar cada afirmación de dimensión, no sólo obtener un número.
-* [ ] Verificar o refutar estructuras vectoriales con operaciones no habituales, indicando explícitamente cada axioma usado o incumplido.
-* [ ] Trabajar con espacios de matrices, polinomios y funciones, y comparar $\mathbb C$ como espacio sobre $\mathbb R$ y sobre $\mathbb C$.
+Se conserva el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/ejercicios/00 Índice de ejercicios|boletín existente de ejercicios 59–90]], organizado en axiomas y subespacios, combinaciones, bases y coordenadas, y sumas y dimensión.
 
 ## Unidad 4. Transformaciones lineales
 
@@ -376,3 +384,7 @@ La bibliografía oficial de FCUL se recoge en las fichas de 2025/2026 y 2026/202
 [^19]: [Cristina Jordan Lluch, UPV — *Propiedades booleanas de la teoría de conjuntos*](https://riunet.upv.es/handle/10251/81120) — propiedades y errores frecuentes del álgebra de conjuntos.
 [^20]: [UNAM — *Álgebra Superior, Unidad 1: Lógica y conjuntos*](https://amyd.quimica.unam.mx/course/view.php?id=229) — vídeos de lógica, métodos de demostración y álgebra de conjuntos.
 [^21]: **USC — archivo de *Métodos Matemáticos II* de la Facultad de Física.** Fuente local del usuario: `/Users/therustifyer/Seafile/Física (Completo)/Carrera/1º/USC/Métodos Matematicos II.zip`. Se contrastaron especialmente *01 Conxuntos e Aplicacions-MM II*, *03 Espazos vectoriais-MM II* y los boletines de conjuntos y espacios vectoriales.
+
+[^det-slides]: FCUL, *ALGA 2026/2027*, aulas 13–16: `ALGA-2026-27-AulasTeo-slides-aula13-Determinantes-impressao.pdf` (16/10/2026), `ALGA-2026-27-AulasTeo-slides-Aula14-Determinantes-impressao.pdf` (19/10/2026), `ALGA-2026-27-AulasTeo-slides-Aula15-Determinantes-impressao.pdf` (21/10/2026) y `ALGA-2026-27-AulasTeo-slides-Aula16-SistemasCramer-impressao.pdf` (23/10/2026). Los PDF privados se identifican sin enlaces.
+
+[^ev3]: FCUL, *ALGA 2026/27*: Aula 17 «Espaços vetoriais» (26/10/2026), Aula 18 «Subespaços vetoriais» (28/10/2026), Aula 19 «Combinações lineares» (30/10/2026) y Aula 20 «Subespaços de $K^n$» (02/11/2026). Contraste y desarrollo posterior: Instituto Superior Técnico, ULisboa, [*Álgebra Linear*, capítulo 3](https://fenix.tecnico.ulisboa.pt/downloadFile/563568428979297/ApontamentosInteg.pdf). Los localizadores de propiedades y TPC figuran en las notas de contenido.

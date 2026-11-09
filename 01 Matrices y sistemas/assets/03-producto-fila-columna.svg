@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="415" viewBox="0 0 900 415" role="img" aria-labelledby="title"><title id="title">La entrada 21 del producto se obtiene de la fila 2 de A y la columna 1 de B</title>
+<rect width="900" height="415" fill="#ffffff"/>
+<text x="40" y="53" font-family="Arial,Helvetica,sans-serif" font-size="28" fill="#0f172a">Una entrada del producto: (AB)₂₁</text>
+<text x="60" y="112" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#334155">A · 2 × 3</text>
+<text x="365" y="112" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#334155">B · 3 × 2</text>
+<text x="650" y="112" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#334155">AB · 2 × 2</text>
+<rect x="60" y="135" width="60" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="83.0" y="174.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">1</text>
+<rect x="120" y="135" width="60" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="143.0" y="174.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">2</text>
+<rect x="180" y="135" width="60" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="203.0" y="174.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">0</text>
+<rect x="60" y="195" width="60" height="60" fill="#ffedd5" stroke="#cbd5e1" stroke-width="1"/>
+<text x="76.0" y="234.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">−1</text>
+<rect x="120" y="195" width="60" height="60" fill="#ffedd5" stroke="#cbd5e1" stroke-width="1"/>
+<text x="143.0" y="234.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">3</text>
+<rect x="180" y="195" width="60" height="60" fill="#ffedd5" stroke="#cbd5e1" stroke-width="1"/>
+<text x="203.0" y="234.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">4</text>
+<line x1="52" y1="130" x2="52" y2="260" stroke="#334155" stroke-width="2"/>
+<line x1="52" y1="130" x2="57" y2="130" stroke="#334155" stroke-width="2"/>
+<line x1="52" y1="260" x2="57" y2="260" stroke="#334155" stroke-width="2"/>
+<line x1="248" y1="130" x2="248" y2="260" stroke="#334155" stroke-width="2"/>
+<line x1="248" y1="130" x2="243" y2="130" stroke="#334155" stroke-width="2"/>
+<line x1="248" y1="260" x2="243" y2="260" stroke="#334155" stroke-width="2"/>
+<rect x="365" y="135" width="60" height="60" fill="#dbeafe" stroke="#cbd5e1" stroke-width="1"/>
+<text x="388.0" y="174.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">2</text>
+<rect x="425" y="135" width="60" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="448.0" y="174.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">1</text>
+<rect x="365" y="195" width="60" height="60" fill="#dbeafe" stroke="#cbd5e1" stroke-width="1"/>
+<text x="388.0" y="234.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">0</text>
+<rect x="425" y="195" width="60" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="441.0" y="234.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">−1</text>
+<rect x="365" y="255" width="60" height="60" fill="#dbeafe" stroke="#cbd5e1" stroke-width="1"/>
+<text x="388.0" y="294.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">3</text>
+<rect x="425" y="255" width="60" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="448.0" y="294.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">2</text>
+<line x1="357" y1="130" x2="357" y2="320" stroke="#334155" stroke-width="2"/>
+<line x1="357" y1="130" x2="362" y2="130" stroke="#334155" stroke-width="2"/>
+<line x1="357" y1="320" x2="362" y2="320" stroke="#334155" stroke-width="2"/>
+<line x1="493" y1="130" x2="493" y2="320" stroke="#334155" stroke-width="2"/>
+<line x1="493" y1="130" x2="488" y2="130" stroke="#334155" stroke-width="2"/>
+<line x1="493" y1="320" x2="488" y2="320" stroke="#334155" stroke-width="2"/>
+<text x="278" y="205" font-family="Arial,Helvetica,sans-serif" font-size="30" fill="#334155">×</text>
+<text x="553" y="205" font-family="Arial,Helvetica,sans-serif" font-size="30" fill="#334155">=</text>
+<rect x="650" y="135" width="60" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="673.0" y="174.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">2</text>
+<rect x="710" y="135" width="60" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="726.0" y="174.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">−1</text>
+<rect x="650" y="195" width="60" height="60" fill="#dcfce7" stroke="#cbd5e1" stroke-width="1"/>
+<text x="666.0" y="234.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">10</text>
+<rect x="710" y="195" width="60" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="733.0" y="234.0" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#334155">4</text>
+<line x1="642" y1="130" x2="642" y2="260" stroke="#334155" stroke-width="2"/>
+<line x1="642" y1="130" x2="647" y2="130" stroke="#334155" stroke-width="2"/>
+<line x1="642" y1="260" x2="647" y2="260" stroke="#334155" stroke-width="2"/>
+<line x1="778" y1="130" x2="778" y2="260" stroke="#334155" stroke-width="2"/>
+<line x1="778" y1="130" x2="773" y2="130" stroke="#334155" stroke-width="2"/>
+<line x1="778" y1="260" x2="773" y2="260" stroke="#334155" stroke-width="2"/>
+<text x="60" y="362" font-family="Arial,Helvetica,sans-serif" font-size="27" fill="#166534">(AB)₂₁ = (−1)·2 + 3·0 + 4·3 = 10</text>
+<text x="60" y="396" font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#334155">La fila elegida fija el primer índice; la columna, el segundo.</text>
+</svg>

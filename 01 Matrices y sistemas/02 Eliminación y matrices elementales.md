@@ -18,13 +18,13 @@ requiere:
   - "[[Matemáticas/Álgebra lineal/Matrices|Matrices]]"
 desbloquea:
   - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]"
-fsrs_goal: Aplicar intercambios, escalados no nulos y reemplazos de fila, justificar que conservan las soluciones, reconocer formas escalonadas y reducir un sistema por Gauss o Gauss-Jordan sin perder las dimensiones ni el significado de las variables.
+fsrs_goal: Elegir y justificar operaciones elementales que reduzcan una matriz ampliada, construir sus matrices elementales e inversas y ordenar su composición, reconocer pivotes y formas escalonadas, explicar la existencia y unicidad de la forma reducida y la invariancia del rango, y resolver los sistemas del capítulo por Gauss o Gauss–Jordan comprobando las soluciones.
 simbolos:
   - R_i\leftrightarrow R_j
   - R_i\leftarrow cR_i
   - R_i\leftarrow R_i+cR_j
   - E_{ij}
-  - '[A\mid\mathbf b]'
+  - "[A\\mid\\mathbf b]"
 tags:
   - matemáticas
   - álgebra-lineal
@@ -50,11 +50,21 @@ x-y=1,
 \end{cases}
 $$
 
-podemos despejar una incógnita y sustituirla en la otra ecuación. También podemos sumar o restar múltiplos de las ecuaciones hasta que desaparezca una de las incógnitas. La **eliminación** sigue esta segunda vía: convierte el sistema en otro que se resuelve con menos cálculo, conservando exactamente sus soluciones.
+podemos eliminar $x$ de la primera ecuación restándole dos veces la segunda:
+
+$$
+(2x+y)-2(x-y)=5-2\cdot1.
+$$
+
+Los términos $2x$ y $-2x$ se anulan. Queda $3y=3$, de donde $y=1$. La ecuación que hemos conservado, $x-y=1$, da entonces $x=2$.
+
+El sistema transformado contiene las ecuaciones $3y=3$ y $x-y=1$. Podemos recuperar la primera ecuación original sumando a $3y=3$ dos veces la ecuación conservada. Por eso la transformación conserva las soluciones en ambos sentidos.
+
+La **eliminación** aplica este tipo de operaciones hasta obtener ecuaciones que podamos resolver en orden. Para llevar la cuenta de los coeficientes y de sus cambios utilizaremos la matriz ampliada.
 
 ### La matriz ampliada
 
-Para operar con las ecuaciones, basta conservar sus coeficientes y términos independientes. Fijamos el orden $x,y$ y escribimos:
+Para seguir esas transformaciones sin reescribir las letras en cada línea, fijamos el orden de incógnitas $x,y$ y registramos los coeficientes y los términos independientes:
 
 $$
 \left[\begin{array}{cc|c}
@@ -63,7 +73,11 @@ $$
 \end{array}\right].
 $$
 
-Cada fila corresponde a una ecuación. Las dos primeras columnas contienen los coeficientes de $x$ e $y$; la columna situada después de la barra contiene los términos independientes.
+Cada fila representa una ecuación; las columnas, en orden, representan los coeficientes de $x$, de $y$ y el término independiente. Al efectuar $R_1\leftrightarrow R_2$ y luego $R_2\leftarrow R_2-2R_1$, también se transforma la última entrada de la fila: $5-2\cdot1=3$. Así se obtiene la fila $[0\;3\mid3]$, que expresa exactamente $3y=3$.
+
+![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-operaciones-fila-completa.svg|*La operación actúa sobre los coeficientes y el término independiente de la ecuación.*]]
+
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-operaciones-fila-completa.excalidraw|Abrir figura editable]]
 
 > [!definicion] Matriz ampliada
 > Si el sistema es $A\mathbf x=\mathbf b$, su [[Matemáticas/Álgebra lineal/Matriz ampliada|matriz ampliada]] es
@@ -72,7 +86,7 @@ Cada fila corresponde a una ecuación. Las dos primeras columnas contienen los c
 > [A\mid\mathbf b].
 > $$
 >
-> Se obtiene añadiendo a la matriz de coeficientes $A$ la columna $\mathbf b$, sin cambiar el orden de las ecuaciones ni de las incógnitas.[^a4]
+> Se obtiene añadiendo la columna de términos independientes $\mathbf b$ a la matriz de coeficientes $A$, sin cambiar el orden de ecuaciones ni de incógnitas.[^a4]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -88,15 +102,13 @@ tags:
 > Se añade la columna de términos independientes a la matriz de coeficientes: $[A\mid\mathbf b]$, manteniendo el orden de ecuaciones e incógnitas.
 ```
 
-Usaremos coeficientes en $K=\mathbb R$ o $K=\mathbb C$. Para $m,n\in\mathbb N$ positivos, las dimensiones son
+Usaremos coeficientes en un [[Matemáticas/Estructuras algebraicas/Cuerpos|cuerpo]] $K=\mathbb R$ o $K=\mathbb C$. Si el sistema tiene $m$ ecuaciones y $n$ incógnitas, entonces
 
 $$
-A\in M_{m\times n}(K),\qquad
-\mathbf x\in K^n,\qquad
-\mathbf b\in K^m.
+A\in M_{m\times n}(K),\qquad \mathbf x\in K^n,\qquad \mathbf b\in K^m.
 $$
 
-Hay $m$ ecuaciones y $n$ incógnitas; por eso la matriz ampliada tiene $m$ filas y $n+1$ columnas. En las operaciones por filas, la columna de términos independientes se trata igual que las demás.
+La matriz ampliada tiene $m$ filas y $n+1$ columnas. La columna independiente se opera junto con las columnas de coeficientes, pues cada fila debe seguir representando una ecuación equivalente.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -113,7 +125,7 @@ tags:
 
 ## Operaciones elementales por filas
 
-Las [[Matemáticas/Álgebra lineal/Operaciones elementales por filas|operaciones elementales por filas]] son las tres transformaciones que utilizaremos para reducir una matriz. Denotamos sus filas por $R_1,\ldots,R_m$. En una matriz ampliada, operar con una fila equivale a operar con la ecuación completa.
+Denotamos por $R_1,\ldots,R_m$ las filas de la matriz. Sobre ellas podemos realizar tres [[Matemáticas/Álgebra lineal/Operaciones elementales por filas|operaciones elementales]]: intercambiar dos filas, multiplicar una por un escalar no nulo o sumarle un múltiplo de otra. En una matriz ampliada, cada una transforma una ecuación del sistema.
 
 ### Intercambio de filas
 
@@ -126,7 +138,7 @@ Las [[Matemáticas/Álgebra lineal/Operaciones elementales por filas|operacione
 >
 > intercambia las filas $i$ y $j$.[^a5]
 
-En el sistema anterior, intercambiar las ecuaciones coloca arriba la que tiene coeficiente $1$ para $x$:
+El coeficiente de $x$ en la segunda ecuación es $1$. Llevamos esa ecuación a la primera fila para utilizarlo como [[#Pivote|pivote]]:
 
 $$
 \left[\begin{array}{cc|c}2&1&5\\1&-1&1\end{array}\right]
@@ -134,7 +146,7 @@ $$
 \left[\begin{array}{cc|c}1&-1&1\\2&1&5\end{array}\right].
 $$
 
-Las ecuaciones siguen siendo las mismas; sólo hemos cambiado su orden.
+La fila $(1,-1\mid1)$ pasa a la primera posición y $(2,1\mid5)$, a la segunda. Cualquier pareja $(x,y)$ que satisfacía ambas ecuaciones sigue satisfaciéndolas en este orden.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -161,7 +173,7 @@ tags:
 >
 > multiplica todas las entradas de la fila $i$ por $c$.[^a5]
 
-Por ejemplo, multiplicar la primera ecuación por $1/2$ da
+Para convertir el coeficiente $2$ de $x$ en un $1$, multiplicamos la primera fila por $1/2$:
 
 $$
 \left[\begin{array}{cc|c}2&1&5\\1&-1&1\end{array}\right]
@@ -169,7 +181,10 @@ $$
 \left[\begin{array}{cc|c}1&1/2&5/2\\1&-1&1\end{array}\right].
 $$
 
-Podemos recuperar la ecuación inicial multiplicando por $2$. El factor debe ser **no nulo**: multiplicar por cero sustituiría la ecuación por $0=0$ y perderíamos su información.
+El cálculo afecta a las tres entradas: $2/2=1$, $1/2$ y $5/2$. Multiplicar de nuevo la fila por $2$ devuelve la ecuación inicial.
+
+> [!warning] El factor cero no permite volver atrás
+> Si multiplicásemos $2x+y=5$ por cero, obtendríamos $0=0$, que cumple cualquier pareja $(x,y)$. Habríamos eliminado una condición del sistema; no podríamos recuperarla dividiendo por cero.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -204,7 +219,13 @@ $$
 \left[\begin{array}{cc|c}1&-1&1\\0&3&3\end{array}\right].
 $$
 
-La nueva segunda ecuación es $3y=3$. El coeficiente de $x$ se ha anulado porque $2-2\cdot1=0$. Para deshacer el paso, sumaríamos dos veces la primera fila a la segunda.
+Las tres entradas de la nueva fila se obtienen con la misma operación:
+
+$$
+(2,1\mid5)-2(1,-1\mid1)=(0,3\mid3).
+$$
+
+Así desaparece $x$ de la segunda ecuación. La primera fila no se ha modificado; si ahora sumamos dos veces esa fila a la segunda, recuperamos $(2,1\mid5)$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -223,9 +244,9 @@ tags:
 ### Equivalencia por filas
 
 > [!definicion] Matrices equivalentes por filas
-> Dos matrices del mismo tamaño son **equivalentes por filas** si una se obtiene de la otra mediante una secuencia finita de operaciones elementales. Escribimos $A\sim B$.[^pres]
+> Dos matrices del mismo tamaño son **equivalentes por filas** si una se obtiene de la otra mediante una secuencia finita de [[#Operaciones elementales por filas|operaciones elementales]]. Escribimos $A\sim B$.[^pres]
 
-Como cada paso se puede deshacer, de $A\sim B$ también se sigue $B\sim A$.
+Para pasar de $B$ a $A$, deshacemos las operaciones en el orden contrario al utilizado: la última se deshace primero. Por tanto, $A\sim B$ implica también $B\sim A$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -244,7 +265,7 @@ tags:
 ### Sistemas equivalentes
 
 > [!definicion] Sistemas equivalentes
-> Dos sistemas son equivalentes cuando tienen ==exactamente el mismo conjunto de soluciones==.[^pres]
+> Dos sistemas son [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|equivalentes]] si tienen ==exactamente el mismo conjunto de soluciones==.[^pres]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -264,20 +285,20 @@ tags:
 #### Propiedad
 
 > [!teorema] Conservación de las soluciones
-> Las operaciones elementales sobre la **matriz ampliada completa** producen sistemas equivalentes al original.[^pres]
+> Las [[#Operaciones elementales por filas|operaciones elementales]] sobre la **[[#La matriz ampliada|matriz ampliada]] completa** producen [[#Sistemas equivalentes|sistemas equivalentes]] al original.[^pres]
 
 #### Demostración
 
 > [!demostracion] Demostración
 > Consideremos el sistema $A\mathbf x=\mathbf b$ y apliquemos una operación a sus ecuaciones. Para comparar los conjuntos de soluciones, comprobamos que cada operación se puede deshacer.
 >
-> **Intercambio.** Reordenar dos ecuaciones no cambia cuáles deben cumplirse: si se satisfacen todas antes del intercambio, se satisfacen todas después, y el intercambio inverso las devuelve a su orden inicial.
+> **[[#Intercambio de filas|Intercambio]].** Reordenar dos ecuaciones no cambia cuáles deben cumplirse: si se satisfacen todas antes del intercambio, se satisfacen todas después, y el intercambio inverso las devuelve a su orden inicial.
 >
-> **Escalado.** Multiplicar una ecuación por $c\ne0$ conserva sus soluciones, porque podemos dividir por $c$ para recuperar la ecuación original. La condición $c\ne0$ es esencial para que esa operación inversa exista.
+> **[[#Escalado por un escalar no nulo|Escalado]].** Multiplicar una ecuación por $c\ne0$ conserva sus soluciones, porque podemos dividir por $c$ para recuperar la ecuación original. La condición $c\ne0$ es esencial para que esa [[#Inversas de los tres tipos|operación inversa]] exista.
 >
-> **Reemplazo.** Sustituimos la ecuación $i$ por ella misma más $c$ veces la ecuación $j$, sin alterar la ecuación $j$. Si ambas ecuaciones originales se cumplen, la nueva también. Recíprocamente, de la nueva ecuación podemos restar $c$ veces la ecuación $j$ y recuperar la ecuación $i$ original.
+> **[[#Reemplazo de una fila|Reemplazo]].** Sustituimos la ecuación $i$ por ella misma más $c$ veces la ecuación $j$, sin alterar la ecuación $j$. Si ambas ecuaciones originales se cumplen, la nueva también. Recíprocamente, de la nueva ecuación podemos restar $c$ veces la ecuación $j$ y recuperar la ecuación $i$ original.
 >
-> Por tanto, cada transformación tiene el mismo conjunto de soluciones que el sistema inicial; una cadena finita también lo conserva, pues cada paso es reversible.[^pres]
+> Por tanto, cada transformación tiene el mismo [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|conjunto de soluciones]] que el sistema inicial; una cadena finita también lo conserva, pues cada paso es reversible.[^pres]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -296,7 +317,7 @@ tags:
 ## Matrices elementales
 
 > [!definicion] Matriz elemental
-> Una [[Matemáticas/Álgebra lineal/Matriz elemental|matriz elemental]] se obtiene aplicando ==una única operación elemental== por filas a una matriz identidad $I_m$.[^a5]
+> Una [[Matemáticas/Álgebra lineal/Matriz elemental|matriz elemental]] se obtiene aplicando ==una única operación elemental== por filas a una [[Matemáticas/Álgebra lineal/Matriz identidad|matriz identidad]] $I_m$.[^a5]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -322,14 +343,14 @@ P_{13}=
 \begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}.
 $$
 
-Al multiplicar $P_{13}A$, se intercambiarán las filas primera y tercera de $A$. Para entender por qué, examinamos cómo se calcula una fila de un producto.
+En la primera fila de $P_{13}$, el $1$ ocupa la tercera columna. Al multiplicar por $A$, esa fila selecciona la tercera fila de $A$. La tercera fila de $P_{13}$ selecciona la primera. La fila central conserva su posición. El producto $P_{13}A$ efectúa, por tanto, el intercambio para cualquier matriz $A$ con tres filas.
 
 ### Multiplicación por la izquierda y operaciones elementales
 
 #### Propiedad
 
 > [!teorema] Una matriz elemental efectúa una operación por filas
-> Sea $B$ el resultado de una operación elemental sobre $A\in M_{m\times n}(K)$. Si $E$ se obtiene efectuando esa misma operación sobre $I_m$, entonces
+> Sea $B$ el resultado de una [[#Operaciones elementales por filas|operación elemental]] sobre $A\in M_{m\times n}(K)$. Si $E$ se obtiene efectuando esa misma operación sobre $I_m$, entonces
 >
 > $$
 > \boxed{B=EA}.
@@ -358,7 +379,19 @@ $$
 (EA)_{rk}=\sum_{\ell=1}^{m}e_{r\ell}a_{\ell k}.
 $$
 
-Los índices $r$ y $k$ fijan la entrada que calculamos; el índice $\ell$ recorre las filas de $A$. Por ejemplo, si la fila $r$ de $E$ es $(0,1,-5)$, la entrada calculada es $a_{2k}-5a_{3k}$. Al recorrer todas las columnas $k$, obtenemos la fila $R_2-5R_3$. Los coeficientes de esa combinación son, precisamente, las entradas de la fila $r$ de $E$.
+Fijamos la fila $r$ y una columna $k$ del resultado. El índice $\ell$ recorre las $m$ filas de $A$: cada entrada $e_{r\ell}$ multiplica la entrada de esa fila situada en la columna $k$.
+
+Si la fila $r$ de $E$ es $(0,1,-5)$, el cálculo queda
+
+$$
+(EA)_{rk}=0a_{1k}+1a_{2k}-5a_{3k}=a_{2k}-5a_{3k}.
+$$
+
+La misma combinación se realiza en todas las columnas. Por eso la fila completa del resultado es $R_2-5R_3$. Para representar una operación elemental que modifique la segunda fila, ésta sería precisamente la fila $2$ de $E$.
+
+![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-matriz-elemental-izquierda.svg|*La fila de E indica cómo combinar las filas de A en EA.*]]
+
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-matriz-elemental-izquierda.excalidraw|Abrir figura editable]]
 
 La demostración del resultado se divide según las tres operaciones posibles.
 
@@ -389,15 +422,19 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración · TPC resuelto
-> Supongamos $i\ne j$ y que $P_{ij}$ se obtiene de $I_m$ intercambiando sus filas $i$ y $j$. La fila $i$ de $P_{ij}$ tiene un $1$ en la columna $j$ y ceros en las demás. Para cada columna $k$,
+> Supongamos $i\ne j$ y que $P_{ij}$ se obtiene de $I_m$ intercambiando sus filas $i$ y $j$. La fila $i$ de $P_{ij}$ tiene un $1$ en la columna $j$ y ceros en las demás. Para cada columna $k\in\{1,\ldots,n\}$,
+>
 > $$
 > (P_{ij}A)_{ik}=\sum_{\ell=1}^{m}(P_{ij})_{i\ell}a_{\ell k}=a_{jk}.
 > $$
+>
 > La fila $j$ de $P_{ij}$ tiene un $1$ en la columna $i$, de modo que
+>
 > $$
 > (P_{ij}A)_{jk}=a_{ik}.
 > $$
-> Si $r$ es distinta de $i$ y $j$, la fila $r$ de $P_{ij}$ coincide con la fila $r$ de $I_m$, por lo que $(P_{ij}A)_{rk}=a_{rk}$. Así, las filas $i$ y $j$ se intercambian y las restantes quedan iguales.[^emdr]
+>
+> Si $r$ es distinta de $i$ y $j$, la fila $r$ de $P_{ij}$ coincide con la fila $r$ de $I_m$, por lo que $(P_{ij}A)_{rk}=a_{rk}$. Así, las filas $i$ y $j$ se intercambian y las restantes quedan iguales. El producto coincide con $B$ en todas las entradas; por el criterio de igualdad de matrices, $P_{ij}A=B$. $\blacksquare$[^emdr]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -427,11 +464,13 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración · TPC resuelto
-> Sea $\lambda\in K\setminus\{0\}$ y sea $D_i(\lambda)$ la matriz identidad con su fila $i$ multiplicada por $\lambda$. La fila $i$ contiene $\lambda$ en la columna $i$ y ceros en las demás. Por tanto, para cada $k$,
+> Sea $\lambda\in K\setminus\{0\}$ y sea $D_i(\lambda)$ la [[Matemáticas/Álgebra lineal/Matriz identidad|matriz identidad]] con su fila $i$ multiplicada por $\lambda$. La fila $i$ contiene $\lambda$ en la columna $i$ y ceros en las demás. Por tanto, para cada $k\in\{1,\ldots,n\}$,
+>
 > $$
 > (D_i(\lambda)A)_{ik}=\sum_{\ell=1}^{m}(D_i(\lambda))_{i\ell}a_{\ell k}=\lambda a_{ik}.
 > $$
-> Si $r\ne i$, la fila $r$ de $D_i(\lambda)$ no cambia respecto de la identidad, y $(D_i(\lambda)A)_{rk}=a_{rk}$. Luego solo se escala la fila $i$; el factor no nulo es el que hace que la operación sea elemental e invertible.[^emdr]
+>
+> Si $r\ne i$, la fila $r$ de $D_i(\lambda)$ no cambia respecto de la identidad, y $(D_i(\lambda)A)_{rk}=a_{rk}$. El producto coincide con $B$ en cada posición: $D_i(\lambda)A=B$. El factor no nulo permite deshacer el escalado. $\blacksquare$[^emdr]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -461,24 +500,28 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración · TPC resuelto
-> Sean $i\ne j$ y $\lambda\in K$. La fila $i$ de $E_{ij}(\lambda)$ se obtiene sumando la fila $i$ de $I_m$ con $\lambda$ veces su fila $j$. Para cada columna $k$,
+> Sean $i\ne j$ y $\lambda\in K$. La fila $i$ de $E_{ij}(\lambda)$ se obtiene sumando la fila $i$ de $I_m$ con $\lambda$ veces su fila $j$. Para cada columna $k\in\{1,\ldots,n\}$,
+>
 > $$
 > (E_{ij}(\lambda)A)_{ik}=\sum_{\ell=1}^{m}\bigl((I_m)_{i\ell}+\lambda(I_m)_{j\ell}\bigr)a_{\ell k}.
 > $$
+>
 > La distributividad separa las dos contribuciones:
+>
 > $$
 > \begin{aligned}
 > (E_{ij}(\lambda)A)_{ik}&=\sum_{\ell=1}^{m}(I_m)_{i\ell}a_{\ell k}\\
 > &\quad+\lambda\sum_{\ell=1}^{m}(I_m)_{j\ell}a_{\ell k}.
 > \end{aligned}
 > $$
+>
 > La primera suma selecciona la entrada $a_{ik}$ de la fila $i$; la segunda selecciona $a_{jk}$ de la fila $j$. Por tanto,
 >
 > $$
 > (E_{ij}(\lambda)A)_{ik}=a_{ik}+\lambda a_{jk}.
 > $$
 >
-> Para $r\ne i$, la fila $r$ de $E_{ij}(\lambda)$ sigue siendo la fila $r$ de la identidad, así que $(E_{ij}(\lambda)A)_{rk}=a_{rk}$. Solo cambia la fila $i$, que pasa a ser $R_i+\lambda R_j$; la condición $i\ne j$ mantiene intacta la fila fuente.[^emdr]
+> Para $r\ne i$, la fila $r$ de $E_{ij}(\lambda)$ sigue siendo la fila $r$ de la identidad, así que $(E_{ij}(\lambda)A)_{rk}=a_{rk}$. El producto tiene las mismas entradas que $B$: $E_{ij}(\lambda)A=B$. La condición $i\ne j$ mantiene intacta la fila fuente, necesaria para deshacer el reemplazo. $\blacksquare$[^emdr]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -494,12 +537,39 @@ tags:
 > $E_{ij}(\lambda)$ es la identidad con $\lambda$ en la posición $(i,j)$; por la izquierda suma $\lambda$ veces la fila $j$ a la fila $i$.
 ```
 
+### Inversa bilateral
+
+Repetir el [[#Intercambio de filas|intercambio]] de las filas primera y tercera devuelve la matriz inicial. En términos de productos, $P_{13}P_{13}=I_3$. Para los demás tipos de operación también buscaremos una matriz que deshaga su efecto.
+
+> [!definicion] Inversa bilateral
+> Para $E,F\in M_m(K)$, decimos que $F$ es la [[Matemáticas/Álgebra lineal/Matriz inversa|inversa]] de $E$ si
+>
+> $$
+> EF=FE=I_m.
+> $$
+>
+> En ese caso escribimos $F=E^{-1}$. Se exigen ambos órdenes del producto.[^emni]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - matrices-elementales
+  - inversibilidad
+---
+> [!note] Pregunta
+> ¿Qué significa que $F$ sea la inversa bilateral de una matriz cuadrada $E$?
+===
+> [!important] Respuesta
+> Que $EF=FE=I$; al componer en cualquiera de los dos órdenes, se obtiene la matriz identidad.
+```
+
 ### Invertibilidad de las matrices elementales
 
 #### Propiedad
 
 > [!consecuencia] Las matrices elementales son invertibles
-> Si $E$ es una matriz elemental de orden $m$, la matriz $F$ de la operación inversa satisface
+> Si $E$ es una [[Matemáticas/Álgebra lineal/Matriz elemental|matriz elemental]] de orden $m$, la matriz $F$ de la operación inversa satisface
 >
 > $$
 > \boxed{FE=EF=I_m}.
@@ -510,7 +580,7 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración
-> Sea $E$ la matriz elemental asociada a una operación y sea $F$ la que representa la operación inversa. Para toda matriz $A$ con $m$ filas, aplicar primero $E$ y luego $F$ devuelve $A$; por tanto, $F(EA)=A$. Por asociatividad, $(FE)A=A$. Tomando $A=I_m$, queda $FE=I_m$.
+> Sea $E$ la matriz elemental asociada a una operación y sea $F$ la que representa la operación inversa. Para toda matriz $A$ con $m$ filas, aplicar primero $E$ y luego $F$ devuelve $A$; por tanto, $F(EA)=A$. Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Asociatividad del producto|asociatividad]], $(FE)A=A$. Tomando $A=I_m$, queda $FE=I_m$.
 >
 > En el orden inverso, aplicar primero $F$ y luego $E$ también devuelve $A$, así que $(EF)A=A$. Con $A=I_m$, obtenemos $EF=I_m$. Luego $F$ es inversa bilateral de $E$.[^emni]
 
@@ -530,7 +600,7 @@ tags:
 
 #### Inversas de los tres tipos
 
-La inversa se construye aplicando a $I_m$ la operación que deshace el paso original:
+Para construir $E^{-1}$ aplicamos a $I_m$ la operación inversa. Un intercambio se repite; un [[#Escalado por un escalar no nulo|escalado]] se deshace con el factor recíproco; un [[#Reemplazo de una fila|reemplazo]], restando el múltiplo que se había añadido:
 
 | Matriz elemental | Matriz inversa | Operación que deshace |
 |---|---|---|
@@ -585,7 +655,7 @@ tags:
 #### Propiedad
 
 > [!propiedad] Orden de los factores
-> Si las matrices elementales $E_1,\ldots,E_p$, de orden $m$, representan las operaciones en el orden en que se aplican a $A\in M_{m\times n}(K)$, el resultado $B$ es
+> Si las [[Matemáticas/Álgebra lineal/Matriz elemental|matrices elementales]] $E_1,\ldots,E_p$, de orden $m$, representan las operaciones en el orden en que se aplican a $A\in M_{m\times n}(K)$, el resultado $B$ es
 >
 > $$
 > \boxed{B=(E_p\cdots E_2E_1)A}.
@@ -597,13 +667,17 @@ tags:
 
 > [!demostracion] Demostración
 > Si primero se aplica $E_1$ y después $E_2$, el resultado es
+>
 > $$
 > E_2(E_1A).
 > $$
-> Por asociatividad,
+>
+> Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Asociatividad del producto|asociatividad]],
+>
 > $$
 > E_2(E_1A)=(E_2E_1)A.
 > $$
+>
 > Repitiendo este paso para una secuencia de $p$ operaciones se obtiene $(E_p\cdots E_2E_1)A$. Por eso la última operación aplicada queda representada por el factor más a la izquierda.[^comp]
 
 ```anki
@@ -644,7 +718,7 @@ tags:
 ### Posición pivote
 
 > [!definicion] Posición pivote
-> La posición pivote es el par de índices $(i,j)$ que localiza el pivote: $i$ indica su fila y $j$, su columna.[^a4]
+> La posición [[#Pivote|pivote]] es el par de índices $(i,j)$ que localiza el pivote: $i$ indica su fila y $j$, su columna.[^a4]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -668,7 +742,7 @@ $$
 \begin{pmatrix}7&-2&1&0\\0&0&-8&2\\0&-3&0&1\end{pmatrix}.
 $$
 
-Los pivotes son $7,-8,-3$. Sus columnas son, respectivamente, la 1, la 3 y la 2: al pasar a la última fila, el pivote retrocede hacia la izquierda. Esta es la disposición que la eliminación trata de evitar.
+Los pivotes son $7$, $-8$ y $-3$. El segundo está en la columna $3$, pero el tercero vuelve a la columna $2$. La matriz no está escalonada: al bajar, los pivotes deben avanzar hacia la derecha. Intercambiar las dos últimas filas corregiría ese orden.
 
 ### Forma escalonada por filas
 
@@ -676,10 +750,12 @@ Los pivotes son $7,-8,-3$. Sus columnas son, respectivamente, la 1, la 3 y la 2:
 > Una matriz está en [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada por filas]] cuando:
 >
 > 1. Las filas nulas están debajo de todas las filas no nulas.
-> 2. Al bajar de una fila no nula a la siguiente, el pivote se desplaza estrictamente hacia la derecha.
+> 2. Al bajar de una fila no nula a la siguiente, el [[#Pivote|pivote]] se desplaza estrictamente hacia la derecha.
 > 3. Debajo de cada pivote hay ceros.[^a4]
 
-Los pivotes pueden ser distintos de $1$. La tercera condición se deduce de las dos primeras, pero se incluye porque describe los ceros que buscamos al eliminar.
+No se exige que los pivotes valgan $1$. Por ejemplo, una fila puede comenzar con $-7$ y cumplir la definición.
+
+La tercera condición se deduce de la segunda: si una fila inferior tuviera una entrada no nula en la columna de un pivote anterior, su primera entrada no nula no podría estar a la derecha de esa columna. Se explicita porque esos son los ceros que construye la eliminación.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -693,6 +769,8 @@ tags:
 ===
 > [!important] Respuesta
 > Las filas nulas quedan al final, los pivotes avanzan hacia la derecha al bajar y hay ceros debajo de cada pivote; un pivote no tiene que ser $1$.
+>
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-forma-escalonada-anki.png|Pivotes 2 y 3 en columnas 1 y 2; fila nula al final|420]]
 ```
 
 ### Forma escalonada reducida
@@ -700,10 +778,10 @@ tags:
 > [!definicion] Forma escalonada reducida
 > Una matriz está en [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma escalonada reducida]] si está escalonada y cumple dos condiciones más:
 >
-> 1. Todos sus pivotes valen $1$.
+> 1. Todos sus [[#Pivote|pivotes]] valen $1$.
 > 2. En cada columna pivote, todas las demás entradas son cero.[^a4]
 
-Para pasar de una forma escalonada a una reducida, dividimos cada fila no nula por su pivote y eliminamos las entradas que quedan **encima** de él. Los ceros de debajo ya estaban obtenidos.
+En una [[#Forma escalonada por filas|forma escalonada]], las entradas situadas debajo de los pivotes ya son cero. Para obtener la forma reducida aún debemos convertir cada pivote en $1$ y anular las entradas de su columna que quedan **encima**. No se impone esa condición a las columnas sin pivote.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -719,6 +797,10 @@ tags:
 > Cada pivote vale $1$ y es el único elemento no nulo de su columna.
 ```
 
+![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-pivotes-y-formas-escalonadas.svg|*Los pivotes avanzan a la derecha; las filas nulas quedan al final. En RREF, cada pivote es el único elemento no nulo de su columna.*]]
+
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-pivotes-y-formas-escalonadas.excalidraw|Abrir figura editable]]
+
 ### Ejemplos de matrices escalonadas
 
 #### Tres pivotes y dos filas nulas
@@ -727,7 +809,7 @@ $$
 \begin{pmatrix}0&2&5&3&0&3\\0&0&-7&0&8&0\\0&0&0&0&3&1\\0&0&0&0&0&0\\0&0&0&0&0&0\end{pmatrix}.
 $$
 
-Aquí hay tres filas no nulas, con pivotes en las columnas 2, 3 y 5; las filas nulas están al final.
+La primera fila comienza con un cero: su [[#Pivote|pivote]] es $2$, en la columna $2$. En las filas siguientes, los pivotes son $-7$ en la columna $3$ y $3$ en la columna $5$. Avanzan hacia la derecha; las dos filas nulas quedan al final.
 
 #### Pivotes en columnas consecutivas
 
@@ -735,7 +817,7 @@ $$
 \begin{pmatrix}-6&0&0\\0&1&3\\0&0&-5\end{pmatrix}.
 $$
 
-Los pivotes avanzan una columna en cada fila.
+Las primeras entradas no nulas son $-6$, $1$ y $-5$, situadas en las columnas $1$, $2$ y $3$. La matriz está escalonada aunque dos de sus pivotes sean distintos de $1$.
 
 #### La identidad
 
@@ -753,7 +835,7 @@ $$
 \begin{pmatrix}0&3&1&0\\0&0&0&0\\0&0&0&2\end{pmatrix}.
 $$
 
-La fila nula aparece antes de una fila no nula.
+La segunda fila es nula, pero debajo aparece una fila con [[#Pivote|pivote]] $2$. Para colocar las filas nulas al final hay que intercambiar las filas segunda y tercera.
 
 #### Dos pivotes en la misma columna
 
@@ -761,7 +843,7 @@ $$
 \begin{pmatrix}0&3&1&0\\0&1&0&5\\0&0&0&-2\end{pmatrix}.
 $$
 
-Los pivotes de las dos primeras filas quedan ambos en la columna 2.
+La primera entrada no nula de las dos primeras filas está en la columna $2$: son $3$ y $1$. El segundo pivote no avanza hacia la derecha, por lo que esta matriz no está escalonada.
 
 #### Un pivote retrocede hacia la izquierda
 
@@ -769,7 +851,7 @@ $$
 \begin{pmatrix}0&1\\1&0\end{pmatrix}.
 $$
 
-Aquí el pivote de la segunda fila queda en la columna 1, a la izquierda del de la primera fila.
+La primera fila tiene su pivote en la columna $2$ y la segunda, en la columna $1$. Intercambiarlas da $I_2$, que sí está escalonada y reducida.
 
 ### Ejemplo: matrices en forma escalonada reducida
 
@@ -779,7 +861,7 @@ $$
 \begin{pmatrix}0&1&0&5\\0&0&1&0\\0&0&0&0\end{pmatrix}.
 $$
 
-Los pivotes son unos y sus columnas contienen ceros en las demás posiciones.
+Los [[#Pivote|pivotes]] son unos y sus columnas contienen ceros en las demás posiciones.
 
 #### Columnas sin pivote entre las columnas pivote
 
@@ -787,7 +869,7 @@ $$
 \begin{pmatrix}1&-3&0&2&0\\0&0&1&4&0\\0&0&0&0&1\end{pmatrix}.
 $$
 
-Las columnas 2 y 4 no contienen pivotes y pueden tener entradas no nulas. La condición de tener ceros fuera del pivote se exige sólo a las columnas 1, 3 y 5.
+Los pivotes ocupan las columnas $1$, $3$ y $5$. En cada una sólo hay un $1$ y ceros en las otras posiciones. Los números $-3$, $2$ y $4$ de las columnas $2$ y $4$ no impiden que la forma sea reducida: esas columnas no contienen pivotes.
 
 #### La identidad es también reducida
 
@@ -799,9 +881,9 @@ Cada columna contiene un pivote $1$ y un cero en la otra posición.
 
 ### La forma escalonada puede variar
 
-Una misma matriz puede dar formas escalonadas distintas. Por ejemplo, $I_2$ y $2I_2$ están escalonadas y son equivalentes por filas: basta multiplicar por $2$ cada fila de $I_2$. Sólo la primera está reducida.
+Multipliquemos cada fila de $I_2$ por $2$. Obtenemos $2I_2$: otra matriz escalonada, equivalente a la inicial. Los [[#Pivote|pivotes]] siguen en las mismas posiciones, pero ahora valen $2$. Por tanto, una matriz puede tener distintas [[#Forma escalonada por filas|formas escalonadas]] equivalentes.
 
-La **forma escalonada reducida**, en cambio, es única. Para justificarlo, probamos primero que siempre se puede obtener una y después que no pueden obtenerse dos diferentes.[^rref]
+La **[[#Forma escalonada reducida|forma escalonada reducida]]**, en cambio, es única. Para justificarlo, probamos primero que siempre se puede obtener una y después que no pueden obtenerse dos diferentes.[^rref]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -822,16 +904,22 @@ tags:
 #### Propiedad
 
 > [!teorema] Existencia
-> Toda matriz $A\in M_{m\times n}(K)$ es equivalente por filas a una matriz en forma escalonada reducida.[^rref]
+> Toda matriz $A\in M_{m\times n}(K)$ es [[#Equivalencia por filas|equivalente por filas]] a una matriz en [[#Forma escalonada reducida|forma escalonada reducida]].[^rref]
 
 #### Demostración
 
 > [!demostracion] Demostración
-> El procedimiento de Gauss–Jordan construye esta forma en un número finito de pasos. Se recorren las columnas de izquierda a derecha y se busca una entrada no nula entre las filas que aún no tienen pivote. Si no existe, esa columna queda sin pivote. Si existe, se intercambia su fila con la primera fila pendiente, se divide por la entrada no nula para obtener un pivote $1$ y se anulan las demás entradas de esa columna mediante reemplazos de filas.
+> Partimos de $A\in M_{m\times n}(K)$. Construiremos una matriz reducida usando únicamente [[#Operaciones elementales por filas|operaciones elementales]], de modo que el resultado será equivalente por filas a $A$.
 >
-> Las columnas pivote anteriores no se estropean: en las filas pendientes sus entradas son cero. Por eso, al usar una de esas filas para eliminar en una columna nueva, no cambiamos los ceros ni los unos ya fijados en las columnas pivote anteriores.
+> **Elegir el siguiente [[#Pivote|pivote]].** Recorremos las columnas de izquierda a derecha, considerando sólo las filas que aún no tienen pivote. Si la columna examinada es nula en esas filas, la saltamos. Si encontramos una entrada no nula, llevamos su fila a la primera posición pendiente y dividimos esa fila por la entrada elegida. El nuevo pivote vale $1$.
 >
-> Cada pivote ocupa una fila nueva y una columna nueva. Por tanto, puede haber como máximo $\min(m,n)$ pivotes. Como la matriz tiene solo $m$ filas y $n$ columnas, el recorrido termina; las filas nulas quedan al final y cada columna pivote tiene un único $1$. El resultado es una forma escalonada reducida.[^rref]
+> **Anular el resto de su columna.** A cada una de las otras filas le restamos su entrada en esa columna multiplicada por la fila pivote. La entrada que queremos eliminar pasa a valer $a-a\cdot1=0$.
+>
+> **Conservar lo ya obtenido.** En las columnas pivote anteriores, la nueva fila pivote tiene ceros. Por tanto, sumarle un múltiplo a otra fila no modifica los unos ni los ceros de esas columnas. Además, como hemos escogido la primera columna disponible con alguna entrada no nula, la nueva fila no tiene entradas no nulas antes de su pivote. Los pivotes avanzan hacia la derecha al bajar.
+>
+> **Terminar.** Cada pivote ocupa una fila nueva y una columna nueva; puede haber como máximo $\min(m,n)$ pivotes. El recorrido de las $n$ columnas es finito. Si todavía quedan filas pendientes al terminar, todas sus entradas son cero y esas filas están debajo de las filas con pivote.
+>
+> La matriz obtenida tiene filas nulas al final, pivotes $1$ que avanzan hacia la derecha y ceros en las demás posiciones de sus columnas. Es una [[#Forma escalonada reducida|forma escalonada reducida]], y se ha obtenido mediante un número finito de operaciones elementales. $\blacksquare$[^rref]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -860,12 +948,81 @@ tags:
 > Sí. Gauss–Jordan la construye mediante un número finito de operaciones elementales.
 ```
 
+### Sistemas homogéneos
+
+La prueba de unicidad comparará dos sistemas con términos independientes nulos. Sean $B\in M_{m\times n}(K)$ y $\mathbf x\in K^n$.
+
+> [!definicion] Sistema homogéneo
+> Un [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|sistema lineal]] es **homogéneo** cuando todos sus términos independientes son cero:
+>
+> $$
+> B\mathbf x=\mathbf 0,\qquad \mathbf 0\in K^m.
+> $$
+>
+> [^rref]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - sistemas-lineales
+  - homogéneo
+---
+> [!note] Pregunta
+> ¿Qué condición define a un sistema lineal homogéneo $B\mathbf x=\mathbf b$?
+===
+> [!important] Respuesta
+> Su vector de términos independientes es nulo: $\mathbf b=\mathbf 0$.
+```
+
+### Variables pivote y variables libres
+
+Para leer las incógnitas de un sistema reducido, miramos las columnas de su **matriz de coeficientes**. Distinguimos las que contienen un [[#Pivote|pivote]] de las que no lo contienen.
+
+#### Variable pivote
+
+> [!definicion] Variable pivote
+> La variable asociada a una columna pivote de la matriz de coeficientes se llama **variable pivote**. Si el sistema es compatible, la [[#Forma escalonada reducida|forma reducida]] determina su valor una vez fijadas las variables libres.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - eliminación
+  - variables-pivote
+---
+> [!note] Pregunta
+> En un sistema escrito en forma reducida, ¿qué incógnita se llama variable pivote?
+===
+> [!important] Respuesta
+> La incógnita asociada a una columna pivote de la matriz de coeficientes.
+```
+
+#### Variable libre
+
+> [!definicion] Variable libre
+> La variable asociada a una columna sin pivote de la matriz de coeficientes se llama **variable libre**. Si el sistema es compatible, puede elegirse como parámetro; las ecuaciones determinan las variables pivote en función de esos parámetros.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - eliminación
+  - variables-libres
+---
+> [!note] Pregunta
+> En un sistema reducido que tiene solución, ¿qué variables son libres según las columnas de su matriz de coeficientes?
+===
+> [!important] Respuesta
+> Las correspondientes a columnas sin pivote; pueden elegirse como parámetros, y las ecuaciones determinan las variables pivote en función de ellas.
+```
+
 ### Unicidad de forma escalonada reducida
 
 #### Propiedad
 
 > [!teorema] Unicidad
-> Si $B$ y $C$ son formas escalonadas reducidas equivalentes por filas a la misma matriz $A$, entonces
+> Si $B$ y $C$ son [[#Forma escalonada reducida|formas escalonadas reducidas]] [[#Equivalencia por filas|equivalentes por filas]] a la misma matriz $A$, entonces
 >
 > $$
 > \boxed{B=C}.
@@ -876,7 +1033,7 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración
-> Sean $B$ y $C$ dos formas escalonadas reducidas obtenidas de una misma matriz $A$ mediante operaciones elementales. Probaremos por inducción en el número de columnas que coinciden.
+> Sean $B$ y $C$ dos [[#Forma escalonada reducida|formas escalonadas reducidas]] obtenidas de una misma matriz $A$ mediante [[#Operaciones elementales por filas|operaciones elementales]]. Probaremos por inducción en el número de columnas que coinciden.
 >
 > **1. Base: una columna.** Con una sola columna, las únicas formas reducidas posibles son la columna nula y
 >
@@ -886,11 +1043,13 @@ tags:
 >
 > La matriz nula no puede transformarse en una matriz no nula con operaciones elementales; por tanto, la forma reducida es única.
 >
-> **2. Truncación e hipótesis inductiva.** Supongamos el resultado para matrices con $n$ columnas y consideremos $A$ con $n+1$ columnas. Denotemos por $B_{\le n}$ y $C_{\le n}$ las matrices que quedan al retirar la última columna. Como ambas matrices son reducidas, si al quitar esa columna una fila pierde su único pivote, queda nula y aparece al final; las demás columnas pivote conservan sus columnas unitarias. Por eso las truncaciones siguen siendo reducidas. Las operaciones por filas aplicadas a $A$ producen las mismas operaciones en $A_{\le n}$, así que la hipótesis inductiva implica
+> **2. Truncación e hipótesis inductiva.** Supongamos el resultado para matrices con $n$ columnas y consideremos $A$ con $n+1$ columnas. Denotemos por $B_{\le n}$ y $C_{\le n}$ las matrices que quedan al retirar la última columna. Como ambas matrices son reducidas, si al quitar esa columna una fila pierde su único [[#Pivote|pivote]], queda nula y aparece al final; las demás columnas pivote conservan sus columnas unitarias. Por eso las truncaciones siguen siendo reducidas. Las operaciones por filas aplicadas a $A$ producen las mismas operaciones en $A_{\le n}$, así que la hipótesis inductiva implica
+>
 > $$
 > B_{\le n}=C_{\le n}.
 > $$
-> **3. Comparación de la última columna.** Si $B$ y $C$ aún difiriesen, diferirían solo en alguna entrada de la última columna. Como ambas se obtienen de $A$ mediante operaciones reversibles, sus sistemas homogéneos tienen el mismo conjunto de soluciones. Para una fila $i$ donde difieren, sus ecuaciones homogéneas, una en cada matriz, serían
+>
+> **3. Comparación de la última columna.** Si $B$ y $C$ aún difiriesen, diferirían solo en alguna entrada de la última columna. Como ambas se obtienen de $A$ mediante operaciones reversibles, sus [[#Sistemas homogéneos|sistemas homogéneos]] tienen el mismo [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|conjunto de soluciones]]. Para una fila $i$ donde difieren, sus ecuaciones homogéneas, una en cada matriz, serían
 >
 > $$
 > \begin{aligned}
@@ -901,9 +1060,9 @@ tags:
 >
 > Restarlas da $(b_{i,n+1}-c_{i,n+1})x_{n+1}=0$. El coeficiente es distinto de cero, por lo que toda solución común de los sistemas homogéneos de $B$ y $C$ tendría $x_{n+1}=0$.
 >
-> **4. El pivote final y el cierre.** Si una de las dos matrices no tuviera pivote en la última columna, ninguna ecuación obligaría a fijar $x_{n+1}$. Esa incógnita sería una variable libre: podríamos elegir su valor y despejar después las incógnitas de las columnas pivote.
+> **4. El pivote final y el cierre.** Si una de las dos matrices no tuviera pivote en la última columna, ninguna ecuación obligaría a fijar $x_{n+1}$. Esa incógnita sería una [[#Variable libre|variable libre]]: podríamos elegir su valor y despejar después las incógnitas de las columnas pivote.
 >
-> Fijamos las demás variables libres en cero y elegimos $x_{n+1}=1$; las ecuaciones de la forma reducida determinan entonces las variables pivote. Esto daría una solución con $x_{n+1}\ne0$, en contradicción con la conclusión anterior. Así, ambas formas tienen pivote en la última columna.
+> Fijamos las demás variables libres en cero y elegimos $x_{n+1}=1$; las ecuaciones de la forma reducida determinan entonces las [[#Variable pivote|variables pivote]]. Esto daría una solución con $x_{n+1}\ne0$, en contradicción con la conclusión anterior. Así, ambas formas tienen pivote en la última columna.
 >
 > Sea $r$ el número de filas no nulas de la truncación común $B_{\le n}=C_{\le n}$. Las filas siguientes son nulas en las primeras $n$ columnas, así que el pivote de la última columna debe estar en la fila $r+1$. En forma reducida esa columna tiene un $1$ en esa fila y ceros en las demás; por ello coincide en $B$ y $C$. Concluimos $B=C$.[^rref]
 
@@ -921,10 +1080,36 @@ tags:
 > Dos formas escalonadas reducidas equivalentes por filas son idénticas.
 ```
 
+### El rango no depende de la forma escalonada elegida
+
+#### Propiedad
+
+> [!corolario] Invariancia del rango
+> Todas las [[#Forma escalonada por filas|formas escalonadas]] equivalentes a una matriz tienen el mismo número de filas no nulas.[^rank]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Partamos de una forma escalonada con $r$ filas no nulas y tratemos las filas desde abajo hacia arriba. Al [[#Cómo elegir el múltiplo que elimina una entrada|normalizar]] el [[#Pivote|pivote]] de una fila, esa fila sigue siendo no nula. Al usarla para limpiar su columna por encima, sus entradas en las columnas de pivotes anteriores son cero, porque su pivote está más a la derecha; por ello no borra esos pivotes. Las filas nulas siguen al final. La [[#Forma escalonada reducida|forma reducida]] obtenida tiene, pues, exactamente $r$ filas no nulas. Como la forma reducida equivalente es única, cualquier forma escalonada equivalente tiene el mismo número de filas no nulas: ese número es el rango.[^rank]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - rango
+  - invariancia
+---
+> [!note] Pregunta
+> ¿Depende de la reducción elegida el número de filas no nulas de una forma escalonada equivalente a $A$?
+===
+> [!important] Respuesta
+> No; toda forma escalonada equivalente tiene el mismo número de filas no nulas.
+```
+
 ### Rango de una matriz
 
-> [!definicion] Rango
-> El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de $A$, denotado por $r(A)$, es el número de pivotes de una forma escalonada equivalente a $A$; coincide con su número de filas no nulas.[^rank]
+> [!definicion] Rango de una matriz
+> El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de $A$, denotado por $r(A)$, es el número de pivotes de cualquier forma escalonada equivalente a $A$. Por lo demostrado, coincide con el número de sus filas no nulas y no depende de las operaciones elegidas.[^rank]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -940,39 +1125,15 @@ tags:
 > Es el número de filas no nulas, equivalente al número de pivotes.
 ```
 
-Esta definición exige justificar que distintas reducciones dan el mismo número. La unicidad de la forma reducida proporciona esa justificación.
-
-### El rango no depende de la forma escalonada elegida
-
-#### Propiedad
-
-> [!corolario] Invariancia del rango
-> Todas las formas escalonadas equivalentes a una matriz tienen el mismo número de filas no nulas.[^rank]
-
-#### Demostración
-
-> [!demostracion] Demostración
-> Partamos de una forma escalonada con $r$ filas no nulas y tratemos las filas desde abajo hacia arriba. Al normalizar el pivote de una fila, esa fila sigue siendo no nula. Al usarla para limpiar su columna por encima, sus entradas en las columnas de pivotes anteriores son cero, porque su pivote está más a la derecha; por ello no borra esos pivotes. Las filas nulas siguen al final. La forma reducida obtenida tiene, pues, exactamente $r$ filas no nulas. Como la forma reducida equivalente es única, cualquier forma escalonada equivalente tiene el mismo número de filas no nulas: ese número es el rango.[^rank]
-
-```anki
-deck: Matemáticas::Álgebra lineal::Sistemas lineales
-tags:
-  - matemáticas
-  - rango
-  - invariancia
----
-> [!note] Pregunta
-> ¿Cambia el rango si se obtiene otra forma escalonada equivalente por filas?
-===
-> [!important] Respuesta
-> No; toda forma escalonada equivalente tiene el mismo número de filas no nulas.
-```
-
 ## Eliminación de Gauss y Gauss-Jordan
+
+![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-gauss-y-gauss-jordan.svg|*Gauss elimina bajo los pivotes; Gauss–Jordan limpia también por encima y deja visibles las variables pivote.*]]
+
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-gauss-y-gauss-jordan.excalidraw|Abrir figura editable]]
 
 ### Método de Gauss
 
-El [[Matemáticas/Álgebra lineal/Eliminación de Gauss|método de Gauss]] obtiene una forma escalonada. Comenzamos en la primera columna y elegimos una entrada no nula como pivote; si hace falta, intercambiamos filas para llevarla a la primera fila. Después anulamos las entradas que quedan debajo y repetimos el procedimiento en las filas aún pendientes.
+El [[Matemáticas/Álgebra lineal/Eliminación de Gauss|método de Gauss]] construye una [[#Forma escalonada por filas|forma escalonada]] de izquierda a derecha. Buscamos una entrada no nula en la primera columna que la tenga. La llevamos a la primera fila mediante un [[#Intercambio de filas|intercambio]] y la utilizamos para anular las entradas de debajo. Después repetimos la búsqueda en las filas inferiores y en las columnas situadas a la derecha del [[#Pivote|pivote]] elegido.
 
 Cuando una columna sólo contiene ceros en las filas pendientes, pasamos a la siguiente. No hay ninguna entrada que pueda servir como nuevo pivote en esa columna.
 
@@ -1020,9 +1181,10 @@ tags:
 
 ### Cómo elegir el múltiplo que elimina una entrada
 
-Supongamos que el pivote de la fila $R_i$ es $p\ne0$ y que queremos anular una entrada $q$ situada debajo, en la fila $R_j$. Debemos restar un múltiplo de $p$ que valga exactamente $q$. Ese múltiplo es $q/p$:
+En la columna que estamos reduciendo, la fila [[#Pivote|pivote]] $R_i$ contiene $p\ne0$ y una fila inferior $R_j$ contiene $q$. Si restamos $c$ veces la fila pivote, la entrada inferior pasa a valer $q-cp$. Para que sea cero, necesitamos $cp=q$, es decir, $c=q/p$:
 
 > [!formula] Eliminación bajo un pivote
+>
 > $$
 > R_j\leftarrow R_j-\frac{q}{p}R_i,
 > \qquad q-\frac{q}{p}p=0.
@@ -1060,7 +1222,9 @@ tags:
 
 ### Sustitución hacia atrás
 
-Una vez escalonado el sistema, resolvemos desde la última ecuación no nula hacia la primera. El valor de la última incógnita despejada se sustituye en la ecuación anterior, y así sucesivamente. Si hay incógnitas libres, se conservan como parámetros. Una ecuación $0=c$ con $c\ne0$ indica que el sistema no tiene solución; en ese caso no se inicia la sustitución.
+En un sistema escalonado, la última ecuación no nula contiene la última variable [[#Pivote|pivote]] y, si las hay, algunas [[#Variable libre|variables libres]]. Fijamos estas últimas como parámetros y despejamos la [[#Variable pivote|variable pivote]]. Sustituimos su expresión en la ecuación anterior y seguimos subiendo.
+
+Antes comprobamos que ninguna fila exprese $0=c$ con $c\ne0$. Esa igualdad es imposible; si aparece, el sistema no tiene solución.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1090,9 +1254,9 @@ tags:
 
 ### Método de Gauss–Jordan
 
-El [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|método de Gauss–Jordan]] llega hasta la forma escalonada reducida: convierte los pivotes en $1$ y anula también las entradas situadas por encima.
+Con [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|Gauss–Jordan]] continuamos desde la [[#Forma escalonada por filas|forma escalonada]]. Dividimos cada fila no nula por su [[#Pivote|pivote]] y lo utilizamos para anular las entradas de su columna situadas por encima. Podemos empezar por el último pivote y subir. Al terminar, cada columna pivote contiene un único $1$.
 
-Si el sistema es compatible, el resultado ya tiene despejadas las incógnitas de las columnas pivote. Las incógnitas de las otras columnas de coeficientes son **variables libres**: se eligen como parámetros y las ecuaciones determinan las variables pivote en función de ellas.
+Si el sistema es compatible, las variables de las columnas sin pivote se fijan como parámetros; la [[#Forma escalonada reducida|forma reducida]] expresa las [[#Variable pivote|variables pivote]] en función de ellos.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1108,20 +1272,6 @@ tags:
 > Normaliza los pivotes a $1$ y elimina también las entradas situadas por encima de ellos, hasta obtener la forma escalonada reducida.
 ```
 
-```anki
-deck: Matemáticas::Álgebra lineal::Sistemas lineales
-tags:
-  - matemáticas
-  - eliminación
-  - variables-libres
----
-> [!note] Pregunta
-> En un sistema reducido que tiene solución, ¿qué variables son libres según las columnas de su matriz de coeficientes?
-===
-> [!important] Respuesta
-> Las correspondientes a columnas sin pivote; pueden elegirse como parámetros, y las ecuaciones determinan las variables pivote en función de ellas.
-```
-
 ### Ejemplo trabajado: reducción de un sistema
 
 Retomamos el sistema de dos ecuaciones de la introducción:
@@ -1130,13 +1280,13 @@ $$
 \begin{cases}2x+y=5,\\x-y=1.\end{cases}
 $$
 
-Su matriz ampliada es
+Su [[#La matriz ampliada|matriz ampliada]] es
 
 $$
 \left[\begin{array}{cc|c}2&1&5\\1&-1&1\end{array}\right].
 $$
 
-El coeficiente de $x$ en la segunda ecuación ya es $1$. Intercambiamos las filas para usarlo como primer pivote y restamos dos veces esa fila a la segunda:
+El coeficiente de $x$ en la segunda ecuación ya es $1$. Intercambiamos las filas para usarlo como primer [[#Pivote|pivote]] y restamos dos veces esa fila a la segunda:
 
 $$
 \left[\begin{array}{cc|c}1&-1&1\\2&1&5\end{array}\right]
@@ -1144,9 +1294,9 @@ $$
 \left[\begin{array}{cc|c}1&-1&1\\0&3&3\end{array}\right].
 $$
 
-La segunda fila da $3y=3$, de donde $y=1$. Sustituimos en la primera ecuación, $x-y=1$, y obtenemos $x=2$. Con esto termina **Gauss con sustitución hacia atrás**.
+La segunda fila da $3y=3$, de donde $y=1$. Sustituimos en la primera ecuación, $x-y=1$, y obtenemos $x=2$. Con esto termina **Gauss con [[#Sustitución hacia atrás|sustitución hacia atrás]]**.
 
-Para llegar a la forma reducida mediante **Gauss–Jordan**, dividimos la segunda fila por $3$ y la sumamos a la primera:
+Para llegar a la [[#Forma escalonada reducida|forma reducida]] mediante **[[#Método de Gauss–Jordan|Gauss–Jordan]]**, dividimos la segunda fila por $3$ y la sumamos a la primera:
 
 $$
 \left[\begin{array}{cc|c}1&-1&1\\0&1&1\end{array}\right]
@@ -1174,11 +1324,15 @@ $$
 \end{cases}
 $$
 
-La segunda ecuación tiene todos sus coeficientes divisibles por $5$. Al dividirla por $5$, obtenemos $x-y+2z=1$. La colocamos arriba para empezar con pivote $1$.
+La segunda ecuación tiene todos sus coeficientes divisibles por $5$. Al dividirla por $5$, obtenemos $x-y+2z=1$. La colocamos arriba para empezar con [[#Pivote|pivote]] $1$.
 
 $$
-\left[\begin{array}{ccc|c}-2&4&-3&-1\\5&-5&10&5\\3&1&5&14\end{array}\right]
-\sim
+\left[\begin{array}{ccc|c}-2&4&-3&-1\\5&-5&10&5\\3&1&5&14\end{array}\right].
+$$
+
+Después de dividir la segunda fila por $5$ e intercambiarla con la primera, queda
+
+$$
 \left[\begin{array}{ccc|c}1&-1&2&1\\-2&4&-3&-1\\3&1&5&14\end{array}\right].
 $$
 
@@ -1209,7 +1363,7 @@ $$
 R_3\leftarrow R_3-2R_2.
 $$
 
-La nueva tercera fila expresa $-3z=9$. La matriz escalonada, antes de normalizar el último pivote, es
+En la tercera fila obtenemos $4-2\cdot2=0$ en la columna de $y$, $-1-2\cdot1=-3$ en la de $z$ y $11-2\cdot1=9$ en el término independiente. Esa fila expresa $-3z=9$. Hemos llegado a una [[#Forma escalonada por filas|forma escalonada]]:
 
 $$
 \left[\begin{array}{ccc|c}1&-1&2&1\\0&2&1&1\\0&0&-3&9\end{array}\right].
@@ -1220,11 +1374,19 @@ $$
 De abajo hacia arriba, las ecuaciones dan
 
 $$
-\begin{aligned}
--3z=9&\quad\Longrightarrow\quad z=-3,\\
-2y+z=1&\quad\Longrightarrow\quad 2y-3=1\quad\Longrightarrow\quad y=2,\\
-x-y+2z=1&\quad\Longrightarrow\quad x-2-6=1\quad\Longrightarrow\quad x=9.
-\end{aligned}
+-3z=9\quad\Longrightarrow\quad z=-3.
+$$
+
+Sustituimos $z=-3$ en la segunda ecuación:
+
+$$
+2y-3=1\quad\Longrightarrow\quad y=2.
+$$
+
+Con ambos valores, la primera ecuación queda
+
+$$
+x-2+2(-3)=1\quad\Longrightarrow\quad x=9.
 $$
 
 #### Continuar hasta la forma reducida
@@ -1279,7 +1441,7 @@ $$
 
 ### Invertir operaciones y construir matrices elementales
 
-Para recuperar una matriz anterior, hay que deshacer los pasos en orden contrario. Si primero intercambiamos dos filas y después escalamos una, deshacemos antes el escalado y después el intercambio.
+Supongamos que intercambiamos dos filas y después multiplicamos una por $-5$. Para recuperar la matriz inicial, primero debemos dividir esa fila por $-5$ y sólo después repetir el [[#Intercambio de filas|intercambio]]. Usar el orden contrario evita aplicar una [[#Inversas de los tres tipos|operación inversa]] a una fila que ya ocupa otra posición.
 
 | Operación | Operación inversa |
 |---|---|
@@ -1287,7 +1449,7 @@ Para recuperar una matriz anterior, hay que deshacer los pasos en orden contrari
 | $R_i\leftarrow\lambda R_i$, $\lambda\ne0$ | $R_i\leftarrow\lambda^{-1}R_i$ |
 | $R_i\leftarrow R_i+\lambda R_j$, $i\ne j$ | $R_i\leftarrow R_i-\lambda R_j$ |
 
-En el reemplazo, la fila $j$ no se modifica. Por eso podemos restar exactamente el múltiplo que habíamos añadido.[^a5]
+En el [[#Reemplazo de una fila|reemplazo]], la fila $j$ no se modifica. Por eso podemos restar exactamente el múltiplo que habíamos añadido.[^a5]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1331,7 +1493,7 @@ tags:
 > $R_i\leftarrow R_i-\lambda R_j$, manteniendo intacta la fila $j$.
 ```
 
-Para construir la matriz elemental de cada operación, la aplicamos a $I_3$.
+Para construir la [[Matemáticas/Álgebra lineal/Matriz elemental|matriz elemental]] de cada operación, la aplicamos a $I_3$.
 
 #### Intercambios de filas
 
@@ -1407,7 +1569,7 @@ $$
 [A\mid I_3]\sim[QA\mid Q]=[C\mid Q].
 $$
 
-El bloque derecho conserva el efecto conjunto de las operaciones. No se trata aquí de la columna de términos independientes de un sistema: hemos añadido una identidad para calcular la matriz $Q$.[^comp]
+El bloque derecho empezó como $I_3$ y recibió las mismas operaciones que $A$. Por eso termina siendo $Q$. En este arreglo, la barra separa dos bloques de matrices: el derecho tiene tres columnas y registra la secuencia aplicada.[^comp]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1433,7 +1595,7 @@ $$
 
 #### Primer pivote
 
-Elegimos el $-3$ de la tercera fila porque al dividir esa fila por $-3$ obtenemos coeficientes enteros y un pivote $1$. La llevamos a la primera posición y anulamos las otras entradas de esa columna:
+Elegimos el $-3$ de la tercera fila porque al dividir esa fila por $-3$ obtenemos coeficientes enteros y un [[#Pivote|pivote]] $1$. La llevamos a la primera posición y anulamos las otras entradas de esa columna:
 
 $$
 \begin{aligned}
@@ -1451,7 +1613,7 @@ $$
 
 #### Segundo pivote
 
-En la segunda columna, $-3+2=-1$. Sumamos la tercera fila a la segunda para obtener ese pivote y usamos la **nueva segunda fila** en los dos pasos siguientes:
+Podríamos dividir por $-3$ para obtener el segundo pivote, pero sumar la tercera fila a la segunda permite trabajar todavía con enteros: $-3+2=-1$. Después usamos esa **segunda fila actualizada** para anular el $2$ y el $-2$ que quedan debajo:
 
 $$
 \begin{aligned}
@@ -1471,7 +1633,7 @@ $$
 
 #### Tercer y cuarto pivotes
 
-Continuamos desde $A_2$. En la tercera columna hay un $20$ y un $-12$. Dividir la cuarta fila por $-6$ deja un pivote $2$ y mantiene enteros todos los coeficientes. Después la intercambiamos con la tercera:[^a6]
+Continuamos desde $A_2$. En la tercera columna hay un $20$ y un $-12$. Dividir la cuarta fila por $-6$ deja un [[#Pivote|pivote]] $2$ y mantiene enteros todos los coeficientes. Después la intercambiamos con la tercera:[^a6]
 
 $$
 \begin{aligned}
@@ -1486,7 +1648,7 @@ $$
 R_4\leftarrow R_4-10R_3.
 $$
 
-Se llega a la forma escalonada $U\in M_{4\times5}(\mathbb R)$, con pivotes en las cuatro primeras columnas:
+Se llega a la [[#Forma escalonada por filas|forma escalonada]] $U\in M_{4\times5}(\mathbb R)$, con pivotes en las cuatro primeras columnas:
 
 $$
 U=\begin{pmatrix}1&-5&0&3&-1\\0&-1&8&10&-2\\0&0&2&3&-1\\0&0&0&-5&6\end{pmatrix}.
@@ -1537,11 +1699,11 @@ $$
 D=\begin{pmatrix}0&5&2&5&-1\\0&0&0&8&3\\0&0&0&0&0\end{pmatrix}.
 $$
 
-Los pivotes son $5$ y $8$, en las columnas 2 y 4. Hay dos filas no nulas, de modo que $r(D)=2$.
+Los [[#Pivote|pivotes]] son $5$ y $8$, en las columnas 2 y 4. Hay dos filas no nulas, de modo que $r(D)=2$.
 
 ### Ejemplo: reducción de una matriz $4\times6$
 
-Esta reducción incluye columnas sin pivote y una fila que acaba siendo nula:[^a6]
+Esta reducción incluye columnas sin [[#Pivote|pivote]] y una fila que acaba siendo nula:[^a6]
 
 $$
 A=\begin{pmatrix}0&2&0&0&1&0\\0&5&-1&0&5&-5\\0&7&-17&0&32&-57\\0&-5&-1&0&-4&3\end{pmatrix}.
@@ -1575,7 +1737,7 @@ $$
 
 #### Pivotes en las columnas 3 y 5
 
-El siguiente pivote es el $2$ de la segunda fila, en la columna 3. Sumando cinco veces esa fila a la tercera y tres veces a la cuarta, anulamos $-10$ y $-6$:
+El siguiente pivote es $2$, en la columna $3$. Para anular el $-10$ sumamos cinco veces la fila pivote; para anular el $-6$ sumamos tres veces esa fila: $-10+5\cdot2=0$ y $-6+3\cdot2=0$.
 
 $$
 \begin{aligned}
@@ -1623,7 +1785,7 @@ R_1&\leftarrow R_1+R_2.
 \end{aligned}
 $$
 
-Así se obtiene la forma reducida
+Así se obtiene la [[#Forma escalonada reducida|forma reducida]]
 
 $$
 C=\begin{pmatrix}0&1&0&0&0&1\\0&0&1&0&0&0\\0&0&0&0&1&-2\\0&0&0&0&0&0\end{pmatrix}\in M_{4\times6}(\mathbb R).
@@ -1634,7 +1796,7 @@ $$
 > [!warning] La operación afecta a toda la ecuación
 > En $[A\mid\mathbf b]$, cada operación debe aplicarse también al término independiente. Si dividimos $2x+y=5$ por $2$, obtenemos $x+\tfrac12y=\tfrac52$, no $x+\tfrac12y=5$.
 
-Antes de dividir por un pivote, comprobamos que sea no nulo. Si es cero, buscamos otra fila; si toda la parte pendiente de la columna es nula, pasamos a la siguiente.
+Una entrada cero no sirve como divisor. Buscamos una entrada no nula en las filas pendientes de la misma columna y la llevamos a la fila de trabajo mediante un [[#Intercambio de filas|intercambio]]. Si no existe, esa columna queda sin pivote y seguimos con la siguiente.
 
 En una lista de operaciones, cada paso actúa sobre la matriz que ha dejado el anterior. Así, después de $R_2\leftarrow R_2+R_3$, una operación que use $R_2$ utiliza **su valor actualizado**. Esto importa especialmente cuando varias operaciones se escriben juntas.
 
@@ -1663,6 +1825,8 @@ tags:
 ===
 > [!important] Respuesta
 > Sobre la fila completa, incluidos los coeficientes de $A$ y el término independiente de $\mathbf b$.
+>
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-fila-completa-anki.png|Escalar toda la ecuación: (2,1 | 5) pasa a (1,1/2 | 5/2)|420]]
 ```
 
 La reducción ya da las ecuaciones con las que decidiremos si un sistema tiene solución y cuántos parámetros necesita. Esa lectura se desarrolla en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]].
@@ -1687,7 +1851,7 @@ La reducción ya da las ecuaciones con las que decidiremos si un sistema tiene s
 
 [^comp]: W. Keith Nicholson, *Linear Algebra with Applications*, §2.5, apartado “Inverses and Elementary Matrices”, deducción $A\to UA=B$ anterior al Teorema 1, donde se representa una secuencia de operaciones mediante el producto de matrices elementales. [LibreTexts](https://math.libretexts.org/Bookshelves/Linear_Algebra/Linear_Algebra_with_Applications_%28Nicholson%29/02%3A_Matrix_Algebra/2.05%3A_Elementary_Matrices).
 
-[^emdr]: Robert A. Beezer, *A First Course in Linear Algebra*, §DM, Teorema EMDRO, prueba completa por entradas de los tres tipos de operación. Las demostraciones de esta nota adaptan ese argumento y su notación; la suma del producto recorre las $m$ filas de $A$. [Sección sobre matrices elementales](https://linear.pugetsound.edu/fcla/section-DM.html#theorem-EMDRO).
+[^emdr]: Robert A. Beezer, *A First Course in Linear Algebra*, §DM, Teorema EMDRO, prueba completa por entradas de los tres tipos de operación. Las demostraciones de esta nota adaptan ese argumento y su notación. En la edición web consultada algunos sumatorios aparecen hasta $n$; aquí se utiliza $m$, el número de filas de $A$ y el orden de la matriz elemental. [Sección sobre matrices elementales](https://linear.pugetsound.edu/fcla/section-DM.html#theorem-EMDRO).
 
 [^emni]: W. Keith Nicholson, *Linear Algebra with Applications*, §2.5, Lema 2.5.2 y párrafo inmediatamente anterior: la operación inversa deshace la operación elemental y su matriz satisface $FE=I$, por lo que es la inversa de $E$. La prueba de esta nota también aplica el mismo razonamiento en orden inverso para explicitar la identidad $EF=I$. [LibreTexts](https://math.libretexts.org/Bookshelves/Linear_Algebra/Linear_Algebra_with_Applications_%28Nicholson%29/02%3A_Matrix_Algebra/2.05%3A_Elementary_Matrices).
 
@@ -1697,13 +1861,13 @@ Actúa como tutor de eliminación y matrices elementales para un estudiante que 
 
 **Base matemática.** En un sistema $A\mathbf x=\mathbf b$, con $A\in M_{m\times n}(K)$, $\mathbf x\in K^n$ y $\mathbf b\in K^m$, la matriz ampliada es $[A\mid\mathbf b]$. Las operaciones elementales son intercambiar dos filas, multiplicar una fila por un escalar no nulo y sumar a una fila un múltiplo de otra distinta. Afectan a la fila completa y conservan las soluciones porque pueden deshacerse.
 
-Una matriz está escalonada si las filas nulas quedan abajo y los pivotes —primeras entradas no nulas de las filas— avanzan hacia la derecha. En la forma reducida, cada pivote vale $1$ y es la única entrada no nula de su columna. La forma reducida es única; las formas escalonadas pueden variar, pero todas tienen el mismo número de pivotes, el rango. Gauss elimina debajo de los pivotes y termina con sustitución hacia atrás; Gauss–Jordan elimina también encima y normaliza los pivotes.
+Una matriz está escalonada si las filas nulas quedan abajo y los pivotes —primeras entradas no nulas de las filas— avanzan hacia la derecha. En la forma reducida, cada pivote vale $1$ y es la única entrada no nula de su columna. La forma reducida es única; las formas escalonadas pueden variar, pero todas tienen el mismo número de pivotes, el rango. En una forma reducida compatible, las variables asociadas a columnas sin pivote son libres y se eligen como parámetros; las variables pivote quedan determinadas por ellas. Un sistema homogéneo tiene vector de términos independientes nulo. Gauss elimina debajo de los pivotes y termina con sustitución hacia atrás; Gauss–Jordan elimina también encima y normaliza los pivotes.
 
 **Ejemplo disponible.** Para $2x+y=5$, $x-y=1$, intercambiar filas y efectuar $R_2\leftarrow R_2-2R_1$ da $x-y=1$, $3y=3$. De aquí se obtienen $y=1$ y $x=2$. Para reducir, dividir la segunda fila por $3$ y sumarla a la primera da $[I_2\mid(2,1)^T]$. Pide justificar el factor $2$, el efecto sobre el término independiente y la comprobación en las ecuaciones originales.
 
 **Segundo ejemplo disponible.** El sistema $-2x+4y-3z=-1$, $5x-5y+10z=5$, $3x+y+5z=14$ se reduce a $x-y+2z=1$, $2y+z=1$, $-3z=9$, con solución $(9,2,-3)$. Úsalo para distinguir sustitución hacia atrás y reducción completa.
 
-**Matrices elementales.** Una operación sobre $I_m$ produce $E$; el producto $EA$ realiza esa misma operación sobre $A$. Cada $E$ es invertible, y su inversa corresponde a la operación inversa. Si se aplican $E_1$ y después $E_2$, el resultado es $E_2E_1A$. Operar sobre $[A\mid I_m]$ deja $[QA\mid Q]$, donde $Q$ representa toda la secuencia.
+**Matrices elementales.** Una operación sobre $I_m$ produce $E$; el producto $EA$ realiza esa misma operación sobre $A$. La fila $r$ de $E$ da los coeficientes de la combinación que forma la fila $r$ de $EA$. Cada $E$ es invertible: la matriz de la operación inversa satisface $FE=EF=I_m$. Si se aplican $E_1$ y después $E_2$, el resultado es $E_2E_1A$. Operar sobre $[A\mid I_m]$ deja $[QA\mid Q]$, donde $Q$ representa toda la secuencia.
 
 Evalúa por separado el cálculo y su justificación: por qué se puede dividir, qué fila está siendo modificada, si se usa su valor actualizado y qué asegura la conservación de soluciones. Si se pide una prueba, fija las dimensiones y los índices antes de operar por componentes; evita sustituir la justificación por un ejemplo numérico.
 
