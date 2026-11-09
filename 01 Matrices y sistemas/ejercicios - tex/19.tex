@@ -1,0 +1,318 @@
+
+\item \textbf{Discuss the rank of each of the following matrices as a function of the real parameters $\alpha$ and $\beta$.}
+
+\begin{enumerate}[label=\alph*)]
+
+    \item
+    $A=
+    \begin{bmatrix}
+        -5 & 1 & 8 \\
+         0 & \alpha & 0 \\
+         0 & 0 & \alpha-1
+    \end{bmatrix}
+    $ \\[1.0em]
+
+    \begin{answer}
+        Since $A$ is upper triangular, its rank is
+        determined by its nonzero diagonal entries.
+
+        The first pivot is always nonzero.
+        The remaining pivots vanish when
+        $\alpha=0$ and $\alpha=1$, respectively.
+
+        Hence,
+
+        $$
+        \boxed{
+        \operatorname{rank}(A)=
+        \begin{cases}
+            2, & \alpha\in\{0,1\},\\
+            3, & \alpha\notin\{0,1\}.
+        \end{cases}
+        }
+        $$
+    \end{answer}
+
+
+    \item
+    $B=
+    \begin{bmatrix}
+        4 & \alpha-1 & 3 \\
+        0 & \alpha^2+1 & \alpha-1 \\
+        0 & 0 & \alpha+5
+    \end{bmatrix}
+    $ \\[1.0em]
+
+    \begin{answer}
+        Since $B$ is upper triangular, consider
+        its diagonal entries:
+
+        $$
+        4,\qquad \alpha^2+1,\qquad \alpha+5.
+        $$
+
+        For every $\alpha\in\mathbb{R}$,
+
+        $$
+        \alpha^2\geq0
+        \quad\Longrightarrow\quad
+        \alpha^2+1\geq1>0.
+        $$
+
+        Therefore, the first two pivots
+        are always nonzero.
+
+        The third pivot vanishes precisely when
+
+        $$
+        \alpha+5=0
+        \iff \alpha=-5.
+        $$
+
+        Hence,
+
+        $$
+        \boxed{
+        \operatorname{rank}(B)=
+        \begin{cases}
+            2, & \alpha=-5,\\
+            3, & \alpha\neq-5.
+        \end{cases}
+        }
+        $$
+    \end{answer}
+
+
+    \item
+    $C=
+    \begin{bmatrix}
+        -1 & 1 & 3 \\
+         1 & \alpha-1 & -\alpha-3 \\
+        -1-\alpha & 2-\alpha & 3\alpha+5
+    \end{bmatrix}
+    $ \\[1.0em]
+
+    \begin{answer}
+        We apply elementary row operations
+        to determine the rank as a function
+        of $\alpha$. \\[1.0em]
+
+        $C \xrightarrow[t_1]{
+            \substack{
+                R_2 \leftarrow R_2+R_1 \\
+                R_3 \leftarrow R_3-(1+\alpha)R_1
+            }
+        }
+        \begin{bmatrix}
+            -1 & 1 & 3 \\
+             0 & \alpha & -\alpha \\
+             0 & 1-2\alpha & 2
+        \end{bmatrix}.
+        $ \\[1.0em]
+
+        We distinguish two cases: \\[0.5em]
+
+        \textbf{Case 1: $\alpha=0$.}
+
+        $$
+        \begin{bmatrix}
+            -1 & 1 & 3 \\
+             0 & 0 & 0 \\
+             0 & 1 & 2
+        \end{bmatrix}
+        \xrightarrow{
+            \substack{
+                R_2 \leftrightarrow R_3 \\
+                R_1 \leftarrow -R_1
+            }
+        }
+        \begin{bmatrix}
+            1 & -1 & -3 \\
+            0 & 1 & 2 \\
+            0 & 0 & 0
+        \end{bmatrix}.
+        $$
+
+        Thus,
+
+        $$
+        \operatorname{rank}(C)=2
+        \quad\text{if }\alpha=0.
+        $$
+
+        \textbf{Case 2: $\alpha\neq0$.}
+
+        Since $\alpha\neq0$, the following
+        elementary row operation is valid:
+
+        $$
+        R_3\leftarrow
+        R_3-\frac{1-2\alpha}{\alpha}R_2.
+        $$
+
+        Consequently,
+
+        $$
+        C\sim
+        \begin{bmatrix}
+            -1 & 1 & 3 \\
+             0 & \alpha & -\alpha \\
+             0 & 0 & 3-2\alpha
+        \end{bmatrix}.
+        $$
+
+        The third pivot vanishes if and only if
+
+        $$
+        3-2\alpha=0
+        \iff \alpha=\frac{3}{2}.
+        $$
+
+        Therefore,
+
+        $$
+        \boxed{
+        \operatorname{rank}(C)=
+        \begin{cases}
+            2, & \alpha\in\left\{0,\frac{3}{2}\right\},\\[0.4em]
+            3, & \alpha\notin\left\{0,\frac{3}{2}\right\}.
+        \end{cases}
+        }
+        $$
+    \end{answer}
+
+
+    \item
+    $D=
+    \begin{bmatrix}
+         1 & 2 & -1 & 2 \\
+         3 & 2\alpha+6 & \beta^2-4 & \beta^2+9 \\
+        -1 & -2 & \beta^2 & \beta-1
+    \end{bmatrix}
+    $ \\[1.0em]
+
+    \begin{answer}
+        We apply elementary row operations
+        without dividing by expressions
+        involving the parameters. \\[0.5em]
+
+        $D \xrightarrow[t_1]{
+            \substack{
+                R_2\leftarrow R_2-3R_1 \\
+                R_3\leftarrow R_3+R_1
+            }
+        }
+        \begin{bmatrix}
+            1 & 2 & -1 & 2 \\
+            0 & 2\alpha & \beta^2-1 & \beta^2+3 \\
+            0 & 0 & \beta^2-1 & \beta+1
+        \end{bmatrix}
+        =D'.
+        $ \\[1.0em]
+
+        We distinguish two cases. \\[0.5em]
+
+        \textbf{Case 1: $\alpha\neq0$.}
+
+        The first two pivots are nonzero.
+
+        If $\beta^2-1\neq0$, the third row
+        has a pivot in the third column.
+        Hence the rank is $3$.
+
+        If $\beta^2-1=0$, then
+        $\beta\in\{-1,1\}$.
+
+        For $\beta=1$, the third row is
+
+        $$
+        R_3=(0,0,0,2),
+        $$
+
+        which is nonzero. Hence the rank is $3$.
+
+        For $\beta=-1$, the third row is zero,
+        so the rank is $2$.
+
+        Thus, for $\alpha\neq0$,
+
+        $$
+        \operatorname{rank}(D)=
+        \begin{cases}
+            2, & \beta=-1,\\
+            3, & \beta\neq-1.
+        \end{cases}
+        $$
+
+        \textbf{Case 2: $\alpha=0$.}
+
+        We have
+
+        $$
+        D'=
+        \begin{bmatrix}
+            1 & 2 & -1 & 2 \\
+            0 & 0 & \beta^2-1 & \beta^2+3 \\
+            0 & 0 & \beta^2-1 & \beta+1
+        \end{bmatrix}.
+        $$
+
+        Applying $R_3\leftarrow R_3-R_2$,
+
+        $$
+        D'\sim
+        \begin{bmatrix}
+            1 & 2 & -1 & 2 \\
+            0 & 0 & \beta^2-1 & \beta^2+3 \\
+            0 & 0 & 0 & -\beta^2+\beta-2
+        \end{bmatrix}.
+        $$
+
+        Notice that
+
+        $$
+        \beta^2-\beta+2
+        =\left(\beta-\frac12\right)^2+\frac74>0
+        $$
+
+        for every $\beta\in\mathbb{R}$.
+
+        The third row is always nonzero.
+
+        If $\beta\notin\{-1,1\}$, then
+        $\beta^2-1\neq0$, and the matrix
+        is in row echelon form with
+        three nonzero rows.
+
+        If $\beta\in\{-1,1\}$, the second
+        and third rows have their only
+        nonzero entries in the fourth column.
+        An additional elementary row operation
+        eliminates the third row.
+
+        Therefore, for $\alpha=0$,
+
+        $$
+        \operatorname{rank}(D)=
+        \begin{cases}
+            2, & \beta\in\{-1,1\},\\
+            3, & \beta\notin\{-1,1\}.
+        \end{cases}
+        $$
+
+        Combining both cases,
+
+        $$
+        \boxed{
+        \operatorname{rank}(D)=
+        \begin{cases}
+            2, & \beta=-1
+                 \ \text{or}\
+                 (\alpha=0\ \text{and}\ \beta=1),\\[0.4em]
+            3, & \text{otherwise}.
+        \end{cases}
+        }
+        $$
+    \end{answer}
+
+\end{enumerate}

@@ -36,9 +36,6 @@ tags:
   - curricular
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Compatibilidad, rango e inversa
 
@@ -62,7 +59,7 @@ Trabajaremos sobre $K=\mathbb R$ o $K=\mathbb C$, con $m,n\geq1$, matrices $A\in
 ### Rango de una matriz
 
 > [!definicion] Rango
-> El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de $A$, denotado $\operatorname{rg}(A)$, es el número de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] de cualquiera de sus [[Matemáticas/Álgebra lineal/Forma escalonada|formas escalonadas]] por filas; también es el número de filas no nulas en esa forma.[^a6-rango]
+> El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de $A$, denotado $\operatorname{rg}(A)$ o $\operatorname{rank}(A)$ en Inglés, es el número de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] de cualquiera de sus [[Matemáticas/Álgebra lineal/Forma escalonada|formas escalonadas]] por filas; también es el número de filas no nulas en esa forma.[^a6-rango]
 
 Podemos elegir distintas operaciones para escalonar $A$, pero [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#El rango no depende de la forma escalonada elegida|el número de pivotes no cambia]]. Por eso basta obtener una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]] y contar sus filas no nulas.
 
@@ -140,7 +137,9 @@ tags:
 > No. El rango máximo rectangular es $\min(m,n)$; la inversa bilateral requiere que la matriz sea cuadrada y tenga rango $n$.
 ```
 
-> [!opcional]- Lectura mediante espacios generados
+### Extra - Lectura mediante espacios generados
+
+> [opcional]- Lectura mediante espacios generados
 > El espacio generado por unas columnas reúne todas sus [[Matemáticas/Álgebra lineal/Espacios vectoriales/03 Combinaciones lineales y espacio generado|combinaciones lineales]]. Su dimensión es el número de vectores de [[Matemáticas/Álgebra lineal/Espacios vectoriales/05 Bases y dimensión|una base]]: una familia independiente que genera el mismo espacio. El rango coincide con la dimensión del espacio columna y del espacio fila. Esta interpretación conecta los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] con [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo, imagen, rango y nulidad]].[^rango-espacios]
 
 ```anki

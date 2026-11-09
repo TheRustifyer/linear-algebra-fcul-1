@@ -1,0 +1,423 @@
+
+\item \textbf{Consider the matrices}
+
+$$
+A=
+\begin{bmatrix}
+    3 & 5 \\
+    1 & 2
+\end{bmatrix},
+\qquad
+B=
+\begin{bmatrix}
+    2 & -5 \\
+    -1 & 3
+\end{bmatrix},
+\qquad
+C=
+\begin{bmatrix}
+    0 & -1 \\
+    1 & -1
+\end{bmatrix}.
+$$
+
+\begin{enumerate}[label=\alph*)]
+
+    \item \textbf{Verify that $B$ is the inverse of $A$.}
+
+    \begin{answer}
+        By the definition of an inverse matrix,
+        we must verify that $AB=BA=I_2$.
+
+        $$
+        \begin{aligned}
+        AB
+        &=
+        \begin{bmatrix}
+            3 & 5 \\
+            1 & 2
+        \end{bmatrix}
+        \begin{bmatrix}
+            2 & -5 \\
+            -1 & 3
+        \end{bmatrix}\\
+        &=
+        \begin{bmatrix}
+            6-5 & -15+15 \\
+            2-2 & -5+6
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{bmatrix}
+        =I_2.
+        \end{aligned}
+        $$
+
+        Similarly,
+
+        $$
+        \begin{aligned}
+        BA
+        &=
+        \begin{bmatrix}
+            2 & -5 \\
+            -1 & 3
+        \end{bmatrix}
+        \begin{bmatrix}
+            3 & 5 \\
+            1 & 2
+        \end{bmatrix}\\
+        &=
+        \begin{bmatrix}
+            6-5 & 10-10 \\
+            -3+3 & -5+6
+        \end{bmatrix}
+        =I_2.
+        \end{aligned}
+        $$
+
+        Therefore,
+
+        $$
+        \boxed{A^{-1}=B}.
+        $$
+    \end{answer}
+
+
+    \item \textbf{Determine whether the matrix}
+
+    $$
+    D=
+    \begin{bmatrix}
+        2 & -5 \\
+        -1 & 2
+    \end{bmatrix}
+    $$ 
+
+    \textbf{is the inverse of $A$. Justify your answer.} \\
+    
+    \textbf{\textcolor{red}{Note: $D$ is an arbitrary name that we are using for the matrix.}}
+
+    \begin{answer}
+        We verify whether $AD=I_2$.
+
+        $$
+        \begin{aligned}
+        AD
+        &=
+        \begin{bmatrix}
+            3 & 5 \\
+            1 & 2
+        \end{bmatrix}
+        \begin{bmatrix}
+            2 & -5 \\
+            -1 & 2
+        \end{bmatrix}\\
+        &=
+        \begin{bmatrix}
+            1 & -5 \\
+            0 & -1
+        \end{bmatrix}
+        \neq I_2 \implies \boxed{D \neq A^{-1}}.
+        \end{aligned}
+        $$
+    \end{answer}
+
+
+    \item \textbf{Determine $(5A)^{-1}$ and $(A^T)^{-1}$.}
+
+    \begin{answer}
+        From part a), we know that $A^{-1}=B$.
+
+        Using the property
+
+        $$
+        (\lambda A)^{-1}=\lambda^{-1}A^{-1},
+        \qquad \lambda\neq0,
+        $$
+
+        we obtain
+
+        $$
+        \begin{aligned}
+        (5A)^{-1}
+            &=5^{-1}A^{-1}\\
+            &=\frac15B\\
+            &=\frac15
+            \begin{bmatrix}
+                2 & -5\\
+                -1 & 3
+            \end{bmatrix}\\
+            &=
+            \boxed{
+            \begin{bmatrix}
+                \frac25 & -1\\
+                -\frac15 & \frac35
+            \end{bmatrix}
+            }.
+        \end{aligned}
+        $$
+
+        Similarly, using the property
+
+        $$
+        (A^T)^{-1}=(A^{-1})^T,
+        $$
+
+        we obtain
+
+        $$
+        \begin{aligned}
+        (A^T)^{-1}
+            &=(A^{-1})^T\\
+            &=B^T\\
+            &=
+            \boxed{
+            \begin{bmatrix}
+                2 & -1\\
+                -5 & 3
+            \end{bmatrix}
+            }.
+        \end{aligned}
+        $$
+
+        \medskip
+        \noindent\textbf{Further justification.}
+
+        We now justify these properties
+        using the definition of an inverse matrix.
+
+        \medskip
+        \noindent\textbf{1. Inverse of a scalar multiple.}
+
+        Assume that $A$ is invertible and
+        $\lambda\neq0$.
+
+        Consider the matrix
+
+        $$
+        X=\lambda^{-1}A^{-1}.
+        $$
+
+        We verify that
+
+        $$
+        \begin{aligned}
+        X(\lambda A)
+            &=(\lambda^{-1}A^{-1})(\lambda A)\\
+            &=(\lambda^{-1}\lambda)(A^{-1}A)\\
+            &=1\cdot I_2\\
+            &=I_2.
+        \end{aligned}
+        $$
+
+        Likewise,
+
+        $$
+        \begin{aligned}
+        (\lambda A)X
+            &=(\lambda A)(\lambda^{-1}A^{-1})\\
+            &=(\lambda\lambda^{-1})(AA^{-1})\\
+            &=I_2.
+        \end{aligned}
+        $$
+
+        Hence, by the definition of inverse,
+
+        $$
+        \boxed{
+        (\lambda A)^{-1}=\lambda^{-1}A^{-1}
+        }.
+        $$
+
+        \medskip
+        \noindent\textbf{2. Inverse of the transpose.}
+
+        Assume that $A$ is invertible.
+        By definition,
+
+        $$
+        A^{-1}A=AA^{-1}=I_2.
+        $$
+
+        Taking the transpose of $AA^{-1}=I_2$,
+
+        $$
+        \begin{aligned}
+        (AA^{-1})^T &= I_2^T\\
+        (A^{-1})^TA^T &= I_2.
+        \end{aligned}
+        $$
+
+        Likewise, taking the transpose of
+        $A^{-1}A=I_2$,
+
+        $$
+        \begin{aligned}
+        (A^{-1}A)^T &= I_2^T\\
+        A^T(A^{-1})^T &= I_2.
+        \end{aligned}
+        $$
+
+        Thus,
+
+        $$
+        (A^{-1})^TA^T
+        =A^T(A^{-1})^T
+        =I_2.
+        $$
+
+        Therefore, by the definition of inverse,
+
+        $$
+        \boxed{(A^T)^{-1}=(A^{-1})^T}.
+        $$
+    \end{answer}
+
+
+    \item \textbf{Calculate $C^3$.
+    Is $C$ invertible? If so, determine its inverse.}
+
+    \begin{answer}
+        First, we compute $C^2$:
+
+        $$
+        \begin{aligned}
+        C^2
+        &=CC\\
+        &=
+        \begin{bmatrix}
+            0 & -1\\
+            1 & -1
+        \end{bmatrix}
+        \begin{bmatrix}
+            0 & -1\\
+            1 & -1
+        \end{bmatrix}\\
+        &=
+        \begin{bmatrix}
+            -1 & 1\\
+            -1 & 0
+        \end{bmatrix}.
+        \end{aligned}
+        $$
+
+        Then,
+
+        $$
+        \begin{aligned}
+        C^3
+        &=C^2C\\
+        &=
+        \begin{bmatrix}
+            -1 & 1\\
+            -1 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            0 & -1\\
+            1 & -1
+        \end{bmatrix}\\
+        &=
+        \begin{bmatrix}
+            1 & 0\\
+            0 & 1
+        \end{bmatrix}
+        =I_2.
+        \end{aligned}
+        $$
+
+        Since $C^3=I_2$, we have
+
+        $$
+        C^2C=CC^2=I_2.
+        $$
+
+        Therefore, $C$ is invertible and
+
+        $$
+        \boxed{
+        C^{-1}=C^2=
+        \begin{bmatrix}
+            -1 & 1\\
+            -1 & 0
+        \end{bmatrix}
+        }.
+        $$
+    \end{answer}
+
+
+    \item \textbf{Determine, with justification,
+    whether $AC$ is invertible.
+    If so, determine $(AC)^{-1}$.}
+
+    \begin{answer}
+        From parts a) and d), both $A$ and $C$
+        are invertible.
+
+        By the inverse-of-a-product property,
+        $AC$ is invertible and
+
+        $$
+        (AC)^{-1}=C^{-1}A^{-1}.
+        $$
+
+        Substituting the previously
+        obtained inverses,
+
+        $$
+        \begin{aligned}
+        (AC)^{-1}
+        &=C^{-1}B\\
+        &=
+        \begin{bmatrix}
+            -1 & 1\\
+            -1 & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            2 & -5\\
+            -1 & 3
+        \end{bmatrix}\\
+        &=
+        \boxed{
+        \begin{bmatrix}
+            -3 & 8\\
+            -2 & 5
+        \end{bmatrix}
+        }.
+        \end{aligned}
+        $$
+
+        Therefore, $AC$ is invertible.
+
+        We may verify the result directly:
+
+        $$
+        AC=
+        \begin{bmatrix}
+            5 & -8\\
+            2 & -3
+        \end{bmatrix},
+        $$
+
+        and
+
+        $$
+        \begin{aligned}
+        (AC)(AC)^{-1}
+        &=
+        \begin{bmatrix}
+            5 & -8\\
+            2 & -3
+        \end{bmatrix}
+        \begin{bmatrix}
+            -3 & 8\\
+            -2 & 5
+        \end{bmatrix}\\
+        &=I_2.
+        \end{aligned}
+        $$
+    \end{answer}
+
+\end{enumerate}
