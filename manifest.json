@@ -2,7 +2,7 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "15cb9b18cb220be1ace79cb30954742ac8cfe9f6",
+  "sourceCommit": "aa0428464ec936aa606c0cef7991957aeab4b965",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
@@ -22,7 +22,7 @@
     },
     {
       "path": "01 Matrices y sistemas/03 Compatibilidad, rango e inversa.md",
-      "sourceHash": "bde6b8ea15e68b2fc4825ccd70222e914cc610e6f140efd5fba2db78ce3b0db4"
+      "sourceHash": "776fb4fd393c75beb9243567d4d949574ae0eea0674859a7819e01be76bdcc8d"
     },
     {
       "path": "01 Matrices y sistemas/04 Factorización LU.md",
@@ -311,14 +311,14 @@
   ],
   "stats": {
     "en": {
-      "translated": 2701,
-      "reused": 7331,
-      "total": 10032
+      "translated": 3,
+      "reused": 10030,
+      "total": 10033
     },
     "pt": {
-      "translated": 2701,
-      "reused": 7331,
-      "total": 10032
+      "translated": 3,
+      "reused": 10030,
+      "total": 10033
     }
   }
 }
