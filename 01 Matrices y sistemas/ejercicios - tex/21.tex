@@ -1,0 +1,154 @@
+
+\item \textbf{Consider two diagonal matrices of order $n$:}
+
+$$
+A=
+\begin{bmatrix}
+    a_1 & 0 & \cdots & 0 \\
+    0 & a_2 & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & a_n
+\end{bmatrix},
+\qquad
+B=
+\begin{bmatrix}
+    b_1 & 0 & \cdots & 0 \\
+    0 & b_2 & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & b_n
+\end{bmatrix}.
+$$
+
+\begin{enumerate}[label=\alph*)]
+
+    \item \textbf{Calculate the matrix $AB$.}
+
+    \begin{answer}
+        By the definition of matrix multiplication,
+
+        $$
+        (AB)_{ij}=\sum_{k=1}^{n}a_{ik}b_{kj}.
+        $$
+
+        Since $A$ and $B$ are diagonal matrices,
+        all terms vanish except when $i=j=k$.
+
+        Therefore,
+
+        $$
+        \boxed{
+        AB=
+        \begin{bmatrix}
+            a_1b_1 & 0 & \cdots & 0 \\
+            0 & a_2b_2 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_nb_n
+        \end{bmatrix}
+        }.
+        $$
+
+        Thus, the product of two diagonal
+        matrices is also diagonal.
+    \end{answer}
+
+    \item \textbf{Determine the conditions that
+    $a_1,a_2,\ldots,a_n$ must satisfy for $A$
+    to be invertible. When $A$ is invertible,
+    determine its inverse.}
+
+    \begin{answer}
+        We prove that
+
+        $$
+        A\text{ is invertible}
+        \iff
+        \forall i\in\{1,\ldots,n\},\ a_i\neq0.
+        $$
+
+        \medskip
+        \noindent\textbf{Necessity ($\Rightarrow$).}
+
+        Assume that $A$ is invertible.
+
+        If there exists $i\in\{1,\ldots,n\}$
+        such that $a_i=0$, then the $i$-th
+        row of $A$ is zero.
+
+        Consequently, the $i$-th row of
+        $AX$ is zero for every matrix
+        $X\in M_n(K)$.
+
+        In particular, $AX\neq I_n$,
+        contradicting the invertibility of $A$.
+
+        Therefore,
+
+        $$
+        \forall i\in\{1,\ldots,n\},\ a_i\neq0.
+        $$
+
+        \medskip
+        \noindent\textbf{Sufficiency ($\Leftarrow$).}
+
+        Assume that
+
+        $$
+        \forall i\in\{1,\ldots,n\},\ a_i\neq0.
+        $$
+
+        Consider the diagonal matrix
+
+        $$
+        X=
+        \begin{bmatrix}
+            a_1^{-1} & 0 & \cdots & 0 \\
+            0 & a_2^{-1} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_n^{-1}
+        \end{bmatrix}.
+        $$
+
+        By part a), both products $AX$ and
+        $XA$ are diagonal, with diagonal
+        entries
+
+        $$
+        a_i a_i^{-1}=a_i^{-1}a_i=1.
+        $$
+
+        Hence,
+
+        $$
+        AX=XA=I_n.
+        $$
+
+        Therefore, $A$ is invertible
+        and $X=A^{-1}$.
+
+        \medskip
+        \noindent\textbf{Conclusion.}
+
+        $$
+        \boxed{
+        A\text{ is invertible}
+        \iff
+        \forall i\in\{1,\ldots,n\},\ a_i\neq0
+        }
+        $$
+
+        and, whenever $A$ is invertible,
+
+        $$
+        \boxed{
+        A^{-1}=
+        \begin{bmatrix}
+            \frac{1}{a_1} & 0 & \cdots & 0 \\
+            0 & \frac{1}{a_2} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & \frac{1}{a_n}
+        \end{bmatrix}
+        }.
+        $$
+    \end{answer}
+
+\end{enumerate}
