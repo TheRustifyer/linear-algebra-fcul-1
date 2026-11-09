@@ -1,0 +1,110 @@
+
+\item \textbf{Consider the matrices}
+
+$$
+\begin{aligned}
+    A &=
+    \begin{bmatrix}
+        1 & 0 & 1 & 1 \\
+        1 & 2 & 3 & 1 \\
+    -2 & -1 & -1 & 0
+    \end{bmatrix},
+    &
+    B &=
+    \begin{bmatrix}
+        1 & 2 & 3 & 1 \\
+        1 & 0 & 1 & 1 \\
+    -2 & -1 & -1 & 0
+    \end{bmatrix},
+    \\[1em]
+    C &=
+    \begin{bmatrix}
+        1 & 0 & 1 & 1 \\
+    -1 & 1 & 2 & 1 \\
+    -2 & -1 & -1 & 0
+    \end{bmatrix},
+    &
+    D &=
+    \begin{bmatrix}
+        1 & 0 & 1 & 1 \\
+    -2 & -4 & -6 & -2 \\
+    -2 & -1 & -1 & 0
+    \end{bmatrix}.
+\end{aligned}
+$$
+
+\begin{enumerate}[label=\alph*)]
+
+\item \textbf{Determine elementary matrices
+$H$, $J$ and $K$ such that}
+$$
+    HA=B,\qquad JA=C,\qquad KA=D.
+$$
+
+\begin{answer}
+    $H=
+    \begin{bmatrix}
+        0 & 1 & 0 \\
+        1 & 0 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix},
+    \qquad
+    R_1 \leftrightarrow R_2,
+    \qquad HA=B.
+    \\[1.0em]
+    J=
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 1 \\
+        0 & 0 & 1
+    \end{bmatrix},
+    \qquad
+    R_2 \leftarrow R_2+R_3,
+    \qquad JA=C.
+    \\[1.0em]
+    K=
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & -2 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix},
+    \qquad
+    R_2 \leftarrow -2R_2,
+    \qquad KA=D.
+    $ \\[1.0em]
+\end{answer}
+
+    \item \input{../ejercicios - tex/18_b.tex}
+
+
+    \item \textbf{Determine a matrix $Q$
+    such that $QA=F$, where}
+    $$
+    F=
+    \begin{bmatrix}
+        -2 & 4 & 2 & -2 \\
+         0 & 2 & 2 & 0 \\
+         0 & 3 & 9 & 6
+    \end{bmatrix}.
+    $$
+    \begin{answer}
+    \end{answer}
+
+\end{enumerate}
+
+\noindent\textbf{Key idea of this exercise:}
+
+$$
+    \begin{gathered}
+    \underbrace{
+        A \xrightarrow{E_1} A_1
+        \xrightarrow{E_2} A_2
+        \xrightarrow{E_3} \cdots
+        \xrightarrow{E_p} B
+    }_{\text{Elementary row operations}}
+    \\[0.75em]
+    \Updownarrow
+    \\[0.75em]
+    \boxed{B=E_p\cdots E_2E_1A}
+    \end{gathered}
+$$

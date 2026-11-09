@@ -1,0 +1,42 @@
+$G=
+\begin{bmatrix}
+    3 \\
+    0 \\
+   -1 \\
+    0
+\end{bmatrix}
+$ \\[1.0em]
+
+\begin{enumerate}
+    \item
+    \textbf{Row Echelon:} \\[1.0em]
+    \begin{answer}
+        $G \xrightarrow[t_1]{R_3 \leftarrow R_3+\frac{1}{3}R_1}
+        \begin{bmatrix}
+            3 \\
+            0 \\
+            0 \\
+            0
+        \end{bmatrix}
+        = G'$
+    \end{answer}
+
+    \item
+    \textbf{Rank:}
+    \begin{answer}
+        $\operatorname{rank}(G)=1.$
+    \end{answer} \\
+
+    \item
+    \textbf{Reduced Echelon form:} \\[1.0em]
+    \begin{answer}
+        $G' \xrightarrow[t_2]{R_1 \leftarrow \frac{1}{3}R_1}
+        \begin{bmatrix}
+            1 \\
+            0 \\
+            0 \\
+            0
+        \end{bmatrix}
+        = \operatorname{rref}(G)$
+    \end{answer}
+\end{enumerate}
