@@ -36,49 +36,47 @@ $$
 \begin{enumerate}[label=\alph*)]
 
 \item \textbf{Determine elementary matrices
-$H$, $J$ and $K$ such that}
-$$
-    HA=B,\qquad JA=C,\qquad KA=D.
-$$
+    $H$, $J$ and $K$ such that}
+    $$
+        HA=B,\qquad JA=C,\qquad KA=D.
+    $$
 
-\begin{answer}
-    $H=
-    \begin{bmatrix}
-        0 & 1 & 0 \\
-        1 & 0 & 0 \\
-        0 & 0 & 1
-    \end{bmatrix},
-    \qquad
-    R_1 \leftrightarrow R_2,
-    \qquad HA=B.
-    \\[1.0em]
-    J=
-    \begin{bmatrix}
-        1 & 0 & 0 \\
-        0 & 1 & 1 \\
-        0 & 0 & 1
-    \end{bmatrix},
-    \qquad
-    R_2 \leftarrow R_2+R_3,
-    \qquad JA=C.
-    \\[1.0em]
-    K=
-    \begin{bmatrix}
-        1 & 0 & 0 \\
-        0 & -2 & 0 \\
-        0 & 0 & 1
-    \end{bmatrix},
-    \qquad
-    R_2 \leftarrow -2R_2,
-    \qquad KA=D.
-    $ \\[1.0em]
-\end{answer}
+    \begin{answer}
+        $H=
+        \begin{bmatrix}
+            0 & 1 & 0 \\
+            1 & 0 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix},
+        \qquad
+        R_1 \leftrightarrow R_2,
+        \qquad HA=B.
+        \\[1.0em]
+        J=
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 1 \\
+            0 & 0 & 1
+        \end{bmatrix},
+        \qquad
+        R_2 \leftarrow R_2+R_3,
+        \qquad JA=C.
+        \\[1.0em]
+        K=
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & -2 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix},
+        \qquad
+        R_2 \leftarrow -2R_2,
+        \qquad KA=D.
+        $ \\[1.0em]
+    \end{answer}
 
-    \item \input{../ejercicios - tex/18_b.tex}
+\item \input{../ejercicios - tex/18_b.tex}
 
-
-    \item \textbf{Determine a matrix $Q$
-    such that $QA=F$, where}
+\item \textbf{Determine a matrix $Q$such that $QA=F$, where}
     $$
     F=
     \begin{bmatrix}
@@ -87,8 +85,126 @@ $$
          0 & 3 & 9 & 6
     \end{bmatrix}.
     $$
+    
     \begin{answer}
-    \end{answer}
+        We apply elementary row operations to transform $A$ into $F$.
+
+        $A \xrightarrow[t_1]{R_2 \leftarrow R_2-R_1}
+        \begin{bmatrix}
+            1 &  0 &  1 & 1 \\
+            0 &  2 &  2 & 0 \\
+            -2 & -1 & -1 & 0
+        \end{bmatrix}
+        $
+        $\xrightarrow[t_2]{R_3 \leftarrow R_3+R_2}
+        \begin{bmatrix}
+            1 &  0 & 1 & 1 \\
+            0 &  2 & 2 & 0 \\
+            -2 &  1 & 1 & 0
+        \end{bmatrix}
+        $ \\[1.0em]
+
+        $\xrightarrow[t_3]{R_3 \leftarrow R_3+2R_1}
+        \begin{bmatrix}
+            1 & 0 & 1 & 1 \\
+            0 & 2 & 2 & 0 \\
+            0 & 1 & 3 & 2
+        \end{bmatrix}
+        $
+        $\xrightarrow[t_4]{R_3 \leftarrow 3R_3}
+        \begin{bmatrix}
+            1 & 0 & 1 & 1 \\
+            0 & 2 & 2 & 0 \\
+            0 & 3 & 9 & 6
+        \end{bmatrix}
+        $ \\[1.0em]
+
+        $\xrightarrow[t_5]{R_1 \leftarrow R_1-R_2}
+        \begin{bmatrix}
+            1 & -2 & -1 & 1 \\
+            0 &  2 &  2 & 0 \\
+            0 &  3 &  9 & 6
+        \end{bmatrix}
+        $
+        $\xrightarrow[t_6]{R_1 \leftarrow -2R_1}
+        \begin{bmatrix}
+            -2 & 4 & 2 & -2 \\
+            0 & 2 & 2 &  0 \\
+            0 & 3 & 9 &  6
+        \end{bmatrix}
+        =F.
+        $ \\[1.0em]
+
+        The corresponding elementary matrices are
+
+        $$
+        \begin{aligned}
+        E_1 &=
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            -1 & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix},
+        &
+        E_2 &=
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 1 & 1
+        \end{bmatrix},
+        &
+        E_3 &=
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            2 & 0 & 1
+        \end{bmatrix},
+        \\[1em]
+        E_4 &=
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 3
+        \end{bmatrix},
+        &
+        E_5 &=
+        \begin{bmatrix}
+            1 & -1 & 0 \\
+            0 &  1 & 0 \\
+            0 &  0 & 1
+        \end{bmatrix},
+        &
+        E_6 &=
+        \begin{bmatrix}
+            -2 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix}.
+        \end{aligned}
+        $$
+
+        By associativity of matrix multiplication,
+
+        $$
+        E_6E_5E_4E_3E_2E_1A=F.
+        $$
+
+        Therefore, taking
+
+        $$
+        \boxed{
+        Q=E_6E_5E_4E_3E_2E_1
+        =
+        \begin{bmatrix}
+            -4 & 2 & 0 \\
+            -1 & 1 & 0 \\
+            3 & 3 & 3
+        \end{bmatrix}
+        }
+        $$
+
+        we obtain $\boxed{QA=F}$.
+    \end{answer} \\[1.0em]
 
 \end{enumerate}
 
