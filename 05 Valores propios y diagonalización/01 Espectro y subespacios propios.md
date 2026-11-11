@@ -30,9 +30,6 @@ tags:
   - espectro
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Espectro y subespacios propios
 Un operador suele mezclar las direcciones de una base. Algunas rectas que pasan por el origen, sin embargo, permanecen invariantes: cualquier vector de una de esas rectas sólo cambia por un factor escalar. Los valores propios identifican esos factores y los subespacios propios reúnen todas las direcciones que comparten uno de ellos.[^1]
 
@@ -251,7 +248,3 @@ Encontrar una raíz de $\chi_A$ no basta para hallar los vectores propios: hay q
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Da una matriz cuadrada pequeña y pide calcular su polinomio característico, espectro y una base de cada subespacio propio. Exige distinguir multiplicidades algebraicas y geométricas, comprobar los vectores obtenidos y justificar por qué vectores propios de valores distintos son independientes. Ofrece pistas graduadas y detén cualquier cálculo que cambie silenciosamente el cuerpo de escalares.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

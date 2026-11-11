@@ -29,9 +29,6 @@ tags:
   - complemento-ortogonal
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Bases ortogonales y Gram–Schmidt
 La ortogonalidad convierte una base en un sistema de coordenadas especialmente transparente: cada coeficiente se recupera mediante un producto interno. Gram–Schmidt construye ese sistema a partir de cualquier familia independiente sin cambiar el subespacio generado.[^1]
 
@@ -232,7 +229,3 @@ El complemento ortogonal depende del espacio ambiente y del producto interno. Un
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Da una familia independiente y pide aplicar Gram–Schmidt justificando cada proyección, comprobar productos cruzados y normalizar al final. Después solicita una proyección sobre el subespacio obtenido y el cálculo de su complemento ortogonal. Exige cerrar con la descomposición de un vector como suma de sus componentes en $U$ y $U^\perp$, usando pistas graduadas.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

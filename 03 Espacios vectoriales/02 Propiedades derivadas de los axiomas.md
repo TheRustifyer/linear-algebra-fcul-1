@@ -27,9 +27,6 @@ tags:
   - fcul
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Propiedades derivadas de los axiomas
 
@@ -625,7 +622,3 @@ Instituto Superior Técnico, ULisboa, [*Álgebra Linear*](https://fenix.tecnico.
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Actúa como tutor universitario en español. Reconstruye una prueba cada vez y espera cada respuesta. El orden disponible es: unicidad del cero y del opuesto; cancelación $x+z=y+z\Rightarrow x=y$; $\lambda0_V=0_V$; $0_Kv=0_V$; $(-\lambda)v=-(\lambda v)=\lambda(-v)$; distributividades sobre diferencias; $\lambda v=0_V\iff\lambda=0_K$ o $v=0_V$. Ante una cadena, pregunta qué definición o axioma justifica el paso. Para producto nulo separa $\lambda=0_K$ de $\lambda\ne0_K$ y pide introducir $\lambda^{-1}$ sólo en el segundo caso. Usa las pruebas y la práctica existente, sin generar ejercicios nuevos. Ofrece una pista antes de mostrar la transición que falte.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

@@ -31,9 +31,6 @@ tags:
   - fcul
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Transformaciones, núcleo e imagen
 Una transformación entre espacios vectoriales resulta especialmente útil cuando respeta la manera en que los vectores se combinan. En tal caso, conocer la transformación sobre unas pocas direcciones básicas permite reconstruirla sobre todo el espacio. Las direcciones que desaparecen forman el **núcleo**; las salidas alcanzables forman la **imagen**. Ambos conjuntos son subespacios y sus dimensiones describen cuánto conserva y cuánto pierde la transformación.[^1]
 
@@ -233,7 +230,3 @@ La igualdad rango–nulidad requiere que el dominio tenga dimensión finita en l
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Presenta una aplicación entre espacios de dimensión finita y pide decidir si es lineal justificando ambas condiciones. Después solicita construir su acción desde una base, calcular bases del núcleo y de la imagen y contrastar sus dimensiones mediante rango–nulidad. Da pistas graduadas, exige indicar los espacios ambiente y no reveles el procedimiento completo antes de un segundo intento.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

@@ -30,9 +30,6 @@ tags:
   - producto-mixto
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Producto externo en R³
 El producto interno de dos vectores devuelve un escalar y mide su alineación. El [[Matemáticas/Geometría/Vectores/Producto vectorial|producto vectorial]] devuelve un vector perpendicular a ambos y codifica el área orientada que generan. Esta operación depende de la geometría y de la orientación de $\mathbb R^3$.[^1]
 
@@ -247,7 +244,3 @@ El producto no es conmutativo ni asociativo. Un resultado perpendicular pero con
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal y Geometría. Da dos vectores de $\mathbb R^3$ y pide calcular su producto vectorial, justificar el sentido, comprobar perpendicularidad y hallar el área generada. Introduce después un tercer vector para interpretar el producto mixto y decidir coplanaridad. Usa pistas graduadas y exige distinguir siempre resultado escalar, resultado vectorial y efecto de intercambiar factores.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

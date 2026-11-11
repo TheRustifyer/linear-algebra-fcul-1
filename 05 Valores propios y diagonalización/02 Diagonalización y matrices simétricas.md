@@ -32,9 +32,6 @@ tags:
   - teorema-espectral
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Diagonalización y matrices simétricas
 Una matriz diagonal separa las direcciones coordenadas: cada una se escala sin mezclarse con las demás. Diagonalizar un operador consiste en encontrar una base cuyas direcciones sean propias. La transformación no cambia; cambia el sistema de coordenadas en el que se observa.[^1]
 
@@ -265,7 +262,3 @@ Toda matriz simétrica real es diagonalizable ortogonalmente, pero una matriz di
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Da una matriz cuyo polinomio característico se descomponga y pide decidir si posee una base propia. Haz que el estudiante construya $P$ y $D$, compruebe $AP=PD$ y explique qué falla cuando una multiplicidad geométrica es insuficiente. Incluye después una matriz simétrica real para que justifique la ortogonalidad de espacios propios y construya una diagonalización ortogonal, ofreciendo pistas graduadas y exigiendo indicar el cuerpo de escalares.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

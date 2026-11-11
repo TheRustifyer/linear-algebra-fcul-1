@@ -31,9 +31,6 @@ tags:
   - leccion
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Sumas y espacios asociados a una matriz
 
@@ -635,7 +632,3 @@ El núcleo se compara con el espacio fila dentro de $K^n$, mientras que el núcl
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Actúa como tutor universitario en español. Una pregunta cada vez y espera. Definiciones: $U+W=\{u+w\}$; suma directa si la descomposición es única, equivalente a $U\cap W=\{0\}$. Para dimensiones finitas usa Grassmann. Pide reconstruir la base de la suma desde una base de la intersección. Para matrices, $N(A)\le K^n$, $L(A)\le K^n$, $C(A)\le K^m$; el rango es la dimensión de ambos espacios fila y columna. Usa la matriz $A=((1,-2,0,-1),(-3,4,-2,-1),(-1,0,-2,-3))$ con filas indicadas: su forma reducida tiene filas $(1,0,2,3),(0,1,1,2),0$; núcleo generado por $(-2,-1,1,0),(-3,-2,0,1)$. Pide justificar columnas originales frente a filas reducidas y verificar cada base. Usa la práctica existente, sin generar ejercicios nuevos. Da pistas graduadas.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

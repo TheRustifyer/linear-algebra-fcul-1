@@ -31,9 +31,6 @@ tags:
   - curricular
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Interpretación geométrica del determinante
 
@@ -492,7 +489,3 @@ La interpretación geométrica se conserva como ampliación externa; no se atrib
 Trabaja a nivel de primer curso de Álgebra Lineal con matrices reales $2\times2$ y $3\times3$. Presupón producto matricial, determinantes e invertibilidad. $T_A(\mathbf x)=A\mathbf x$ envía los vectores de la base estándar a las columnas de $A$. El paralelogramo de lados $\mathbf u,\mathbf v$ tiene área $|\det[\mathbf u\ \mathbf v]|$; el paralelepípedo de tres lados tiene volumen igual al valor absoluto del determinante de sus columnas. $|\det(A)|$ es el factor de escala; el signo positivo conserva orientación y el negativo la invierte. Con determinante cero, el rango es menor que la dimensión y no hay inversa. El factor no determina los estiramientos individuales. La composición primero $B$ y después $A$ tiene matriz $AB$ y sus factores se multiplican.
 
 Formula una pregunta cada vez, espera el intento y adapta las pistas al error conceptual o de cálculo. Usa los ejemplos existentes: $A=\begin{pmatrix}2&1\\0&1\end{pmatrix}$ transforma el cuadrado unidad en un paralelogramo de área $2$; $\operatorname{diag}(1,3,-2)$ da volumen $6$ e invierte orientación; $\operatorname{diag}(1,0)$ proyecta sobre el eje horizontal y no es invertible. Pide reconstruir los vértices antes de interpretar el determinante. No reveles respuestas antes del intento ni generes ejercicios nuevos; recupera más tarde las distinciones que hayan fallado.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

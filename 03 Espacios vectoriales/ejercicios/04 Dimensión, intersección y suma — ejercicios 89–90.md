@@ -25,9 +25,6 @@ tags:
 
 # Dimensión, intersección y suma · ejercicios 89–90
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 La [[Matemáticas/Álgebra lineal/Espacios vectoriales/05 Bases y dimensión|dimensión]] es el número de vectores de una base. Al variar un parámetro, algunos generadores pueden pasar a ser combinaciones de los demás y la dimensión puede disminuir. Al sumar dos subespacios, el recuento también depende de las direcciones que comparten.[^bases][^suma]
 
@@ -327,7 +324,3 @@ Actúa como profesor de Álgebra Lineal de primer curso. Examina una pregunta ca
 Para una familia con parámetro, pide colocar sus generadores como columnas y hallar los ceros del determinante. Fuera de esos ceros hay dimensión completa; en cada valor excepcional exige sustituir, probar qué relaciones aparecen y construir una familia independiente que siga generando todo. En el ejercicio 89, comprueba por separado $\lambda=0,-1,-2$ y el caso general. Si el determinante es cero, pide continuar hasta obtener el rango o una base que determine la dimensión.
 
 Para el ejercicio 90, obtén primero bases de $F$ y $G$. Distingue $x_4=2x_2$ de $x_2=2x_4$: al intersectar deben cumplirse ambas condiciones; al sumar se reúnen los generadores. Pide justificar generación e independencia de cada base y usa Grassmann después para comprobar la coherencia de las dimensiones.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

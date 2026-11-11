@@ -24,9 +24,6 @@ tags:
 
 # Combinaciones lineales y espacio generado · ejercicios 66–77
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 Para decidir si un vector pertenece a un [[Matemáticas/Álgebra lineal/Espacios vectoriales/03 Combinaciones lineales y espacio generado|espacio generado]], se busca una combinación que lo reproduzca por completo. La igualdad se comprueba comparando coordenadas en $\mathbb R^n$, coeficientes en polinomios y entradas en matrices. En funciones debe valer para todos los puntos del dominio. Una sola contradicción descarta la combinación; los coeficientes encontrados deben satisfacer todas las condiciones.[^generado]
 
@@ -1034,7 +1031,3 @@ Actúa como profesor de Álgebra Lineal de primer curso. Propón un ejercicio de
 Para comparar espacios generados, pide las dos inclusiones o un vector concreto que refute una. En 74 y 75, exige separar los ceros de cada posible divisor antes de dividir y comprobar que se han cubierto todos los valores del parámetro. En 76 y 77, pide demostrar que las ecuaciones son necesarias y suficientes; después, impón simultáneamente las condiciones de ambos subespacios para calcular la intersección.
 
 Comprueba la respuesta por sustitución en el enunciado. Si hay un error, permite corregir la primera inferencia que falla antes de mostrar el resto. Formula una pregunta cada vez, espera mi respuesta y adapta la dificultad mediante recuperación activa y repetición espaciada.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

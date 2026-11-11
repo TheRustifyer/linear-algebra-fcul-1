@@ -20,9 +20,6 @@ tags:
 
 # ALGA · Resumen — Síntesis de contenidos
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 > [!important] Alcance
 > Secuencia de las **aulas 1–10** de ALGA, FCUL, 2026/27: el aula 1 presenta el programa; las aulas 2–10 desarrollan vectores, matrices, eliminación, inversas y sistemas. El aula 10 cierra la unidad de matrices y sistemas. Aquí $K$ significa siempre $\mathbb R$ o $\mathbb C$. «Característica» es la denominación portuguesa del **rango** $r(A)$.
@@ -370,9 +367,6 @@ El aula identifica $u=(a_1,\ldots,a_n)\in K^n$ con la columna de sus coordenadas
 
 Examina una idea por vez de las aulas 2–10 de ALGA: operaciones y tamaños de matrices; transpuesta, conjugada, transconjugada y traza; pivotes, Gauss y Gauss–Jordan; rango, matrices elementales e inversa; forma $AX=B$, compatibilidad y variables libres. Pide primero una definición o una decisión justificada, espera mi intento y corrige símbolos, condiciones y orden de los factores. Después propón una matriz o sistema pequeño para aplicar el criterio, verificar el resultado y explicar su significado. No adelantes la respuesta.
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```
 
 # Bibliografía extra (Confirmada por o profe Mario)
 

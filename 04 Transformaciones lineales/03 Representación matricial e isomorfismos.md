@@ -31,9 +31,6 @@ tags:
   - cambio-de-base
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Representación matricial e isomorfismos
 Una transformación lineal es un objeto independiente de las coordenadas. Al elegir una base en el dominio y otra en el codominio, su acción queda codificada por una matriz. Cambiar de bases modifica las entradas de esa matriz, pero no altera propiedades como el rango, la inyectividad o la sobreyectividad.[^1]
 
@@ -225,7 +222,3 @@ Las fórmulas de cambio de base exigen bases ordenadas completas. Si sólo se di
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Da una transformación lineal y dos bases ordenadas para que el estudiante construya su matriz columna por columna. Pide después decidir inyectividad, sobreyectividad e isomorfía mediante núcleo, imagen y rango. Finalmente cambia una de las bases y exige derivar la fórmula de transformación de la matriz siguiendo la dirección de cada sistema de coordenadas, con pistas graduadas y comprobación final sobre un vector.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

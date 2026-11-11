@@ -29,9 +29,6 @@ tags:
   - congruencia
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Formas cuadráticas y matrices simétricas
 Una forma cuadrática asigna un número a cada vector mediante términos de grado dos. Su matriz simétrica reúne en un solo objeto los cuadrados y los productos cruzados, y permite usar la diagonalización ortogonal para encontrar coordenadas en las que esos productos desaparecen.[^1]
 
@@ -229,7 +226,3 @@ En los términos cruzados, la entrada matricial es la mitad del coeficiente visi
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Da primero una expresión cuadrática y pide construir su matriz simétrica justificando cada coeficiente cruzado. Después entrega una matriz no simétrica para que el estudiante extraiga su parte simétrica. Termina con un cambio de coordenadas y una diagonalización ortogonal, exigiendo distinguir congruencia de semejanza y comprobar la expresión final.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

@@ -31,9 +31,6 @@ tags:
   - leccion
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Subespacios y espacio generado
 
@@ -1021,7 +1018,3 @@ Instituto Superior Técnico, ULisboa, [*Álgebra Linear*](https://fenix.tecnico.
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Actúa como tutor universitario en español. Pregunta una sola cosa cada vez y espera. Criterio: $W\ne\varnothing$ y $\alpha u+\beta v\in W$ para $u,v\in W$, $\alpha,\beta\in K$. Generado: combinaciones finitas; es el menor subespacio que contiene sus generadores. Recupera las pruebas de inclusión, doble inclusión, eliminación y tres transformaciones invertibles. Usa sólo ejemplos ya incluidos: $F=\{x+y=0,y+2z=0\}$, $G$ con segunda ecuación igual a uno, $H=\{xy-y=0\}$, plano $z=x+y$, y el TPC de $(3,-4,-3)$ frente a $(1,-2,0),(0,1,-1),(1,-4,2),(2,-3,-1)$. En este TPC aparece $0=-1$ al reducir. Pide justificar cada transición y da pistas graduadas; no generes ejercicios nuevos.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

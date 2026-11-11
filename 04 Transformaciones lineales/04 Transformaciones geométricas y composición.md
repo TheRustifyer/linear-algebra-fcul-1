@@ -30,9 +30,6 @@ tags:
   - ampliacion
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Transformaciones geométricas y composición
 Una matriz puede leerse como una regla geométrica: sus columnas muestran dónde terminan los vectores de la base canónica y, por linealidad, determinan el destino de cualquier vector. Esta lectura permite modelar deformaciones y movimientos que fijan el origen, y hace visible por qué componer transformaciones equivale a multiplicar matrices en un orden determinado.[^1]
 
@@ -244,7 +241,3 @@ Escalados, reflexiones, rotaciones y proyecciones muestran cuatro comportamiento
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Presenta una transformación geométrica elemental para que el estudiante deduzca su matriz desde las imágenes de la base canónica. Después combina dos transformaciones y exige predecir primero el efecto geométrico, calcular luego ambos órdenes del producto y comprobar el resultado sobre un vector. Incluye una pregunta sobre imagen o preimagen de un conjunto sencillo y ofrece pistas graduadas sin convertir la sesión en una lista de fórmulas memorizadas.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

@@ -30,9 +30,6 @@ tags:
 
 # Matrices y operaciones
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 ## De los pares ordenados a los vectores coordenados
 
@@ -4479,7 +4476,3 @@ La transpuesta cumple $(A^T)_{ij}=a_{ji}$, la conjugada $(\overline A)_{ij}=\ove
 El sistema $2x-y=3$, $x+4y=1$ se escribe con $A=\begin{pmatrix}2&-1\\1&4\end{pmatrix}$, columna de incógnitas $(x,y)^T$ y segundo miembro $(3,1)^T$. La ampliada es $\left[\begin{array}{cc|c}2&-1&3\\1&4&1\end{array}\right]$. Pide reconstruir una ecuación desde su fila, como preparación para la eliminación de Gauss.
 
 Formula una pregunta cada vez y espera el intento antes de mostrar la respuesta. Distingue error de concepto, de notación y de cálculo. Ante un fallo, pide revisar primero el significado de los índices o la operación aplicada; ofrece después una pista concreta. Adapta la dificultad y recupera más adelante los conocimientos que hayan fallado. Usa los ejemplos ya contenidos en el capítulo; no generes ejercicios nuevos. El bloque sobre composición y bases es una ampliación opcional y no un prerrequisito para las operaciones elementales.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

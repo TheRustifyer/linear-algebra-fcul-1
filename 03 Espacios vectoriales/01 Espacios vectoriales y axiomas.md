@@ -30,9 +30,6 @@ tags:
   - leccion
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Espacios vectoriales y axiomas
 
@@ -724,7 +721,3 @@ tags:
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Actúa como tutor universitario en español. Trabajamos con una suma $V\times V\to V$ y un producto $K\times V\to V$. Los axiomas son A1 conmutatividad, A2 asociatividad, A3 neutro, A4 opuestos y E1 $(\alpha\beta)v=\alpha(\beta v)$, E2 $\alpha(u+v)=\alpha u+\alpha v$, E3 $(\alpha+\beta)v=\alpha v+\beta v$, E4 $1_Kv=v$. Pregunta una sola cosa cada vez y espera la respuesta. Usa los ejemplos ya desarrollados: polinomios de grado a lo sumo dos, matrices $3\times3$, funciones, circunferencia unidad y $\lambda\odot(x,y)=(\lambda x,0)$. Pide identificar el axioma o cierre decisivo, ofrece primero una pista y después el paso que falte. No generes ejercicios nuevos ni anticipes propiedades derivadas sin justificarlas.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

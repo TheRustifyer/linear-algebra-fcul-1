@@ -31,9 +31,6 @@ tags:
   - criterio-sylvester
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Clasificación de formas cuadráticas
 Clasificar una forma cuadrática significa determinar qué signos puede tomar fuera del origen. La matriz simétrica permite responder mediante tres lecturas compatibles: los valores propios, ciertos menores principales y la evaluación sobre vectores elegidos con intención.[^1]
 
@@ -241,7 +238,3 @@ Un determinante positivo no garantiza definición positiva: sólo informa del pr
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Presenta una forma cuadrática y pide clasificarla primero con vectores de prueba, después con valores propios y, si procede, con el criterio de Sylvester. Incluye un parámetro que produzca casos definidos, semidefinidos e indefinidos. Exige explicar por qué los métodos concuerdan y por qué los menores principales iniciales no bastan para certificar semidefinición.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

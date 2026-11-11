@@ -29,9 +29,6 @@ tags:
   - fcul
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Aplicaciones entre conjuntos
 
@@ -242,7 +239,3 @@ No se aportó material base específico para esta nota. El índice curricular se
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Actúa como tutor de Álgebra Lineal y comprueba que el estudiante separa dominio, codominio e imagen. Propón una función sencilla con subconjuntos para que explique imágenes y preimágenes, y pida justificar inclusiones y propiedades de composición. Usa pistas graduadas y exige que indique qué hipótesis —como inyectividad— necesita para convertir una inclusión en igualdad.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

@@ -21,9 +21,6 @@ tags:
   - curricular
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Sistemas de ecuaciones lineales
 
@@ -1629,7 +1626,3 @@ En el segundo, usa $A=\begin{pmatrix}4&9&-2&-5&-12\\5&11&-3&-5&-10\\3&7&-1&-3&-8
 El núcleo es $\ker(A)=\{v\in K^n:Av=0\}$. Si existe una particular $u$, todas las soluciones son $u+\ker(A)$. Pide reconstruir las dos inclusiones: $A(u+v)=B$ cuando $Av=0$, y $A(X-u)=0$ cuando $AX=Au=B$. Una base del núcleo debe generar sus soluciones y ser independiente; hay $n-r$ parámetros si el sistema es compatible y su rango es $r$.
 
 Para los dos ejercicios finales, usa $A=\begin{pmatrix}1&-2&0&-1\\-3&4&-2&-1\\-1&0&-2&-3\end{pmatrix}$, $B=(1,3,5)^T$, particular $u=(-7,-4,1,0)$ y direcciones $(-2,-1,1,0)$, $(-3,-2,0,1)$. No reveles esos resultados antes del intento que se esté evaluando. Cierra la sesión con recuperación de una idea trabajada anteriormente y una comprobación de la respuesta en el sistema original.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

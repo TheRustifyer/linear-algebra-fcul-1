@@ -28,9 +28,6 @@ tags:
   - curricular
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Teoría elemental de conjuntos
 
@@ -175,7 +172,3 @@ Las condiciones de validez del complemento exigen que el universo esté declarad
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Comprueba que el estudiante distingue pertenencia de inclusión, interpreta correctamente el conjunto vacío y el conjunto de partes, traduce unión, intersección, diferencia y complemento a condiciones lógicas, y entiende por qué el complemento depende del universo. Pídele que explique una igualdad por doble inclusión y que ordene los pares de un producto cartesiano. No generes ejercicios nuevos; usa ejemplos breves y diagnostica con precisión cada paso.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

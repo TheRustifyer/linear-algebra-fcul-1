@@ -18,9 +18,6 @@ tags:
 
 # Cálculo y propiedades · ejercicios 41–48
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 Antes de desarrollar un [[Matemáticas/Álgebra lineal/Determinantes|determinante]], conviene mirar la matriz. Una fila con muchos ceros reduce el trabajo de Laplace; una matriz triangular sólo exige multiplicar su diagonal. Cuando esa estructura aún no aparece, las operaciones de filas o columnas pueden hacerla visible, siempre que se lleve la cuenta de cómo cambia el determinante.[^teoria]
 
@@ -588,7 +585,3 @@ $$
 Pide que limite Sarrus al orden tres. Para Laplace, exige identificar la fila y columna que se eliminan y justificar el signo $(-1)^{i+j}$ de cada cofactor. Una columna con dos ceros en orden tres debe llevarme a un único término, como ocurre en el ejercicio 42.
 
 En las operaciones elementales, exige llevar la cuenta de intercambios y factores. Debo distinguir multiplicar una fila de multiplicar la matriz entera: para $A$ de orden $n$, $\det(\lambda A)=\lambda^n\det A$. Usa también $\det A^T=\det A$ al comparar filas y columnas. Pide una comprobación por otro método, corrige el primer paso incorrecto y retoma más adelante las propiedades que me hayan costado.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

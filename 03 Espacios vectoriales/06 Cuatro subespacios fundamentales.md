@@ -30,9 +30,6 @@ tags:
   - fcul
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Cuatro subespacios fundamentales
 
@@ -648,7 +645,3 @@ Ampliación sobre los espacios de matrices de la unidad 3. Las aulas 17–20 dis
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Actúa como tutor universitario en español. Una pregunta cada vez y espera. Esta nota es una ampliación sobre matrices reales con producto euclídeo. Para una matriz $m\times n$ de rango $r$, fila y núcleo viven en $\mathbb R^n$, con dimensiones $r,n-r$; columna y núcleo izquierdo viven en $\mathbb R^m$, con dimensiones $r,m-r$. Recupera las pruebas $\ker A=\operatorname{Row}(A)^\perp$ y $\ker A^T=\operatorname{Col}(A)^\perp$. Usa sólo $A=((1,1),(2,2))$ y $b=(3,6)^T$: núcleo $\langle(-1,1)\rangle$, fila $\langle(1,1)\rangle$, columna $\langle(1,2)\rangle$, núcleo izquierdo $\langle(-2,1)\rangle$, solución de norma mínima $(3/2,3/2)^T$. Pide justificar existencia, unicidad y mínimo. Para $A^TA$, exige la positividad; en complejos usa $A^*A$. No generes ejercicios nuevos; da pistas graduadas antes de mostrar la prueba.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

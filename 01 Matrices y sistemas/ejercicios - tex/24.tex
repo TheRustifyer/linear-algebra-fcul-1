@@ -1,0 +1,80 @@
+
+\item \textbf{Let $A\in M_n(K)$ be a matrix such that}
+
+$$
+A^3+A=5I_n.
+$$
+
+\begin{enumerate}[label=\alph*)]
+
+    \item \textbf{Prove that $A$ is invertible
+    and determine $A^{-1}$ in terms of $A$.}
+
+    \begin{answer}
+        
+        $$
+        \begin{alignedat}{2}
+        A^3+A
+            &=5I_n
+            &\qquad\qquad& \text{(Hypothesis)}\\
+        A(A^2+I_n)
+            &=5I_n
+            && \text{(Distributivity)}\\
+        \frac{1}{5} A(A^2+I_n)
+            &=I_n
+            && \text{(Multiply both sides by $\frac{1}{5}$)}\\
+        A\left[\frac{1}{5}(A^2+I_n)\right]
+            &=I_n
+            && \text{(Since $(\lambda A)B=A(\lambda B)$)}
+        \end{alignedat}
+        $$ \\
+
+        Let $$B=\frac15(A^2+I_n)$$
+        Then, $$\boxed{AB=I_n}$$  \\[0.5em]
+        
+        We now verify that $BA=I_n$:
+
+        $$
+        \begin{aligned}
+        BA
+        &=\frac15(A^2+I_n)A\\
+        &=\frac15(A^3+A)\\
+        &=\frac15(5I_n)\\
+        &=I_n.
+        \end{aligned}
+        $$
+
+        Since $AB=BA=I_n$, by the
+        definition of an inverse matrix,
+        $A$ is invertible and
+
+        $$
+        \boxed{
+        A^{-1}=\frac15(A^2+I_n)
+        }.
+        $$
+    \end{answer}
+
+    \item \textbf{Prove that $7A$ is invertible
+    and determine $(7A)^{-1}$ in terms of $A$.}
+
+    \begin{answer}
+        From part a), $A$ is invertible.
+
+        Since $7\neq0$, by the property
+        of the inverse of a scalar multiple,
+        $7A$ is also invertible.
+
+        Therefore,
+
+        $$
+        \begin{aligned}
+        (7A)^{-1}
+        &=7^{-1}A^{-1}\\
+        &=\frac17\left[\frac15(A^2+I_n)\right]\\
+        &=\boxed{\frac1{35}(A^2+I_n)}.
+        \end{aligned}
+        $$
+    \end{answer}
+
+\end{enumerate}

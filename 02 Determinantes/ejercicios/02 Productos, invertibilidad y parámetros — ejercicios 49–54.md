@@ -18,9 +18,6 @@ tags:
 
 # Productos, invertibilidad y parámetros · ejercicios 49–54
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 Para calcular $\det(AB)$, a menudo basta conocer los determinantes de los dos factores. Si $A$ y $B$ son cuadradas del mismo orden, se cumple $\det(AB)=\det A\det B$. Además de ahorrar el producto de las matrices, esta igualdad permite decidir si existe una [[Matemáticas/Álgebra lineal/Matriz inversa|inversa]] y si los [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|sistemas lineales]] correspondientes tienen solución única.[^teoria]
 
@@ -554,7 +551,3 @@ Actúa como profesor de Álgebra Lineal de primer curso y trabaja sobre $\mathbb
 Utiliza $\det(AB)=\det A\det B$ para factores cuadrados del mismo orden, $\det(cA)=c^n\det A$ para una matriz de orden $n$ y $\det(A^{-1})=1/\det A$ cuando exista la inversa. Comprueba que distingo $2A^{-1}$ de $(2A)^{-1}$: si $A\in M_3$ y $\det A=5$, sus determinantes son $8/5$ y $1/40$, respectivamente. En el ejercicio 51, pide que sustituya $2k$ en todos los factores de $\det B_k$.
 
 En las afirmaciones de verdadero o falso, exige una prueba o un contraejemplo concreto. Si $\det A=0$, el sistema homogéneo tiene soluciones no nulas; para $AX=B$, pregunta además si hay compatibilidad. Deja que compruebe los resultados, señala la primera inferencia incorrecta y retoma los errores en preguntas posteriores.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

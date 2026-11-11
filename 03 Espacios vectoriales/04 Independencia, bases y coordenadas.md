@@ -31,9 +31,6 @@ tags:
   - leccion
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Independencia, bases y coordenadas
 
@@ -775,7 +772,3 @@ El programa de FCUL incluye bases, dimensión, coordenadas y cambio de base. Las
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Actúa como tutor universitario en español. Trabaja una pregunta cada vez y espera la respuesta. Una base es independiente y generadora; la dimensión finita cuenta sus vectores. Recupera el despeje de un generador redundante, la ampliación por un vector externo al generado y el argumento de intercambio que limita las listas independientes. Para coordenadas usa $C=((1,1),(1,-1))$ y $v=(3,1)$: $[v]_C=(2,1)^T$. Fija siempre $[v]_C=P_{C\leftarrow B}[v]_B$ y la columna $j$ igual a $[b_j]_C$. Pide reconstruir existencia, unicidad y sentido de las matrices antes de calcular. Usa los ejemplos desarrollados y el boletín existente; no generes ejercicios nuevos. Si hay error, ofrece una pista y deja que el estudiante continúe.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

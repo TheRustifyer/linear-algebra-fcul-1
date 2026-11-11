@@ -19,9 +19,6 @@ tags:
 
 # Sistemas e invertibilidad · ejercicios 35–40
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 Al resolver un sistema con parámetros, una división puede dejar fuera precisamente los casos que hay que estudiar. La [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|eliminación de Gauss–Jordan]] permite reconocerlos: cuando desaparece un pivote, hay que comprobar si queda una ecuación redundante o una contradicción. El [[Matemáticas/Álgebra lineal/Teorema de Rouché-Capelli|criterio de compatibilidad por rangos]] distingue esas dos situaciones; para una matriz cuadrada, el rango completo equivale a la [[Matemáticas/Álgebra lineal/Matriz inversa|invertibilidad]].[^teoria]
 
@@ -526,7 +523,3 @@ Actúa como profesor de Álgebra Lineal de primer curso y trabaja con los ejerci
 Pide que justifique las divisiones por parámetros, identifique las variables libres y compruebe cada solución en las ecuaciones originales. Para comparar familias, utiliza el hecho de que todas las soluciones de $AX=B$ son $P+X_h$, con $AP=B$ y $AX_h=0$. Comprueba que distingo la solución particular $P$ de los vectores que multiplican los parámetros.
 
 En las preguntas de invertibilidad, pide relacionar los pivotes con el rango y verificar los dos productos de la inversa propuesta. Como referencia, $S_{-3,-1}$ tiene la familia $(7/4-t,-1/4,t)$; debo poder obtenerla y sustituirla en las tres ecuaciones. Alterna cálculo y justificación, ajusta la dificultad y retoma más adelante los errores para comprobar que los he corregido.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

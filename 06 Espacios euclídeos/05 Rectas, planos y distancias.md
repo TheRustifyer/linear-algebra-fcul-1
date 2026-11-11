@@ -33,9 +33,6 @@ tags:
   - ampliacion
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Rectas, planos y distancias
 Una recta queda determinada por un punto y una dirección; un plano, por un punto y dos direcciones independientes o, de manera equivalente, por un punto y una dirección normal. Estas descripciones convierten preguntas geométricas en sistemas lineales y productos internos.[^1]
 
@@ -238,7 +235,3 @@ Una [[Matemáticas/Geometría/Geometría analítica/Recta en el espacio|recta e
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Geometría Analítica. Da datos mínimos para construir una recta y un plano y exige justificar qué vector actúa como dirección o normal. Pide convertir entre formas vectoriales, paramétricas y cartesianas, clasificar una posición relativa mediante un sistema o un producto interno y calcular una distancia punto-plano o entre planos paralelos. Usa pistas graduadas y exige una comprobación por sustitución.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

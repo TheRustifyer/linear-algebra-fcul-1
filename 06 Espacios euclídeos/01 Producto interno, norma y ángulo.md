@@ -29,9 +29,6 @@ tags:
   - norma
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Producto interno, norma y ángulo
 La estructura de espacio vectorial permite sumar vectores y escalarlos, pero no contiene por sí sola ninguna noción de longitud o perpendicularidad. Un producto interno añade esa geometría y permite definir norma, distancia, ángulo y proyección sin abandonar el lenguaje algebraico.[^1]
 
@@ -215,7 +212,3 @@ La fórmula de proyección exige $a\neq0$ porque divide por $\langle a,a\rangle$
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Presenta un producto interno y pide verificar sus axiomas, calcular normas, distancia y ángulo, y normalizar un vector. Haz que el estudiante reconstruya las demostraciones de Cauchy–Schwarz y la desigualdad triangular con pistas graduadas. Termina con una proyección sobre una recta y exige justificar la ortogonalidad del residuo y la propiedad de mejor aproximación.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

@@ -40,9 +40,6 @@ tags:
   - curricular
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Propiedades y aplicaciones de determinantes
 
@@ -1796,7 +1793,3 @@ x+y-z=0,\\
 \qquad A=\begin{pmatrix}2&0&1\\1&1&-1\\-2&-1&-3\end{pmatrix},\quad B=\begin{pmatrix}-2\\0\\1\end{pmatrix}.
 $$
 El resultado es $\det(A)=-7$, $\det(A_1(B))=7$, $\det(A_2(B))=-7$, $\det(A_3(B))=0$ y $(x,y,z)=(-1,1,0)$; exige verificar las tres ecuaciones por sustitución. Para practicar una coordenada aislada, usa $B_s=(-2,0,s)^T$ con $s\in\mathbb R$: basta obtener $z(s)=(2-2s)/7$, sin hallar las otras coordenadas. Al calcular $A^{-1}$, verifica que se transponga la matriz de cofactores; la interpretación geométrica del determinante queda como ampliación externa. No generes ejercicios: usa los sistemas y la práctica incluidos en esta nota.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

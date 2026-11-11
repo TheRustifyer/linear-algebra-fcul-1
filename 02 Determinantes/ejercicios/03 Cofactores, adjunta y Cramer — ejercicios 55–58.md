@@ -19,9 +19,6 @@ tags:
 
 # Cofactores, adjunta y Cramer · ejercicios 55–58
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 La [[Matemáticas/Álgebra lineal/Matriz inversa|inversa]] se obtiene transponiendo la matriz de [[Matemáticas/Álgebra lineal/Determinantes|cofactores]] y dividiendo sus entradas por el determinante de $A$. Por eso, para calcular una sola entrada de la inversa basta hallar un cofactor, pero hay que intercambiar sus índices. La regla de Cramer utiliza también un cociente de determinantes para calcular cada incógnita de un sistema cuadrado con determinante no nulo.[^teoria]
 
@@ -578,7 +575,3 @@ Actúa como profesor de Álgebra Lineal de primer curso. Elige un ejercicio entr
 Para calcular un cofactor, pide indicar qué fila y columna se eliminan y justificar el signo en $C_{ij}=(-1)^{i+j}\det A_{ij}$. Comprueba que uso $\operatorname{adj}(A)=\widehat A^T$ y que, al calcular $(A^{-1})_{ij}=C_{ji}/\det A$, intercambio los índices. En el ejercicio 57, pide verificar los dos productos de la inversa propuesta.
 
 Antes de aplicar Cramer, exige comprobar que la matriz sea cuadrada y $\det A\ne0$. Para $x_j=\det(A_j)/\det A$, comprueba que sustituyo sólo la columna $j$ por todo el término independiente $B$. Como referencia, en 58 c) se tiene $D=-2$, $D_x=-4$, $D_y=4$, $D_z=-2$ y solución $(2,-2,1)$. Pide verificar cada solución en el sistema original; alterna cálculo y demostración y retoma más adelante las dificultades que hayan aparecido.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

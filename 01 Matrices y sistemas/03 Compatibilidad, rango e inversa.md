@@ -1550,7 +1550,3 @@ Para matrices cuadradas, recuerda que $B$ es inversa de $A$ cuando $AB=BA=I_n$. 
 Para recuperar las propiedades, usa $(AB)^{-1}=B^{-1}A^{-1}$, $(\alpha A)^{-1}=\alpha^{-1}A^{-1}$ con $\alpha\ne0$, $(A^T)^{-1}=(A^{-1})^T$ y $(A^*)^{-1}=(A^{-1})^*$. Pide proponer el candidato y verificar ambos órdenes del producto. Las matrices deben ser cuadradas e invertibles; $A^*=\overline A^{\,T}$. Para el TPC sobre $AB$ invertible, toma $C=(AB)^{-1}$ y recupera $A(BC)=I_n$ y $(CA)B=I_n$.
 
 Ofrece primero pistas sobre el significado de una fila o un pivote, después sobre el criterio aplicable y, por último, sobre el cálculo. No permitas cancelar factores cambiando su orden. Al cerrar, solicita una comprobación en el sistema o producto original y una frase que interprete el resultado.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

@@ -33,9 +33,6 @@ tags:
   - curricular
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Factorización LU
 
@@ -550,7 +547,3 @@ No se ha aportado material específico de FCUL sobre factorización LU. Este des
 Usa los ejemplos de esta nota, sin generar ejercicios nuevos. Pide factorizar la matriz $2\times2$ y justificar el signo del multiplicador en $L$ mediante la operación inversa. Antes de resolver el sistema, comprueba que el estudiante sabe qué representa $\mathbf y$ y por qué se resuelve primero $L\mathbf y=\mathbf b$.
 
 Pide verificar $LU=A$ y la solución en $A\mathbf x=\mathbf b$. Contrasta los dos ejemplos con diagonal nula: el estudiante debe distinguir una división no permitida, la existencia de LU y la invertibilidad. Para $PA=LU$, exige explicar por qué el segundo miembro también se permuta. Ofrece pistas graduales y detente en el primer paso que no pueda justificar.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

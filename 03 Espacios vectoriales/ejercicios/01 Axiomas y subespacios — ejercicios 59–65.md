@@ -22,9 +22,6 @@ tags:
 
 # Axiomas y subespacios · ejercicios 59–65
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 Cambiar las operaciones obliga a comprobar la estructura completa de un [[Matemáticas/Álgebra lineal/Espacios vectoriales/01 Espacios vectoriales — definición y axiomas|espacio vectorial]]. Cuando las operaciones son las de un espacio conocido, el [[Matemáticas/Álgebra lineal/Espacios vectoriales/02 Subespacios vectoriales|criterio de subespacio]] reduce el trabajo a tres preguntas: ¿pertenece el vector cero?, ¿la suma conserva la condición?, ¿la conserva cualquier multiplicación por un escalar del cuerpo fijado?[^axiomas][^subespacios]
 
@@ -753,7 +750,3 @@ Actúa como profesor de Álgebra Lineal de primer curso. Usa los ejercicios 59�
 En matrices, distingue transposición y conjugada transpuesta y fija siempre el cuerpo de escalares. En polinomios, compara todos los coeficientes; en funciones, exige identidades para todo real. En 65 b), conserva la condición escrita $f(x+2\pi)=f(x)$, sin exigir período mínimo, y pide verificar las dos funciones propuestas en 65 d–e.
 
 Formula una pregunta cada vez y espera mi respuesta. Si hay un error, señala la primera inferencia que deba corregirse y permite que la revise antes de mostrar la solución completa. Usa recuperación activa y repetición espaciada, aumentando la dificultad cuando pueda justificar cada paso.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

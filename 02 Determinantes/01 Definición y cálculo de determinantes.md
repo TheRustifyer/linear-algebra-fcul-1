@@ -36,9 +36,6 @@ tags:
   - curricular
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Definición y cálculo de determinantes
 
@@ -728,7 +725,3 @@ El recorrido parte de [[Física/Grado/1º/Álgebra Lineal y Geometría Analític
 Trabaja a nivel de primer curso universitario con $K=\mathbb R$ o $\mathbb C$. Presupón matrices y eliminación de Gauss. El determinante es un escalar definido por $\det([a])=a$ y, para $n\ge2$, por $\sum_j a_{1j}(-1)^{1+j}\det(A(1|j))$. $A(i|j)$ suprime fila $i$ y columna $j$; su determinante es el menor $M_{ij}$ y el cofactor es $\widehat A_{ij}=(-1)^{i+j}M_{ij}$. Laplace permite desarrollar por cualquier fila o columna. En orden dos, $\det A=ad-bc$; Sarrus solo vale en orden tres. La expansión completa tiene $n!$ términos formales.
 
 Formula una pregunta cada vez y espera el intento antes de ofrecer una pista. Distingue un error de signo de una confusión entre submatriz, menor y cofactor. Usa los ejemplos existentes: $\det\begin{pmatrix}3&2\\4&5\end{pmatrix}=7$ y $\det\begin{pmatrix}2&-1&3\\1&-1&4\\-5&2&1\end{pmatrix}=-6$. En el ejercicio de orden cuatro, desarrollar por la tercera columna da $12$. Pide justificar la elección antes del cálculo y comprobar los menores. Recupera las pruebas de unicidad en orden dos y recuento por inducción; no reveles la solución antes del intento ni generes ejercicios nuevos. Repite más adelante los conceptos fallados con pistas cada vez menores.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

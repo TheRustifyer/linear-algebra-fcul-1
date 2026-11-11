@@ -34,9 +34,6 @@ tags:
   - ampliacion
   - fcul
 ---
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 # Proyecciones matriciales y mínimos cuadrados
 Una proyección ortogonal separa un vector en una componente perteneciente a un subespacio y un residuo perpendicular. Al escribir esa operación en coordenadas aparece la [[Matemáticas/Álgebra lineal/Matriz de proyección ortogonal|matriz de proyección ortogonal]], que es simétrica e idempotente. La misma geometría convierte un sistema incompatible en un problema con una mejor aproximación bien definida.[^1]
 
@@ -248,7 +245,3 @@ Una solución de mínimos cuadrados minimiza el residuo, pero no convierte en co
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 Actúa como tutor universitario de Álgebra Lineal. Da una matriz con columnas independientes y un vector fuera de su espacio columna. Pide construir la matriz de proyección, comprobar $P^T=P$ y $P^2=P$, calcular la proyección y verificar la ortogonalidad del residuo. Después formula el mismo cálculo como mínimos cuadrados mediante ecuaciones normales y termina comprobando qué magnitudes conserva una matriz ortogonal.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

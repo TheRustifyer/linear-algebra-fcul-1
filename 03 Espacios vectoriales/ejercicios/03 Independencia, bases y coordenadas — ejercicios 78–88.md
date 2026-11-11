@@ -27,9 +27,6 @@ tags:
 
 # Independencia, bases y coordenadas · ejercicios 78–88
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 Si un vector de una familia es combinación de los demás, puede eliminarse sin cambiar el subespacio que generan. Ese vector es redundante. Para extraer una [[Matemáticas/Álgebra lineal/Espacios vectoriales/05 Bases y dimensión|base]] de una familia generadora finita, se eliminan las redundancias hasta conservar una familia que genere todo el subespacio y sea [[Matemáticas/Álgebra lineal/Espacios vectoriales/04 Dependencia e independencia lineal|linealmente independiente]]. La comprobación emplea siempre los escalares y las operaciones del espacio indicado: cambiar el cuerpo o la suma, como sucede en 87 y 88, puede cambiar la base.[^bases]
 
@@ -1044,7 +1041,3 @@ Una familia es independiente si toda combinación igual al vector cero tiene tod
 En matrices y polinomios compara todas las entradas o coeficientes; en funciones, las relaciones deben valer para todo punto. Si se usan evaluaciones para probar independencia, pide explicar cómo obligan a anular los coeficientes. Para calcular coordenadas, fija primero el orden de la base y reconstruye el objeto con el resultado.
 
 En $\mathbb C$ y $\mathbb C^3$, pide indicar el cuerpo de escalares. En $\mathbb R^+$ con $x\oplus y=xy$ y $\alpha\otimes x=x^\alpha$, recuerda que el vector cero es $1$ y pide demostrar generación e independencia de $\{e\}$ mediante logaritmos. No reveles la solución antes de mi intento.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```

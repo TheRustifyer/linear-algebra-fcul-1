@@ -33,9 +33,6 @@ tags:
   - curricular
 ---
 
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "start" })
-```
 
 # Eliminación y matrices elementales
 
@@ -1870,7 +1867,3 @@ Una matriz está escalonada si las filas nulas quedan abajo y los pivotes —pri
 **Matrices elementales.** Una operación sobre $I_m$ produce $E$; el producto $EA$ realiza esa misma operación sobre $A$. La fila $r$ de $E$ da los coeficientes de la combinación que forma la fila $r$ de $EA$. Cada $E$ es invertible: la matriz de la operación inversa satisface $FE=EF=I_m$. Si se aplican $E_1$ y después $E_2$, el resultado es $E_2E_1A$. Operar sobre $[A\mid I_m]$ deja $[QA\mid Q]$, donde $Q$ representa toda la secuencia.
 
 Evalúa por separado el cálculo y su justificación: por qué se puede dividir, qué fila está siendo modificada, si se usa su valor actualizado y qué asegura la conservación de soluciones. Si se pide una prueba, fija las dimensiones y los índices antes de operar por componentes; evita sustituir la justificación por un ejemplo numérico.
-
-```dataviewjs
-await dv.view("Planes/Estudio/Scripts/study-session", { location: "end" })
-```
