@@ -1,0 +1,84 @@
+\begin{answer}
+    $$
+    \begin{aligned}
+        AX &= 2X+BC+C\\
+        AX-2X &= BC+C\\
+        (A-2I_3)X &= BC+C
+    \end{aligned}
+    $$
+
+    $$
+    A-2I_3=
+    \begin{bmatrix}
+        1 & 2 & 0\\
+        0 & -2 & 1\\
+        0 & 1 & 1
+    \end{bmatrix}
+    =B
+    $$
+
+    {\color{red}
+    \textbf{Note:} Since $A-2I_3=B$, the inverse
+    calculated in part a) allows us to solve
+    the matrix equation directly
+    }
+
+    $$
+    \begin{aligned}
+        BX &= BC+C\\
+        B^{-1}BX &= B^{-1}(BC+C)\\
+        (B^{-1}B)X &= (B^{-1}B)C+B^{-1}C\\
+        I_3X &= I_3C+B^{-1}C\\
+        X &= C+B^{-1}C\\
+        X &= (I_3+B^{-1})C
+    \end{aligned}
+    $$
+
+    $$
+    B^{-1}C=
+    \begin{bmatrix}
+        1 & \frac23 & -\frac23\\
+        0 & -\frac13 & \frac13\\
+        0 & \frac13 & \frac23
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0\\
+        0 & 2\\
+        -1 & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac53 & \frac43\\
+        -\frac13 & -\frac23\\
+        -\frac23 & \frac23
+    \end{bmatrix}
+    $$
+
+    $$
+    X=C+B^{-1}C
+    =
+    \begin{bmatrix}
+        1 & 0\\
+        0 & 2\\
+        -1 & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        \frac53 & \frac43\\
+        -\frac13 & -\frac23\\
+        -\frac23 & \frac23
+    \end{bmatrix}
+    \implies
+    $$
+
+    $$
+    \boxed{
+    X=
+    \begin{bmatrix}
+        \frac83 & \frac43\\
+        -\frac13 & \frac43\\
+        -\frac53 & \frac23
+    \end{bmatrix}
+    }
+    $$
+\end{answer}
