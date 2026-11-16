@@ -16,7 +16,7 @@ estado: borrador
 capa: curricular
 requiere:
   - "[[Matemáticas/Álgebra lineal/Matrices|Matrices]]"
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Rango e inversa]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|Rango e inversa]]"
 desbloquea:
   - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/02 Propiedades y aplicaciones|Propiedades y aplicaciones de determinantes]]"
 relacionado:
@@ -702,7 +702,7 @@ Una matriz cuadrada de orden cuatro no es triangular y tiene tres ceros en una c
 > [!resolucion]- Resolución
 > Se elige Laplace por esa columna: sólo queda un término potencialmente no nulo. Sarrus no es aplicable porque la matriz tiene orden cuatro. La fórmula general completa tiene $4!=24$ términos, aunque en este desarrollo concreto sólo haya uno potencialmente distinto de cero.[^a13][^a14]
 
-El recorrido parte de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|rango, compatibilidad e inversa]]: al estudiar una matriz de coeficientes surge la pregunta de cuándo un sistema cuadrado tiene solución única. El determinante convierte esa pregunta en un criterio escalar; la nota [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/02 Propiedades y aplicaciones|siguiente]] desarrolla cómo las operaciones elementales permiten calcularlo y cómo se aplica a la inversa y a Cramer.
+El recorrido parte de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|rango, compatibilidad e inversa]]: al estudiar una matriz de coeficientes surge la pregunta de cuándo un sistema cuadrado tiene solución única. El determinante convierte esa pregunta en un criterio escalar; la nota [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/02 Propiedades y aplicaciones|siguiente]] desarrolla cómo las operaciones elementales permiten calcularlo y cómo se aplica a la inversa y a Cramer.
 
 ## 📚 Fuentes
 

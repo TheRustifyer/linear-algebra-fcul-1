@@ -8,8 +8,9 @@ tipo:
 nivel: universitario-introductorio
 estado: completo
 requiere:
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|Matrices y operaciones]]"
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|Eliminación y matrices elementales]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|Matrices]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|Eliminación y matrices elementales]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones]]"
 fsrs_goal: Traduce un sistema a AX=B, comprueba soluciones, clasifica los casos por pivotes y resuelve mediante Gauss o Gauss–Jordan; expresa la solución compatible como particular más núcleo y verifica cada vector obtenido.
 simbolos:
   - AX=B
@@ -735,7 +736,7 @@ $$
 \operatorname{Sol}(AX=B)=\{u\in K^n:Au=B\}.
 $$
 
-En un producto escrito explícitamente se usará la columna, o bien $(u_1,\ldots,u_n)^T$. Una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Matriz fila|matriz fila]] $1\times n$ es otro objeto y no puede sustituir a la columna $n\times1$ en ese producto.[^a10-columna]
+En un producto escrito explícitamente se usará la columna, o bien $(u_1,\ldots,u_n)^T$. Una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz fila|matriz fila]] $1\times n$ es otro objeto y no puede sustituir a la columna $n\times1$ en ese producto.[^a10-columna]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -754,7 +755,7 @@ tags:
 
 ### Operaciones que conservan las soluciones
 
-Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|operaciones elementales]] permiten simplificar las ecuaciones sin cambiar sus soluciones:
+Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|operaciones elementales]] permiten simplificar las ecuaciones sin cambiar sus soluciones:
 
 | Operación | Cómo se deshace |
 |---|---|
@@ -762,7 +763,7 @@ Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y si
 | Multiplicar una ecuación por $\lambda\ne0$ | Multiplicarla por $1/\lambda$ |
 | Reemplazar $R_i$ por $R_i+\lambda R_j$, con $i\ne j$ | Reemplazar $R_i$ por $R_i-\lambda R_j$; $R_j$ no cambia |
 
-Por ejemplo, sustituir la segunda ecuación por la segunda menos tres veces la primera se deshace sumando tres veces esa primera ecuación, que no se ha modificado. Una solución del sistema inicial satisface la nueva ecuación; como podemos reconstruir la anterior, tampoco hemos añadido soluciones. Ésta es la razón de la equivalencia, demostrada para cada operación en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Conservación de las soluciones|conservación de las soluciones]].[^a8-gauss]
+Por ejemplo, sustituir la segunda ecuación por la segunda menos tres veces la primera se deshace sumando tres veces esa primera ecuación, que no se ha modificado. Una solución del sistema inicial satisface la nueva ecuación; como podemos reconstruir la anterior, tampoco hemos añadido soluciones. Ésta es la razón de la equivalencia, demostrada para cada operación en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Conservación de las soluciones|conservación de las soluciones]].[^a8-gauss]
 
 > [!advertencia] La operación afecta a toda la fila
 > Al operar en $[A\mid B]$, también se modifica el término independiente. Cambiar sólo los coeficientes produciría, en general, un sistema distinto.
@@ -821,9 +822,9 @@ tags:
 
 ### Eliminación de Gauss y de Gauss–Jordan
 
-La [[Matemáticas/Álgebra lineal/Eliminación de Gauss|eliminación de Gauss]] obtiene una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] está a la derecha del anterior y tiene ceros debajo. Si el sistema es compatible, se resuelve desde la última ecuación no nula hacia arriba, por **[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Sustitución hacia atrás|sustitución regresiva]]**.
+La [[Matemáticas/Álgebra lineal/Eliminación de Gauss|eliminación de Gauss]] obtiene una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] está a la derecha del anterior y tiene ceros debajo. Si el sistema es compatible, se resuelve desde la última ecuación no nula hacia arriba, por **[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Sustitución hacia atrás|sustitución regresiva]]**.
 
-La [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|eliminación de Gauss–Jordan]] continúa hasta la [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma escalonada reducida]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] vale $1$ y es el único elemento no nulo de su columna. Así se leen directamente las incógnitas básicas en función de las libres.[^a8-gauss]
+La [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|eliminación de Gauss–Jordan]] continúa hasta la [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma escalonada reducida]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] vale $1$ y es el único elemento no nulo de su columna. Así se leen directamente las incógnitas básicas en función de las libres.[^a8-gauss]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -878,9 +879,9 @@ tags:
 ### Variables básicas
 
 > [!definicion] Variable básica
-> Una incógnita es **básica** o **variable [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]** si su columna de coeficientes contiene un pivote en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]].[^a9]
+> Una incógnita es **básica** o **variable [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]** si su columna de coeficientes contiene un pivote en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]].[^a9]
 
-En una ecuación reducida como $x_1+2x_3=5$, con [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] en la columna de $x_1$, despejamos $x_1=5-2x_3$. La variable básica se calcula a partir del valor asignado a la [[#Variables libres|variable libre]].
+En una ecuación reducida como $x_1+2x_3=5$, con [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] en la columna de $x_1$, despejamos $x_1=5-2x_3$. La variable básica se calcula a partir del valor asignado a la [[#Variables libres|variable libre]].
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -898,9 +899,9 @@ tags:
 ### Variables libres
 
 > [!definicion] Variable libre
-> Una incógnita es **libre** si su columna de coeficientes no contiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]. En un sistema compatible puede elegirse arbitrariamente en $K$.
+> Una incógnita es **libre** si su columna de coeficientes no contiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]. En un sistema compatible puede elegirse arbitrariamente en $K$.
 
-En el ejemplo $x_1=5-2x_3$, la columna de $x_3$ no contiene [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. Elegir $x_3=t$ da $x_1=5-2t$; cada $t\in K$ produce una solución.
+En el ejemplo $x_1=5-2x_3$, la columna de $x_3$ no contiene [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. Elegir $x_3=t$ da $x_1=5-2t$; cada $t\in K$ produce una solución.
 
 > [!recuerda] La última columna no es una incógnita
 > Los parámetros se cuentan entre las columnas de $A$. La columna $B$ contiene los términos independientes.
@@ -944,7 +945,7 @@ M_0=\left[\begin{array}{rrrr|r}
 \end{array}\right].
 $$
 
-La primera entrada es cero. Intercambiamos $R_1$ y $R_2$ y hacemos $R_1\leftarrow R_1-R_3$: como $4-3=1$, obtenemos un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] que permite eliminar sin fracciones.
+La primera entrada es cero. Intercambiamos $R_1$ y $R_2$ y hacemos $R_1\leftarrow R_1-R_3$: como $4-3=1$, obtenemos un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] que permite eliminar sin fracciones.
 
 $$
 \left[\begin{array}{rrrr|r}
@@ -968,7 +969,7 @@ $$
 \end{array}\right].
 $$
 
-En la segunda columna ya hay un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] igual a $1$. Hacemos
+En la segunda columna ya hay un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] igual a $1$. Hacemos
 
 $$
 R_3\leftarrow R_3+3R_2,
@@ -1011,11 +1012,11 @@ $$
 > \boxed{(x_1,x_2,x_3,x_4)=(-2,-16,8,-1)}.
 > $$
 >
-> Cada columna de coeficientes tiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]; no hay [[#Variables libres|variables libres]].
+> Cada columna de coeficientes tiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]; no hay [[#Variables libres|variables libres]].
 
 ### Continuar con Gauss–Jordan
 
-También podemos partir de $M_E$ y anular las entradas situadas encima de cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. Primero eliminamos las de la cuarta columna:
+También podemos partir de $M_E$ y anular las entradas situadas encima de cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. Primero eliminamos las de la cuarta columna:
 
 $$
 R_3\leftarrow R_3-4R_4,
@@ -1099,7 +1100,7 @@ M_0=\left[\begin{array}{rrrrr|r}
 \end{array}\right].
 $$
 
-Con $R_1\leftarrow R_1-R_3$ obtenemos la primera fila $(1,2,-1,-2,-4\mid-3)$. Usamos ese [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] para hacer
+Con $R_1\leftarrow R_1-R_3$ obtenemos la primera fila $(1,2,-1,-2,-4\mid-3)$. Usamos ese [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] para hacer
 
 $$
 R_2\leftarrow R_2-5R_1,
@@ -1138,7 +1139,7 @@ M_E=\left[\begin{array}{rrrrr|r}
 \end{array}\right].
 $$
 
-Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] están en las columnas **1, 2 y 4**: son las [[#Variables básicas|variables básicas]] $x_1,x_2,x_4$. Aunque queda una columna sin [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] entre la segunda y la cuarta, la matriz está escalonada. Las [[#Variables libres|variables libres]] son $x_3$ y $x_5$.
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]] están en las columnas **1, 2 y 4**: son las [[#Variables básicas|variables básicas]] $x_1,x_2,x_4$. Aunque queda una columna sin [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] entre la segunda y la cuarta, la matriz está escalonada. Las [[#Variables libres|variables libres]] son $x_3$ y $x_5$.
 
 La última fila expresa $0=0$, así que no aparece ninguna contradicción. Podemos elegir las dos [[#Variables libres|variables libres]] y calcular las tres básicas.
 
@@ -1223,7 +1224,7 @@ $$
 Av_1=0,\qquad Av_2=0.
 $$
 
-Por la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Distributividad por la derecha|distributividad]] del [[Matemáticas/Álgebra lineal/Producto matricial|producto matricial]],
+Por la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Distributividad por la derecha|distributividad]] del [[Matemáticas/Álgebra lineal/Producto matricial|producto matricial]],
 
 $$
 A(u+a v_1+b v_2)=Au+aAv_1+bAv_2=B.
@@ -1340,7 +1341,7 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración
-> **De una solución del homogéneo a otra del sistema original.** Fijamos la [[#Solución particular|solución particular]] $u$ y tomamos cualquier $v\in\ker(A)$. Sabemos que $Au=B$ y $Av=0$. La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Distributividad por la derecha|distributividad]] permite comprobar qué ocurre al sumarlos:
+> **De una solución del homogéneo a otra del sistema original.** Fijamos la [[#Solución particular|solución particular]] $u$ y tomamos cualquier $v\in\ker(A)$. Sabemos que $Au=B$ y $Av=0$. La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Distributividad por la derecha|distributividad]] permite comprobar qué ocurre al sumarlos:
 >
 > $$
 > A(u+v)=Au+Av=B+0=B.
@@ -1440,7 +1441,7 @@ tags:
 > Deben pertenecer al núcleo, generar todas las soluciones de $Av=0$ y ser linealmente independientes. Cada vector de la base aporta un parámetro independiente.
 ```
 
-Cada columna sin pivote permite una elección libre. Si hay $n$ incógnitas y $r$ pivotes, quedan $n-r$ parámetros independientes. Las direcciones obtenidas al dar valor $1$ a una variable libre y $0$ a las restantes forman una base del núcleo: en las coordenadas libres, cada una tiene un $1$ en su posición y ceros en las otras. Es la relación entre [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa#Grado de indeterminación|rango y número de parámetros]].[^a9][^rango-nulidad]
+Cada columna sin pivote permite una elección libre. Si hay $n$ incógnitas y $r$ pivotes, quedan $n-r$ parámetros independientes. Las direcciones obtenidas al dar valor $1$ a una variable libre y $0$ a las restantes forman una base del núcleo: en las coordenadas libres, cada una tiene un $1$ en su posición y ceros en las otras. Es la relación entre [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa#Grado de indeterminación|rango y número de parámetros]].[^a9][^rango-nulidad]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1514,7 +1515,7 @@ $$
 \end{pmatrix}.
 $$
 
-Las dos últimas filas son iguales. Hacemos $R_3\leftarrow R_3-R_2$ para anular la tercera y $R_2\leftarrow-\frac12R_2$ para normalizar el segundo [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. Finalmente, $R_1\leftarrow R_1+2R_2$ anula la entrada situada encima de él y da la matriz $R$.
+Las dos últimas filas son iguales. Hacemos $R_3\leftarrow R_3-R_2$ para anular la tercera y $R_2\leftarrow-\frac12R_2$ para normalizar el segundo [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. Finalmente, $R_1\leftarrow R_1+2R_2$ anula la entrada situada encima de él y da la matriz $R$.
 
 Las ecuaciones no nulas son
 
@@ -1563,7 +1564,7 @@ El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de $A$ es $2$ y h
 Si $Au=B$ y $Av=0$, demuestra que $u+v$ es solución de $AX=B$ y que toda solución $X$ se escribe $u+(X-u)$, con $X-u$ en el [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo]].
 
 > [!resolucion]- Resolución
-> La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Distributividad por la derecha|distributividad]] da $A(u+v)=Au+Av=B+0=B$.
+> La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Distributividad por la derecha|distributividad]] da $A(u+v)=Au+Av=B+0=B$.
 >
 > Recíprocamente, si $AX=B$, entonces $A(X-u)=AX-Au=B-B=0$. Así, $X-u\in\ker(A)$ y $X=u+(X-u)$. Se han probado ambas inclusiones del [[#Conjunto solución y cuerpo de resolución|conjunto solución]].
 

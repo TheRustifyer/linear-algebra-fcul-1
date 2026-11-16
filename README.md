@@ -58,7 +58,8 @@ The collection brings together three kinds of material:
 ### Start with matrices and systems
 
 - [Chapter overview](Resumen%20-%20S%C3%ADntesis%20de%20contenidos.md)
-- [Matrices and operations](01%20Matrices%20y%20sistemas/01%20Matrices%20y%20operaciones.md)
+- [Matrices](01%20Matrices%20y%20sistemas/01%20Matrices.md)
+- [Matrix operations](01%20Matrices%20y%20sistemas/02%20Operaciones.md)
 
 ## Exercises and solutions
 

@@ -155,7 +155,7 @@ $$
 
 Como la equivalencia vale para todo $x\in U$, los conjuntos son iguales. Las leyes de conjuntos expresan equivalencias lógicas universales; los diagramas de Venn sirven para visualizar, pero por sí solos no justifican una identidad general.[^1][^2]
 
-Las condiciones de validez del complemento exigen que el universo esté declarado. Además, una igualdad de conjuntos no se demuestra comprobando unos cuantos elementos: hace falta un argumento universal. Estas distinciones serán útiles al razonar sobre conjuntos de soluciones de un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|sistema lineal]].
+Las condiciones de validez del complemento exigen que el universo esté declarado. Además, una igualdad de conjuntos no se demuestra comprobando unos cuantos elementos: hace falta un argumento universal. Estas distinciones serán útiles al razonar sobre conjuntos de soluciones de un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Sistemas lineales en forma matricial|sistema lineal]].
 
 ## 📚 Fuentes
 

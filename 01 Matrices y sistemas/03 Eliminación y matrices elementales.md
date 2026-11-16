@@ -14,15 +14,16 @@ nivel: universitario-introductorio
 estado: borrador
 capa: curricular
 requiere:
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|Matrices y operaciones]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|Matrices]]"
   - "[[Matemáticas/Álgebra lineal/Matrices|Matrices]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones]]"
 desbloquea:
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]"
 fsrs_goal: Elegir y justificar operaciones elementales que reduzcan una matriz ampliada, construir sus matrices elementales e inversas y ordenar su composición, reconocer pivotes y formas escalonadas, explicar la existencia y unicidad de la forma reducida y la invariancia del rango, y resolver los sistemas del capítulo por Gauss o Gauss–Jordan comprobando las soluciones.
 simbolos:
-  - R_i\leftrightarrow R_j
-  - R_i\leftarrow cR_i
-  - R_i\leftarrow R_i+cR_j
+  - L_i\leftrightarrow L_j
+  - L_i\leftarrow cL_i
+  - L_i\leftarrow L_i+cL_j
   - E_{ij}
   - "[A\\mid\\mathbf b]"
 tags:
@@ -55,13 +56,24 @@ $$
 
 Los términos $2x$ y $-2x$ se anulan. Queda $3y=3$, de donde $y=1$. La ecuación que hemos conservado, $x-y=1$, da entonces $x=2$.
 
-El sistema transformado contiene las ecuaciones $3y=3$ y $x-y=1$. Podemos recuperar la primera ecuación original sumando a $3y=3$ dos veces la ecuación conservada. Por eso la transformación conserva las soluciones en ambos sentidos.
+El sistema transformado contiene las ecuaciones
+$$
+	\begin{aligned}
+	 3y & =3  \\
+	 x-y & =1
+	\end{aligned}
+$$
 
-La **eliminación** aplica este tipo de operaciones hasta obtener ecuaciones que podamos resolver en orden. Para llevar la cuenta de los coeficientes y de sus cambios utilizaremos la matriz ampliada.
+>[!intuicion] Cambios siempre equivalentes
+>Podemos recuperar la primera ecuación original sumando a $3y=3$ dos veces la segunda ecuación. Es simplemente, usar la operación inversa a la aplicada inicialmente.
+>Por eso la transformación conserva las soluciones en ambos sentidos.
+
+
+La **eliminación** aplica este tipo de operaciones hasta obtener ecuaciones que podamos resolver en orden. Para llevar la cuenta de los coeficientes y de sus cambios utilizaremos la [[Matriz ampliada|matriz ampliada.]]
 
 ### La matriz ampliada
 
-Para seguir esas transformaciones sin reescribir las letras en cada línea, fijamos el orden de incógnitas $x,y$ y registramos los coeficientes y los términos independientes:
+Para seguir esas transformaciones sin reescribir las letras en cada línea, transformaremos nuestro sistema de ecuaciones en una [[Matriz ampliada|matriz ampliada]]. Escribimos los coeficientes que acompañan a las incógnitas $x,y$ en el estricto orden que aparecen en el sistema original y términos independientes en la ampliación:
 
 $$
 \left[\begin{array}{cc|c}
@@ -70,11 +82,31 @@ $$
 \end{array}\right].
 $$
 
-Cada fila representa una ecuación; las columnas, en orden, representan los coeficientes de $x$, de $y$ y el término independiente. Al efectuar $R_1\leftrightarrow R_2$ y luego $R_2\leftarrow R_2-2R_1$, también se transforma la última entrada de la fila: $5-2\cdot1=3$. Así se obtiene la fila $[0\;3\mid3]$, que expresa exactamente $3y=3$.
+Entonces así, cada fila representa una ecuación. Las columnas, en orden, representan los coeficientes de $x$, de $y$ y el término independiente.
+
+Llamemos $L_1$ y $L_2$ a la primera y la segunda fila. Intercambiamos las filas en el paso $t_1$; en el paso $t_2$, restamos dos veces la primera a la segunda:
+
+$$
+\left[\begin{array}{cc|c}2&1&5\\1&-1&1\end{array}\right]
+\xrightarrow[t_1:\,L_1\leftrightarrow L_2]{}
+\left[\begin{array}{cc|c}1&-1&1\\2&1&5\end{array}\right]
+\xrightarrow[t_2:\,L_2\leftarrow L_2-2L_1]{}
+\left[\begin{array}{cc|c}1&-1&1\\0&3&3\end{array}\right].
+$$
+
+La resta afecta a la fila completa, incluido el término independiente:
+
+$$
+(2,1\mid5)-2(1,-1\mid1)=(0,3\mid3).
+$$
+
+La segunda fila expresa ahora $3y=3$.[^a5]
 
 ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-operaciones-fila-completa.svg|*La operación actúa sobre los coeficientes y el término independiente de la ecuación.*]]
 
 [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-operaciones-fila-completa.excalidraw|Abrir figura editable]]
+
+Entonces, concluímos:
 
 > [!definicion] Matriz ampliada
 > Si el sistema es $A\mathbf x=\mathbf b$, su [[Matemáticas/Álgebra lineal/Matriz ampliada|matriz ampliada]] es
@@ -122,7 +154,22 @@ tags:
 
 ## Operaciones elementales por filas
 
-Denotamos por $R_1,\ldots,R_m$ las filas de la matriz. Sobre ellas podemos realizar tres [[Matemáticas/Álgebra lineal/Operaciones elementales por filas|operaciones elementales]]: intercambiar dos filas, multiplicar una por un escalar no nulo o sumarle un múltiplo de otra. En una matriz ampliada, cada una transforma una ecuación del sistema.
+Sea $A\in M_{m\times n}(K)$. Denotaremos sus filas por $L_1,\ldots,L_m$, como en las diapositivas. La notación $R_i$ que aparece en algunos recursos significa lo mismo: la fila $i$.
+
+Sobre ellas podemos realizar tres [[Matemáticas/Álgebra lineal/Operaciones elementales por filas|operaciones elementales]]:
+- [[#Intercambio de filas|intercambiar dos filas]]
+- [[#Multiplicar por un escalar no nulo|multiplicar una por un escalar no nulo]]
+- [[#Reemplazo de una fila|sumarle a una fila un múltiplo de otra]]
+
+En una [[matriz ampliada]] cada una transforma una ecuación del sistema.
+
+Una flecha indica qué operación transforma una matriz en otra. Si llamamos $t$ a esa operación, escribimos
+
+$$
+A\xrightarrow[t]{}B.
+$$
+
+Por ejemplo, $t:L_1\leftrightarrow L_2$ significa intercambiar las dos primeras filas. En una cadena, $t_1,t_2,\ldots$ nombrarán las operaciones en el orden en que se aplican.[^a5]
 
 ### Intercambio de filas
 
@@ -130,7 +177,7 @@ Denotamos por $R_1,\ldots,R_m$ las filas de la matriz. Sobre ellas podemos reali
 > Para $i\ne j$, la operación
 >
 > $$
-> R_i\leftrightarrow R_j
+> L_i\longleftrightarrow L_j
 > $$
 >
 > intercambia las filas $i$ y $j$.[^a5]
@@ -139,7 +186,7 @@ El coeficiente de $x$ en la segunda ecuación es $1$. Llevamos esa ecuación a l
 
 $$
 \left[\begin{array}{cc|c}2&1&5\\1&-1&1\end{array}\right]
-\xrightarrow{R_1\leftrightarrow R_2}
+\xrightarrow{L_1\leftrightarrow L_2}
 \left[\begin{array}{cc|c}1&-1&1\\2&1&5\end{array}\right].
 $$
 
@@ -153,19 +200,19 @@ tags:
   - operaciones-fila
 ---
 > [!note] Pregunta
-> ¿Qué hace la operación elemental $R_i\leftrightarrow R_j$?
+> ¿Qué hace la operación elemental $L_i\leftrightarrow L_j$?
 ===
 > [!important] Respuesta
 > Intercambia las filas $i$ y $j$; en el sistema, reordena esas ecuaciones.
 ```
 
-### Escalado por un escalar no nulo
+### Multiplicar por un escalar no nulo
 
 > [!definicion] Escalado
 > Para $c\in K\setminus\{0\}$, la operación
 >
 > $$
-> R_i\leftarrow cR_i
+> L_i\longleftarrow cL_i
 > $$
 >
 > multiplica todas las entradas de la fila $i$ por $c$.[^a5]
@@ -174,13 +221,13 @@ Para convertir el coeficiente $2$ de $x$ en un $1$, multiplicamos la primera fil
 
 $$
 \left[\begin{array}{cc|c}2&1&5\\1&-1&1\end{array}\right]
-\xrightarrow{R_1\leftarrow\frac12R_1}
+\xrightarrow{L_1\leftarrow\frac12L_1}
 \left[\begin{array}{cc|c}1&1/2&5/2\\1&-1&1\end{array}\right].
 $$
 
 El cálculo afecta a las tres entradas: $2/2=1$, $1/2$ y $5/2$. Multiplicar de nuevo la fila por $2$ devuelve la ecuación inicial.
 
-> [!warning] El factor cero no permite volver atrás
+> [!danger] El factor cero no permite volver atrás
 > Si multiplicásemos $2x+y=5$ por cero, obtendríamos $0=0$, que cumple cualquier pareja $(x,y)$. Habríamos eliminado una condición del sistema; no podríamos recuperarla dividiendo por cero.
 
 ```anki
@@ -191,7 +238,7 @@ tags:
   - operaciones-fila
 ---
 > [!note] Pregunta
-> ¿Qué hace el escalado elemental $R_i\leftarrow cR_i$ y qué condición debe cumplir $c$?
+> ¿Qué hace el escalado elemental $L_i\leftarrow cL_i$ y qué condición debe cumplir $c$?
 ===
 > [!important] Respuesta
 > Multiplica la fila $i$ por $c$, con $c\in K\setminus\{0\}$.
@@ -200,19 +247,19 @@ tags:
 ### Reemplazo de una fila
 
 > [!definicion] Reemplazo
-> Para $c\in K$ e $i\ne j$, la operación
+> Para $\lambda\in K$ e $i\ne j$, la operación
 >
 > $$
-> R_i\leftarrow R_i+cR_j
+> L_i\leftarrow L_i+\lambda L_j
 > $$
 >
-> sustituye la fila $i$ por su suma con $c$ veces la fila $j$. La fila $j$ permanece intacta.[^a5]
+> sustituye la fila $i$ por su suma con $\lambda$ veces la fila $j$. La fila $j$ permanece intacta.[^a5]
 
 Tras intercambiar las ecuaciones del ejemplo, restamos dos veces la primera a la segunda para eliminar $x$ de esta última:
 
 $$
 \left[\begin{array}{cc|c}1&-1&1\\2&1&5\end{array}\right]
-\xrightarrow{R_2\leftarrow R_2-2R_1}
+\xrightarrow{L_2\leftarrow L_2-2L_1}
 \left[\begin{array}{cc|c}1&-1&1\\0&3&3\end{array}\right].
 $$
 
@@ -232,18 +279,90 @@ tags:
   - operaciones-fila
 ---
 > [!note] Pregunta
-> ¿Qué hace el reemplazo elemental $R_i\leftarrow R_i+cR_j$?
+> ¿Qué hace el reemplazo elemental $L_i\leftarrow L_i+\lambda L_j$?
 ===
 > [!important] Respuesta
-> Suma $c$ veces la fila $j$ a la fila $i$, con $i\ne j$ y $c\in K$.
+> Suma $\lambda$ veces la fila $j$ a la fila $i$, con $i\ne j$ y $\lambda \in K$.
+```
+
+### Reversibilidad de las operaciones
+
+#### Propiedad
+
+> [!teorema] Cada operación elemental se puede deshacer
+> Si una operación elemental $t$ transforma $A$ en $B$, existe una operación elemental $t'$ que devuelve $B$ a $A$:
+>
+> $$
+> A\xrightarrow[t]{}B,
+> \qquad B\xrightarrow[t']{}A.
+> $$
+>
+> El símbolo $t'$ nombra la operación inversa.[^a5]
+
+#### Demostración
+
+> [!demostracion] Las tres operaciones inversas
+> **Intercambio.** Repetir el intercambio devuelve cada fila a su posición:
+>
+> $$
+> A\xrightarrow[L_i\leftrightarrow L_j]{}B
+> \xrightarrow[L_i\leftrightarrow L_j]{}A.
+> $$
+>
+> **Escalado.** Si $\lambda\ne0$, el segundo factor puede ser $1/\lambda$:
+>
+> $$
+> A\xrightarrow[L_i\leftarrow\lambda L_i]{}B
+> \xrightarrow[L_i\leftarrow\frac1\lambda L_i]{}A.
+> $$
+>
+> La fila original se recupera porque $(1/\lambda)(\lambda L_i)=L_i$.
+>
+> **Reemplazo.** La fila $L_j$ no cambia cuando modificamos $L_i$, con $i\ne j$. Podemos restar después el mismo múltiplo:
+>
+> $$
+> A\xrightarrow[L_i\leftarrow L_i+\lambda L_j]{}B
+> \xrightarrow[L_i\leftarrow L_i-\lambda L_j]{}A.
+> $$
+>
+> En efecto, $(L_i+\lambda L_j)-\lambda L_j=L_i$; las demás filas permanecen iguales. Los tres tipos de operación tienen, por tanto, una operación inversa. $\blacksquare$[^a5]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - operaciones-fila
+  - reversibilidad
+---
+> [!note] Pregunta
+> ¿Qué significa que una operación elemental por filas sea reversible?
+===
+> [!important] Respuesta
+> Que existe otra operación elemental que la deshace: si $A\xrightarrow[t]{}B$, entonces $B\xrightarrow[t']{}A$.
 ```
 
 ### Equivalencia por filas
 
-> [!definicion] Matrices equivalentes por filas
-> Dos matrices del mismo tamaño son **equivalentes por filas** si una se obtiene de la otra mediante una secuencia finita de [[#Operaciones elementales por filas|operaciones elementales]]. Escribimos $A\sim B$.[^pres]
+Una secuencia de $p\ge1$ operaciones se representa conservando las matrices intermedias:
 
-Para pasar de $B$ a $A$, deshacemos las operaciones en el orden contrario al utilizado: la última se deshace primero. Por tanto, $A\sim B$ implica también $B\sim A$.
+$$
+A=A_0\xrightarrow[t_1]{}A_1
+\xrightarrow[t_2]{}\cdots
+\xrightarrow[t_p]{}A_p=B.
+$$
+
+Para volver a $A$, empezamos por deshacer la última operación. Después deshacemos la penúltima y continuamos en ese orden:
+
+$$
+B=A_p\xrightarrow[t'_p]{}A_{p-1}
+\xrightarrow[t'_{p-1}]{}\cdots
+\xrightarrow[t'_1]{}A_0=A.
+$$
+
+Cada $t'_k$ deshace $t_k$. Esta reversibilidad permite definir la equivalencia por filas sin distinguir cuál de las dos matrices fue el punto de partida.[^a5]
+
+> [!definicion] Matrices equivalentes por filas
+> Dos matrices del mismo tamaño son **equivalentes por filas** si una se obtiene de la otra mediante una secuencia finita de [[#Operaciones elementales por filas|operaciones elementales]]. Escribimos $A\longrightarrow B$.[^pres]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -259,9 +378,27 @@ tags:
 > Una se obtiene de la otra mediante una secuencia finita de operaciones elementales por filas; la secuencia inversa permite recuperar la matriz inicial.
 ```
 
+> [!consecuencia] El recorrido inverso
+> Si $A\longrightarrow B$, también $B\longrightarrow A$. Una matriz es equivalente a sí misma mediante la secuencia vacía, sin aplicar ninguna operación.[^a5]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - operaciones-fila
+  - reversibilidad
+---
+> [!note] Pregunta
+> Si se aplican sucesivamente $t_1,t_2,\ldots,t_p$ a una matriz, ¿en qué orden se deshace la cadena?
+===
+> [!important] Respuesta
+> Se aplican las operaciones inversas en orden contrario: primero $t'_p$, después $t'_{p-1}$ y finalmente $t'_1$.
+```
+
+
 ### Sistemas equivalentes
 
-> [!definicion] Sistemas equivalentes
+> [!consecuencia] Sistemas equivalentes
 > Dos sistemas son [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|equivalentes]] si tienen ==exactamente el mismo conjunto de soluciones==.[^pres]
 
 ```anki
@@ -286,12 +423,12 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración
+> [!intuicion] Explicación
 > Consideremos el sistema $A\mathbf x=\mathbf b$ y apliquemos una operación a sus ecuaciones. Para comparar los conjuntos de soluciones, comprobamos que cada operación se puede deshacer.
 >
 > **[[#Intercambio de filas|Intercambio]].** Reordenar dos ecuaciones no cambia cuáles deben cumplirse: si se satisfacen todas antes del intercambio, se satisfacen todas después, y el intercambio inverso las devuelve a su orden inicial.
 >
-> **[[#Escalado por un escalar no nulo|Escalado]].** Multiplicar una ecuación por $c\ne0$ conserva sus soluciones, porque podemos dividir por $c$ para recuperar la ecuación original. La condición $c\ne0$ es esencial para que esa [[#Inversas de los tres tipos|operación inversa]] exista.
+> **[[#Multiplicar por un escalar no nulo|Escalado]].** Multiplicar una ecuación por $c\ne0$ conserva sus soluciones, porque podemos dividir por $c$ para recuperar la ecuación original. La condición $c\ne0$ es esencial para que esa [[#Inversas de los tres tipos|operación inversa]] exista.
 >
 > **[[#Reemplazo de una fila|Reemplazo]].** Sustituimos la ecuación $i$ por ella misma más $c$ veces la ecuación $j$, sin alterar la ecuación $j$. Si ambas ecuaciones originales se cumplen, la nueva también. Recíprocamente, de la nueva ecuación podemos restar $c$ veces la ecuación $j$ y recuperar la ecuación $i$ original.
 >
@@ -314,7 +451,7 @@ tags:
 ## Matrices elementales
 
 > [!definicion] Matriz elemental
-> Una [[Matemáticas/Álgebra lineal/Matriz elemental|matriz elemental]] se obtiene aplicando ==una única operación elemental== por filas a una [[Matemáticas/Álgebra lineal/Matriz identidad|matriz identidad]] $I_m$.[^a5]
+> Se llama [[Matemáticas/Álgebra lineal/Matriz elemental|matriz elemental]] de **orden n** a cualquier matriz que se obtenga aplicando ==una única operación elemental== por filas a una [[Matemáticas/Álgebra lineal/Matriz identidad|matriz identidad]] $I_n$.[^a5]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -330,17 +467,38 @@ tags:
 > Es la matriz que se obtiene al aplicar una única operación elemental por filas a $I_m$.
 ```
 
-Por ejemplo, intercambiamos las filas primera y tercera de $I_3$:
+#### Ejemplo — El mismo intercambio sobre la identidad y sobre $A$
+
+Llamemos $t_1$ al intercambio $L_1\leftrightarrow L_3$. Aplicado a la identidad, construye la matriz elemental $P_{13}$:
 
 $$
 I_3=
 \begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}
-\xrightarrow{R_1\leftrightarrow R_3}
+\xrightarrow[t_1:\,L_1\leftrightarrow L_3]{}
 P_{13}=
 \begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}.
 $$
 
-En la primera fila de $P_{13}$, el $1$ ocupa la tercera columna. Al multiplicar por $A$, esa fila selecciona la tercera fila de $A$. La tercera fila de $P_{13}$ selecciona la primera. La fila central conserva su posición. El producto $P_{13}A$ efectúa, por tanto, el intercambio para cualquier matriz $A$ con tres filas.
+Sobre una matriz $A$ con tres filas, multiplicar por $P_{13}$ produce ese mismo intercambio:
+
+$$
+\underbrace{\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}}_{P_{13}}
+\underbrace{\begin{pmatrix}1&2&0\\3&-1&4\\5&0&2\end{pmatrix}}_{A}
+=
+\underbrace{\begin{pmatrix}5&0&2\\3&-1&4\\1&2&0\end{pmatrix}}_{P_{13}A}.
+$$
+
+La primera y la tercera fila han intercambiado sus posiciones; la segunda no cambia. Podemos representar el cálculo sin volver a escribir el producto:
+
+$$
+\begin{pmatrix}1&2&0\\3&-1&4\\5&0&2\end{pmatrix}
+\xrightarrow[t_1:\,L_1\leftrightarrow L_3]{}
+\begin{pmatrix}5&0&2\\3&-1&4\\1&2&0\end{pmatrix}.
+$$
+
+> [!idea] Una operación, dos maneras de efectuarla
+> Aplicar $t_1$ a $A$ y calcular $P_{13}A$ dan la misma matriz. $t_1$ nombra la **operación**; $P_{13}$ es su **matriz elemental**. El resultado vale para cualquier $A\in M_{3\times n}(K)$, aunque no sea cuadrada.[^a5][^emdr]
+
 
 ### Multiplicación por la izquierda y operaciones elementales
 
@@ -370,13 +528,13 @@ tags:
 
 #### Lectura de una fila del producto
 
-El producto $EA$ está definido porque $E$ tiene $m$ columnas y $A$ tiene $m$ filas; el resultado tiene tamaño $m\times n$. Fijemos $r\in\{1,\ldots,m\}$ y $k\in\{1,\ldots,n\}$. Entonces
+El producto $EA$ está definido porque $E$ tiene $m$ columnas y $A$ tiene $m$ filas; el resultado tiene tamaño $m\times n$. Para leer la entrada de la fila $r$ y la columna $k$, con $1\le r\le m$ y $1\le k\le n$, usamos
 
 $$
 (EA)_{rk}=\sum_{\ell=1}^{m}e_{r\ell}a_{\ell k}.
 $$
 
-Fijamos la fila $r$ y una columna $k$ del resultado. El índice $\ell$ recorre las $m$ filas de $A$: cada entrada $e_{r\ell}$ multiplica la entrada de esa fila situada en la columna $k$.
+La columna $k$ permanece fija en todos los términos. El índice $\ell$ recorre las filas de $A$: los coeficientes $e_{r1},\ldots,e_{rm}$ indican qué combinación formará la nueva fila $r$.
 
 Si la fila $r$ de $E$ es $(0,1,-5)$, el cálculo queda
 
@@ -384,7 +542,7 @@ $$
 (EA)_{rk}=0a_{1k}+1a_{2k}-5a_{3k}=a_{2k}-5a_{3k}.
 $$
 
-La misma combinación se realiza en todas las columnas. Por eso la fila completa del resultado es $R_2-5R_3$. Para representar una operación elemental que modifique la segunda fila, ésta sería precisamente la fila $2$ de $E$.
+La misma combinación se realiza en todas las columnas. Por eso la fila completa del resultado es $L_2-5L_3$. Para representar una operación elemental que modifique la segunda fila, ésta sería precisamente la fila $2$ de $E$.
 
 ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-matriz-elemental-izquierda.svg|*La fila de E indica cómo combinar las filas de A en EA.*]]
 
@@ -402,7 +560,7 @@ tags:
 > ¿Qué combinación de filas de $A$ forma la fila $r$ del producto $EA$?
 ===
 > [!important] Respuesta
-> Si $E$ tiene orden $m$, es $e_{r1}R_1+\cdots+e_{rm}R_m$: la fila $r$ de $E$ da los coeficientes.
+> Si $E$ tiene orden $m$, es $e_{r1}L_1+\cdots+e_{rm}R_m$: la fila $r$ de $E$ da los coeficientes.
 ```
 
 ### Intercambiar las filas $i$ y $j$
@@ -410,11 +568,22 @@ tags:
 #### Propiedad
 
 > [!propiedad] Matriz elemental de intercambio
-> Sea $B$ el resultado de intercambiar las filas $i$ y $j$ de $A\in M_{m\times n}(K)$, con $1\le i,j\le m$ e $i\ne j$. Si $P_{ij}$ se construye intercambiando esas filas de $I_m$, entonces
+> Sean $A\in M_{m\times n}(K)$ e $i,j\in\{1,\ldots,m\}$, con $i\ne j$. El mismo intercambio construye $P_{ij}$ a partir de la identidad y transforma $A$ en $B$:
+>
+> $$
+> \begin{aligned}
+> I_m&\xrightarrow[L_i\leftrightarrow L_j]{}P_{ij},\\[4pt]
+> A&\xrightarrow[L_i\leftrightarrow L_j]{}B.
+> \end{aligned}
+> $$
+>
+> Ambas maneras de efectuar el intercambio coinciden:
 >
 > $$
 > \boxed{B=P_{ij}A}.
 > $$
+>
+> Las filas $i$ y $j$ cambian de posición; las demás se conservan.[^a5][^emdr]
 
 #### Demostración
 
@@ -452,11 +621,22 @@ tags:
 #### Propiedad
 
 > [!propiedad] Matriz elemental de escalado
-> Sea $B$ el resultado de $R_i\leftarrow\lambda R_i$ en $A\in M_{m\times n}(K)$, con $1\le i\le m$ y $\lambda\in K\setminus\{0\}$. Si $D_i(\lambda)$ es $I_m$ con la entrada $(i,i)$ sustituida por $\lambda$, entonces
+> Sean $A\in M_{m\times n}(K)$, $i\in\{1,\ldots,m\}$ y $\lambda\in K\setminus\{0\}$. Multiplicamos la fila $i$ por el mismo escalar en las dos matrices:
+>
+> $$
+> \begin{aligned}
+> I_m&\xrightarrow[L_i\leftarrow\lambda L_i]{}D_i(\lambda),\\[4pt]
+> A&\xrightarrow[L_i\leftarrow\lambda L_i]{}B.
+> \end{aligned}
+> $$
+>
+> En $D_i(\lambda)$ sólo cambia la entrada diagonal $(i,i)$, que pasa de $1$ a $\lambda$. Entonces
 >
 > $$
 > \boxed{B=D_i(\lambda)A}.
 > $$
+>
+> Sólo se escala la fila $i$ de $A$; las demás permanecen iguales.[^a5][^emdr]
 
 #### Demostración
 
@@ -477,7 +657,7 @@ tags:
   - escalado
 ---
 > [!note] Pregunta
-> ¿Qué matriz elemental representa $R_i\leftarrow\lambda R_i$ para $\lambda\ne0$?
+> ¿Qué matriz elemental representa $L_i\leftarrow\lambda L_i$ para $\lambda\ne0$?
 ===
 > [!important] Respuesta
 > $D_i(\lambda)$, la identidad con la entrada diagonal $(i,i)$ sustituida por $\lambda$; $D_i(\lambda)A$ escala solo la fila $i$.
@@ -488,11 +668,22 @@ tags:
 #### Propiedad
 
 > [!propiedad] Matriz elemental de reemplazo
-> Sea $B$ el resultado de $R_i\leftarrow R_i+\lambda R_j$ en $A\in M_{m\times n}(K)$, con $1\le i,j\le m$, $i\ne j$ y $\lambda\in K$. Si $E_{ij}(\lambda)$ es $I_m$ con la entrada $(i,j)$ sustituida por $\lambda$, entonces
+> Sean $A\in M_{m\times n}(K)$, $i,j\in\{1,\ldots,m\}$, $i\ne j$ y $\lambda\in K$. Sumamos $\lambda$ veces la fila $j$ a la fila $i$:
+>
+> $$
+> \begin{aligned}
+> I_m&\xrightarrow[L_i\leftarrow L_i+\lambda L_j]{}E_{ij}(\lambda),\\[4pt]
+> A&\xrightarrow[L_i\leftarrow L_i+\lambda L_j]{}B.
+> \end{aligned}
+> $$
+>
+> En $E_{ij}(\lambda)$ aparece $\lambda$ en la posición $(i,j)$, que antes era cero. Se cumple
 >
 > $$
 > \boxed{B=E_{ij}(\lambda)A}.
 > $$
+>
+> Cambia la fila $i$ de $A$; la fila $j$, usada para calcularla, queda intacta.[^a5][^emdr]
 
 #### Demostración
 
@@ -528,7 +719,7 @@ tags:
   - reemplazo
 ---
 > [!note] Pregunta
-> ¿Qué matriz elemental representa $R_i\leftarrow R_i+\lambda R_j$ con $i\ne j$?
+> ¿Qué matriz elemental representa $L_i\leftarrow L_i+\lambda L_j$ con $i\ne j$?
 ===
 > [!important] Respuesta
 > $E_{ij}(\lambda)$ es la identidad con $\lambda$ en la posición $(i,j)$; por la izquierda suma $\lambda$ veces la fila $j$ a la fila $i$.
@@ -577,7 +768,7 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración
-> Sea $E$ la matriz elemental asociada a una operación y sea $F$ la que representa la operación inversa. Para toda matriz $A$ con $m$ filas, aplicar primero $E$ y luego $F$ devuelve $A$; por tanto, $F(EA)=A$. Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Asociatividad del producto|asociatividad]], $(FE)A=A$. Tomando $A=I_m$, queda $FE=I_m$.
+> Sea $E$ la matriz elemental asociada a una operación y sea $F$ la que representa la operación inversa. Para toda matriz $A$ con $m$ filas, aplicar primero $E$ y luego $F$ devuelve $A$; por tanto, $F(EA)=A$. Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Asociatividad del producto|asociatividad]], $(FE)A=A$. Tomando $A=I_m$, queda $FE=I_m$.
 >
 > En el orden inverso, aplicar primero $F$ y luego $E$ también devuelve $A$, así que $(EF)A=A$. Con $A=I_m$, obtenemos $EF=I_m$. Luego $F$ es inversa bilateral de $E$.[^emni]
 
@@ -597,7 +788,7 @@ tags:
 
 #### Inversas de los tres tipos
 
-Para construir $E^{-1}$ aplicamos a $I_m$ la operación inversa. Un intercambio se repite; un [[#Escalado por un escalar no nulo|escalado]] se deshace con el factor recíproco; un [[#Reemplazo de una fila|reemplazo]], restando el múltiplo que se había añadido:
+Para construir $E^{-1}$ aplicamos a $I_m$ la operación inversa. Un intercambio se repite; un [[#Multiplicar por un escalar no nulo|escalado]] se deshace con el factor recíproco; un [[#Reemplazo de una fila|reemplazo]], restando el múltiplo que se había añadido:
 
 | Matriz elemental | Matriz inversa | Operación que deshace |
 |---|---|---|
@@ -649,6 +840,38 @@ tags:
 
 ### Composición de operaciones elementales
 
+Llamemos $t_1,\ldots,t_p$ a las operaciones y $E_1,\ldots,E_p$ a sus matrices elementales. La cadena de operaciones es
+
+$$
+A=A_0\xrightarrow[t_1]{}A_1
+\xrightarrow[t_2]{}\cdots
+\xrightarrow[t_p]{}A_p=B.
+$$
+
+La operación $t_k$ produce $A_k=E_kA_{k-1}$. Los dos primeros pasos muestran cómo se ordenan los factores:
+
+$$
+A_1=E_1A,
+\qquad
+A_2=E_2A_1=E_2(E_1A).
+$$
+
+Así, $t_1$ se aplica primero, aunque $E_1$ quede a la derecha de $E_2$ en el producto. La matriz situada más cerca de $A$ actúa primero.[^comp]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Sistemas lineales
+tags:
+  - matemáticas
+  - matrices-elementales
+  - composición
+---
+> [!note] Pregunta
+> En una cadena de operaciones por filas, ¿qué diferencia hay entre $t_k$ y $E_k$?
+===
+> [!important] Respuesta
+> $t_k$ es la operación elemental y $E_k$ es su matriz: aplicar $t_k$ a $A_{k-1}$ produce $A_k=E_kA_{k-1}$.
+```
+
 #### Propiedad
 
 > [!propiedad] Orden de los factores
@@ -660,16 +883,58 @@ tags:
 >
 > La primera operación corresponde al factor más próximo a $A$.[^comp]
 
+#### Ejemplo — Seguir tres operaciones
+
+Retomamos la matriz del intercambio. En cada flecha aparece el nombre del paso y la operación que se realiza.
+
+**Primero: intercambiar las filas 1 y 3.**
+
+$$
+\underbrace{\begin{pmatrix}1&2&0\\3&-1&4\\5&0&2\end{pmatrix}}_{A}
+\xrightarrow[t_1:\,L_1\leftrightarrow L_3]{}
+\underbrace{\begin{pmatrix}5&0&2\\3&-1&4\\1&2&0\end{pmatrix}}_{A_1=P_{13}A}.
+$$
+
+**Segundo: multiplicar la fila 2 por 3.** Se opera sobre $A_1$, el resultado anterior:
+
+$$
+\underbrace{\begin{pmatrix}5&0&2\\3&-1&4\\1&2&0\end{pmatrix}}_{A_1}
+\xrightarrow[t_2:\,L_2\leftarrow3L_2]{}
+\underbrace{\begin{pmatrix}5&0&2\\9&-3&12\\1&2&0\end{pmatrix}}_{A_2=D_2(3)A_1}.
+$$
+
+**Tercero: restar dos veces la fila 1 a la fila 3.** En $A_2$, esa resta es $(1,2,0)-2(5,0,2)=(-9,2,-4)$:
+
+$$
+\underbrace{\begin{pmatrix}5&0&2\\9&-3&12\\1&2&0\end{pmatrix}}_{A_2}
+\xrightarrow[t_3:\,L_3\leftarrow L_3-2L_1]{}
+\underbrace{\begin{pmatrix}5&0&2\\9&-3&12\\-9&2&-4\end{pmatrix}}_{B=E_{31}(-2)A_2}.
+$$
+
+La cadena y su producto representan el mismo recorrido:
+
+$$
+A\xrightarrow[t_1]{}A_1\xrightarrow[t_2]{}A_2\xrightarrow[t_3]{}B,
+\qquad
+B=E_{31}(-2)D_2(3)P_{13}A.
+$$
+
+Para deshacerlo, sumamos $2L_1$ a $L_3$, dividimos $L_2$ por $3$ y repetimos el intercambio. Ese orden se ve en
+
+$$
+B\xrightarrow[t'_3]{}A_2\xrightarrow[t'_2]{}A_1\xrightarrow[t'_1]{}A.
+$$
+
 #### Demostración
 
 > [!demostracion] Demostración
-> Si primero se aplica $E_1$ y después $E_2$, el resultado es
+> Si primero efectuamos $t_1$ y después $t_2$, sus matrices elementales actúan en ese mismo orden y el resultado es
 >
 > $$
 > E_2(E_1A).
 > $$
 >
-> Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Asociatividad del producto|asociatividad]],
+> Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Asociatividad del producto|asociatividad]],
 >
 > $$
 > E_2(E_1A)=(E_2E_1)A.
@@ -1178,12 +1443,12 @@ tags:
 
 ### Cómo elegir el múltiplo que elimina una entrada
 
-En la columna que estamos reduciendo, la fila [[#Pivote|pivote]] $R_i$ contiene $p\ne0$ y una fila inferior $R_j$ contiene $q$. Si restamos $c$ veces la fila pivote, la entrada inferior pasa a valer $q-cp$. Para que sea cero, necesitamos $cp=q$, es decir, $c=q/p$:
+En la columna que estamos reduciendo, la fila [[#Pivote|pivote]] $L_i$ contiene $p\ne0$ y una fila inferior $L_j$ contiene $q$. Si restamos $c$ veces la fila pivote, la entrada inferior pasa a valer $q-cp$. Para que sea cero, necesitamos $cp=q$, es decir, $c=q/p$:
 
 > [!formula] Eliminación bajo un pivote
 >
 > $$
-> R_j\leftarrow R_j-\frac{q}{p}R_i,
+> L_j\leftarrow L_j-\frac{q}{p}L_i,
 > \qquad q-\frac{q}{p}p=0.
 > $$
 
@@ -1197,7 +1462,7 @@ tags:
   - pivotes
 ---
 > [!note] Pregunta
-> ¿Cómo se normaliza un pivote no nulo $p$ en la fila $R_i$?
+> ¿Cómo se normaliza un pivote no nulo $p$ en la fila $L_i$?
 ===
 > [!important] Respuesta
 > Se multiplica toda la fila por $1/p$, que está definido porque $p\ne0$; el pivote pasa a valer $1$.
@@ -1211,10 +1476,10 @@ tags:
   - pivotes
 ---
 > [!note] Pregunta
-> Si la fila $R_i$ contiene un pivote $p\ne0$ y en esa columna la fila inferior $R_j$ contiene $q$, ¿qué operación anula $q$?
+> Si la fila $L_i$ contiene un pivote $p\ne0$ y en esa columna la fila inferior $L_j$ contiene $q$, ¿qué operación anula $q$?
 ===
 > [!important] Respuesta
-> $R_j\leftarrow R_j-(q/p)R_i$; la entrada pasa a $q-(q/p)p=0$.
+> $L_j\leftarrow L_j-(q/p)L_i$; la entrada pasa a $q-(q/p)p=0$.
 ```
 
 ### Sustitución hacia atrás
@@ -1287,7 +1552,7 @@ El coeficiente de $x$ en la segunda ecuación ya es $1$. Intercambiamos las fila
 
 $$
 \left[\begin{array}{cc|c}1&-1&1\\2&1&5\end{array}\right]
-\xrightarrow{R_2\leftarrow R_2-2R_1}
+\xrightarrow{L_2\leftarrow L_2-2L_1}
 \left[\begin{array}{cc|c}1&-1&1\\0&3&3\end{array}\right].
 $$
 
@@ -1297,7 +1562,7 @@ Para llegar a la [[#Forma escalonada reducida|forma reducida]] mediante **[[#Mé
 
 $$
 \left[\begin{array}{cc|c}1&-1&1\\0&1&1\end{array}\right]
-\xrightarrow{R_1\leftarrow R_1+R_2}
+\xrightarrow{L_1\leftarrow L_1+L_2}
 \left[\begin{array}{cc|c}1&0&2\\0&1&1\end{array}\right].
 $$
 
@@ -1337,8 +1602,8 @@ El primer pivote es $1$. Para anular el $-2$ de la segunda fila se suma dos vece
 
 $$
 \begin{aligned}
-R_2&\leftarrow R_2+2R_1,\\
-R_3&\leftarrow R_3-3R_1.
+L_2&\leftarrow L_2+2L_1,\\
+L_3&\leftarrow L_3-3L_1.
 \end{aligned}
 $$
 
@@ -1357,7 +1622,7 @@ $$
 El segundo pivote es $2$ en la columna de $y$. Para anular el $4$ que queda debajo, se resta dos veces la segunda fila a la tercera:
 
 $$
-R_3\leftarrow R_3-2R_2.
+L_3\leftarrow L_3-2L_2.
 $$
 
 En la tercera fila obtenemos $4-2\cdot2=0$ en la columna de $y$, $-1-2\cdot1=-3$ en la de $z$ y $11-2\cdot1=9$ en el término independiente. Esa fila expresa $-3z=9$. Hemos llegado a una [[#Forma escalonada por filas|forma escalonada]]:
@@ -1391,15 +1656,15 @@ $$
 La alternativa es seguir operando con las filas. Primero dividimos la tercera por $-3$:
 
 $$
-R_3\leftarrow-\tfrac13R_3.
+L_3\leftarrow-\tfrac13L_3.
 $$
 
 Restamos la tercera fila a la segunda y dos veces la tercera a la primera para anular las entradas sobre ese pivote:
 
 $$
 \begin{aligned}
-R_2&\leftarrow R_2-R_3,\\
-R_1&\leftarrow R_1-2R_3.
+L_2&\leftarrow L_2-L_3,\\
+L_1&\leftarrow L_1-2L_3.
 \end{aligned}
 $$
 
@@ -1417,8 +1682,8 @@ Dividimos la segunda fila por $2$ y la sumamos a la primera:
 
 $$
 \begin{aligned}
-R_2&\leftarrow\tfrac12R_2,\\
-R_1&\leftarrow R_1+R_2.
+L_2&\leftarrow\tfrac12L_2,\\
+L_1&\leftarrow L_1+L_2.
 \end{aligned}
 $$
 
@@ -1442,9 +1707,9 @@ Supongamos que intercambiamos dos filas y después multiplicamos una por $-5$. P
 
 | Operación | Operación inversa |
 |---|---|
-| $R_i\leftrightarrow R_j$ | $R_i\leftrightarrow R_j$ |
-| $R_i\leftarrow\lambda R_i$, $\lambda\ne0$ | $R_i\leftarrow\lambda^{-1}R_i$ |
-| $R_i\leftarrow R_i+\lambda R_j$, $i\ne j$ | $R_i\leftarrow R_i-\lambda R_j$ |
+| $L_i\leftrightarrow L_j$ | $L_i\leftrightarrow L_j$ |
+| $L_i\leftarrow\lambda L_i$, $\lambda\ne0$ | $L_i\leftarrow\lambda^{-1}L_i$ |
+| $L_i\leftarrow L_i+\lambda L_j$, $i\ne j$ | $L_i\leftarrow L_i-\lambda L_j$ |
 
 En el [[#Reemplazo de una fila|reemplazo]], la fila $j$ no se modifica. Por eso podemos restar exactamente el múltiplo que habíamos añadido.[^a5]
 
@@ -1456,10 +1721,10 @@ tags:
   - operaciones-inversas
 ---
 > [!note] Pregunta
-> ¿Qué operación deshace el intercambio de dos filas $R_i\leftrightarrow R_j$?
+> ¿Qué operación deshace el intercambio de dos filas $L_i\leftrightarrow L_j$?
 ===
 > [!important] Respuesta
-> El mismo intercambio $R_i\leftrightarrow R_j$.
+> El mismo intercambio $L_i\leftrightarrow L_j$.
 ```
 
 ```anki
@@ -1470,10 +1735,10 @@ tags:
   - operaciones-inversas
 ---
 > [!note] Pregunta
-> ¿Qué operación deshace el escalado $R_i\leftarrow\lambda R_i$ cuando $\lambda\ne0$?
+> ¿Qué operación deshace el escalado $L_i\leftarrow\lambda L_i$ cuando $\lambda\ne0$?
 ===
 > [!important] Respuesta
-> El escalado $R_i\leftarrow\lambda^{-1}R_i$.
+> El escalado $L_i\leftarrow\lambda^{-1}L_i$.
 ```
 
 ```anki
@@ -1484,10 +1749,10 @@ tags:
   - operaciones-inversas
 ---
 > [!note] Pregunta
-> ¿Qué operación deshace el reemplazo $R_i\leftarrow R_i+\lambda R_j$?
+> ¿Qué operación deshace el reemplazo $L_i\leftarrow L_i+\lambda L_j$?
 ===
 > [!important] Respuesta
-> $R_i\leftarrow R_i-\lambda R_j$, manteniendo intacta la fila $j$.
+> $L_i\leftarrow L_i-\lambda L_j$, manteniendo intacta la fila $j$.
 ```
 
 Para construir la [[Matemáticas/Álgebra lineal/Matriz elemental|matriz elemental]] de cada operación, la aplicamos a $I_3$.
@@ -1516,13 +1781,13 @@ $$
 
 #### Reemplazos de filas
 
-Para $R_1\leftarrow R_1-5R_3$, partimos de $I_3$ y restamos cinco veces su tercera fila a la primera:
+Para $L_1\leftarrow L_1-5L_3$, partimos de $I_3$ y restamos cinco veces su tercera fila a la primera:
 
 $$
 E_{13}(-5)=\begin{pmatrix}1&0&-5\\0&1&0\\0&0&1\end{pmatrix}.
 $$
 
-Para $R_3\leftarrow R_3+6R_2$, sumamos seis veces la segunda fila de $I_3$ a su tercera fila:
+Para $L_3\leftarrow L_3+6L_2$, sumamos seis veces la segunda fila de $I_3$ a su tercera fila:
 
 $$
 E_{32}(6)=\begin{pmatrix}1&0&0\\0&1&0\\0&6&1\end{pmatrix}.
@@ -1596,11 +1861,11 @@ Elegimos el $-3$ de la tercera fila porque al dividir esa fila por $-3$ obtenemo
 
 $$
 \begin{aligned}
-R_3&\leftarrow-\tfrac13R_3,\\
-R_1&\leftrightarrow R_3,\\
-R_2&\leftarrow R_2-5R_1,\\
-R_3&\leftarrow R_3-6R_1,\\
-R_4&\leftarrow R_4-2R_1.
+L_3&\leftarrow-\tfrac13L_3,\\
+L_1&\leftrightarrow L_3,\\
+L_2&\leftarrow L_2-5L_1,\\
+L_3&\leftarrow L_3-6L_1,\\
+L_4&\leftarrow L_4-2L_1.
 \end{aligned}
 $$
 
@@ -1614,9 +1879,9 @@ Podríamos dividir por $-3$ para obtener el segundo pivote, pero sumar la tercer
 
 $$
 \begin{aligned}
-R_2&\leftarrow R_2+R_3,\\
-R_3&\leftarrow R_3+2R_2,\\
-R_4&\leftarrow R_4-2R_2.
+L_2&\leftarrow L_2+L_3,\\
+L_3&\leftarrow L_3+2L_2,\\
+L_4&\leftarrow L_4-2L_2.
 \end{aligned}
 $$
 
@@ -1634,15 +1899,15 @@ Continuamos desde $A_2$. En la tercera columna hay un $20$ y un $-12$. Dividir l
 
 $$
 \begin{aligned}
-R_4&\leftarrow -\tfrac16R_4,\\
-R_3&\leftrightarrow R_4.
+L_4&\leftarrow -\tfrac16L_4,\\
+L_3&\leftrightarrow L_4.
 \end{aligned}
 $$
 
 Así, el elemento $20$ de la nueva cuarta fila se anula restando diez veces la tercera fila, cuyo pivote en la tercera columna es $2$: $20-10\cdot2=0$.
 
 $$
-R_4\leftarrow R_4-10R_3.
+L_4\leftarrow L_4-10L_3.
 $$
 
 Se llega a la [[#Forma escalonada por filas|forma escalonada]] $U\in M_{4\times5}(\mathbb R)$, con pivotes en las cuatro primeras columnas:
@@ -1657,9 +1922,9 @@ El último pivote es $-5$. Para anular, por ejemplo, el $3$ situado en la misma 
 
 $$
 \begin{aligned}
-R_3&\leftarrow R_3+\tfrac35R_4,\\
-R_2&\leftarrow R_2+2R_4,\\
-R_1&\leftarrow R_1+\tfrac35R_4.
+L_3&\leftarrow L_3+\tfrac35L_4,\\
+L_2&\leftarrow L_2+2L_4,\\
+L_1&\leftarrow L_1+\tfrac35L_4.
 \end{aligned}
 $$
 
@@ -1667,8 +1932,8 @@ Después se anula la entrada sobre el pivote de la tercera columna en la segunda
 
 $$
 \begin{aligned}
-R_2&\leftarrow R_2-4R_3,\\
-R_1&\leftarrow R_1-5R_2.
+L_2&\leftarrow L_2-4L_3,\\
+L_1&\leftarrow L_1-5L_2.
 \end{aligned}
 $$
 
@@ -1676,9 +1941,9 @@ El primer pivote ya vale $1$. Dividimos las otras tres filas por sus respectivos
 
 $$
 \begin{aligned}
-R_2&\leftarrow -R_2,\\
-R_3&\leftarrow \tfrac12R_3,\\
-R_4&\leftarrow -\tfrac15R_4.
+L_2&\leftarrow -L_2,\\
+L_3&\leftarrow \tfrac12L_3,\\
+L_4&\leftarrow -\tfrac15L_4.
 \end{aligned}
 $$
 
@@ -1709,22 +1974,22 @@ $$
 La primera columna es nula, así que no puede tener pivote; se avanza a la columna 2. Primero se resta dos veces la primera fila de la segunda; esta operación convierte el $5$ de la segunda columna en $1$:
 
 $$
-R_2\leftarrow R_2-2R_1.
+L_2\leftarrow L_2-2L_1.
 $$
 
 Después se intercambian las dos primeras filas para colocar ese pivote en la primera fila:
 
 $$
-R_1\leftrightarrow R_2.
+L_1\leftrightarrow L_2.
 $$
 
 Las siguientes operaciones anulan las entradas bajo el pivote de la segunda columna:
 
 $$
 \begin{aligned}
-R_2&\leftarrow R_2-2R_1,\\
-R_3&\leftarrow R_3-7R_1,\\
-R_4&\leftarrow R_4+5R_1.
+L_2&\leftarrow L_2-2L_1,\\
+L_3&\leftarrow L_3-7L_1,\\
+L_4&\leftarrow L_4+5L_1.
 \end{aligned}
 $$
 
@@ -1738,8 +2003,8 @@ El siguiente pivote es $2$, en la columna $3$. Para anular el $-10$ sumamos cinc
 
 $$
 \begin{aligned}
-R_3&\leftarrow R_3+5R_2,\\
-R_4&\leftarrow R_4+3R_2.
+L_3&\leftarrow L_3+5L_2,\\
+L_4&\leftarrow L_4+3L_2.
 \end{aligned}
 $$
 
@@ -1756,8 +2021,8 @@ La columna 4 es nula. En la columna 5 dividimos la tercera fila por $-14$ para o
 
 $$
 \begin{aligned}
-R_3&\leftarrow-\tfrac1{14}R_3,\\
-R_4&\leftarrow R_4+4R_3.
+L_3&\leftarrow-\tfrac1{14}L_3,\\
+L_4&\leftarrow L_4+4L_3.
 \end{aligned}
 $$
 
@@ -1775,10 +2040,10 @@ El pivote de la última fila no nula ya vale $1$. Lo usamos para eliminar el $-5
 
 $$
 \begin{aligned}
-R_2&\leftarrow R_2+5R_3,\\
-R_1&\leftarrow R_1-3R_3,\\
-R_2&\leftarrow \tfrac12R_2,\\
-R_1&\leftarrow R_1+R_2.
+L_2&\leftarrow L_2+5L_3,\\
+L_1&\leftarrow L_1-3L_3,\\
+L_2&\leftarrow \tfrac12L_2,\\
+L_1&\leftarrow L_1+L_2.
 \end{aligned}
 $$
 
@@ -1795,7 +2060,7 @@ $$
 
 Una entrada cero no sirve como divisor. Buscamos una entrada no nula en las filas pendientes de la misma columna y la llevamos a la fila de trabajo mediante un [[#Intercambio de filas|intercambio]]. Si no existe, esa columna queda sin pivote y seguimos con la siguiente.
 
-En una lista de operaciones, cada paso actúa sobre la matriz que ha dejado el anterior. Así, después de $R_2\leftarrow R_2+R_3$, una operación que use $R_2$ utiliza **su valor actualizado**. Esto importa especialmente cuando varias operaciones se escriben juntas.
+En una lista de operaciones, cada paso actúa sobre la matriz que ha dejado el anterior. Así, después de $L_2\leftarrow L_2+L_3$, una operación que use $L_2$ utiliza **su valor actualizado**. Esto importa especialmente cuando varias operaciones se escriben juntas.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1804,10 +2069,10 @@ tags:
   - operaciones-fila
 ---
 > [!note] Pregunta
-> Después de efectuar $R_2\leftarrow R_2+R_3$, ¿qué fila $R_2$ se usa en la siguiente operación de una secuencia?
+> Después de efectuar $L_2\leftarrow L_2+L_3$, ¿qué fila $L_2$ se usa en la siguiente operación de una secuencia?
 ===
 > [!important] Respuesta
-> La fila $R_2$ actualizada, obtenida en el paso anterior.
+> La fila $L_2$ actualizada, obtenida en el paso anterior.
 ```
 
 ```anki
@@ -1826,7 +2091,7 @@ tags:
 > ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-fila-completa-anki.png|Escalar toda la ecuación: (2,1 | 5) pasa a (1,1/2 | 5/2)|420]]
 ```
 
-La reducción ya da las ecuaciones con las que decidiremos si un sistema tiene solución y cuántos parámetros necesita. Esa lectura se desarrolla en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]].
+La reducción ya da las ecuaciones con las que decidiremos si un sistema tiene solución y cuántos parámetros necesita. Esa lectura se desarrolla en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]].
 
 ## 📚 Fuentes
 
@@ -1834,7 +2099,7 @@ La reducción ya da las ecuaciones con las que decidiremos si un sistema tiene s
 
 [^a4]: FCUL, *Álgebra Linear e Geometria Analítica*, 2026/27, aula 4, diapositivas 13–17. Fuente de las convenciones sobre pivotes, formas escalonadas y del ejemplo con tres ecuaciones. Archivo docente: `ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf`.
 
-[^a5]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 5, 25/09/2026, «Transformações Elementares», diapositivas 2–11. La diapositiva 8 propone como TPC demostrar que $EA$ realiza sobre $A$ la operación que construye $E$; aquí se resuelven sus tres casos. Archivo docente: `ALGA-2026-27-AulasTeo-slides-aula5-TransfElem-impressao.pdf`.
+[^a5]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 5, 25/09/2026, «Transformações Elementares», diapositivas 2–11. La captura aportada de la diapositiva 4 muestra las operaciones inversas; la segunda captura muestra las cadenas rotuladas $t_1,\ldots,t_p$, su recorrido inverso y la equivalencia por filas. Se adopta la notación $L_i$ para las filas. La diapositiva 8 propone como TPC demostrar que $EA$ realiza sobre $A$ la operación que construye $E$; aquí se resuelven sus tres casos. Archivo docente: `ALGA-2026-27-AulasTeo-slides-aula5-TransfElem-impressao.pdf`.
 
 [^a6]: FCUL, *Álgebra Linear e Geometria Analítica*, 2026/27, aula 6, diapositivas 2–10. Fuente de los ejemplos de rango y de la continuación de las reducciones. Archivo docente: `ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf`.
 
@@ -1860,7 +2125,7 @@ Actúa como tutor de eliminación y matrices elementales para un estudiante que 
 
 Una matriz está escalonada si las filas nulas quedan abajo y los pivotes —primeras entradas no nulas de las filas— avanzan hacia la derecha. En la forma reducida, cada pivote vale $1$ y es la única entrada no nula de su columna. La forma reducida es única; las formas escalonadas pueden variar, pero todas tienen el mismo número de pivotes, el rango. En una forma reducida compatible, las variables asociadas a columnas sin pivote son libres y se eligen como parámetros; las variables pivote quedan determinadas por ellas. Un sistema homogéneo tiene vector de términos independientes nulo. Gauss elimina debajo de los pivotes y termina con sustitución hacia atrás; Gauss–Jordan elimina también encima y normaliza los pivotes.
 
-**Ejemplo disponible.** Para $2x+y=5$, $x-y=1$, intercambiar filas y efectuar $R_2\leftarrow R_2-2R_1$ da $x-y=1$, $3y=3$. De aquí se obtienen $y=1$ y $x=2$. Para reducir, dividir la segunda fila por $3$ y sumarla a la primera da $[I_2\mid(2,1)^T]$. Pide justificar el factor $2$, el efecto sobre el término independiente y la comprobación en las ecuaciones originales.
+**Ejemplo disponible.** Para $2x+y=5$, $x-y=1$, intercambiar filas y efectuar $L_2\leftarrow L_2-2L_1$ da $x-y=1$, $3y=3$. De aquí se obtienen $y=1$ y $x=2$. Para reducir, dividir la segunda fila por $3$ y sumarla a la primera da $[I_2\mid(2,1)^T]$. Pide justificar el factor $2$, el efecto sobre el término independiente y la comprobación en las ecuaciones originales.
 
 **Segundo ejemplo disponible.** El sistema $-2x+4y-3z=-1$, $5x-5y+10z=5$, $3x+y+5z=14$ se reduce a $x-y+2z=1$, $2y+z=1$, $-3z=9$, con solución $(9,2,-3)$. Úsalo para distinguir sustitución hacia atrás y reducción completa.
 

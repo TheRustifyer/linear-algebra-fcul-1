@@ -18,7 +18,7 @@ requiere:
   - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/01 Definición y cálculo de determinantes|Definición y cálculo de determinantes]]"
   - "[[Matemáticas/Álgebra lineal/Determinantes|Determinantes]]"
 relacionado:
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]"
   - "[[Matemáticas/Álgebra lineal/Matrices|Matrices]]"
 fsrs_goal: Justificar por desarrollo de Laplace la aditividad y homogeneidad del determinante en una fila o columna fija, probar por inducción su compatibilidad con conjugación y deducir la anulación para filas o columnas proporcionales; usar transposición, triangularidad, escala y producto; decidir invertibilidad y analizar sistemas singulares; definir un sistema de Cramer, identificar A, B y sus columnas C_j, construir A_j(B), aplicar la fórmula bajo det(A)≠0 para hallar la solución o una coordenada aislada y comprobar por sustitución; construir la adjunta y obtener A^{-1} o una de sus entradas.
 simbolos:
@@ -978,7 +978,7 @@ tags:
 > \det(AB)=\frac{\det(B)}{c}=\det(A)\det(B).
 > $$
 >
-> **2. Caso en que $A$ no es invertible.** Por el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa#Relación entre invertibilidad, rango y solución única|criterio de pivotes]], una matriz cuadrada no invertible tiene menos de $n$ pivotes; en forma escalonada eso significa que alguna de sus $n$ filas es nula. La misma secuencia fija transforma $A$ en $QA$, que conserva esa fila nula. Al multiplicar por $B$, la fila sigue siendo nula, así que $Q(AB)=(QA)B$ también tiene una fila nula. Por ello, ambos determinantes reducidos son cero:
+> **2. Caso en que $A$ no es invertible.** Por el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa#Relación entre invertibilidad, rango y solución única|criterio de pivotes]], una matriz cuadrada no invertible tiene menos de $n$ pivotes; en forma escalonada eso significa que alguna de sus $n$ filas es nula. La misma secuencia fija transforma $A$ en $QA$, que conserva esa fila nula. Al multiplicar por $B$, la fila sigue siendo nula, así que $Q(AB)=(QA)B$ también tiene una fila nula. Por ello, ambos determinantes reducidos son cero:
 >
 > $$
 > \det(QA)=c\det(A)=0,\qquad \det(Q(AB))=c\det(AB)=0.
@@ -1102,7 +1102,7 @@ tags:
 
 ### Rango, matrices elementales y solución única
 
-Para una matriz cuadrada de orden $n$, las equivalencias estudiadas en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|rango e inversa]] se completan con el determinante:
+Para una matriz cuadrada de orden $n$, las equivalencias estudiadas en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|rango e inversa]] se completan con el determinante:
 
 $$
 \begin{aligned}

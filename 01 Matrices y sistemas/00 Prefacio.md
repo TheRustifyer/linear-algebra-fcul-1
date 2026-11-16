@@ -1,7 +1,37 @@
+---
+title: Demostración por componentes
+aliases: []
+asignatura: Álgebra Lineal y Geometría Analítica
+rama:
+  - Álgebra lineal
+  - Sistemas de ecuaciones lineales
+tipo:
+  - teoría
+  - definición
+  - procedimiento
+nivel: universitario-introductorio
+estado: borrador
+capa: curricular
+requiere:
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|Matrices]]"
+relacionado:
+  - "[[Matemáticas/Álgebra lineal/Matrices|Matrices]]"
+fsrs_goal: Justificar una igualdad matricial con índices arbitrarios, distinguir los pasos definitorios de las leyes escalares y concluir mediante el criterio de igualdad.
+tags:
+  - matematicas
+  - algebra-lineal
+  - matrices
+  - fcul
+  - grado-fisica
+  - curricular
+---
+
 
 # Demostración por componentes
 
 ^2bd3aa
+
+Este método se apoya en las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices: filas, columnas y entradas|entradas y la igualdad de matrices]]. La igualdad de cada entrada se obtiene con definiciones y propiedades de los escalares; el criterio de igualdad permite volver a la igualdad entre matrices.[^componentes]
 
 ## 1. Fundamento matemático
 
@@ -58,6 +88,20 @@ Por tanto, demostrar que dos matrices son iguales equivale a demostrar que sus e
 
 No es necesario comprobar cada posición individualmente: basta razonar con índices arbitrarios.
 
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - matrices
+  - igualdad
+---
+> [!note] Pregunta
+> ¿Qué debe comprobarse para demostrar que dos matrices son iguales?
+===
+> [!important] Respuesta
+> Que tienen el mismo tamaño y que sus entradas correspondientes coinciden para todos los índices admisibles.
+```
+
 ## 3. ¿En qué consiste la demostración por componentes?
 
 La **demostración por componentes** es un método para probar igualdades matriciales mediante las propiedades algebraicas de sus entradas.
@@ -81,6 +125,20 @@ $$
 $$
 
 La demostración transforma así un problema matricial en un problema algebraico sobre los elementos del cuerpo $K$.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - matrices
+  - demostraciones
+---
+> [!note] Pregunta
+> ¿Cómo se demuestra por entradas que dos matrices del mismo tamaño son iguales?
+===
+> [!important] Respuesta
+> Se fija una posición arbitraria $(i,j)$, se calcula la entrada de ambos lados y se prueba que coinciden; como la posición es arbitraria, coinciden todas las entradas.
+```
 
 ## 4. Definiciones fundamentales por componentes
 
@@ -108,6 +166,9 @@ Cada elemento de la matriz se multiplica por el mismo escalar.
 
 ### 4.3. Producto de matrices
 
+Esta operación se desarrolla en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones|Producto matricial, potencias y sistemas]]. No es necesaria para el primer ejemplo del prefacio.
+
+
 Sean $A\in M_{m\times n}(K)$ y $B\in M_{n\times p}(K)$.
 
 Entonces $AB\in M_{m\times p}(K)$ y:
@@ -121,6 +182,9 @@ A diferencia de la suma, el producto matricial no se calcula multiplicando direc
 Cada componente es una suma de productos.
 
 ### 4.4. Trasposición
+
+La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|transpuesta]] se utiliza únicamente en el ejemplo opcional de esta nota.
+
 
 Sea $A\in M_{m\times n}(K)$.
 
@@ -182,7 +246,20 @@ $$
 \boxed{X=Y}\qquad\blacksquare
 $$
 
-## 6. Ejemplo: traspuesta de una suma
+## 6. Ejemplo — Conmutatividad de la suma
+
+> [!ejemplo] Comparar una entrada de las dos sumas
+> Sean $A=(a_{ij})$ y $B=(b_{ij})$ matrices de $M_{m\times n}(K)$. Para $i\in\{1,\ldots,m\}$ y $j\in\{1,\ldots,n\}$ arbitrarios,
+> $$
+> (A+B)_{ij}=a_{ij}+b_{ij}=b_{ij}+a_{ij}=(B+A)_{ij}.
+> $$
+> La primera y la última igualdad aplican la definición de suma; la central usa la conmutatividad en $K$. Ambas sumas tienen tamaño $m\times n$ y las entradas coinciden en toda posición, por lo que $A+B=B+A$.[^componentes]
+
+## 6 bis. Ampliación opcional — Traspuesta de una suma
+
+Este segundo ejemplo presupone la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Transpuesta|definición de traspuesta]]. Puede retomarse después de estudiar esa operación.
+
+
 
 **Proposición.** Para cualesquiera $A,B\in M_{m\times n}(K)$:
 
@@ -272,3 +349,18 @@ $$
 Siempre bajo la hipótesis de que $X$ e $Y$ son matrices de las mismas dimensiones y los índices recorren todas sus posiciones.
 
 Este principio será la base para demostrar muchas de las propiedades algebraicas de las matrices.
+
+
+![Índices de una matriz y posiciones de la diagonal principal](assets/02-indices-y-diagonal.svg)
+
+*Cada pareja de índices selecciona una entrada. El argumento por componentes se formula para una posición arbitraria, no sólo para la resaltada en el dibujo.*
+
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/02-indices-y-diagonal.excalidraw|Abrir el dibujo editable]]
+
+## 📚 Fuentes
+
+[^componentes]: W. Keith Nicholson, *Linear Algebra with Applications*, §2.1, «Matrix Addition, Scalar Multiplication, and Transposition», definición de igualdad y demostración de la conmutatividad mediante entradas correspondientes. [LibreTexts](https://math.libretexts.org/Bookshelves/Linear_Algebra/Linear_Algebra_with_Applications_(Nicholson)/02:_Matrix_Algebra/2.01:_Matrix_Addition_Scalar_Multiplication_and_Transposition). El esquema de seis pasos organiza editorialmente ese método; no se presenta como transcripción literal del manual.
+
+## 🧑‍🏫 Prompt para tutor conversacional
+
+Actúa como tutor de primer curso de Física. El estudiante acaba de aprender entradas, dimensiones, igualdad y suma de matrices. Para demostrar $X=Y$, comprueba primero que ambos miembros tienen tamaño $r\times s$; fija $i\in\{1,\ldots,r\}$ y $j\in\{1,\ldots,s\}$ arbitrarios; aplica las definiciones y las leyes escalares hasta obtener $X_{ij}=Y_{ij}$. Concluye que las matrices son iguales por coincidir todas sus entradas. Usa $(A+B)_{ij}=a_{ij}+b_{ij}=b_{ij}+a_{ij}=(B+A)_{ij}$ para distinguir definición de suma y conmutatividad escalar. Reserva la traspuesta para después de estudiarla. Formula una pregunta cada vez y espera el intento antes de mostrar la respuesta. Distingue errores de concepto, de notación y de cálculo; ofrece pistas concretas y recupera después lo que haya fallado. Usa los ejemplos existentes; no generes ejercicios nuevos.

@@ -428,7 +428,7 @@ A+B=\begin{pmatrix}1&2&1\\3&4&1\\0&4&5\end{pmatrix},
 \qquad 2A=\begin{pmatrix}2&0&4\\-2&6&2\\4&2&0\end{pmatrix}.
 $$
 
-Los resultados conservan el tamaño. El neutro es la matriz nula y el opuesto es $-A$. Los axiomas se verifican entrada por entrada como en el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|cálculo matricial]].[^base]
+Los resultados conservan el tamaño. El neutro es la matriz nula y el opuesto es $-A$. Los axiomas se verifican entrada por entrada como en el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones|cálculo matricial]].[^base]
 
 ```anki
 deck: Física::Álgebra Lineal::Espacios vectoriales

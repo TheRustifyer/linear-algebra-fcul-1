@@ -14,8 +14,9 @@ nivel: universitario-introductorio
 estado: borrador
 capa: curricular
 requiere:
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|Matrices y operaciones]]"
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|Eliminación y matrices elementales]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|Matrices]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|Eliminación y matrices elementales]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones]]"
 desbloquea:
   - "[[Matemáticas/Álgebra lineal/Determinantes|Determinantes]]"
 relacionado:
@@ -50,7 +51,7 @@ $$
 
 Al restar dos veces la primera ecuación a la segunda obtenemos $0=0$: la segunda no impone ninguna condición adicional. Si cambiamos su término independiente de $4$ a $5$, la misma operación da $0=1$ y el sistema deja de tener solución.
 
-Los coeficientes son los mismos en ambos casos. Para decidir la compatibilidad tenemos que seguir también la columna de términos independientes durante la eliminación. El rango permite expresar esa diferencia mediante el número de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]].[^a9]
+Los coeficientes son los mismos en ambos casos. Para decidir la compatibilidad tenemos que seguir también la columna de términos independientes durante la eliminación. El rango permite expresar esa diferencia mediante el número de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]].[^a9]
 
 Trabajaremos sobre $K=\mathbb R$ o $K=\mathbb C$, con $m,n\geq1$, matrices $A\in M_{m\times n}(K)$ y vectores columna $\mathbf x\in K^n$ y $\mathbf b\in K^m$.
 
@@ -59,9 +60,9 @@ Trabajaremos sobre $K=\mathbb R$ o $K=\mathbb C$, con $m,n\geq1$, matrices $A\in
 ### Rango de una matriz
 
 > [!definicion] Rango
-> El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de $A$, denotado $\operatorname{rg}(A)$ o $\operatorname{rank}(A)$ en Inglés, es el número de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] de cualquiera de sus [[Matemáticas/Álgebra lineal/Forma escalonada|formas escalonadas]] por filas; también es el número de filas no nulas en esa forma.[^a6-rango]
+> El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de $A$, denotado $\operatorname{rg}(A)$ o $\operatorname{rank}(A)$ en Inglés, es el número de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]] de cualquiera de sus [[Matemáticas/Álgebra lineal/Forma escalonada|formas escalonadas]] por filas; también es el número de filas no nulas en esa forma.[^a6-rango]
 
-Podemos elegir distintas operaciones para escalonar $A$, pero [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#El rango no depende de la forma escalonada elegida|el número de pivotes no cambia]]. Por eso basta obtener una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]] y contar sus filas no nulas.
+Podemos elegir distintas operaciones para escalonar $A$, pero [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#El rango no depende de la forma escalonada elegida|el número de pivotes no cambia]]. Por eso basta obtener una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]] y contar sus filas no nulas.
 
 #### Ejemplo: contar pivotes
 
@@ -71,7 +72,7 @@ $$
 R=\begin{pmatrix}1&1\\0&0\end{pmatrix}
 $$
 
-ya está escalonada. Tiene un solo [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]], en la primera columna, por lo que $\operatorname{rg}(R)=1$.
+ya está escalonada. Tiene un solo [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]], en la primera columna, por lo que $\operatorname{rg}(R)=1$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -100,7 +101,7 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración
-> El rango cuenta [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]], por lo que no puede ser negativo. En una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]] hay como máximo un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] por fila y uno por columna. Por tanto, su número no supera ni las $m$ filas ni las $n$ columnas. Así,
+> El rango cuenta [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]], por lo que no puede ser negativo. En una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]] hay como máximo un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] por fila y uno por columna. Por tanto, su número no supera ni las $m$ filas ni las $n$ columnas. Así,
 >
 > $$
 > 0\leq\operatorname{rg}(A)\leq\min(m,n).\qquad\blacksquare
@@ -121,7 +122,7 @@ tags:
 > $0\leq\operatorname{rg}(A)\leq\min(m,n)$: el rango cuenta pivotes y no puede haber más de uno por fila ni por columna.
 ```
 
-Una matriz $2\times3$ puede tener dos [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]], uno en cada fila, aunque una de sus tres columnas carezca de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. Habrá alcanzado el rango máximo $2$; seguirá siendo rectangular. El criterio de invertibilidad que demostraremos más adelante exige que la matriz sea cuadrada.
+Una matriz $2\times3$ puede tener dos [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]], uno en cada fila, aunque una de sus tres columnas carezca de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. Habrá alcanzado el rango máximo $2$; seguirá siendo rectangular. El criterio de invertibilidad que demostraremos más adelante exige que la matriz sea cuadrada.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -140,7 +141,7 @@ tags:
 ### Extra - Lectura mediante espacios generados
 
 > [opcional]- Lectura mediante espacios generados
-> El espacio generado por unas columnas reúne todas sus [[Matemáticas/Álgebra lineal/Espacios vectoriales/03 Combinaciones lineales y espacio generado|combinaciones lineales]]. Su dimensión es el número de vectores de [[Matemáticas/Álgebra lineal/Espacios vectoriales/05 Bases y dimensión|una base]]: una familia independiente que genera el mismo espacio. El rango coincide con la dimensión del espacio columna y del espacio fila. Esta interpretación conecta los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] con [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo, imagen, rango y nulidad]].[^rango-espacios]
+> El espacio generado por unas columnas reúne todas sus [[Matemáticas/Álgebra lineal/Espacios vectoriales/03 Combinaciones lineales y espacio generado|combinaciones lineales]]. Su dimensión es el número de vectores de [[Matemáticas/Álgebra lineal/Espacios vectoriales/05 Bases y dimensión|una base]]: una familia independiente que genera el mismo espacio. El rango coincide con la dimensión del espacio columna y del espacio fila. Esta interpretación conecta los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]] con [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo, imagen, rango y nulidad]].[^rango-espacios]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -220,13 +221,13 @@ tags:
 
 Para establecer el [[Matemáticas/Álgebra lineal/Teorema de Rouché-Capelli|criterio de Rouché–Capelli]], escalonemos $A\in M_{m\times n}(K)$ y apliquemos las mismas operaciones a la columna $\mathbf b\in K^m$. Si $r=\operatorname{rg}(A)$, bajo las primeras $r$ filas no nulas todos los coeficientes serán cero. En esas filas sólo pueden quedar entradas no nulas en la [[Matemáticas/Álgebra lineal/Matriz ampliada|columna ampliada]].
 
-Si todas ellas son cero, no aparece ningún [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] nuevo. Si alguna es distinta de cero, podemos usarla como pivote y anular las restantes entradas de esa columna: se añade exactamente uno. Los $r$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] de los coeficientes siguen presentes. Por tanto,
+Si todas ellas son cero, no aparece ningún [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] nuevo. Si alguna es distinta de cero, podemos usarla como pivote y anular las restantes entradas de esa columna: se añade exactamente uno. Los $r$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]] de los coeficientes siguen presentes. Por tanto,
 
 $$
 \operatorname{rg}(A)\leq\operatorname{rg}([A\mid\mathbf b])\leq\operatorname{rg}(A)+1.
 $$
 
-La columna $\mathbf b$ deja el rango igual cuando no aparece un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] en su posición; si aparece, el rango de la ampliada sube exactamente en uno.
+La columna $\mathbf b$ deja el rango igual cuando no aparece un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] en su posición; si aparece, el rango de la ampliada sube exactamente en uno.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -263,7 +264,7 @@ tags:
 > [!demostracion] Demostración
 > Reducimos la [[Matemáticas/Álgebra lineal/Matriz ampliada|matriz ampliada]] mediante [[Matemáticas/Álgebra lineal/Operaciones elementales por filas|operaciones elementales]]. Estas conservan las soluciones y los rangos.
 >
-> **Si los rangos son distintos**, la última columna añade un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] que no está en la parte de coeficientes. Aparece entonces una fila
+> **Si los rangos son distintos**, la última columna añade un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] que no está en la parte de coeficientes. Aparece entonces una fila
 >
 > $$
 > [0\ \cdots\ 0\mid c],\qquad c\ne0.
@@ -271,7 +272,7 @@ tags:
 >
 > Su ecuación es $0=c$, imposible para cualquier valor de las incógnitas. El sistema es [[#Sistema incompatible|incompatible]].
 >
-> **Si los rangos son iguales**, no hay [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] en la última columna y no aparece ninguna ecuación imposible. Se pueden elegir las variables sin pivote y resolver las restantes por sustitución desde la última fila no nula. Si no hay [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Variables pivote y variables libres|variables libres]], la sustitución determina directamente todas las incógnitas. En ambos casos se obtiene al menos una solución.
+> **Si los rangos son iguales**, no hay [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] en la última columna y no aparece ninguna ecuación imposible. Se pueden elegir las variables sin pivote y resolver las restantes por sustitución desde la última fila no nula. Si no hay [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Variables pivote y variables libres|variables libres]], la sustitución determina directamente todas las incógnitas. En ambos casos se obtiene al menos una solución.
 >
 > Por tanto, la igualdad de rangos equivale a la compatibilidad. $\blacksquare$[^a9]
 
@@ -291,7 +292,7 @@ tags:
 
 ## Clasificación de los sistemas
 
-==Una vez comprobada la compatibilidad==, se cuentan las columnas de coeficientes sin [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. Si hay $n$ incógnitas y $r$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]], quedan $n-r$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Variables pivote y variables libres|variables libres]].[^a9]
+==Una vez comprobada la compatibilidad==, se cuentan las columnas de coeficientes sin [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. Si hay $n$ incógnitas y $r$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]], quedan $n-r$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Variables pivote y variables libres|variables libres]].[^a9]
 
 ### Sistema compatible determinado
 
@@ -302,7 +303,7 @@ tags:
 > \boxed{\operatorname{rg}(A)=\operatorname{rg}([A\mid\mathbf b])=n}.
 > $$
 
-No queda ninguna [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]]: la sustitución determina una incógnita en cada fila [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. Por ejemplo, la ampliada reducida
+No queda ninguna [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]]: la sustitución determina una incógnita en cada fila [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. Por ejemplo, la ampliada reducida
 
 $$
 \left[\begin{array}{cc|c}1&0&2\\0&1&3\end{array}\right]
@@ -338,7 +339,7 @@ $$
 (x,y)=(2-t,t).
 $$
 
-Esto ocurre siempre que el sistema es compatible y queda una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]]: podemos variar su valor y resolver las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Variables pivote y variables libres|variables pivote]]. Como $\mathbb R$ y $\mathbb C$ son infinitos, se obtienen infinitas soluciones.
+Esto ocurre siempre que el sistema es compatible y queda una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]]: podemos variar su valor y resolver las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Variables pivote y variables libres|variables pivote]]. Como $\mathbb R$ y $\mathbb C$ son infinitos, se obtienen infinitas soluciones.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -430,7 +431,7 @@ $$
 \left[\begin{array}{cc|c}1&1&2\\0&0&0\end{array}\right].
 $$
 
-La parte de coeficientes tiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] y la [[Matemáticas/Álgebra lineal/Matriz ampliada|columna ampliada]] no añade otro: ambos rangos valen $1$. La primera fila exige $x+y=2$ y la segunda, $0=0$.
+La parte de coeficientes tiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] y la [[Matemáticas/Álgebra lineal/Matriz ampliada|columna ampliada]] no añade otro: ambos rangos valen $1$. La primera fila exige $x+y=2$ y la segunda, $0=0$.
 
 Elegimos $y=t$, con $t\in K$. La primera ecuación determina entonces $x=2-t$, de modo que
 
@@ -571,7 +572,7 @@ tags:
 > (BA)C=I_nC=C.
 > $$
 >
-> La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Asociatividad del producto|asociatividad]] garantiza que $B(AC)=(BA)C$. Por tanto, $B=C$: dos inversas de la misma matriz necesariamente coinciden. $\blacksquare$[^unicidad]
+> La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Asociatividad del producto|asociatividad]] garantiza que $B(AC)=(BA)C$. Por tanto, $B=C$: dos inversas de la misma matriz necesariamente coinciden. $\blacksquare$[^unicidad]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -607,7 +608,7 @@ $$
 A=\begin{pmatrix}1&2\\3&7\end{pmatrix}.
 $$
 
-Escribimos $[A\mid I_2]$ y aplicamos las operaciones a las ==filas completas, incluidos los dos bloques==. Para anular el $3$ situado bajo el primer [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]], hacemos $R_2\leftarrow R_2-3R_1$:
+Escribimos $[A\mid I_2]$ y aplicamos las operaciones a las ==filas completas, incluidos los dos bloques==. Para anular el $3$ situado bajo el primer [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]], hacemos $R_2\leftarrow R_2-3R_1$:
 
 $$
 \left[\begin{array}{cc|cc}1&2&1&0\\3&7&0&1\end{array}\right]
@@ -637,7 +638,7 @@ $$
 A^{-1}A=\begin{pmatrix}7-6&14-14\\-3+3&-6+7\end{pmatrix}=I_2.
 $$
 
-Ambos productos son [[Matemáticas/Álgebra lineal/Matriz identidad|la identidad]], así que la matriz obtenida es la inversa. Falta justificar por qué reducir $[A\mid I_n]$ permite encontrarla; lo haremos después de estudiar las inversas de las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Multiplicación por la izquierda y operaciones elementales|matrices elementales]].[^a7-calculo]
+Ambos productos son [[Matemáticas/Álgebra lineal/Matriz identidad|la identidad]], así que la matriz obtenida es la inversa. Falta justificar por qué reducir $[A\mid I_n]$ permite encontrarla; lo haremos después de estudiar las inversas de las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Multiplicación por la izquierda y operaciones elementales|matrices elementales]].[^a7-calculo]
 
 ## Inversas y operaciones matriciales
 
@@ -707,7 +708,7 @@ tags:
 > D_i(\lambda)D_i(\lambda^{-1})=I_n.
 > $$
 >
-> Queda comprobada la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Inversa bilateral|inversa bilateral]]. $\blacksquare$
+> Queda comprobada la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Inversa bilateral|inversa bilateral]]. $\blacksquare$
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -790,7 +791,7 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración
-> Las igualdades $A^{-1}A=I_n$ y $AA^{-1}=I_n$ muestran que $A$ es una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Inversa bilateral|inversa bilateral]] de $A^{-1}$. Como [[#Unicidad de la inversa|la inversa es única]], $(A^{-1})^{-1}=A$. $\blacksquare$
+> Las igualdades $A^{-1}A=I_n$ y $AA^{-1}=I_n$ muestran que $A$ es una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Inversa bilateral|inversa bilateral]] de $A^{-1}$. Como [[#Unicidad de la inversa|la inversa es única]], $(A^{-1})^{-1}=A$. $\blacksquare$
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -821,7 +822,7 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración
-> Comprobamos que $B^{-1}A^{-1}$ da [[Matemáticas/Álgebra lineal/Matriz identidad|la identidad]] al multiplicar por $AB$ en ambos órdenes. La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Asociatividad del producto|asociatividad]] permite agrupar los factores contiguos $B$ y $B^{-1}$:
+> Comprobamos que $B^{-1}A^{-1}$ da [[Matemáticas/Álgebra lineal/Matriz identidad|la identidad]] al multiplicar por $AB$ en ambos órdenes. La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Asociatividad del producto|asociatividad]] permite agrupar los factores contiguos $B$ y $B^{-1}$:
 >
 > $$
 > (AB)(B^{-1}A^{-1})
@@ -872,7 +873,7 @@ tags:
 > [!demostracion] TPC resuelto
 > La condición $\alpha\ne0$ permite usar el escalar $\alpha^{-1}$. Para comprobar la fórmula, multiplicamos $\alpha A$ por $\alpha^{-1}A^{-1}$.
 >
-> [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Compatibilidad con el producto por escalar|Los escalares pueden sacarse del producto matricial]]. Así,
+> [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Compatibilidad con el producto por escalar|Los escalares pueden sacarse del producto matricial]]. Así,
 >
 > $$
 > (\alpha A)(\alpha^{-1}A^{-1})
@@ -923,7 +924,7 @@ tags:
 > [!demostracion] TPC resuelto
 > Partimos de las dos igualdades que definen la inversa: $AA^{-1}=I_n$ y $A^{-1}A=I_n$.
 >
-> Al [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Transpuesta de un producto matricial|transponer un producto]] se invierte el orden de sus factores. Por tanto, transponer la primera igualdad da
+> Al [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Transpuesta de un producto matricial|transponer un producto]] se invierte el orden de sus factores. Por tanto, transponer la primera igualdad da
 >
 > $$
 > (AA^{-1})^T=(A^{-1})^TA^T=I_n,
@@ -1018,7 +1019,7 @@ $$
 B^{-1}(BA)=B^{-1}C.
 $$
 
-Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Asociatividad del producto|asociatividad]], $(B^{-1}B)A=I_nA=A$. Por tanto,
+Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Asociatividad del producto|asociatividad]], $(B^{-1}B)A=I_nA=A$. Por tanto,
 
 $$
 \boxed{A=B^{-1}C}.
@@ -1091,7 +1092,7 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración
-> Sea $R=QA$ la [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma escalonada reducida]] de $A$, con $Q$ el producto invertible de las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Multiplicación por la izquierda y operaciones elementales|matrices elementales]] aplicadas.
+> Sea $R=QA$ la [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma escalonada reducida]] de $A$, con $Q$ el producto invertible de las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Multiplicación por la izquierda y operaciones elementales|matrices elementales]] aplicadas.
 >
 > **Si $R=I_n$**, tenemos $QA=I_n$. Multiplicando por $Q^{-1}$ a la izquierda,
 >
@@ -1101,7 +1102,7 @@ tags:
 >
 > Así, $A$ es invertible y su inversa es $Q$, precisamente el bloque derecho de la reducción.
 >
-> **Si $R\ne I_n$**, a $R$ le falta algún [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]. En efecto, una matriz cuadrada reducida con $n$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] tiene un $1$ en cada posición diagonal y ceros en las demás: es $I_n$. Como $R$ no lo es, tiene una fila nula.
+> **Si $R\ne I_n$**, a $R$ le falta algún [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. En efecto, una matriz cuadrada reducida con $n$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]] tiene un $1$ en cada posición diagonal y ceros en las demás: es $I_n$. Como $R$ no lo es, tiene una fila nula.
 >
 > Esa fila sigue siendo nula en cualquier producto $RD$, de modo que $RD$ nunca puede ser $I_n$. Por tanto, $R$ no es invertible.
 >
@@ -1128,7 +1129,7 @@ tags:
 #### Propiedad
 
 > [!teorema] Caracterización por matrices elementales
-> Una matriz $A\in M_n(K)$ es invertible si, y sólo si, puede escribirse como producto finito de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Multiplicación por la izquierda y operaciones elementales|matrices elementales]].[^a7-calculo]
+> Una matriz $A\in M_n(K)$ es invertible si, y sólo si, puede escribirse como producto finito de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Multiplicación por la izquierda y operaciones elementales|matrices elementales]].[^a7-calculo]
 
 #### Demostración
 
@@ -1195,7 +1196,7 @@ $$
 \end{array}\right].
 $$
 
-**Eliminación hacia arriba.** El último [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] vale $1$. Con $R_2\leftarrow R_2-R_3$ y $R_1\leftarrow R_1+R_3$ queda
+**Eliminación hacia arriba.** El último [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] vale $1$. Con $R_2\leftarrow R_2-R_3$ y $R_1\leftarrow R_1+R_3$ queda
 
 $$
 \left[\begin{array}{rrr|rrr}
@@ -1205,7 +1206,7 @@ $$
 \end{array}\right].
 $$
 
-Sólo falta normalizar el segundo [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]]: $R_2\leftarrow\frac12R_2$. Se obtiene $[I_3\mid A^{-1}]$, con
+Sólo falta normalizar el segundo [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]: $R_2\leftarrow\frac12R_2$. Se obtiene $[I_3\mid A^{-1}]$, con
 
 $$
 \boxed{A^{-1}=\begin{pmatrix}
@@ -1247,14 +1248,14 @@ $$
 > Para $A\in M_n(K)$ son equivalentes:
 >
 > - $A$ es invertible.
-> - Su [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]] tiene $n$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]].
+> - Su [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]] tiene $n$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]].
 > - $\operatorname{rg}(A)=n$.
 > - Para **todo** $\mathbf b\in K^n$, el sistema $A\mathbf x=\mathbf b$ tiene una única solución.[^a7-calculo][^a10]
 
 #### Demostración
 
 > [!demostracion] Demostración
-> **Invertibilidad, [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] y rango.** Por el [[#Por qué el bloque derecho contiene la inversa|criterio de Gauss–Jordan]], $A$ es invertible exactamente cuando su [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma reducida]] es $I_n$. Esto equivale a tener $n$ pivotes y, por definición, rango $n$.
+> **Invertibilidad, [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]] y rango.** Por el [[#Por qué el bloque derecho contiene la inversa|criterio de Gauss–Jordan]], $A$ es invertible exactamente cuando su [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma reducida]] es $I_n$. Esto equivale a tener $n$ pivotes y, por definición, rango $n$.
 >
 > **De la inversa a la solución única.** Para cualquier $\mathbf b$, el vector $\mathbf x=A^{-1}\mathbf b$ es solución, porque
 >
@@ -1264,7 +1265,7 @@ $$
 >
 > Además, cualquier solución debe ser ese vector: al multiplicar $A\mathbf x=\mathbf b$ por $A^{-1}$ a la izquierda, resulta $\mathbf x=A^{-1}\mathbf b$. Esto prueba existencia y unicidad.
 >
-> **De la solución única al rango completo.** Si hay solución única para todo $\mathbf b$, la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Sistemas homogéneos|ecuación homogénea]] $A\mathbf x=0$ sólo tiene la solución nula. Si alguna columna careciese de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]], habría una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]]. Asignarle $1$ y asignar $0$ a las demás libres permitiría calcular las básicas y producir una solución no nula. La contradicción muestra que todas las columnas tienen pivote, es decir, que el rango es $n$.
+> **De la solución única al rango completo.** Si hay solución única para todo $\mathbf b$, la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Sistemas homogéneos|ecuación homogénea]] $A\mathbf x=0$ sólo tiene la solución nula. Si alguna columna careciese de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]], habría una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]]. Asignarle $1$ y asignar $0$ a las demás libres permitiría calcular las básicas y producir una solución no nula. La contradicción muestra que todas las columnas tienen pivote, es decir, que el rango es $n$.
 >
 > Las implicaciones cierran la equivalencia. $\blacksquare$
 
@@ -1367,7 +1368,7 @@ $$
 > A(B\mathbf x)=0.
 > $$
 >
-> Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Asociatividad del producto|asociatividad]] y por $AB=I_n$, ese mismo miembro es
+> Por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Asociatividad del producto|asociatividad]] y por $AB=I_n$, ese mismo miembro es
 >
 > $$
 > A(B\mathbf x)=(AB)\mathbf x=I_n\mathbf x=\mathbf x.
@@ -1375,7 +1376,7 @@ $$
 >
 > Luego $\mathbf x=0$.
 >
-> **Esto obliga a que $B$ tenga rango $n$.** Si le faltara un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]], se podría dar valor $1$ a una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]] y resolver las básicas, obteniendo una solución no nula del homogéneo. Por tanto, $B$ tiene $n$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivotes]] y es invertible.
+> **Esto obliga a que $B$ tenga rango $n$.** Si le faltara un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]], se podría dar valor $1$ a una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]] y resolver las básicas, obteniendo una solución no nula del homogéneo. Por tanto, $B$ tiene $n$ [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]] y es invertible.
 >
 > **Identificamos las inversas.** Multiplicamos $AB=I_n$ por $B^{-1}$ a la derecha:
 >
@@ -1470,8 +1471,8 @@ tags:
 
 ## Condiciones de validez y errores frecuentes
 
-- **Compatibilidad antes que parámetros.** La cuenta $n-r$ describe las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Variables pivote y variables libres|variables libres]] de una solución general sólo si el sistema tiene solución.
-- **Matriz cuadrada en los criterios de inversa.** Una matriz rectangular puede tener un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Pivote|pivote]] en cada columna sin poseer una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Inversa bilateral|inversa bilateral]].
+- **Compatibilidad antes que parámetros.** La cuenta $n-r$ describe las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Variables pivote y variables libres|variables libres]] de una solución general sólo si el sistema tiene solución.
+- **Matriz cuadrada en los criterios de inversa.** Una matriz rectangular puede tener un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] en cada columna sin poseer una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Inversa bilateral|inversa bilateral]].
 - **Mismo orden de factores en los despejes.** Multiplicar por una inversa a la izquierda o a la derecha produce igualdades distintas.
 
 Para comprobar una clasificación, se sustituye la solución en el sistema original o se identifica una fila imposible. Para comprobar una inversa, multiplicar por ambos lados permite detectar errores de signos y de orden, aunque el teorema anterior establezca que una sola identidad exacta basta para matrices cuadradas.
@@ -1496,7 +1497,7 @@ Usa la inversa de la matriz de orden tres para resolver $AX=(1,2,3)^T$ y comprue
 Demuestra que, si $A,B\in M_n(K)$ y $AB=I_n$, entonces $B$ es invertible.
 
 > [!resolucion]- Resolución
-> Si $B$ fuera singular, su homogéneo tendría una solución no nula $\mathbf c\in K^n$, pues existiría alguna [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]]. Pero entonces
+> Si $B$ fuera singular, su homogéneo tendría una solución no nula $\mathbf c\in K^n$, pues existiría alguna [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Variables pivote y variables libres|variable libre]]. Pero entonces
 >
 > $$
 > \mathbf c=I_n\mathbf c=(AB)\mathbf c=A(B\mathbf c)=0,
@@ -1511,7 +1512,7 @@ Si $AB$ es invertible, con $A,B\in M_n(K)$, obtén dos productos iguales a [[Mat
 > [!resolucion]- Resolución
 > Con $C=(AB)^{-1}$, las identidades buscadas son $A(BC)=I_n$ y $(CA)B=I_n$. Todos los factores son cuadrados del mismo orden; por el criterio de la inversa lateral, $A$ y $B$ son invertibles.
 
-Una vez calculada $A^{-1}$, podemos resolver sistemas con la misma matriz $A$ y distintos segundos miembros mediante $\mathbf x=A^{-1}\mathbf b$. También podemos conservar los pasos de eliminación sin calcular la inversa: la factorización [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Factorización LU|LU]] permite resolver esos sistemas mediante dos sustituciones. El [[Matemáticas/Álgebra lineal/Determinantes|determinante]] ofrece, por su parte, otro criterio de invertibilidad.
+Una vez calculada $A^{-1}$, podemos resolver sistemas con la misma matriz $A$ y distintos segundos miembros mediante $\mathbf x=A^{-1}\mathbf b$. También podemos conservar los pasos de eliminación sin calcular la inversa: la factorización [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Factorización LU|LU]] permite resolver esos sistemas mediante dos sustituciones. El [[Matemáticas/Álgebra lineal/Determinantes|determinante]] ofrece, por su parte, otro criterio de invertibilidad.
 
 ## 📚 Fuentes
 

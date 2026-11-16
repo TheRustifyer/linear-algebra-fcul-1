@@ -14,10 +14,10 @@ estado: borrador
 capa: curricular
 alcance: ampliación-curricular-externa
 requiere:
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|Eliminación y matrices elementales]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|Eliminación y matrices elementales]]"
   - "[[Matemáticas/Álgebra lineal/Matrices|Matrices]]"
 relacionado:
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]"
 fsrs_goal: Para una matriz cuadrada que admite eliminación sin permutaciones, calcula L triangular inferior unitaria y U triangular superior, reconstruye y comprueba A=LU, resuelve Ax=b mediante sustitución hacia delante y hacia atrás, e identifica cuándo se requiere pivoteo.
 simbolos:
   - A=LU
@@ -529,7 +529,7 @@ tags:
 
 ## Conexión con la resolución de sistemas
 
-Con $L$ invertible, $A=LU$ tiene el mismo rango que $U$. Si todas las entradas diagonales de la triangular $U$ son no nulas, hay un pivote en cada columna y las dos sustituciones determinan una única solución para cualquier segundo miembro. Si alguna es cero, hay que estudiar la compatibilidad y las posibles variables libres mediante los criterios de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|rango e invertibilidad]].[^nicholson]
+Con $L$ invertible, $A=LU$ tiene el mismo rango que $U$. Si todas las entradas diagonales de la triangular $U$ son no nulas, hay un pivote en cada columna y las dos sustituciones determinan una única solución para cualquier segundo miembro. Si alguna es cero, hay que estudiar la compatibilidad y las posibles variables libres mediante los criterios de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|rango e invertibilidad]].[^nicholson]
 
 ## 📚 Fuentes
 

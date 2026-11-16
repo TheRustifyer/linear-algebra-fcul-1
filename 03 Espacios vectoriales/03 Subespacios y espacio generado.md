@@ -288,7 +288,7 @@ tags:
 
 ### Matrices con ceros prescritos
 
-Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Matriz triangular superior|matrices triangulares superiores]] tienen entradas nulas por debajo de la diagonal; esas entradas siguen siendo cero al sumar y al multiplicar por un escalar. Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones#Matriz diagonal|diagonales]] tienen ceros fuera de la diagonal y satisfacen el mismo cierre. Así,
+Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz triangular superior|matrices triangulares superiores]] tienen entradas nulas por debajo de la diagonal; esas entradas siguen siendo cero al sumar y al multiplicar por un escalar. Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz diagonal|diagonales]] tienen ceros fuera de la diagonal y satisfacen el mismo cierre. Así,
 
 $$
 D_n(K)\le TS_n(K)\le M_n(K).

@@ -23,7 +23,12 @@ tags:
 > [!important] Alcance curricular y criterio de excelencia
 > El recorrido sigue las **siete unidades** de *Álgebra Linear e Geometria Analítica* de la Licenciatura en Física de FCUL. El programa de 2025/2026 detalla los contenidos; el de 2026/2027 conserva las siete unidades con una redacción más breve.[^1][^2] Las ampliaciones de Khan Academy y Krista King están señaladas en su lugar correspondiente.[^10][^14]
 
-Los títulos enlazados conducen a desarrollos existentes en el vault. Los títulos sin enlace señalan desarrollos pendientes; el contenido curricular ya figura en la lista.
+Los títulos enlazados conducen a notas existentes en el Vault. Los títulos sin enlace señalan desarrollos pendientes; el contenido curricular ya figura en la lista.
+
+> [!note] Ampliación del currículo del MIT
+> Las incorporaciones de *18.06SC Linear Algebra*, de Gilbert Strang, complementan las siete unidades oficiales de FCUL y se identifican mediante referencias al MIT junto a cada bloque. Las unidades 8 y 9 son ampliaciones externas completas.[^mit-curso]
+>
+> Los títulos marcados **pendiente** enlazan a notas sin desarrollar: contienen únicamente su lista de completitud y la sesión del MIT correspondiente. Los apartados ya desarrollados se reutilizan sin duplicarlos.
 
 ## Prerrequisitos operativos
 
@@ -52,26 +57,33 @@ flowchart LR
 
 Alcance oficial: matrices, operaciones, transformaciones elementales, rango, eliminación de Gauss–Jordan, inversión y resolución de sistemas [^1] [^2]. Síntesis de las aulas 1–10: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/Resumen - Síntesis de contenidos|resumen del capítulo]].
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|Matrices y operaciones]]
+### Matrices y operaciones — orden de lectura
 
-Presentaciones de FCUL: Aula 2 — vectores y matrices (`ALGA-2026-27-AulasTeo-slides-aula2-VectMatrizes-impressao.pdf`), Aula 3 — operaciones matriciales (`ALGA-2026-27-AulasTeo-slides-aula3-Matrizes-impressao.pdf`) y Aula 4 — transpuesta, conjugada y traza, pp. 2–12 (`ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf`). Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices y operaciones|nota curricular]].
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|01 · Matrices]] reúne vectores coordenados, definición y formas de matrices, traspuesta, conjugada, adjunta, simetría, hermiticidad y traza. [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones|02 · Operaciones]] desarrolla suma, opuesto, resta, producto por escalar, producto matricial, potencias y sus propiedades, con la representación matricial de sistemas como aplicación. Las referencias a las aulas 2–4 se conservan en cada nota.
+
+Antes de las primeras pruebas por entradas, consulta [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/00 Prefacio#^2bd3aa|00 · Demostración por componentes]].
 
 * [x] Construir y operar vectores coordenados de $\mathbb R^n$ y $\mathbb C^n$; distinguir escalar, vector, matriz fila y columna; usar el paralelogramo y las propiedades de las operaciones. ✅ 2026-11-04
 * [x] Definir [[Matemáticas/Álgebra lineal/Matrices|matrices]], dimensiones, entradas y tipos notables sobre $\mathbb R$ y $\mathbb C$. ✅ 2026-11-04
 * [x] Dominar suma, opuesto, producto por escalar, producto matricial, potencias, transposición, conjugación, adjunción y traza; reconocer matrices simétricas y hermíticas y justificar sus propiedades. ✅ 2026-11-04
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|Eliminación y matrices elementales]]
+Los epígrafes de esas casillas se localizan en:
 
-Presentaciones de FCUL: Aula 4 — pivotes y forma escalonada, pp. 13–17 (`ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf`), Aula 5 — transformaciones elementales (`ALGA-2026-27-AulasTeo-slides-aula5-TransfElem-impressao.pdf`) y Aula 6 — rango y reducción, pp. 2–10 (`ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf`). Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Eliminación y matrices elementales|nota curricular]].
+- **Matrices:** [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#De los pares ordenados a los vectores coordenados|vectores coordenados]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices: filas, columnas y entradas|entradas y dimensiones]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices por su forma|formas]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices nulas, identidad, diagonales y triangulares|clases básicas]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Transpuesta|traspuesta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Conjugada de una matriz|conjugada]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Conjugada transpuesta|adjunta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices simétricas, antisimétricas, hermíticas y antihermíticas|simetría y hermiticidad]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Traza de una matriz|traza]].
+- **Operaciones:** [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Operaciones con vectores coordenados|operaciones vectoriales]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Suma, opuesto y resta|suma, opuesto y resta de matrices]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Producto por escalares|producto por escalar]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Producto matricial|producto matricial]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Potencias de una matriz cuadrada|potencias]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Propiedades de la transpuesta|leyes de la traspuesta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Propiedades de la conjugada y de la adjunta|leyes de conjugación y adjunción]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Propiedades de la traza|propiedades de la traza]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Sistemas lineales en forma matricial|sistemas en forma matricial]].
 
-* [ ] Ejecutar operaciones elementales y reconocer sus matrices elementales.
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|Eliminación y matrices elementales]]
+
+Presentaciones de FCUL: Aula 4 — pivotes y forma escalonada, pp. 13–17 (`ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf`), Aula 5 — transformaciones elementales (`ALGA-2026-27-AulasTeo-slides-aula5-TransfElem-impressao.pdf`) y Aula 6 — rango y reducción, pp. 2–10 (`ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf`). Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|nota curricular]].
+
+* [ ] Ejecutar operaciones elementales con la notación $L_i$, representar su secuencia mediante $t_1,\ldots,t_p$ y reconocer sus matrices elementales.
 * [ ] Obtener formas escalonada y escalonada reducida mediante Gauss y Gauss–Jordan.
-* [ ] Justificar que las operaciones elementales conservan el conjunto de soluciones.
+* [ ] Justificar que las operaciones elementales conservan el conjunto de soluciones y mostrar la cadena inversa que deshace sus efectos.
 * [ ] Relacionar una secuencia de operaciones con multiplicación por matrices elementales.
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]
 
-Presentaciones de FCUL: Aula 6 — invertibilidad, pp. 11–14, Aula 7 — matrices invertibles, Aula 9 — discusión por rango, pp. 2–11 y Aula 10 — inversa aplicada a sistemas, pp. 8–10. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Compatibilidad, rango e inversa|nota curricular]].
+Presentaciones de FCUL: Aula 6 — invertibilidad, pp. 11–14, Aula 7 — matrices invertibles, Aula 9 — discusión por rango, pp. 2–11 y Aula 10 — inversa aplicada a sistemas, pp. 8–10. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|nota curricular]].
 
 * [ ] Clasificar sistemas compatibles determinados, compatibles indeterminados e incompatibles.
 * [ ] Interpretar pivotes, variables libres y parámetros; calcular el rango.
@@ -79,27 +91,39 @@ Presentaciones de FCUL: Aula 6 — invertibilidad, pp. 11–14, Aula 7 — matri
 * [ ] Establecer equivalencias básicas entre invertibilidad, pivotes, rango y solución única.
 * [ ] Resolver $AX=B$ como $X=A^{-1}B$ cuando $A$ es invertible y justificar las consecuencias de $AB=I_n$ o de que $AB$ sea invertible.
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Sistemas de ecuaciones lineales|Sistemas de ecuaciones lineales]]
-
-Presentaciones de FCUL: Aula 8 — sistemas lineales y Aula 10 — homogéneos y solución general, pp. 2–7 y 11. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Sistemas de ecuaciones lineales|nota curricular]].
-
-* [ ] Reconocer ecuaciones lineales, sistemas, soluciones, equivalencia y cuerpo de resolución; interpretar rectas y planos como conjuntos de soluciones.
-* [ ] Escribir $AX=B$, construir $[A\mid B]$ y verificar soluciones mediante producto matricial.
-* [ ] Resolver por Gauss y Gauss–Jordan sistemas con solución única o variables libres, incluidos los dos ejemplos completos del aula 8.
-* [ ] Construir el homogéneo asociado y expresar toda solución compatible como una solución particular más una combinación de soluciones homogéneas; verificar el caso incompatible y la convención de vectores columna.
-
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Factorización LU|Ampliación de contraste — factorización LU]]
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Factorización LU|Ampliación de contraste — factorización LU]]
 
 Ampliación del curso de Krista King, fuera del núcleo explícito de FCUL [^14].
 
 * [ ] Construir una factorización $A=LU$ a partir de las operaciones y matrices de eliminación cuando no se requieren permutaciones de filas.
 * [ ] Identificar $L$ como triangular inferior con diagonal unitaria y $U$ como triangular superior, y comprobar la factorización reconstruyendo $A$.
 
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/06 Sistemas de ecuaciones lineales|Sistemas de ecuaciones lineales]]
+
+Presentaciones de FCUL: Aula 8 — sistemas lineales y Aula 10 — homogéneos y solución general, pp. 2–7 y 11. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/06 Sistemas de ecuaciones lineales|nota curricular]].
+
+* [ ] Reconocer ecuaciones lineales, sistemas, soluciones, equivalencia y cuerpo de resolución; interpretar rectas y planos como conjuntos de soluciones.
+* [ ] Escribir $AX=B$, construir $[A\mid B]$ y verificar soluciones mediante producto matricial.
+* [ ] Resolver por Gauss y Gauss–Jordan sistemas con solución única o variables libres, incluidos los dos ejemplos completos del aula 8.
+* [ ] Construir el homogéneo asociado y expresar toda solución compatible como una solución particular más una combinación de soluciones homogéneas; verificar el caso incompatible y la convención de vectores columna.
+
 ### Problemas y criterio de dominio
 
 * [ ] Resolver y clasificar sistemas reales y complejos, incluidos sistemas con parámetros.
 * [ ] Modelar una situación mediante un sistema y detectar operaciones inválidas.
 * [ ] Explicar la relación entre pivotes, rango, grados de libertad e invertibilidad.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/07 Interpretaciones de Ax=b|Interpretaciones de $Ax=b$]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-geometria]
+
+* [ ] Distinguir las interpretaciones de $Ax=b$ como ecuaciones por filas, combinación de columnas y transformación matricial; relacionarlas entre sí.
+
+### Ampliación — permutaciones y factorización $PA=LU$
+
+Ampliación del currículo del MIT, recogida en la nota de LU ya existente.[^mit-permutaciones]
+
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Factorización LU#Factorización con permutación|Construir matrices de permutación y una factorización $PA=LU$ cuando se intercambian filas; resolver los dos sistemas triangulares.]]
 
 ## Unidad 2. Determinantes
 
@@ -210,6 +234,20 @@ flowchart LR
 * [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales#Invertibilidad de $A^TA$|Justificar la igualdad de núcleos y el criterio de rango completo por columnas.]]
 * [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/06 Cuatro subespacios fundamentales#Alcance real y caso complejo|Usar el adjunto y el producto hermítico para matrices complejas.]]
 
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/07 Matrices de rango uno|Matrices de rango uno]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-rango-uno]
+
+* [ ] Representar matrices de rango uno mediante productos exteriores.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/08 Grafos, redes y matrices de incidencia|Grafos, redes y matrices de incidencia]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-grafos]
+
+* [ ] Introducir grafos y redes y construir sus matrices de incidencia.
+* [ ] Interpretar rango y núcleos mediante conectividad, ciclos y corrientes.
+* [ ] Expresar matricialmente las leyes de Kirchhoff y relacionar nodos, aristas y ciclos independientes.
+
 ### Boletín de ejercicios
 
 Se conserva el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/ejercicios/00 Índice de ejercicios|boletín existente de ejercicios 59–90]], organizado en axiomas y subespacios, combinaciones, bases y coordenadas, y sumas y dimensión.
@@ -259,6 +297,12 @@ Ampliación de Khan Academy, fuera del núcleo explícito de FCUL [^12].
 * [ ] Determinar inyectividad, sobreyectividad o isomorfía por más de un criterio.
 * [ ] Justificar las fórmulas de cambio de base sin memorizar productos de matrices aislados.
 
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/04 Transformaciones lineales/05 Semejanza de matrices|Semejanza de matrices]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-jordan]
+
+* [ ] Interpretar matrices semejantes como representaciones de un mismo endomorfismo en bases distintas; conectar con la diagonalización y, después, con Jordan.
+
 ## Unidad 5. Valores propios, vectores propios y diagonalización
 
 Alcance oficial: subespacios propios, polinomio característico, multiplicidades, diagonalización y matrices simétricas [^1].
@@ -270,7 +314,7 @@ Alcance oficial: subespacios propios, polinomio característico, multiplicidades
 * [ ] Demostrar que vectores propios asociados a valores propios distintos son independientes.
 * [ ] Justificar que la multiplicidad geométrica no excede la algebraica.
 
-### Diagonalización y matrices simétricas
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/05 Valores propios y diagonalización/02 Diagonalización y matrices simétricas|Diagonalización y matrices simétricas]]
 
 * [ ] Caracterizar la [[Matemáticas/Álgebra lineal/Diagonalización|diagonalización]] mediante una base de vectores propios.
 * [ ] Construir y comprobar $A=PDP^{-1}$.
@@ -283,30 +327,62 @@ Alcance oficial: subespacios propios, polinomio característico, multiplicidades
 * [ ] Distinguir con precisión multiplicidad algebraica, multiplicidad geométrica y dimensión del subespacio propio.
 * [ ] Justificar una diagonalización ordinaria u ortogonal y verificar el resultado por reconstrucción.
 
+### Ampliación — potencias y sistemas dinámicos
+
+Ampliación del currículo del MIT. El cálculo de potencias ya está desarrollado; las aplicaciones dinámicas quedan pendientes.[^mit-potencias]
+
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/05 Valores propios y diagonalización/02 Diagonalización y matrices simétricas#Potencias|Calcular potencias mediante diagonalización.]]
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/05 Valores propios y diagonalización/03 Sistemas dinámicos discretos|Sistemas dinámicos discretos]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-potencias]
+
+* [ ] Estudiar $u_{k+1}=Au_k$ y su comportamiento a largo plazo.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/05 Valores propios y diagonalización/04 Matrices de Markov|Matrices de Markov]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-markov]
+
+* [ ] Estudiar matrices de Markov, distribuciones estacionarias y condiciones de convergencia.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/05 Valores propios y diagonalización/05 Sistemas diferenciales y exponencial matricial|Sistemas diferenciales y exponencial matricial]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-diferenciales]
+
+* [ ] Resolver sistemas $u'(t)=Au(t)$ mediante la exponencial matricial y estudiar su estabilidad.
+
+Prerrequisitos adicionales: derivación, ecuaciones diferenciales elementales y series de potencias.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/05 Valores propios y diagonalización/06 Forma de Jordan|Forma de Jordan]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-jordan]
+
+* [ ] Introducir la forma de Jordan para matrices no diagonalizables.
+
 ## Unidad 6. Espacios euclídeos
 
 Alcance oficial: producto interno, norma, ángulo, proyecciones, Cauchy–Schwarz, Gram–Schmidt, complementos ortogonales y producto externo en $\mathbb R^3$ [^1].
 
-### Producto interno, norma y ángulo
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/06 Espacios euclídeos/01 Producto interno, norma y ángulo|Producto interno, norma y ángulo]]
 
 * [ ] Definir producto interno real, norma, distancia, ángulo y ortogonalidad.
 * [ ] Demostrar y aplicar Cauchy–Schwarz y la desigualdad triangular.
 * [ ] Calcular proyecciones ortogonales e interpretar su propiedad de mejor aproximación.
 * [ ] Normalizar vectores no nulos y trabajar con vectores unitarios.
 
-### Bases ortogonales y Gram–Schmidt
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/06 Espacios euclídeos/02 Bases ortogonales y Gram-Schmidt|Bases ortogonales y Gram–Schmidt]]
 
 * [ ] Construir bases ortogonales y ortonormales mediante [[Matemáticas/Álgebra lineal/Espacios vectoriales/11 Producto escalar y Gram–Schmidt|Gram–Schmidt]].
 * [ ] Justificar cada paso del algoritmo y comprobar la ortonormalidad final.
 * [ ] Calcular complementos ortogonales y descomponer $V=U\oplus U^\perp$ en dimensión finita.
 
-### Producto externo en $\mathbb R^3$
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/06 Espacios euclídeos/03 Producto externo en R3|Producto externo en $\mathbb R^3$]]
 
 * [ ] Definir y calcular el [[Matemáticas/Geometría/Vectores/Producto vectorial|producto vectorial]].
 * [ ] Justificar sus propiedades y aplicarlo a áreas, orientación y ortogonalidad.
 * [ ] Desarrollar $\mathbf a\times(\mathbf b\times\mathbf c)$ mediante la identidad del producto triple vectorial como ampliación opcional de Khan Academy.[^11]
 
-### Ampliación de contraste — proyecciones matriciales y mínimos cuadrados
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/06 Espacios euclídeos/04 Proyecciones matriciales y mínimos cuadrados|Ampliación de contraste — proyecciones matriciales y mínimos cuadrados]]
 
 Ampliación de Khan Academy, fuera del núcleo explícito de FCUL [^13].
 
@@ -315,7 +391,7 @@ Ampliación de Khan Academy, fuera del núcleo explícito de FCUL [^13].
 * [ ] Formular y resolver problemas elementales de mínimos cuadrados mediante proyección ortogonal.
 * [ ] Reconocer matrices ortogonales y demostrar que conservan normas, distancias y ángulos.
 
-### Ampliación de contraste — rectas, planos y distancias
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/06 Espacios euclídeos/05 Rectas, planos y distancias|Ampliación de contraste — rectas, planos y distancias]]
 
 Ampliación de geometría vectorial de Khan Academy, fuera del núcleo explícito de FCUL [^11].
 
@@ -328,17 +404,36 @@ Ampliación de geometría vectorial de Khan Academy, fuera del núcleo explícit
 * [ ] Resolver normas, ángulos, proyecciones, complementos y descomposiciones ortogonales.
 * [ ] Conectar coordenadas algebraicas con interpretación geométrica y comprobar ortogonalidad y norma.
 
+### Ampliación — ecuaciones normales
+
+Ampliación del currículo del MIT, ya recogida en el desarrollo de mínimos cuadrados.[^mit-normales]
+
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/06 Espacios euclídeos/04 Proyecciones matriciales y mínimos cuadrados#Mínimos cuadrados y ecuaciones normales|Relacionar la ortogonalidad del residuo con las ecuaciones normales y justificar las condiciones de unicidad de la solución.]]
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/06 Espacios euclídeos/06 Factorización QR|Factorización QR]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-qr]
+
+* [ ] Construir $A=QR$ como formulación matricial de Gram–Schmidt y aplicarla a mínimos cuadrados.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/06 Espacios euclídeos/07 Producto interno hermítico y matrices unitarias|Producto interno hermítico y matrices unitarias]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-complejas]
+
+* [ ] Desarrollar producto interno hermítico, norma y ortogonalidad en $\mathbb C^n$.
+* [ ] Estudiar matrices unitarias y su relación con las matrices ortogonales.
+
 ## Unidad 7. Formas cuadráticas
 
 Alcance oficial: definición y clasificación por valores propios y menores principales [^1] [^2].
 
-### Formas cuadráticas y matrices simétricas
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/07 Formas cuadráticas/01 Formas cuadráticas y matrices simétricas|Formas cuadráticas y matrices simétricas]]
 
 * [ ] Pasar de una forma cuadrática a su matriz simétrica y de la matriz a la forma.
 * [ ] Justificar que sólo interviene la parte simétrica de una matriz.
 * [ ] Transformar la matriz bajo un cambio de coordenadas y eliminar términos cruzados mediante diagonalización ortogonal.
 
-### Clasificación de formas cuadráticas
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/07 Formas cuadráticas/02 Clasificación de formas cuadráticas|Clasificación de formas cuadráticas]]
 
 * [ ] Distinguir formas reales definidas positivas, definidas negativas e indefinidas; reconocer las semidefinidas como caso de frontera.
 * [ ] Clasificar mediante el signo de los valores propios.
@@ -349,6 +444,70 @@ Alcance oficial: definición y clasificación por valores propios y menores prin
 
 * [ ] Clasificar formas con y sin parámetros por dos métodos cuando resulte útil.
 * [ ] Elegir entre espectro y menores principales, explicar la elección y comprobar el signo con vectores de prueba.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/07 Formas cuadráticas/03 Positividad, pivotes y sumas de cuadrados|Positividad, pivotes y sumas de cuadrados]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-minimos]
+
+* [ ] Relacionar positividad, pivotes y descomposición en sumas de cuadrados.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/07 Formas cuadráticas/04 Elipses, elipsoides y ejes principales|Elipses, elipsoides y ejes principales]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-minimos]
+
+* [ ] Interpretar formas cuadráticas mediante elipses, elipsoides y ejes principales.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/07 Formas cuadráticas/05 Hessiana y mínimos locales|Hessiana y mínimos locales]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-minimos]
+
+* [ ] Aplicar la matriz hessiana al criterio de mínimo local en un punto crítico, declarando sus hipótesis.
+
+Prerrequisitos adicionales para la hessiana: cálculo multivariable, derivadas parciales de segundo orden y puntos críticos.
+
+## Unidad 8. Ampliación — descomposición en valores singulares
+
+Ampliación del currículo del MIT. Se estudia después de diagonalización y ortogonalidad.[^mit-svd]
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/08 Descomposición en valores singulares/01 Descomposición en valores singulares|Descomposición en valores singulares]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-svd]
+
+* [ ] Definir valores y vectores singulares y construir $A=U\Sigma V^T$.
+* [ ] Relacionar la SVD con $A^TA$, $AA^T$ y los cuatro subespacios fundamentales.
+* [ ] Descomponer una matriz en sumandos de rango uno.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/08 Descomposición en valores singulares/02 Aproximación de rango reducido y compresión de imágenes|Aproximación de rango reducido y compresión de imágenes]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-compresion]
+
+* [ ] Construir aproximaciones de rango reducido y aplicarlas a la compresión de imágenes.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/08 Descomposición en valores singulares/03 Inversas laterales y pseudoinversa|Inversas laterales y pseudoinversa]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-pseudoinversa]
+
+* [ ] Estudiar inversas izquierdas y derechas de matrices rectangulares y sus condiciones de existencia.
+* [ ] Construir la pseudoinversa y resolver problemas de mínimos cuadrados con norma mínima.
+
+## Unidad 9. Ampliación — Fourier
+
+Ampliación del currículo del MIT. Requiere ortogonalidad; las series de Fourier requieren además integración. La transformada discreta puede estudiarse independientemente de las series, después de números complejos y matrices unitarias.[^mit-markov][^mit-complejas]
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/09 Fourier/01 Series de Fourier|Series de Fourier]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-markov]
+
+* [ ] Introducir el producto interno entre funciones y la ortogonalidad de senos y cosenos.
+* [ ] Introducir las series de Fourier y calcular coeficientes mediante proyecciones.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/09 Fourier/02 Transformada discreta de Fourier y FFT|Transformada discreta de Fourier y FFT]] · pendiente
+
+Ampliación del currículo del MIT.[^mit-complejas]
+
+* [ ] Construir la matriz de Fourier y la transformada discreta.
+* [ ] Estudiar normalización unitaria e inversión.
+* [ ] Factorizar la matriz de Fourier y desarrollar el fundamento de la FFT.
 
 ## Bibliografía recomendada para matrícula de honor
 
@@ -388,3 +547,35 @@ La bibliografía oficial de FCUL se recoge en las fichas de 2025/2026 y 2026/202
 [^det-slides]: FCUL, *ALGA 2026/2027*, aulas 13–16: `ALGA-2026-27-AulasTeo-slides-aula13-Determinantes-impressao.pdf` (16/10/2026), `ALGA-2026-27-AulasTeo-slides-Aula14-Determinantes-impressao.pdf` (19/10/2026), `ALGA-2026-27-AulasTeo-slides-Aula15-Determinantes-impressao.pdf` (21/10/2026) y `ALGA-2026-27-AulasTeo-slides-Aula16-SistemasCramer-impressao.pdf` (23/10/2026). Los PDF privados se identifican sin enlaces.
 
 [^ev3]: FCUL, *ALGA 2026/27*: Aula 17 «Espaços vetoriais» (26/10/2026), Aula 18 «Subespaços vetoriais» (28/10/2026), Aula 19 «Combinações lineares» (30/10/2026) y Aula 20 «Subespaços de $K^n$» (02/11/2026). Contraste y desarrollo posterior: Instituto Superior Técnico, ULisboa, [*Álgebra Linear*, capítulo 3](https://fenix.tecnico.ulisboa.pt/downloadFile/563568428979297/ApontamentosInteg.pdf). Los localizadores de propiedades y TPC figuran en las notas de contenido.
+
+[^mit-curso]: [MIT Open Learning Library — 18.06SC Linear Algebra](https://openlearninglibrary.mit.edu/courses/course-v1:OCW%2B18.06SC%2B2T2019/course/). Índice del curso solicitado, edición de Open Learning Library de 2019; las sesiones enlazadas a continuación corresponden a su material base de MIT OpenCourseWare de 2011.
+
+[^mit-geometria]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [The Geometry of Linear Equations](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/the-geometry-of-linear-equations/). Interpretaciones por filas, columnas y matrices.
+
+[^mit-permutaciones]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Transposes, Permutations, Vector Spaces](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/transposes-permutations-vector-spaces/). Permutaciones y factorización con intercambio de filas.
+
+[^mit-rango-uno]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Matrix Spaces; Rank 1; Small World Graphs](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/matrix-spaces-rank-1-small-world-graphs/). Matrices de rango uno y productos exteriores.
+
+[^mit-grafos]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Graphs, Networks, Incidence Matrices](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/graphs-networks-incidence-matrices/). Matrices de incidencia, rango, ciclos y leyes de Kirchhoff.
+
+[^mit-potencias]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Diagonalization and Powers of A](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/diagonalization-and-powers-of-a/). Potencias y evolución discreta.
+
+[^mit-diferenciales]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Differential Equations and exp(At)](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/differential-equations-and-exp-at/). Sistemas diferenciales, exponencial y estabilidad.
+
+[^mit-markov]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Markov Matrices; Fourier Series](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/markov-matrices-fourier-series/). Distribuciones estacionarias y series de Fourier.
+
+[^mit-normales]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Projection Matrices and Least Squares](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/projection-matrices-and-least-squares/). Proyección, residuo y ecuaciones normales.
+
+[^mit-qr]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Orthogonal Matrices and Gram-Schmidt](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/orthogonal-matrices-and-gram-schmidt/). Gram–Schmidt y factorización QR.
+
+[^mit-jordan]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Similar Matrices and Jordan Form](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/similar-matrices-and-jordan-form/). Semejanza y forma de Jordan.
+
+[^mit-complejas]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Complex Matrices; Fast Fourier Transform (FFT)](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/complex-matrices-fast-fourier-transform-fft/). Producto interno complejo, matrices unitarias y transformada de Fourier.
+
+[^mit-minimos]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Positive Definite Matrices and Minima](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/positive-definite-matrices-and-minima/). Positividad, sumas de cuadrados, elipsoides y criterio de mínimo mediante la hessiana.
+
+[^mit-svd]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Singular Value Decomposition](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/singular-value-decomposition/). Valores singulares y cuatro subespacios.
+
+[^mit-compresion]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Change of Basis; Image Compression](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/change-of-basis-image-compression/). Aproximación de rango reducido y compresión de imágenes.
+
+[^mit-pseudoinversa]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Left and Right Inverses; Pseudoinverse](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/left-and-right-inverses-pseudoinverse/). Inversas laterales, pseudoinversa y norma mínima.
