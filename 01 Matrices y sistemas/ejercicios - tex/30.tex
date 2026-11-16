@@ -8,39 +8,27 @@ $$
 
 
 \begin{answer}
-    Since $P$ is invertible, its reduced
-    row echelon form is $I_m$
+    Since $P$ is invertible, its reduced row echelon form is $I_m$
 
     $$
-    \exists\,E_1,\ldots,E_k
-    \text{ elementary matrices}:
-    \quad
-    E_k\cdots E_2E_1P=I_m
+    \exists\,E_1,\ldots,E_k \text{ elementary matrices}: \quad E_k\cdots E_2E_1P=I_m
     $$
 
-    Applying the same elementary row
-    operations to $PA$,
+    Applying the same elementary row operations to $PA$,
 
     $$
     \begin{aligned}
     E_k\cdots E_2E_1(PA)
-    &=(E_k\cdots E_2E_1P)A\\
-    &=I_mA\\
+    &=(E_k\cdots E_2E_1P)A \\
+    &=I_mA \\
     &=A
     \end{aligned}
     $$
 
-    {\color{red}
-    \textbf{Note:} Elementary row operations
-    preserve rank. Since $PA$ can be
-    transformed into $A$ by elementary
-    row operations, both matrices have
-    the same rank
-    }
+    {\color{red} \textbf{Note:} Elementary row operations preserve rank. Since $PA$ can be
+    transformed into $A$ by elementary row operations, both matrices have the same rank}
 
     $$
-    \boxed{
-    \operatorname{rank}(PA)=\operatorname{rank}(A)
-    }
+    \boxed{\operatorname{rank}(PA)=\operatorname{rank}(A)}
     $$
 \end{answer}
