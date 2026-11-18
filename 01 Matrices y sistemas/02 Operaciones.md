@@ -565,7 +565,7 @@ tags:
 Sean $A,B\in M_{m\times n}(K)$.
 
 > [!definicion] Resta de matrices
-> La [[Matemáticas/Álgebra lineal/Suma de matrices#Neutro, opuesta y resta|diferencia de $A$ y $B$]] es la suma de $A$ con la opuesta de $B$:
+> La [[Matemáticas/Álgebra lineal/Suma de matrices#Neutro, opuesta y resta|diferencia de $A$ y $B$]] es la suma de $A$ con la [[#Matriz opuesta|matriz opuesta]] de $B$:
 >
 > $$
 > A-B=A+(-B).
@@ -778,7 +778,7 @@ tags:
 > La matriz nula del mismo tamaño, $0_{m\times n}$: $A+0_{m\times n}=A=0_{m\times n}+A$.
 ```
 
-### La matriz opuesta como inverso aditivo
+### La [[#matriz opuesta]] como inverso aditivo
 
 #### Propiedad
 

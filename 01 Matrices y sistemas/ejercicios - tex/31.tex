@@ -6,41 +6,53 @@ in the unknowns $x$, $y$, $z$}
 \begin{enumerate}[label=\alph*)]
 
     \item
-    $x+\pi y+\sqrt[3]{2}z=e$
+    $x+\pi y+\sqrt[3]{2}z=e \quad \color{blue}{\longrightarrow Linear}$
+
+    {\color{red} $\sqrt[3]{2}$ is a constant on the coefficient of $z$, not a function of the unknown $z$} \newline
+    
+    \item
+    $x^2+xy+z=2 \quad \color{red}{\longrightarrow Not \ linear}$
 
     \begin{answer}
+        $x^2$ and $xy$ are nonlinear terms
     \end{answer}
 
     \item
-    $x^2+xy+z=2$
+    $x+\sin y+2z=0 \quad \color{red}{\longrightarrow Not \ linear}$
 
     \begin{answer}
-    \end{answer}
-
-    \item
-    $x+\sin y+2z=0$
-
-    \begin{answer}
+        Non linear function $\sin$ is applied to the $y$ unknown
     \end{answer}
 
     \item
     $4x+\left(\sin\frac{\pi}{10}\right)^2y
-    +2^3z=\cos\frac{\pi}{5}$
++2^3z=\cos\frac{\pi}{5} \quad \color{blue}{\longrightarrow Linear}$
 
     \begin{answer}
+        Kinda tricky to the eyes, but all the sqared and cubed terms are constants, not unknowns
     \end{answer}
 
     \item
-    $(-x+8y-2z)^2=1$
+    $(-x+8y-2z)^2=1  \quad \color{red}{\longrightarrow Not \ linear}$
 
     \begin{answer}
+    $$
+        (-x+8y-2z)^2=1
+        \iff
+        \begin{cases}
+            -x+8y-2z=1 \\
+            \text{or} \\
+            -x+8y-2z=-1
+        \end{cases}
+        $$
+
+        {\color{red}
+        \textbf{Note:} The original equation is equivalent to a disjunction of two
+        linear equations, not to a single linear equation}
     \end{answer}
 
     \item
     $ax+6y-3z=9$,
-    where $a\in\mathbb{R}$ is fixed
-
-    \begin{answer}
-    \end{answer}
+    where $a\in\mathbb{R}$ is fixed  $\quad \color{blue}{\longrightarrow Linear}$
 
 \end{enumerate}
