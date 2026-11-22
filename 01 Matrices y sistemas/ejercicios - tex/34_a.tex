@@ -1,0 +1,133 @@
+\begin{answer}
+    The augmented matrix is
+    $$
+    \left[
+    \begin{array}{ccc|c}
+    1&1&-a&0\\
+    a&1&-1&1-a\\
+    1&a&-1&1-a
+    \end{array}
+    \right].
+    $$
+
+    $$
+    \xrightarrow{R_2\leftarrow R_2-aR_1}
+    \left[
+    \begin{array}{ccc|c}
+    1&1&-a&0\\
+    0&1-a&a^2-1&1-a\\
+    1&a&-1&1-a
+    \end{array}
+    \right]
+    $$
+
+    $$
+    \xrightarrow{R_3\leftarrow R_3-R_1}
+    \left[
+    \begin{array}{ccc|c}
+    1&1&-a&0\\
+    0&1-a&a^2-1&1-a\\
+    0&a-1&a-1&1-a
+    \end{array}
+    \right]
+    $$
+
+    $$
+    \xrightarrow{R_3\leftarrow R_3+R_2}
+    \left[
+    \begin{array}{ccc|c}
+    1&1&-a&0\\
+    0&1-a&a^2-1&1-a\\
+    0&0&a^2+a-2&2(1-a)
+    \end{array}
+    \right]
+    $$
+
+    Since
+    $$
+    a^2+a-2=(a-1)(a+2),
+    $$
+    we obtain
+    $$
+    \left[
+    \begin{array}{ccc|c}
+    1&1&-a&0\\
+    0&1-a&a^2-1&1-a\\
+    0&0&(a-1)(a+2)&2(1-a)
+    \end{array}
+    \right].
+    $$
+
+    {\color{red}
+    \textbf{Note:} We must examine
+    separately the values $a=1$ and
+    $a=-2$, since they cause a
+    potential pivot to vanish.
+    }
+
+    \textbf{Case 1: $a=1$}
+
+    $$
+    \left[
+    \begin{array}{ccc|c}
+    1&1&-1&0\\
+    0&0&0&0\\
+    0&0&0&0
+    \end{array}
+    \right]
+    $$
+
+    $$
+    r(A)=r([A\mid B])=1<3.
+    $$
+
+    The system is consistent and
+    indeterminate, with degree
+    $$
+    p=3-1=2.
+    $$
+
+    \textbf{Case 2: $a=-2$}
+
+    $$
+    \left[
+    \begin{array}{ccc|c}
+    1&1&2&0\\
+    0&3&3&3\\
+    0&0&0&6
+    \end{array}
+    \right]
+    $$
+
+    $$
+    r(A)=2<3=r([A\mid B]).
+    $$
+
+    The system is inconsistent.
+
+    \textbf{Case 3: $a\neq1,-2$}
+
+    The three pivot positions
+    are nonzero. Hence
+    $$
+    r(A)=r([A\mid B])=3=n.
+    $$
+
+    The system is consistent
+    and determined.
+
+    \textbf{Conclusion}
+
+    $$
+    \boxed{
+    \begin{cases}
+    a=1:
+    &\text{consistent indeterminate, degree }2,\\
+    a=-2:
+    &\text{inconsistent},\\
+    a\neq1,-2:
+    &\text{consistent determined}.
+    \end{cases}
+    }
+    $$
+\end{answer}
