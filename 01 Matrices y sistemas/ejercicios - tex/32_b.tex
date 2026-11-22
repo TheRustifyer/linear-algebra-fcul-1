@@ -113,12 +113,8 @@
     using the augmented matrix
     }
 
+    
     $$
-    \begin{cases}
-        x_1-3x_4=0\\
-        x_3+2x_4=3
-    \end{cases}
-    \iff
     \begin{cases}
         x_1=3x_4\\
         x_3=3-2x_4
@@ -130,6 +126,31 @@
     x_4=\beta,\qquad
     \alpha,\beta\in\mathbb R
     $$
+
+    $$
+    \implies
+    \begin{cases}
+        x_1=3\beta\\
+        x_2=\alpha\\
+        x_3=3-2\beta\\
+        x_4=\beta
+    \end{cases}
+    $$
+
+    $$
+    \begin{aligned}
+    (x_1,x_2,x_3,x_4)
+    &=(3\beta,\alpha,3-2\beta,\beta)\\
+    &=(0,0,3,0)+(3\beta,\alpha,-2\beta,\beta)\\
+    &=(0,0,3,0)
+    +(0,\alpha,0,0)
+    +(3\beta,0,-2\beta,\beta)\\
+    &=(0,0,3,0)
+    +\alpha(0,1,0,0)
+    +\beta(3,0,-2,1)
+    \end{aligned}
+    $$
+
 
     \textbf{General solution}
 
