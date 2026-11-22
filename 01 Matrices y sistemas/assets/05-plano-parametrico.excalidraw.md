@@ -41,7 +41,7 @@ Se muestra una porción del plano. ^s05-00026
 
 (x, y, z) = P + αv₁ + βv₂,    α, β ∈ ℝ ^s05-00027
 
-Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. ^s05-00028
+Ejes cartesianos ortogonales en el espacio, representados en proyección. ^s05-00028
 
 %%
 ## Drawing
@@ -126,10 +126,10 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00003",
       "type": "line",
-      "x": 422.0,
-      "y": 482.0,
-      "width": 288.0,
-      "height": 224.0,
+      "x": 393.7795,
+      "y": 346.028,
+      "width": 272.6973,
+      "height": 194.8139,
       "angle": 0,
       "strokeColor": "#93c5fd",
       "backgroundColor": "#eff6ff",
@@ -142,7 +142,7 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "frameId": null,
       "roundness": null,
       "seed": 1053,
-      "version": 1,
+      "version": 2,
       "versionNonce": 2053,
       "isDeleted": false,
       "boundElements": null,
@@ -155,16 +155,16 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
           0.0
         ],
         [
-          192.0,
-          0.0
+          193.023,
+          91.9931
         ],
         [
-          96.0,
-          -224.0
+          113.3487,
+          -10.8276
         ],
         [
-          -96.0,
-          -224.0
+          -79.6743,
+          -102.8208
         ],
         [
           0.0,
@@ -179,10 +179,10 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00004",
       "type": "arrow",
-      "x": 320,
-      "y": 270,
-      "width": 270,
-      "height": 180,
+      "x": 260,
+      "y": 300,
+      "width": 318.6973,
+      "height": 77.7618,
       "angle": 0,
       "strokeColor": "#94a3b8",
       "backgroundColor": "transparent",
@@ -195,7 +195,7 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "frameId": null,
       "roundness": null,
       "seed": 1054,
-      "version": 1,
+      "version": 2,
       "versionNonce": 2054,
       "isDeleted": false,
       "boundElements": null,
@@ -208,8 +208,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
           0
         ],
         [
-          270,
-          180
+          318.6973,
+          77.7618
         ]
       ],
       "startBinding": null,
@@ -220,8 +220,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00005",
       "type": "text",
-      "x": 602,
-      "y": 442,
+      "x": 588.6973,
+      "y": 379.7618,
       "width": 10.260000000000002,
       "height": 23.75,
       "angle": 0,
@@ -256,10 +256,10 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00006",
       "type": "arrow",
-      "x": 320,
-      "y": 270,
-      "width": 75.0,
-      "height": 150.0,
+      "x": 260,
+      "y": 300,
+      "width": 94.0,
+      "height": 68.8077,
       "angle": 0,
       "strokeColor": "#94a3b8",
       "backgroundColor": "transparent",
@@ -272,7 +272,7 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "frameId": null,
       "roundness": null,
       "seed": 1056,
-      "version": 1,
+      "version": 2,
       "versionNonce": 2056,
       "isDeleted": false,
       "boundElements": null,
@@ -285,8 +285,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
           0
         ],
         [
-          -75.0,
-          -150.0
+          -94.0,
+          68.8077
         ]
       ],
       "startBinding": null,
@@ -297,8 +297,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00007",
       "type": "text",
-      "x": 228,
-      "y": 106,
+      "x": 148.0,
+      "y": 360.8077,
       "width": 10.260000000000002,
       "height": 23.75,
       "angle": 0,
@@ -333,10 +333,10 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00008",
       "type": "arrow",
-      "x": 320,
-      "y": 270,
+      "x": 260,
+      "y": 300,
       "width": 0,
-      "height": 175.0,
+      "height": 181.2616,
       "angle": 0,
       "strokeColor": "#94a3b8",
       "backgroundColor": "transparent",
@@ -349,7 +349,7 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "frameId": null,
       "roundness": null,
       "seed": 1058,
-      "version": 1,
+      "version": 2,
       "versionNonce": 2058,
       "isDeleted": false,
       "boundElements": null,
@@ -362,8 +362,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
           0
         ],
         [
-          0,
-          -175.0
+          0.0,
+          -181.2616
         ]
       ],
       "startBinding": null,
@@ -374,8 +374,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00009",
       "type": "text",
-      "x": 329,
-      "y": 86,
+      "x": 270.0,
+      "y": 108.7384,
       "width": 10.260000000000002,
       "height": 23.75,
       "angle": 0,
@@ -410,8 +410,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00010",
       "type": "ellipse",
-      "x": 317,
-      "y": 267,
+      "x": 257,
+      "y": 297,
       "width": 6,
       "height": 6,
       "angle": 0,
@@ -437,8 +437,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00011",
       "type": "text",
-      "x": 292,
-      "y": 278,
+      "x": 235,
+      "y": 296,
       "width": 9.18,
       "height": 21.25,
       "angle": 0,
@@ -473,10 +473,10 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00012",
       "type": "arrow",
-      "x": 470,
-      "y": 370,
-      "width": 60,
-      "height": 0,
+      "x": 433.2051,
+      "y": 342.2618,
+      "width": 83.923,
+      "height": 39.997,
       "angle": 0,
       "strokeColor": "#1d4ed8",
       "backgroundColor": "transparent",
@@ -489,7 +489,7 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "frameId": null,
       "roundness": null,
       "seed": 1062,
-      "version": 1,
+      "version": 2,
       "versionNonce": 2062,
       "isDeleted": false,
       "boundElements": null,
@@ -498,12 +498,12 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "locked": false,
       "points": [
         [
-          0,
-          0
+          0.0,
+          0.0
         ],
         [
-          60,
-          0
+          83.923,
+          39.997
         ]
       ],
       "startBinding": null,
@@ -514,10 +514,10 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00013",
       "type": "arrow",
-      "x": 470,
-      "y": 370,
-      "width": 30,
-      "height": 70,
+      "x": 433.2051,
+      "y": 342.2618,
+      "width": 34.641,
+      "height": 44.7047,
       "angle": 0,
       "strokeColor": "#059669",
       "backgroundColor": "transparent",
@@ -530,7 +530,7 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "frameId": null,
       "roundness": null,
       "seed": 1063,
-      "version": 1,
+      "version": 2,
       "versionNonce": 2063,
       "isDeleted": false,
       "boundElements": null,
@@ -539,12 +539,12 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "locked": false,
       "points": [
         [
-          0,
-          0
+          0.0,
+          0.0
         ],
         [
-          -30,
-          -70
+          -34.641,
+          -44.7047
         ]
       ],
       "startBinding": null,
@@ -555,8 +555,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00014",
       "type": "ellipse",
-      "x": 466,
-      "y": 366,
+      "x": 429.2051,
+      "y": 338.2618,
       "width": 8,
       "height": 8,
       "angle": 0,
@@ -582,8 +582,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00015",
       "type": "text",
-      "x": 355,
-      "y": 360,
+      "x": 308.2051,
+      "y": 347.2618,
       "width": 112.32000000000001,
       "height": 20.0,
       "angle": 0,
@@ -618,8 +618,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00016",
       "type": "ellipse",
-      "x": 526,
-      "y": 366,
+      "x": 513.1281,
+      "y": 378.2588,
       "width": 8,
       "height": 8,
       "angle": 0,
@@ -645,8 +645,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00017",
       "type": "text",
-      "x": 538,
-      "y": 345,
+      "x": 512.1281,
+      "y": 400.2588,
       "width": 112.32000000000001,
       "height": 20.0,
       "angle": 0,
@@ -681,8 +681,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00018",
       "type": "ellipse",
-      "x": 436,
-      "y": 296,
+      "x": 394.5641,
+      "y": 293.5571,
       "width": 8,
       "height": 8,
       "angle": 0,
@@ -708,8 +708,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
     {
       "id": "s05-00019",
       "type": "text",
-      "x": 419,
-      "y": 271,
+      "x": 383.5641,
+      "y": 263.5571,
       "width": 112.32000000000001,
       "height": 20.0,
       "angle": 0,
@@ -1025,8 +1025,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "type": "text",
       "x": 35,
       "y": 513,
-      "width": 665.2800000000001,
-      "height": 20.0,
+      "width": 622.08,
+      "height": 20,
       "angle": 0,
       "strokeColor": "#243247",
       "backgroundColor": "transparent",
@@ -1046,8 +1046,8 @@ Proyección oblicua: las longitudes y los ángulos del espacio no se conservan. 
       "updated": 0,
       "link": null,
       "locked": false,
-      "text": "Proyección oblicua: las longitudes y los ángulos del espacio no se conservan.",
-      "originalText": "Proyección oblicua: las longitudes y los ángulos del espacio no se conservan.",
+      "text": "Ejes cartesianos ortogonales en el espacio, representados en proyección.",
+      "originalText": "Ejes cartesianos ortogonales en el espacio, representados en proyección.",
       "fontSize": 16,
       "fontFamily": 2,
       "textAlign": "left",

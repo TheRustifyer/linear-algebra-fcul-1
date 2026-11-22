@@ -1,1 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="550" viewBox="0 0 960 550" role="img" aria-labelledby="title desc"><title id="title">Parametrización del plano</title><desc id="desc">Proyección oblicua del plano x-3y+z=5. P=(5,0,0), Q=(8,1,0), R=(4,0,1); PQ=(3,1,0), PR=(-1,0,1). Se muestra una porción del plano.</desc><rect width="100%" height="100%" fill="white"/><g font-family="Arial,Helvetica,sans-serif"><text x="30" y="44.7" fill="#243247" font-size="26">Un punto y dos direcciones del plano</text><text x="32" y="80.9" fill="#243247" font-size="22">x − 3y + z = 5</text><polyline points="422.0,482.0 614.0,482.0 518.0,258.0 326.0,258.0 422.0,482.0" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/><polyline points="320,270 590,450" fill="none" stroke="#94a3b8" stroke-width="2"/><polygon points="590,450 583.0662475471847,440.5700966641711 578.6286459773828,447.2264990188739" fill="#94a3b8"/><text x="602" y="460.05" fill="#243247" font-size="19">x</text><polyline points="320,270 245.0,120.0" fill="none" stroke="#94a3b8" stroke-width="2"/><polygon points="245.0,120.0 246.34164078649988,131.6275534829989 253.49705831449918,128.04984471899922" fill="#94a3b8"/><text x="228" y="124.05" fill="#243247" font-size="19">y</text><polyline points="320,270 320,95.0" fill="none" stroke="#94a3b8" stroke-width="2"/><polygon points="320,95.0 316.0,106.0 324.0,106.0" fill="#94a3b8"/><text x="329" y="104.05" fill="#243247" font-size="19">z</text><circle cx="320" cy="270" r="3" fill="#64748b"/><text x="292" y="294.15" fill="#243247" font-size="17">O</text><polyline points="470,370 530,370" fill="none" stroke="#1d4ed8" stroke-width="4"/><polygon points="530,370 519.0,366.0 519.0,374.0" fill="#1d4ed8"/><polyline points="470,370 440,300" fill="none" stroke="#059669" stroke-width="4"/><polygon points="440,300 440.6565321642986,311.6862725245153 448.00969240444306,308.534918135882" fill="#059669"/><circle cx="470" cy="370" r="4" fill="#243247"/><text x="355" y="375.2" fill="#243247" font-size="16">P = (5, 0, 0)</text><circle cx="530" cy="370" r="4" fill="#1d4ed8"/><text x="538" y="360.2" fill="#1d4ed8" font-size="16">Q = (8, 1, 0)</text><circle cx="440" cy="300" r="4" fill="#059669"/><text x="419" y="286.2" fill="#059669" font-size="16">R = (4, 0, 1)</text><rect x="645" y="112" width="285" height="303" rx="12" fill="#f8fafc" stroke="#cbd5e1"/><text x="665" y="149.95" fill="#243247" font-size="21">Desde P:</text><text x="665" y="188.15" fill="#1d4ed8" font-size="17">y aumenta en 1; z no cambia.</text><text x="665" y="209.4" fill="#1d4ed8" font-size="17">x aumenta en 3.</text><text x="665" y="243.0" fill="#1d4ed8" font-size="20">v₁ = (3, 1, 0)</text><text x="665" y="286.15" fill="#059669" font-size="17">z aumenta en 1; y no cambia.</text><text x="665" y="307.4" fill="#059669" font-size="17">x disminuye en 1.</text><text x="665" y="341.0" fill="#059669" font-size="20">v₂ = (−1, 0, 1)</text><text x="665" y="387.25" fill="#243247" font-size="15">Se muestra una porción del plano.</text><text x="35" y="496.95" fill="#243247" font-size="21">(x, y, z) = P + αv₁ + βv₂,    α, β ∈ ℝ</text><text x="35" y="528.2" fill="#243247" font-size="16">Proyección oblicua: las longitudes y los ángulos del espacio no se conservan.</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="550" viewBox="0 0 960 550" role="img" aria-labelledby="title desc">
+<title id="title">Un punto y dos direcciones del plano</title>
+<desc id="desc">Proyección axonométrica de ejes cartesianos ortogonales y del plano x-3y+z=5. Los tres ejes parten de O: x hacia la derecha, y hacia la izquierda, z hacia arriba. P=(5,0,0), Q=(8,1,0), R=(4,0,1); PQ=(3,1,0), PR=(-1,0,1).</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="30" y="44.7" fill="#243247" font-size="26">Un punto y dos direcciones del plano</text>
+<text x="32" y="80.9" fill="#243247" font-size="22">x − 3y + z = 5</text>
+<polyline points="393.779,346.028 586.803,438.021 507.128,335.200 314.105,243.207 393.779,346.028" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+<polyline points="260.000,300.000 578.697,377.762" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="578.697,377.762 567.063,379.040 568.959,371.268" fill="#94a3b8"/>
+<text x="588.6973" y="397.8118" fill="#243247" font-size="19">x</text>
+<polyline points="260.000,300.000 166.000,368.808" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="166.000,368.808 172.513,359.083 177.239,365.538" fill="#94a3b8"/>
+<text x="148.0" y="378.8577" fill="#243247" font-size="19">y</text>
+<polyline points="260.000,300.000 260.000,118.738" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="260.000,118.738 264.000,129.738 256.000,129.738" fill="#94a3b8"/>
+<text x="270.0" y="126.7884" fill="#243247" font-size="19">z</text>
+<ellipse cx="260.0" cy="300.0" rx="3.0" ry="3.0" fill="#64748b" stroke="#64748b"/>
+<text x="235" y="312.15" fill="#243247" font-size="17">O</text>
+<polyline points="433.205,342.262 517.128,382.259" fill="none" stroke="#1d4ed8" stroke-width="4"/>
+<polygon points="517.128,382.259 505.477,381.137 508.919,373.915" fill="#1d4ed8"/>
+<polyline points="433.205,342.262 398.564,297.557" fill="none" stroke="#059669" stroke-width="4"/>
+<polygon points="398.564,297.557 408.464,303.802 402.140,308.702" fill="#059669"/>
+<ellipse cx="433.2051" cy="342.2618" rx="4.0" ry="4.0" fill="#243247" stroke="#243247"/>
+<text x="308.2051" y="362.4618" fill="#243247" font-size="16">P = (5, 0, 0)</text>
+<ellipse cx="517.1281" cy="382.2588" rx="4.0" ry="4.0" fill="#1d4ed8" stroke="#1d4ed8"/>
+<text x="512.1281" y="415.4588" fill="#1d4ed8" font-size="16">Q = (8, 1, 0)</text>
+<ellipse cx="398.5641" cy="297.5571" rx="4.0" ry="4.0" fill="#059669" stroke="#059669"/>
+<text x="383.5641" y="278.7571" fill="#059669" font-size="16">R = (4, 0, 1)</text>
+<rect x="645" y="112" width="285" height="303" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="665" y="149.95" fill="#243247" font-size="21">Desde P:</text>
+<text x="665" y="188.15" fill="#1d4ed8" font-size="17">y aumenta en 1; z no cambia.</text>
+<text x="665" y="209.4" fill="#1d4ed8" font-size="17">x aumenta en 3.</text>
+<text x="665" y="243.0" fill="#1d4ed8" font-size="20">v₁ = (3, 1, 0)</text>
+<text x="665" y="286.15" fill="#059669" font-size="17">z aumenta en 1; y no cambia.</text>
+<text x="665" y="307.4" fill="#059669" font-size="17">x disminuye en 1.</text>
+<text x="665" y="341.0" fill="#059669" font-size="20">v₂ = (−1, 0, 1)</text>
+<text x="665" y="387.25" fill="#243247" font-size="15">Se muestra una porción del plano.</text>
+<text x="35" y="496.95" fill="#243247" font-size="21">(x, y, z) = P + αv₁ + βv₂,    α, β ∈ ℝ</text>
+<text x="35" y="528.2" fill="#243247" font-size="16">Ejes cartesianos ortogonales en el espacio, representados en proyección.</text>
+</g></svg>

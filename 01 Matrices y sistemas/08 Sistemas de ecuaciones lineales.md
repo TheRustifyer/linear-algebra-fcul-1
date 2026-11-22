@@ -173,10 +173,10 @@ $$
 \end{aligned}
 $$
 
-Si aumentamos $\alpha$ en una unidad, $x$ aumenta en $1$ e $y$ en $\frac23$; ése es el desplazamiento que recoge el **vector director** $\left(1,\frac23\right)$.
+Si aumentamos $\alpha$ en una unidad, $x$ aumenta en $1$ e $y$ en $\frac23$; ése es el desplazamiento que recoge el **[[Matemáticas/Geometría/Geometría analítica/Vector director de una recta|vector director]]** $\left(1,\frac23\right)$.
 
 > [!definicion] Vector director de una recta
-> Un vector no nulo $v$ es director de una recta si, fijado un punto $P$ de ella, todos sus puntos se describen mediante $P+\alpha v$, con $\alpha\in\mathbb R$.
+> Un vector no nulo $v$ es [[Matemáticas/Geometría/Geometría analítica/Vector director de una recta|director de una recta]] si, fijado un punto $P$ de ella, todos sus puntos se describen mediante $P+\alpha v$, con $\alpha\in\mathbb R$.
 
 ![La recta 2x−3y=−6 pasa por (0,2) y (3,4); la recta homogénea 2x−3y=0 pasa por el origen y tiene la misma dirección. Se destaca el desplazamiento (1,2/3) desde (0,2).](assets/05-recta-y-homogenea.svg)
 
@@ -224,60 +224,39 @@ tags:
 
 ### Ejemplo: un plano en el espacio, $\mathbb R^3$
 
-Despejamos $x$ en
+Las ternas $(x,y,z)\in\mathbb R^3$ que satisfacen $x-3y+z=5$ forman un plano. Para describir sus puntos, procedemos como en el ejemplo de la recta:[^a8-geometria]
 
 $$
-x-3y+z=5:
+\begin{alignedat}{2}
+&\phantom{\Longleftrightarrow}\quad &x-3y+z&=5\\
+&\Longleftrightarrow\quad &x&=5+3y-z\\
+&\Longleftrightarrow\quad &(x,y,z)&=(5+3y-z,\ y,\ z)\\
+&\Longleftrightarrow\quad &(x,y,z)&=(5,0,0)+(3y,y,0)+(-z,0,z)\\
+&\Longleftrightarrow\quad &(x,y,z)&=(5,0,0)+y(3,1,0)+z(-1,0,1).
+\end{alignedat}
 $$
 
-$$
-x=5+3y-z.
-$$
-
-Podemos elegir $y$ y $z$ de manera independiente. Si $y=\alpha$ y $z=\beta$, obtenemos
+Obtenemos los puntos del plano dando valores reales a $y$ y a $z$. El plano queda determinado por el punto $P$ y los vectores $\mathbf v_1$ y $\mathbf v_2$:
 
 $$
-(x,y,z)=(5+3\alpha-\beta,\alpha,\beta).
+P=(5,0,0),\qquad
+\mathbf v_1=(3,1,0),\qquad
+\mathbf v_2=(-1,0,1).
 $$
 
-Para obtener un punto del plano, fijamos ambos parámetros en cero:
+Estos vectores no son colineales: ningún múltiplo de $\mathbf v_1$, cuya tercera componente es cero, puede ser $\mathbf v_2$. Escribiendo $y=\alpha$ y $z=\beta$, la representación del plano es
 
 $$
-P=(5,0,0).
-$$
-
-Ahora dejamos $z=0$ y aumentamos $y$ de $0$ a $1$. La ecuación obliga a que $x$ pase de $5$ a $8$. El desplazamiento desde $P$ es
-
-$$
-(8,1,0)-(5,0,0)=(3,1,0).
-$$
-
-Si mantenemos $y=0$ y aumentamos $z$ de $0$ a $1$, $x$ pasa de $5$ a $4$. Obtenemos otra dirección:
-
-$$
-(4,0,1)-(5,0,0)=(-1,0,1).
-$$
-
-Reuniendo el punto y ambos desplazamientos,
-
-$$
-\boxed{(x,y,z)=(5,0,0)+\alpha(3,1,0)+\beta(-1,0,1)},
+\boxed{\begin{aligned}
+(x,y,z)&=P+\alpha\mathbf v_1+\beta\mathbf v_2\\
+&=(5,0,0)+\alpha(3,1,0)+\beta(-1,0,1)
+\end{aligned}},
 \qquad \alpha,\beta\in\mathbb R.
 $$
 
-Las dos direcciones no son múltiplos entre sí: la primera cambia la coordenada $y$ sin cambiar $z$ y la segunda cambia $z$ sin cambiar $y$. Al variar los dos parámetros recorremos el plano.
+![Proyección axonométrica del plano x−3y+z=5: desde P=(5,0,0), el vector v1=(3,1,0) lleva a (8,1,0) y v2=(−1,0,1) lleva a (4,0,1).](assets/05-plano-parametrico.svg)
 
-![Proyección oblicua del plano x−3y+z=5: desde P=(5,0,0), aumentar y una unidad lleva a (8,1,0) con dirección (3,1,0); aumentar z una unidad lleva a (4,0,1) con dirección (−1,0,1).](assets/05-plano-parametrico.svg)
-
-*Se muestra una porción del plano y las flechas representan los cambios calculados. Es una proyección oblicua: las longitudes y los ángulos del espacio no se conservan en el dibujo.* [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/05-plano-parametrico.excalidraw|Dibujo editable]].
-
-La sustitución comprueba que cualquier elección de $\alpha$ y $\beta$ da una solución:
-
-$$
-(5+3\alpha-\beta)-3\alpha+\beta=5.
-$$
-
-Además, cualquier punto que satisfaga la ecuación tiene ciertos valores de $y$ y $z$; tomándolos como $\alpha$ y $\beta$, el despeje recupera su coordenada $x$.[^a8-geometria]
+*Se muestra una porción del plano y los vectores $\mathbf v_1$ y $\mathbf v_2$ con origen en $P$. En esta proyección axonométrica, los ejes cartesianos no se ven perpendiculares entre sí, aunque lo sean en el espacio.* [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/05-plano-parametrico.excalidraw|Dibujo editable]].
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
