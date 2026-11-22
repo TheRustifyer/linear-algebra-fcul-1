@@ -59,7 +59,7 @@ Alcance oficial: matrices, operaciones, transformaciones elementales, rango, eli
 
 ### Matrices y operaciones — orden de lectura
 
-[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|01 · Matrices]] reúne vectores coordenados, definición y formas de matrices, traspuesta, conjugada, adjunta, simetría, hermiticidad y traza. [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones|02 · Operaciones]] desarrolla suma, opuesto, resta, producto por escalar, producto matricial, potencias y sus propiedades, con la representación matricial de sistemas como aplicación. Las referencias a las aulas 2–4 se conservan en cada nota.
+[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|01 · Matrices]] reúne vectores coordenados y sus operaciones, definición y formas de matrices, matriz opuesta, traspuesta, conjugada, adjunta, simetría, hermiticidad y traza. [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones|02 · Operaciones]] desarrolla suma, resta, producto por escalar, producto matricial, potencias y sus propiedades, con la representación matricial de sistemas como aplicación. Las referencias a las aulas 2–4 se conservan en cada nota.
 
 Antes de las primeras pruebas por entradas, consulta [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/00 Prefacio#^2bd3aa|00 · Demostración por componentes]].
 
@@ -69,38 +69,68 @@ Antes de las primeras pruebas por entradas, consulta [[Física/Grado/1º/Álgebr
 
 Los epígrafes de esas casillas se localizan en:
 
-- **Matrices:** [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#De los pares ordenados a los vectores coordenados|vectores coordenados]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices: filas, columnas y entradas|entradas y dimensiones]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices por su forma|formas]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices nulas, identidad, diagonales y triangulares|clases básicas]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Transpuesta|traspuesta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Conjugada de una matriz|conjugada]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Conjugada transpuesta|adjunta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices simétricas, antisimétricas, hermíticas y antihermíticas|simetría y hermiticidad]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Traza de una matriz|traza]].
-- **Operaciones:** [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Operaciones con vectores coordenados|operaciones vectoriales]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Suma, opuesto y resta|suma, opuesto y resta de matrices]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Producto por escalares|producto por escalar]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Producto matricial|producto matricial]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Potencias de una matriz cuadrada|potencias]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Propiedades de la transpuesta|leyes de la traspuesta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Propiedades de la conjugada y de la adjunta|leyes de conjugación y adjunción]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Propiedades de la traza|propiedades de la traza]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Sistemas lineales en forma matricial|sistemas en forma matricial]].
+- **Matrices:** [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#De los pares ordenados a los vectores coordenados|vectores coordenados]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Operaciones con vectores coordenados|operaciones vectoriales]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Leyes de las operaciones vectoriales|leyes vectoriales]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices: filas, columnas y entradas|entradas y dimensiones]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices por su forma|formas]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices nulas, identidad, diagonales y triangulares|clases básicas]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz opuesta|matriz opuesta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Transpuesta|traspuesta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Conjugada de una matriz|conjugada]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Conjugada transpuesta|adjunta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matrices simétricas, antisimétricas, hermíticas y antihermíticas|simetría y hermiticidad]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Traza de una matriz|traza]].
+- **Operaciones:** [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Suma, opuesto y resta|suma, opuesto y resta de matrices]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Producto por escalares|producto por escalar]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Producto matricial|producto matricial]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Potencias de una matriz cuadrada|potencias]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Propiedades de la transpuesta|leyes de la traspuesta]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Propiedades de la conjugada y de la adjunta|leyes de conjugación y adjunción]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Propiedades de la traza|propiedades de la traza]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Sistemas lineales en forma matricial|sistemas en forma matricial]].
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|Eliminación y matrices elementales]]
+> [!note] Ampliación del currículo del MIT — producto matricial
+> [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Combinaciones lineales de vectores|Combinaciones lineales de vectores]] e [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Lectura por columnas y filas|interpretación del producto mediante combinaciones de columnas y filas]]. Desarrollo adicional al material de las aulas 2–4.[^mit-producto]
 
-Presentaciones de FCUL: Aula 4 — pivotes y forma escalonada, pp. 13–17 (`ALGA-2026-27-AulasTeo-slides-aula4-FormaEscada-impressao.pdf`), Aula 5 — transformaciones elementales (`ALGA-2026-27-AulasTeo-slides-aula5-TransfElem-impressao.pdf`) y Aula 6 — rango y reducción, pp. 2–10 (`ALGA-2026-27-AulasTeo-slides-aula6-CaractMatrizesInv-impressao.pdf`). Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|nota curricular]].
+> [!opcional] Ampliaciones de la clasificación de matrices
+> [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz antisimétrica|Matrices antisimétricas]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz antihermítica|antihermíticas]] y la prueba de la diagonal real de una hermítica complementan las aulas 2–4 cotejadas. Las pruebas escalares de conjugación amplían los prerrequisitos de números complejos. Esta marca describe la procedencia del desarrollo, sin afirmar que esos conocimientos estén excluidos del programa o de la evaluación.
+
+> [!opcional] Otras ampliaciones de operaciones
+> [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Adjunta de un producto|Adjunta de un producto]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Adjunta de un múltiplo escalar|adjunta de un múltiplo escalar]]: consecuencias añadidas de las leyes de transposición y conjugación, sin atribución TPC a las aulas 2–4.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Matrices elementales y operaciones elementales|Matrices elementales y operaciones elementales]]
+
+Presentaciones de FCUL: Aula 5 — transformaciones elementales y sus matrices (`ALGA-2026-27-AulasTeo-slides-aula5-TransfElem-impressao.pdf`). Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Matrices elementales y operaciones elementales|nota curricular]].
 
 * [ ] Ejecutar operaciones elementales con la notación $L_i$, representar su secuencia mediante $t_1,\ldots,t_p$ y reconocer sus matrices elementales.
-* [ ] Obtener formas escalonada y escalonada reducida mediante Gauss y Gauss–Jordan.
 * [ ] Justificar que las operaciones elementales conservan el conjunto de soluciones y mostrar la cadena inversa que deshace sus efectos.
-* [ ] Relacionar una secuencia de operaciones con multiplicación por matrices elementales.
+* [ ] Relacionar una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Matrices elementales y operaciones elementales#Composición de operaciones elementales|secuencia de operaciones con multiplicación por matrices elementales]]; obtener $[B\mid Q]$ al operar sobre $[A\mid I_m]$ y justificar $B=QA$, con $Q=E_p\cdots E_1$.
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]
+> [!note] Una proposición TPC, tres casos
+> La prueba de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Matrices elementales y operaciones elementales#Multiplicación por la izquierda y operaciones elementales|$EA=t(A)$]] comprende intercambio, escalado y reemplazo; no son tres TPC independientes. La verificación de las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Inversas de los tres tipos|inversas elementales]] es otro encargo, desarrollado en 05.[^alcance-elementales]
 
-Presentaciones de FCUL: Aula 6 — invertibilidad, pp. 11–14, Aula 7 — matrices invertibles, Aula 9 — discusión por rango, pp. 2–11 y Aula 10 — inversa aplicada a sistemas, pp. 8–10. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|nota curricular]].
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan|Eliminación de Gauss y Gauss–Jordan]]
+
+Presentaciones de FCUL: Aula 4 — pivotes y formas escalonadas, pp. 13–17, Aula 5 — ejemplo rectangular, y Aula 6 — estrategia de los métodos, rango y reducción, pp. 2–10. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan|nota curricular]].
+
+* [ ] Obtener formas escalonada y escalonada reducida mediante Gauss y Gauss–Jordan.
+* [ ] Interpretar [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Variables pivote y variables libres|pivotes, variables libres y parámetros]]; calcular el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Rango de una matriz|rango]] y justificar sus [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Cotas del rango|cotas]].
+
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Método de Gauss|pasos de Gauss]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Método de Gauss–Jordan|Gauss–Jordan]] preceden a los ejemplos completos. Las demostraciones de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Existencia de forma escalonada reducida|existencia]] e [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#El rango no depende de la forma escalonada elegida|invariancia del número de pivotes]] y sus tarjetas están plegadas junto a cada propiedad. El [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Unicidad de forma escalonada reducida|resultado de unicidad]] se enuncia sin demostración.
+
+> [!opcional] Ampliaciones del desarrollo de eliminación
+> La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Matrices elementales y operaciones elementales#Lectura de una fila del producto|lectura de $EA$ como combinación de filas]] añade una interpretación del MIT. Las pruebas de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Existencia de forma escalonada reducida|existencia]] e [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#El rango no depende de la forma escalonada elegida|invariancia del rango]] amplían resultados enunciados, pero no demostrados ni asignados como TPC en las diapositivas correspondientes.[^alcance-elementales]
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa|Matrices invertibles y matriz inversa]]
+
+Presentaciones de FCUL: Aula 6 — invertibilidad, pp. 11–14, Aula 7 — matrices invertibles, y Aula 10 — inversa aplicada a sistemas, pp. 8–10. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa|nota curricular]]. El cálculo por Gauss–Jordan se apoya en la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Por qué el bloque derecho contiene la inversa|reducción simultánea de $[A\mid I_n]$]].
+
+* [ ] Definir la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Matriz inversa e invertibilidad|inversa de una matriz cuadrada]], justificar su unicidad y calcularla por Gauss–Jordan.
+* [ ] Demostrar la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Invertibilidad de las matrices elementales|invertibilidad de las matrices elementales]] y verificar sus tres tipos de inversas como partes de un único TPC.
+* [ ] Establecer las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Matrices invertibles como productos de elementales|equivalencias entre invertibilidad, rango completo, forma reducida identidad y producto de elementales]], y su relación con la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Relación entre invertibilidad, rango y solución única|solución única]].
+* [ ] Resolver [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Despejar una matriz multiplicada por la izquierda|$AX=C$]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Despejar una matriz multiplicada por la derecha|$XA=C$]] multiplicando por la inversa en el lado correspondiente; justificar las consecuencias de $AB=I_n$ o de que $AB$ sea invertible.
+
+Las cuatro caracterizaciones corresponden al Aula 7, diapositiva 7. Sus pruebas separan [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Invertibilidad y forma reducida (1 ⇔ 3)|invertibilidad y forma reducida]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Rango y forma reducida (2 ⇔ 3)|rango y forma reducida]], [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#De invertibilidad a producto de elementales (1 ⇒ 4)|factorización en elementales]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#De producto de elementales a invertibilidad (4 ⇒ 1)|su recíproco]]. La conexión con la solución única pertenece al Aula 10, diapositivas 8–9. Las pruebas de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Existencia de solución|existencia]] y [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Unicidad de solución|unicidad]] desarrollan la equivalencia de la diapositiva 9. Sólo la prueba recíproca, [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#De la solución única al rango completo|de la solución única al rango completo]], está plegada como ampliación.
+
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/06 Compatibilidad y clasificación de sistemas|Compatibilidad y clasificación de sistemas]]
+
+Presentaciones de FCUL: Aula 9 — discusión de sistemas y criterio por rangos, pp. 2–11. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/06 Compatibilidad y clasificación de sistemas|nota curricular]], con el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/06 Compatibilidad y clasificación de sistemas#Teorema de Rouché–Capelli|criterio de Rouché–Capelli]], las tres clases de sistemas y su grado de indeterminación.
 
 * [ ] Clasificar sistemas compatibles determinados, compatibles indeterminados e incompatibles.
-* [ ] Interpretar pivotes, variables libres y parámetros; calcular el rango.
-* [ ] Calcular una inversa por Gauss–Jordan y justificar su unicidad.
-* [ ] Establecer equivalencias básicas entre invertibilidad, pivotes, rango y solución única.
-* [ ] Resolver $AX=B$ como $X=A^{-1}B$ cuando $A$ es invertible y justificar las consecuencias de $AB=I_n$ o de que $AB$ sea invertible.
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Factorización LU|Ampliación de contraste — factorización LU]]
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/07 Factorización LU|Ampliación de contraste — factorización LU]]
 
 Ampliación del curso de Krista King, fuera del núcleo explícito de FCUL [^14].
 
 * [ ] Construir una factorización $A=LU$ a partir de las operaciones y matrices de eliminación cuando no se requieren permutaciones de filas.
 * [ ] Identificar $L$ como triangular inferior con diagonal unitaria y $U$ como triangular superior, y comprobar la factorización reconstruyendo $A$.
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/06 Sistemas de ecuaciones lineales|Sistemas de ecuaciones lineales]]
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/08 Sistemas de ecuaciones lineales|Sistemas de ecuaciones lineales]]
 
-Presentaciones de FCUL: Aula 8 — sistemas lineales y Aula 10 — homogéneos y solución general, pp. 2–7 y 11. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/06 Sistemas de ecuaciones lineales|nota curricular]].
+Presentaciones de FCUL: Aula 8 — sistemas lineales y Aula 10 — homogéneos y solución general, pp. 2–7 y 11. Desarrollo: [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/08 Sistemas de ecuaciones lineales|nota curricular]].
 
 * [ ] Reconocer ecuaciones lineales, sistemas, soluciones, equivalencia y cuerpo de resolución; interpretar rectas y planos como conjuntos de soluciones.
 * [ ] Escribir $AX=B$, construir $[A\mid B]$ y verificar soluciones mediante producto matricial.
@@ -113,7 +143,7 @@ Presentaciones de FCUL: Aula 8 — sistemas lineales y Aula 10 — homogéneos y
 * [ ] Modelar una situación mediante un sistema y detectar operaciones inválidas.
 * [ ] Explicar la relación entre pivotes, rango, grados de libertad e invertibilidad.
 
-### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/07 Interpretaciones de Ax=b|Interpretaciones de $Ax=b$]] · pendiente
+### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/09 Interpretaciones de Ax=b|Interpretaciones de $Ax=b$]] · pendiente
 
 Ampliación del currículo del MIT.[^mit-geometria]
 
@@ -123,7 +153,7 @@ Ampliación del currículo del MIT.[^mit-geometria]
 
 Ampliación del currículo del MIT, recogida en la nota de LU ya existente.[^mit-permutaciones]
 
-* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Factorización LU#Factorización con permutación|Construir matrices de permutación y una factorización $PA=LU$ cuando se intercambian filas; resolver los dos sistemas triangulares.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/07 Factorización LU#Factorización con permutación|Construir matrices de permutación y una factorización $PA=LU$ cuando se intercambian filas; resolver los dos sistemas triangulares.]]
 
 ## Unidad 2. Determinantes
 
@@ -151,6 +181,9 @@ Alcance oficial: definición, órdenes dos y tres, desarrollo de Laplace, propie
 * [ ] Demostrar la identidad de la adjunta en ambos órdenes y calcular una inversa completa o una entrada aislada.
 * [ ] Reconocer un sistema de Cramer, demostrar la [[Matemáticas/Álgebra lineal/Regla de Cramer|regla]] y calcular una coordenada aislada o toda la solución.
 * [ ] Cuando $\det(A)=0$, clasificar el sistema mediante Gauss o rangos, sin dividir por cero.
+
+> [!note] Alcance de los encargos TPC
+> La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/02 Propiedades y aplicaciones#Homogeneidad respecto de una fila|homogeneidad]] por filas y columnas forma un único encargo con dos casos. La anulación por [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/02 Propiedades y aplicaciones#Filas proporcionales|filas y columnas proporcionales]] es otro encargo con dos casos. Las aditividades por fila y por columna sí se asignan por separado.[^alcance-determinantes]
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/03 Interpretación geométrica del determinante|Ampliación — interpretación geométrica]]
 
@@ -206,9 +239,12 @@ flowchart LR
 * [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Comprobar condiciones y encontrar un fallo|Verificar cierres con vectores arbitrarios y refutar mediante un testigo.]]
 * [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Combinaciones lineales|Distinguir sistema ordenado, coeficientes y combinación lineal; reconocer su posible falta de unicidad.]]
 * [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Espacio generado|Probar la propiedad mínima y justificar por qué los polinomios sin cota no son finitamente generados.]]
-* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Comparar y simplificar generadores|Resolver los TPC de inclusión, igualdad, eliminación y tres transformaciones de generadores.]]
+* [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Comparar y simplificar generadores|Demostrar los criterios de inclusión e igualdad; resolver los TPC de eliminación y transformaciones de generadores.]]
 * [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Pertenencia: convertir la pregunta en un sistema|Relacionar pertenencia, compatibilidad e igualdad de rangos y resolver el TPC de las aulas 19–20.]]
 * [ ] [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Intersecciones y uniones|Resolver el TPC de intersección y explicar cuándo una unión es subespacio.]]
+
+> [!note] Criterios y tareas de generadores
+> Los criterios de [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Inclusión de espacios generados|inclusión]] e [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Igualdad de espacios generados|igualdad]] son consecuencias del curso, no TPC asignados. La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/03 Subespacios y espacio generado#Eliminar un generador redundante|eliminación de un generador]] sí lleva ese encargo. Para los polinomios sin cota de grado se pide una justificación, sin el rótulo TPC.[^alcance-generadores]
 
 ### [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/03 Espacios vectoriales/04 Independencia, bases y coordenadas|Independencia, bases y coordenadas]]
 
@@ -579,3 +615,11 @@ La bibliografía oficial de FCUL se recoge en las fichas de 2025/2026 y 2026/202
 [^mit-compresion]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Change of Basis; Image Compression](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/change-of-basis-image-compression/). Aproximación de rango reducido y compresión de imágenes.
 
 [^mit-pseudoinversa]: MIT, Gilbert Strang, *18.06SC Linear Algebra*, [Left and Right Inverses; Pseudoinverse](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/left-and-right-inverses-pseudoinverse/). Inversas laterales, pseudoinversa y norma mínima.
+
+[^mit-producto]: MIT OpenCourseWare, Gilbert Strang, *18.06SC Linear Algebra*, [«Multiplication and Inverse Matrices», resumen de la lección 3](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/1963da71c4d96e5d14e7939780f79bcc_MIT18_06SCF11_Ses1.3sum.pdf), p. 1, «Columns» y «Rows». Las columnas del producto son combinaciones de las columnas del primer factor y las filas son combinaciones de las filas del segundo.
+
+[^alcance-elementales]: FCUL, aula 5, diapositiva 8: único TPC para la acción por la izquierda de una matriz elemental. Aula 6, diapositiva 14: verificación de las tres inversas. Aula 6, diapositiva 2: existencia/unicidad de la reducida e invariancia de filas no nulas, con indicación explícita de que no se demostrarán. Archivos privados identificados en las fuentes de las notas 03, 04 y 05. La proposición de composición y reducción simultánea de $[A\mid I_m]$ corresponde al aula 5, diapositiva 11. Se han cotejado estas páginas.
+
+[^alcance-determinantes]: FCUL, aula 14, diapositivas 12 y 13: aditividad por filas y columnas, por separado; diapositiva 14: homogeneidad en filas y columnas en una sola proposición TPC. Aula 15, diapositiva 9: un único TPC para filas y columnas proporcionales.
+
+[^alcance-generadores]: FCUL, aula 20, diapositiva 2: criterios de inclusión/igualdad como consecuencias inmediatas, seguidos de una proposición TPC de eliminación de generador redundante. Aula 19, diapositiva 14: encargo «justifique» sobre $\mathbb R[x]$, sin rótulo TPC.

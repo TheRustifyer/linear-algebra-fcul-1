@@ -1,0 +1,175 @@
+\begin{answer}
+    $$
+    \left[
+    \begin{array}{cccc|c}
+    3&0&7&5&21\\
+    1&0&3&3&9\\
+    2&0&5&4&15\\
+    1&0&2&1&6
+    \end{array}
+    \right]
+    $$
+
+    $$
+    \xrightarrow{R_1\leftrightarrow R_4}
+    \left[
+    \begin{array}{cccc|c}
+    1&0&2&1&6\\
+    1&0&3&3&9\\
+    2&0&5&4&15\\
+    3&0&7&5&21
+    \end{array}
+    \right]
+    $$
+
+    $$
+    \xrightarrow{R_2\leftarrow R_2-R_1}
+    \left[
+    \begin{array}{cccc|c}
+    1&0&2&1&6\\
+    0&0&1&2&3\\
+    2&0&5&4&15\\
+    3&0&7&5&21
+    \end{array}
+    \right]
+    $$
+
+    $$
+    \xrightarrow{R_3\leftarrow R_3-2R_1}
+    \left[
+    \begin{array}{cccc|c}
+    1&0&2&1&6\\
+    0&0&1&2&3\\
+    0&0&1&2&3\\
+    3&0&7&5&21
+    \end{array}
+    \right]
+    $$
+
+    $$
+    \xrightarrow{R_4\leftarrow R_4-3R_1}
+    \left[
+    \begin{array}{cccc|c}
+    1&0&2&1&6\\
+    0&0&1&2&3\\
+    0&0&1&2&3\\
+    0&0&1&2&3
+    \end{array}
+    \right]
+    $$
+
+    $$
+    \xrightarrow{R_3\leftarrow R_3-R_2}
+    \left[
+    \begin{array}{cccc|c}
+    1&0&2&1&6\\
+    0&0&1&2&3\\
+    0&0&0&0&0\\
+    0&0&1&2&3
+    \end{array}
+    \right]
+    $$
+
+    $$
+    \xrightarrow{R_4\leftarrow R_4-R_2}
+    \left[
+    \begin{array}{cccc|c}
+    1&0&2&1&6\\
+    0&0&1&2&3\\
+    0&0&0&0&0\\
+    0&0&0&0&0
+    \end{array}
+    \right]
+    $$
+
+    $$
+    \xrightarrow{R_1\leftarrow R_1-2R_2}
+    \left[
+    \begin{array}{cccc|c}
+    1&0&0&-3&0\\
+    0&0&1&2&3\\
+    0&0&0&0&0\\
+    0&0&0&0&0
+    \end{array}
+    \right]
+    $$
+
+    $$
+    r(A)=r([A\mid B])=2<4
+    $$
+
+    $$
+    \boxed{
+    \text{Compatible indeterminate, degree }2
+    }
+    $$
+
+    {\color{red}
+    \textbf{Note:} The second column is
+    entirely zero and cannot acquire a
+    pivot through elementary row operations.
+    Hence $x_2$ is necessarily free.
+    Compatibility must still be verified
+    using the augmented matrix
+    }
+
+    $$
+    \begin{cases}
+        x_1-3x_4=0\\
+        x_3+2x_4=3
+    \end{cases}
+    \iff
+    \begin{cases}
+        x_1=3x_4\\
+        x_3=3-2x_4
+    \end{cases}
+    $$
+
+    $$
+    x_2=\alpha,\qquad
+    x_4=\beta,\qquad
+    \alpha,\beta\in\mathbb R
+    $$
+
+    \textbf{General solution}
+
+    $$
+    \begin{aligned}
+    (x_1,x_2,x_3,x_4)
+    &=(3\beta,\alpha,3-2\beta,\beta)\\
+    &=(0,0,3,0)
+      +\alpha(0,1,0,0)
+      +\beta(3,0,-2,1)
+    \end{aligned}
+    $$
+
+    \textbf{Three particular solutions}
+
+    $$
+    \begin{aligned}
+    \alpha=0,\ \beta=0
+    &\implies (0,0,3,0)\\
+    \alpha=1,\ \beta=0
+    &\implies (0,1,3,0)\\
+    \alpha=0,\ \beta=1
+    &\implies (3,0,1,1)
+    \end{aligned}
+    $$
+
+    \textbf{General solution of the
+    associated homogeneous system}
+
+    $$
+    \boxed{
+    \begin{aligned}
+    (x_1,x_2,x_3,x_4)
+    ={}&\alpha(0,1,0,0)\\
+       &+\beta(3,0,-2,1)
+    \end{aligned}
+    }
+    $$
+
+    $$
+    \alpha,\beta\in\mathbb R
+    $$
+\end{answer}

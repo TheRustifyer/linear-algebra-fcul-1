@@ -215,19 +215,8 @@ u\cdot(v\times w)
 $$
 Intercambiar dos factores cambia el signo. La nota [[Matemáticas/Geometría/Vectores/Producto mixto|Producto mixto]] registra el concepto canónico pendiente de desarrollo; aquí se usa únicamente esta frontera curricular.
 
-```anki
-deck: Física::Álgebra Lineal::Espacios euclídeos
-tags:
-  - matematicas
-  - algebra-lineal
-  - producto-mixto
----
-> [!note] Pregunta
-> ¿Qué interpreta geométricamente $|u\cdot(v\times w)|$?
-===
-> [!important] Respuesta
-> El volumen del paralelepípedo generado por $u$, $v$ y $w$.
-```
+> [!opcional]- Tarjetas de la ampliación
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/assets/anki/ALGA — Tarjetas de ampliación#^producto-mixto-volumen]]
 
 ## Condiciones de validez y errores frecuentes
 El producto vectorial con resultado vectorial pertenece específicamente a un espacio euclídeo tridimensional orientado. Para vectores de $\mathbb R^2$ puede aplicarse tras identificarlos con $(x,y,0)$, pero el resultado vive en $\mathbb R^3$.

@@ -1,0 +1,424 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-noquoting]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\geometry{left=27mm,right=26mm,top=28mm,bottom=28mm}
+\definecolor{ink}{HTML}{182433}
+\definecolor{rednote}{HTML}{B42318}
+\definecolor{rulegray}{HTML}{9AA3AE}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{2}
+\setlist[enumerate]{topsep=3pt,itemsep=3pt,parsep=0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{El lenguaje de la realidad}}
+\fancyhead[R]{\small Álgebra lineal}
+\fancyfoot[L]{\small Alex Vergara}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+\newcounter{question}
+\newcommand{\qitem}[1]{\refstepcounter{question}\subsection*{\thequestion.\quad #1}\addcontentsline{toc}{subsection}{\thequestion.\ #1}}
+\newcommand{\anote}[1]{\par{\color{rednote}\textbf{Nota crítica.}\ #1}\par}
+\newcommand{\amatrix}[1]{\left[\begin{array}{#1}}
+\newcommand{\closematrix}{\end{array}\right]}
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{22mm}
+{\color{ink}\Large\scshape Un atlas de Física Teórica y Gravedad Cuántica\par}
+\vspace{12mm}
+{\Huge\bfseries El lenguaje de la realidad\par}
+\vspace{5mm}
+{\large Desde los principios básicos a la frontera del conocimiento\par}
+\vspace{26mm}
+{\color{rulegray}\rule{\textwidth}{1pt}\par}
+\vspace{9mm}
+{\large\scshape Álgebra lineal\par}
+\vspace{5mm}
+{\LARGE\bfseries Sistemas de ecuaciones lineales\par}
+\vspace{5mm}
+{\Large Solucionario razonado\par}
+\vspace{6mm}
+{\normalsize Síntesis teórica y respuestas desarrolladas de las 30 cuestiones\par}
+\vfill
+{\large\textbf{Autor}\\ Alex Vergara\par}
+\vspace{8mm}
+{\small Noviembre de 2026\par}
+\end{titlepage}
+\tableofcontents
+\clearpage
+
+\section{Síntesis teórica}
+\subsection{Ecuaciones, sistemas y soluciones}
+Una ecuación lineal sobre un cuerpo $K$ en las incógnitas $x_1,\ldots,x_n$ tiene la forma
+\[
+a_1x_1+\cdots+a_nx_n=b,\qquad a_1,\ldots,a_n,b\in K
+\]
+Un sistema lineal reúne un número finito de estas ecuaciones. Una solución es una tupla ordenada de valores que satisface \emph{todas} las ecuaciones simultáneamente. Resolver el sistema significa encontrar su conjunto solución completo. Dos sistemas son equivalentes si tienen exactamente el mismo conjunto solución, aunque sus ecuaciones o su número de filas sean diferentes.
+
+Una ecuación con término independiente cero es homogénea. Un sistema es homogéneo cuando \emph{todos} sus términos independientes son cero. Esto no significa que todos los coeficientes sean cero: $2x-3y=0$ es una ecuación homogénea perfectamente válida.
+
+\subsection{Representación matricial y Gauss--Jordan}
+Un sistema de $m$ ecuaciones y $n$ incógnitas se escribe
+\[
+\underbrace{A}_{m\times n}\underbrace{X}_{n\times1}
+=\underbrace{B}_{m\times1},\qquad [A\mid B]\in M_{m\times(n+1)}(K)
+\]
+$A$ es la matriz simple o de coeficientes; $B$, la matriz de términos independientes; $X$, la columna de incógnitas. Las operaciones elementales sobre filas corresponden a operaciones reversibles sobre las ecuaciones, por lo que preservan exactamente el conjunto solución. \emph{Gauss} concluye en forma escalonada (REF); \emph{Gauss--Jordan} continúa hasta la forma escalonada reducida (RREF).
+
+\anote{No hace falta llegar a RREF para determinar el rango: basta contar los pivotes en una forma escalonada. La RREF resulta especialmente cómoda para escribir directamente las incógnitas básicas en función de las libres.}
+
+\subsection{Rango y clasificación}
+El rango es el número de posiciones pivote. Para $A\in M_{m\times n}(K)$ se cumple
+\[
+r(A)\le\min\{m,n\},\qquad
+r(A)\le r([A\mid B])\le r(A)+1
+\]
+Al comparar los dos rangos obtenemos tres casos:
+\[
+\begin{array}{c|c|c}
+\text{Condición}&\text{Clasificación}&\text{Soluciones}\\\hline
+r(A)<r([A\mid B])&\text{incompatible}&\text{ninguna}\\
+r(A)=r([A\mid B])=n&\text{compatible determinado}&\text{una}\\
+r(A)=r([A\mid B])<n&\text{compatible indeterminado}&\text{infinitas sobre }\mathbb R
+\end{array}
+\]
+El caso incompatible se reconoce por una fila escalonada de la forma
+\[
+[\,0\quad\cdots\quad0\mid b\,],\qquad b\ne0
+\]
+que representa la contradicción $0=b$. Una fila completamente nula representa $0=0$ y no impone restricción alguna. La existencia de una contradicción no depende del número de ecuaciones respecto de incógnitas, sino de la comparación de rangos.
+
+\anote{En un sistema compatible indeterminado, el grado de indeterminación es $p=n-r(A)$. En un sistema incompatible no se define el grado de indeterminación: no hay conjunto solución que parametrizar.}
+
+\subsection{La estructura de la solución general}
+En una RREF, las columnas que contienen pivotes corresponden a variables \emph{básicas o dependientes}; las demás, a variables \emph{libres o independientes}. Para un sistema compatible indeterminado:
+\[
+(x_1,\ldots,x_n)=u+\alpha_1v_1+\cdots+\alpha_pv_p,
+\qquad\alpha_j\in K,\quad p=n-r(A)
+\]
+$u$ es una solución particular fija; cada $v_j$ es un vector fijo multiplicado por uno de los $p$ parámetros independientes. Para formar estos vectores a partir de las expresiones de las incógnitas, se agrupan \emph{por columnas}: términos constantes, coeficientes de $\alpha_1$, coeficientes de $\alpha_2$, etc.
+
+\subsection{El homogéneo asociado}
+El sistema homogéneo asociado a $AX=B$ es $AX=0$. Tiene la misma matriz simple y siempre admite la solución nula. Si $u$ satisface $Au=B$ y $h$ satisface $Ah=0$, entonces
+\[
+A(u+h)=Au+Ah=B
+\]
+Recíprocamente, si $w$ satisface $Aw=B$, entonces $A(w-u)=0$. Por tanto, cuando el original es compatible,
+\[
+\boxed{\text{Solución general del original}
+=\text{una solución particular}
++\text{solución general del homogéneo}}
+\]
+\anote{El homogéneo asociado no tiene por qué ser equivalente al original. Que ambos compartan la matriz simple significa que comparten el mismo número de parámetros cuando los dos son compatibles; no significa que tengan el mismo conjunto solución.}
+
+\subsection{Matrices invertibles y sistemas cuadrados}
+Si $A\in M_n(K)$, las siguientes afirmaciones son equivalentes:
+\[
+AX=B\text{ tiene solución única}
+\iff r(A)=n
+\iff A\text{ es invertible}
+\]
+En ese caso
+\[
+AX=B\iff A^{-1}AX=A^{-1}B\iff \boxed{X=A^{-1}B}
+\]
+Multiplicamos por la izquierda porque $A^{-1}A=I_n$; cambiar arbitrariamente el orden de los factores no está permitido. El convenio de identificar una tupla $u=(a_1,\ldots,a_n)$ con su matriz columna permite escribir $Au$, pero no convierte la tupla escrita horizontalmente en una matriz columna dentro del producto explícito.
+
+\clearpage
+\section{Solucionario razonado: 30 preguntas}
+
+\qitem{Ecuaciones lineales y términos independientes}
+Las tres son lineales: todos los coeficientes y términos independientes pertenecen a $\mathbb R$, y las incógnitas aparecen solo en primer grado. Su carácter lineal no exige que los coeficientes sean distintos de cero.
+\begin{enumerate}[label=\alph*)]
+\item $2x_1+\sqrt3x_2=5$: fija una relación entre $x_1,x_2$; $x_3$ es libre. Su conjunto solución es
+\[
+\left\{\left(\frac{5-\sqrt3\,\alpha}{2},\alpha,\beta\right):\alpha,\beta\in\mathbb R\right\}
+\]
+\item $0=5$: no admite ninguna solución.
+\item $0=0$: admite toda tupla de $\mathbb R^3$.
+\end{enumerate}
+Si las tres ecuaciones forman un único sistema, es incompatible porque contiene $0=5$.
+\anote{La ecuación $0=0$ no es una ``solución trivial'': es una identidad que no restringe las incógnitas. La solución trivial de un sistema homogéneo es la tupla nula.}
+
+\qitem{Homogeneidad de ecuaciones y sistemas}
+No es homogéneo: la tercera ecuación tiene término independiente $5$. Para que un sistema sea homogéneo \emph{todos} sus términos independientes deben ser cero. En un sistema homogéneo $AX=0$, la tupla $X=0$ es solución porque $A0=0$. Por tanto, nunca es incompatible. Puede tener una sola solución o infinitas, según su rango.
+
+\qitem{Verificar una solución no es resolver un sistema}
+Sustituimos $u=(2,1,1)$:
+\[
+\begin{aligned}
+2+2-1&=3\\2(2)-1+1&=4\ne3\\3(2)+1&=7
+\end{aligned}
+\]
+$u$ no es solución: basta que falle una sola ecuación. Además, sumando las dos primeras ecuaciones del sistema se obtiene $3x_1+x_2=6$, mientras que la tercera exige $3x_1+x_2=7$. Es incompatible. Una solución es una tupla que satisface simultáneamente todas las ecuaciones; \emph{resolver} consiste en determinar \emph{todas} las soluciones, no solo comprobar una candidata.
+
+\qitem{Equivalencia de sistemas}
+$S_1$ y $S_2$ son equivalentes: sumar las dos ecuaciones de $S_1$ transforma la segunda en $2x=4$:
+\[
+\left[\begin{array}{cc|c}1&1&3\\1&-1&1\end{array}\right]
+\xrightarrow{R_2\leftarrow R_2+R_1}
+\left[\begin{array}{cc|c}1&1&3\\2&0&4\end{array}\right]
+\]
+$S_2$ y $S_3$ también son equivalentes: $3x=6$ es consecuencia de $2x=4$ y no restringe más las soluciones. Compartir una solución particular no basta: $x+y=3$ y $\{x=2,\,y=1\}$ tienen $(2,1)$ en común, pero conjuntos solución diferentes.
+\anote{Los sistemas equivalentes pueden tener distinto número de ecuaciones y coeficientes distintos. La equivalencia se define por la igualdad de los conjuntos solución.}
+
+\qitem{El cuerpo sobre el que resolvemos}
+\[
+\begin{aligned}
+\text{Sobre }\mathbb R:&\quad(x,y)=(\alpha,2-\alpha),\quad\alpha\in\mathbb R\\
+\text{Sobre }\mathbb C:&\quad(x,y)=(\alpha,2-\alpha),\quad\alpha\in\mathbb C
+\end{aligned}
+\]
+La tupla $(2-i,i)$ verifica $(2-i)+i=2$, pero no pertenece a $\mathbb R^2$. Por eso solo es una solución admitida al resolver sobre $\mathbb C$. Cuando los coeficientes son reales, normalmente se resuelve sobre $\mathbb R$, salvo indicación en contrario.
+
+\qitem{Interpretación geométrica en $\mathbb R^2$ y $\mathbb R^3$}
+En $S_1$, $2x+2y=6$ es el doble de $x+y=3$: las dos ecuaciones representan \emph{la misma recta}, así que hay infinitas soluciones. En $S_2$, las rectas $x+y=3$ y $x+y=5$ son paralelas distintas y no se cortan. En $S_3$, cada ecuación representa un plano; al restarlas resulta $2y=2$, y se obtiene
+\[
+(x,y,z)=(2-\alpha,1,\alpha),\quad\alpha\in\mathbb R
+\]
+la recta de intersección.
+
+Ejemplos de intersecciones en $\mathbb R^3$:
+\[
+\begin{array}{c|l|l}
+\text{Conjunto}&\text{Sistema}&\text{Solución}\\\hline
+\text{Plano}&z=0,\ 2z=0&(\alpha,\beta,0)\\
+\text{Recta}&y=0,\ z=0&(\alpha,0,0)\\
+\text{Punto}&x=1,\ y=2,\ z=3&(1,2,3)\\
+\text{Vacío}&z=0,\ z=1&\varnothing
+\end{array}
+\]
+\anote{Los planos son infinitos. Dos planos no paralelos se cortan en una recta, y un tercer plano puede cortar esa recta en un único punto.}
+
+\qitem{Representación matricial y dimensiones}
+\[
+A=\begin{bmatrix}2&-1&3\\1&0&4\end{bmatrix}\in M_{2\times3}(\mathbb R),\quad
+X=\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}\in M_{3\times1}(\mathbb R),\quad
+B=\begin{bmatrix}5\\-2\end{bmatrix}\in M_{2\times1}(\mathbb R)
+\]
+\[
+[A\mid B]=\left[\begin{array}{ccc|c}2&-1&3&5\\1&0&4&-2\end{array}\right]\in M_{2\times4}(\mathbb R)
+\]
+$AX$ está definido porque sus dimensiones interiores coinciden: $(2\times3)(3\times1)\to2\times1$. $XA$ no está definido porque $(3\times1)(2\times3)$ exige igualar $1$ con $2$.
+
+\qitem{Por qué las operaciones elementales conservan las soluciones}
+Cada transformación puede deshacerse:
+\[
+\begin{array}{c|c}
+\text{Transformación}&\text{Inversa}\\\hline
+R_i\leftrightarrow R_j&R_i\leftrightarrow R_j\\
+R_i\leftarrow\lambda R_i&R_i\leftarrow\lambda^{-1}R_i\\
+R_i\leftarrow R_i+\lambda R_j&R_i\leftarrow R_i-\lambda R_j
+\end{array}
+\]
+Si una tupla satisface las ecuaciones originales, también satisface las ecuaciones después de cualquiera de estas transformaciones. Como las transformaciones son reversibles, se cumple igualmente el sentido contrario y el conjunto solución no cambia. Multiplicar por $0$ transforma, por ejemplo, $2x+y=5$ en $0=0$, perdiendo la restricción original. No podemos deshacerlo porque $0$ no tiene inverso multiplicativo.
+\anote{Multiplicar \emph{ambos miembros} por cero produce una identidad, no una contradicción. Una matriz elemental es invertible precisamente porque su operación es reversible.}
+
+\qitem{Gauss, Gauss--Jordan y sustitución regresiva}
+La matriz ya es REF y tiene tres pivotes en la matriz simple. Por tanto $r(A)=r([A\mid B])=3=n$: sistema compatible determinado. Mediante sustitución regresiva: $x_3=5$, $x_2+4(5)=2$ implica $x_2=-18$, y $x_1+2(-18)-5=3$ implica $x_1=44$. Para llegar a RREF:
+\[
+\begin{aligned}
+&\left[\begin{array}{ccc|c}1&2&-1&3\\0&1&4&2\\0&0&1&5\end{array}\right]
+\xrightarrow{R_2\leftarrow R_2-4R_3}
+\left[\begin{array}{ccc|c}1&2&-1&3\\0&1&0&-18\\0&0&1&5\end{array}\right]\\[5pt]
+&\xrightarrow{R_1\leftarrow R_1+R_3}
+\left[\begin{array}{ccc|c}1&2&0&8\\0&1&0&-18\\0&0&1&5\end{array}\right]
+\xrightarrow{R_1\leftarrow R_1-2R_2}
+\left[\begin{array}{ccc|c}1&0&0&44\\0&1&0&-18\\0&0&1&5\end{array}\right]
+\end{aligned}
+\]
+
+\qitem{De una RREF a la solución general}
+Los pivotes están en las columnas $1,2,4$. Son básicas $x_1,x_2,x_4$; libres $x_3,x_5$. Se tiene $r(A)=3$ y $p=5-3=2$. Las ecuaciones equivalentes son
+\[
+\begin{cases}
+x_1=4-3x_3+2x_5\\x_2=2+x_3-5x_5\\x_4=-1-3x_5
+\end{cases}
+\]
+Tomamos $x_3=\alpha$, $x_5=\beta$. Agrupando las constantes y los coeficientes de cada parámetro:
+\[
+\boxed{\begin{aligned}
+(x_1,x_2,x_3,x_4,x_5)={}&(4,2,0,-1,0)\\
+&+\alpha(-3,1,1,0,0)\\
+&+\beta(2,-5,0,-3,1)
+\end{aligned}}
+\qquad\alpha,\beta\in\mathbb R
+\]
+\anote{Cada $v_j$ contiene los coeficientes del parámetro $\alpha_j$, sin volver a incluir el propio parámetro dentro del vector. Por ejemplo $(-3\alpha,\alpha,\alpha,0,0)=\alpha(-3,1,1,0,0)$.}
+
+\qitem{El rango de la ampliada no disminuye}
+Al aplicar transformaciones elementales a $[A\mid B]$, las primeras $n$ columnas sufren exactamente las transformaciones de $A$, por lo que forman una matriz escalonada equivalente a $A$. Los pivotes de esta parte cuentan también para el rango de $[A\mid B]$. No pueden desaparecer por añadir una columna. No se calcula $r([A\mid B])$ sumando $r(A)+r(B)$: algunas columnas pueden no aportar pivotes nuevos.
+
+\qitem{Cuánto puede aumentar el rango al añadir una columna}
+La parte simple de una forma escalonada de $[A\mid B]$ tiene $r(A)$ pivotes. La nueva columna solo puede alojar, como máximo, un pivote. Por tanto
+\[
+\boxed{r(A)\le r([A\mid B])\le r(A)+1}
+\]
+El argumento no depende de cuántas filas haya: ninguna columna puede contener dos posiciones pivote en una matriz escalonada.
+
+\qitem{El pivote que revela una contradicción}
+En $M_1$, la parte simple tiene dos pivotes y la columna final no añade ninguno:
+\[
+r(A_1)=r(M_1)=2<3,\qquad p=3-2=1
+\]
+Es compatible indeterminado. La última ecuación es $0=0$, identidad que no impone restricción. En $M_2$, la fila $[0\ 0\ 0\mid5]$ añade un pivote fuera de $A$:
+\[
+r(A_2)=2<3=r(M_2)
+\]
+Es incompatible, pues su última ecuación exige $0=5$. \emph{No} confundimos una fila nula de la matriz simple con una fila completamente nula de la matriz ampliada.
+
+\qitem{Rango máximo y compatibilidad no son lo mismo}
+Para $A\in M_{4\times3}(\mathbb R)$ con $r(A)=3$, la matriz ampliada puede tener rango $3$ o $4$. Si es $3$, el sistema es compatible determinado, porque el rango coincide con $n=3$. Si es $4$, aparece una contradicción y es incompatible. La condición necesaria y suficiente para solución única es
+\[
+\boxed{r(A)=r([A\mid B])=n=3}
+\]
+\anote{El rango máximo de $A$ por sí solo no demuestra compatibilidad. Es indispensable comparar el rango de la ampliada.}
+
+\qitem{Compatibilidad y número de variables libres}
+Tenemos $n=4$ y $r(A)=r([A\mid B])=2<4$. Es compatible indeterminado de grado
+\[
+p=4-2=2
+\]
+En la RREF habrá dos columnas pivote entre las cuatro incógnitas y dos columnas libres. Estas dos variables toman valores arbitrarios independientes en $\mathbb R$. Cambiar el valor de una de ellas cambia necesariamente esa componente de la solución, así que ya se generan infinitas soluciones distintas.
+
+\qitem{Independencia de los parámetros libres}
+Las columnas sin pivote son la tercera y la cuarta, así que $x_3$ y $x_4$ son libres. La RREF representa
+\[
+\begin{cases}
+x_1+2x_3-x_4=3\\x_2-x_3+3x_4=1
+\end{cases}
+\iff
+\begin{cases}
+x_1=3-2x_3+x_4\\x_2=1+x_3-3x_4
+\end{cases}
+\]
+Ninguna ecuación impone una relación entre $x_3$ y $x_4$; para cada elección de ambos, las otras dos incógnitas quedan determinadas. Podemos poner $x_3=\alpha$, $x_4=\beta$ con $\alpha,\beta\in\mathbb R$ independientes.
+
+\qitem{Los parámetros de la solución general determinan el rango}
+La forma dada ya expresa la solución general con $p=3$ parámetros libres independientes, en un sistema de $n=7$ incógnitas. Por tanto
+\[
+p=n-r(A)\iff3=7-r(A)\iff\boxed{r(A)=4}
+\]
+Como existe solución general, el sistema es compatible: $r([A\mid B])=r(A)=4$. El vector $u$ es una solución particular fija, obtenida al fijar los tres parámetros en cero. No añade ningún grado de libertad. La parte $\alpha v_1+\beta v_2+\gamma v_3$ constituye la solución general del homogéneo asociado.
+
+\qitem{Cuándo está definido el grado de indeterminación}
+En $S_1$ coinciden los rangos y son menores que $n=6$: es compatible indeterminado con $p=6-4=2$. En $S_2$, $r(A)=4<5=r([A\mid B])$: es incompatible y \emph{no tiene grado de indeterminación}. Pueden compartir la misma matriz simple: basta mantener cuatro pivotes en $A$ y modificar los términos independientes para introducir una fila $[0\ \cdots\ 0\mid1]$ en un sistema y una fila $[0\ \cdots\ 0\mid0]$ en el otro.
+
+\qitem{Discusión de un sistema con parámetro}
+La matriz ampliada es
+\[
+\left[\begin{array}{ccc|c}1&1&1&2\\2&2&a&4\\1&1&a-1&2\end{array}\right]
+\xrightarrow{R_2\leftarrow R_2-2R_1}
+\left[\begin{array}{ccc|c}1&1&1&2\\0&0&a-2&0\\1&1&a-1&2\end{array}\right]
+\]
+\[
+\xrightarrow{R_3\leftarrow R_3-R_1}
+\left[\begin{array}{ccc|c}1&1&1&2\\0&0&a-2&0\\0&0&a-2&0\end{array}\right]
+\xrightarrow{R_3\leftarrow R_3-R_2}
+\left[\begin{array}{ccc|c}1&1&1&2\\0&0&a-2&0\\0&0&0&0\end{array}\right]
+\]
+Si $a=2$, el único pivote está en la primera fila, por lo que ambos rangos son $1$ y el grado de indeterminación es $3-1=2$. Si $a\ne2$, los rangos son $2$ y el grado es $3-2=1$. En los dos casos es compatible indeterminado; no aparece contradicción para ningún valor de $a$.
+
+\anote{\emph{Discutir} consiste en clasificar el sistema y, cuando procede, indicar el grado de indeterminación. \emph{Resolver} exige encontrar el conjunto solución. Para discutir basta llevar la matriz ampliada a forma escalonada.}
+
+\qitem{Por qué $r(A)\le\min\{m,n\}$}
+Sea $A'$ una matriz en forma escalonada equivalente a $A$. Cada una de sus $m$ filas puede contener, como máximo, una posición pivote; por tanto $r(A)\le m$. Cada una de sus $n$ columnas también puede contener, como máximo, una posición pivote; por tanto $r(A)\le n$. En consecuencia,
+\[
+\boxed{r(A)\le\min\{m,n\}}
+\]
+Para cuatro ecuaciones y cinco incógnitas, $r(A)\le4<5$. Si el sistema es compatible, es necesariamente indeterminado y tiene al menos una variable libre. Si es incompatible, no tiene ninguna solución.
+
+\qitem{Construcción del sistema homogéneo asociado}
+Se mantienen exactamente los coeficientes de $A$ y se sustituyen todos los términos independientes por cero:
+\[
+AX=B\longmapsto AX=0
+\]
+En el ejemplo,
+\[
+\begin{cases}-x+2y-6z=0\\2x-3y-3z=0\\3x-5y+3z=0\end{cases}
+\]
+La matriz simple es idéntica, pero la ampliada cambia. Los dos sistemas no tienen por qué compartir conjunto solución.
+
+\qitem{Por qué un sistema homogéneo siempre es compatible}
+$A0_{n\times1}=0_{m\times1}$ para cualquier matriz $A\in M_{m\times n}(K)$; por eso la solución nula siempre existe. El homogéneo de un sistema incompatible puede ser determinado: por ejemplo, $\{x=0,\,x=1\}$ es incompatible, pero su homogéneo es $\{x=0,\,x=0\}$ y solo tiene $x=0$. También puede ser indeterminado: $\{x+y=0,\,x+y=1\}$ es incompatible, mientras que su homogéneo $\{x+y=0,\,x+y=0\}$ tiene infinitas soluciones.
+
+\qitem{Cuándo la solución trivial es única}
+Como el homogéneo siempre es compatible, será determinado exactamente cuando su rango iguale al número de incógnitas:
+\[
+\boxed{AX=0\text{ tiene solución única}\iff r(A)=n}
+\]
+En ese caso, todas las columnas de $A$ contienen pivotes y no quedan variables libres. Si $r(A)<n$, al menos una incógnita es libre y, sobre $\mathbb R$, hay infinitas soluciones, incluida la trivial.
+
+\qitem{Extraer el homogéneo de una solución general}
+La solución general del sistema original es $u+\alpha v$ con $u=(3,1,2)$ y $v=(1,-2,4)$. La del homogéneo asociado es únicamente la parte parametrizada:
+\[
+\boxed{(x,y,z)=\alpha(1,-2,4),\quad\alpha\in\mathbb R}
+\]
+El vector $u$ satisface el sistema original $Au=B$; los vectores de la parte parametrizada satisfacen $Ah=0$. No debe confundirse el vector fijo $v$ con la familia $\alpha v$.
+
+\qitem{Reconstruir el sistema original}
+La solución general es
+\[
+\boxed{(x,y,z)=(1,2,3)+\alpha(2,-1,0)+\beta(0,1,1)},
+\quad\alpha,\beta\in\mathbb R
+\]
+Si $Au=B$ y $Av_1=Av_2=0$, la distributividad da
+\[
+A(u+\alpha v_1+\beta v_2)=Au+\alpha Av_1+\beta Av_2=B
+\]
+Recíprocamente, cualquier otra solución $w$ verifica $A(w-u)=Aw-Au=B-B=0$: la diferencia pertenece al conjunto solución del homogéneo. Así se obtienen todas las soluciones del original.
+
+\qitem{Obtener soluciones particulares}
+Basta elegir valores concretos para $\alpha$:
+\[
+\begin{array}{c|c}\alpha&(x,y,z)\\\hline0&(2,3,1)\\1&(3,2,1)\\2&(4,1,1)\end{array}
+\]
+Las tres son distintas. En general, cualquier $\alpha\in\mathbb R$ determina una tupla concreta $(2+\alpha,3-\alpha,1)$, que pertenece por definición al conjunto descrito por la solución general.
+
+\qitem{La misma matriz simple, distintos sistemas}
+Sí: pueden compartir $A$ y tener distinta compatibilidad según los términos independientes. Por ejemplo, con
+\[
+A=\begin{bmatrix}1&0\\0&0\end{bmatrix},\quad
+B_1=\begin{bmatrix}1\\0\end{bmatrix},\quad
+B_2=\begin{bmatrix}1\\1\end{bmatrix}
+\]
+$AX=B_1$ es compatible indeterminado y $AX=B_2$ es incompatible debido a $0=1$. Si ambos son compatibles indeterminados y tienen la misma matriz simple, entonces tienen necesariamente el mismo grado $p=n-r(A)$, aunque sus soluciones particulares no coincidan.
+
+\qitem{Sistemas cuadrados e invertibilidad}
+Para $A\in M_n(K)$ son equivalentes:
+\[
+\boxed{AX=B\text{ compatible determinado}
+\iff r(A)=n
+\iff A\text{ invertible}}
+\]
+Si $r(A)=n$, su RREF es $I_n$ y hay un pivote en cada columna. La invertibilidad de $A$ también garantiza la existencia y unicidad de $X=A^{-1}B$. La condición ``cuadrada'' importa porque la inversa usual $A^{-1}$ se define para matrices cuadradas; una matriz rectangular puede tener rango igual a su número de columnas sin ser invertible.
+
+\qitem{Resolver mediante la inversa}
+\[
+AX=B\iff A^{-1}(AX)=A^{-1}B
+\iff (A^{-1}A)X=A^{-1}B
+\iff\boxed{X=A^{-1}B}
+\]
+Las dimensiones son $(n\times n)(n\times1)=(n\times1)$. No se puede sustituir por $XA^{-1}$ porque no tenemos conmutatividad y, con $X\in M_{n\times1}(K)$, el producto $XA^{-1}$ no está definido en general.
+
+\qitem{Vectores y matrices columna}
+La notación $u=(a_1,\ldots,a_n)$ designa un vector de $K^n$. Para el producto con $A\in M_{m\times n}(K)$ se identifica con su matriz columna:
+\[
+Au=A\begin{bmatrix}a_1\\\vdots\\a_n\end{bmatrix}\in M_{m\times1}(K)
+\]
+No debe escribirse directamente $A(a_1,\ldots,a_n)$ como producto de matrices: la tupla mostrada horizontalmente no está presentada como columna y, si se interpretara como matriz fila, las dimensiones serían $(m\times n)(1\times n)$, normalmente incompatibles. Con el convenio anterior, el conjunto solución de $AX=B$ puede expresarse como
+\[
+\boxed{\{u\in K^n:Au=B\}}
+\]
+\end{document}

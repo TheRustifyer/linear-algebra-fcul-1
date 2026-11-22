@@ -16,7 +16,7 @@ requiere:
   - "[[Matemáticas/Sistemas numéricos/Números complejos|Números complejos]]"
 relacionado:
   - "[[Matemáticas/Álgebra lineal/Matrices|Matrices]]"
-fsrs_goal: Interpretar entradas y dimensiones, clasificar matrices, calcular transpuestas, conjugadas, adjuntas y trazas, y justificar por componentes las condiciones de simetría y hermiticidad.
+fsrs_goal: Operar con vectores coordenados y justificar sus leyes; interpretar entradas y dimensiones, clasificar matrices, calcular transpuestas, conjugadas, adjuntas y trazas, y justificar por componentes las condiciones de simetría y hermiticidad.
 tags:
   - matematicas
   - algebra-lineal
@@ -28,7 +28,7 @@ tags:
 
 # Matrices
 
-Las operaciones de suma y producto se desarrollan en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones|02 · Operaciones]].
+Las operaciones de suma y producto de matrices se desarrollan en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones|02 · Operaciones]].
 
 ## De los pares ordenados a los vectores coordenados
 
@@ -168,6 +168,451 @@ tags:
 > [!important] Respuesta
 > Cuando $n=p$ y $x_i=y_i$ para todo $i\in\{1,\ldots,n\}$.
 ```
+
+## Operaciones con vectores coordenados
+
+### Suma de vectores
+
+La [[Matemáticas/Geometría/Vectores/Suma de vectores|suma de dos desplazamientos]] corresponde a recorrer uno después del otro. En coordenadas, se suman por separado los cambios en cada eje.
+
+Sean $u=(x_1,\ldots,x_n)$ y $v=(y_1,\ldots,y_n)$ dos vectores de $K^n$.
+
+> [!definicion] Suma de vectores coordenados
+> La suma se calcula componente a componente:
+>
+> $$
+> u+v=(x_1+y_1,\ldots,x_n+y_n).
+> $$
+> [^vectores]
+
+#### Ejemplo — Sumar dos desplazamientos
+
+Con los pares que ya hemos utilizado,
+
+$$
+(3,2)+(2,3)=(5,5).
+$$
+
+En el plano, podemos recorrer primero el desplazamiento $(3,2)$ y, desde su extremo, recorrer $(2,3)$. Terminamos en $(5,5)$.
+
+![[vector-addition-graph.excalidraw.svg|Si dibujamos los dos vectores desde el mismo origen, sus flechas forman dos lados de un paralelogramo. La diagonal que parte de ese origen representa la suma.]][^vectores]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Cómo se suman dos vectores de $K^n$?
+===
+> [!important] Respuesta
+> Sumando las componentes correspondientes: $(x_1,\ldots,x_n)+(y_1,\ldots,y_n)=(x_1+y_1,\ldots,x_n+y_n)$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Cómo representa la regla del paralelogramo la suma de dos vectores del plano?
+===
+> [!important] Respuesta
+> Se dibujan desde el mismo origen y se completa el paralelogramo. La diagonal que parte de ese origen representa la suma.
+>
+> En el dibujo, las flechas azul y roja son los sumandos $(3,2)$ y $(2,3)$; la negra representa $(5,5)$.
+>
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/vector-addition-graph-anki.png|Paralelogramo de la suma (3,2)+(2,3)=(5,5)|420]]
+```
+
+### Producto de un escalar por un vector
+
+> [!definicion] Producto por escalar de un vector
+> Para $\lambda\in K$ y $u=(x_1,\ldots,x_n)\in K^n$,
+>
+> $$
+> \lambda u=(\lambda x_1,\ldots,\lambda x_n).
+> $$
+> [^vectores]
+
+#### Ejemplo — Cambiar la longitud y el sentido
+
+Para $u=(3,2)$,
+
+$$
+2u=(6,4),
+$$
+
+$$
+-\frac12u=\left(-\frac32,-1\right).
+$$
+
+En el plano, $2u$ tiene el mismo sentido que $u$ y el doble de longitud.
+El factor $-\frac12$ cambia el sentido y reduce la longitud a la mitad.[^vectores]
+
+> [!recuerda] El signo y el valor absoluto cumplen funciones distintas
+> Para un vector real no nulo, multiplicar por $\lambda\in\mathbb R\setminus\{0\}$ cambia su longitud por el factor $|\lambda|$. El sentido se conserva si $\lambda>0$ y se invierte si $\lambda<0$. La interpretación geométrica se desarrolla en [[Matemáticas/Geometría/Vectores/Producto por un escalar|producto de un vector por un escalar]].
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> Al multiplicar un vector real no nulo por un escalar real no nulo $\lambda$, ¿cómo cambian su longitud y su sentido?
+===
+> [!important] Respuesta
+> La longitud se multiplica por $|\lambda|$. El sentido se conserva si $\lambda>0$ y se invierte si $\lambda<0$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Cómo se multiplica un vector coordenado por un escalar $\lambda$?
+===
+> [!important] Respuesta
+> Multiplicando cada componente: $\lambda(x_1,\ldots,x_n)=(\lambda x_1,\ldots,\lambda x_n)$.
+```
+
+### Vector nulo
+
+> [!definicion] Vector nulo
+> El vector nulo de $K^n$ tiene todas sus componentes iguales a cero:
+>
+> $$
+> 0_{K^n}=(0_K,\ldots,0_K).
+> $$
+> [^vectores]
+
+Por ejemplo, $0_{\mathbb R^2}=(0,0)$. El subíndice indica que se trata de un vector con dos componentes; el escalar $0_K$ es un número.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué componentes tiene el vector nulo de $K^n$?
+===
+> [!important] Respuesta
+> Sus $n$ componentes son $0_K$: $0_{K^n}=(0_K,\ldots,0_K)$.
+```
+
+### Vector opuesto
+
+> [!definicion] Vector opuesto
+> El opuesto de $u=(x_1,\ldots,x_n)$ es
+>
+> $$
+> -u=(-x_1,\ldots,-x_n).
+> $$
+> [^vectores]
+
+El opuesto de $(3,2)$ es $(-3,-2)$. En el plano, tienen la misma longitud, el sentido contrario y ambos se sientan sobre la misma dirección (recta en el plano).
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Cómo se obtiene el opuesto de un vector coordenado?
+===
+> [!important] Respuesta
+> Cambiando el signo de cada componente: $-(x_1,\ldots,x_n)=(-x_1,\ldots,-x_n)$.
+```
+
+## Leyes de las operaciones vectoriales
+
+Las siguientes igualdades se aplican a $u,v,w\in K^n$. Se comprueban usando las definiciones en cada posición y las leyes de suma y multiplicación del [[Matemáticas/Estructuras algebraicas/Cuerpos|cuerpo]] $K$.[^vectores]
+
+### Conmutatividad de la suma vectorial
+
+#### Propiedad
+
+> [!teorema] Conmutatividad de la suma de vectores
+> $$
+> \boxed{u+v=v+u}.
+> $$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Cambia la suma de dos vectores de $K^n$ al intercambiar los sumandos?
+===
+> [!important] Respuesta
+> No: $u+v=v+u$.
+```
+
+### Asociatividad de la suma vectorial
+
+#### Propiedad
+
+> [!teorema] Asociatividad de la suma de vectores
+> $$
+> \boxed{(u+v)+w=u+(v+w)}.
+> $$
+
+Podemos escribir $u+v+w$ sin especificar qué par se suma primero.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué permite la asociatividad al sumar tres vectores de $K^n$?
+===
+> [!important] Respuesta
+> Cambiar los paréntesis: $(u+v)+w=u+(v+w)$.
+```
+
+### El vector nulo como neutro aditivo
+
+#### Propiedad
+
+> [!teorema] El vector nulo es el neutro aditivo
+> $$
+> \boxed{u+0_{K^n}=u=0_{K^n}+u}.
+> $$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué vector es el elemento neutro de la suma en $K^n$?
+===
+> [!important] Respuesta
+> El vector nulo: $u+0_{K^n}=u=0_{K^n}+u$.
+```
+
+### El vector opuesto como inverso aditivo
+
+#### Propiedad
+
+> [!teorema] Sumar un vector y su opuesto
+> $$
+> \boxed{u+(-u)=0_{K^n}=(-u)+u}.
+> $$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué se obtiene al sumar un vector y su opuesto?
+===
+> [!important] Respuesta
+> El vector nulo del mismo espacio: $u+(-u)=0_{K^n}$.
+```
+
+Sean $u,v\in K^n$ y $\alpha,\beta\in K$. Las leyes de los escalares se aplican a cada componente del vector.[^vectores]
+
+### Asociatividad del producto por escalar de un vector
+
+#### Propiedad
+
+> [!teorema] Multiplicaciones sucesivas por escalares
+> $$
+> \boxed{(\alpha\beta)u=\alpha(\beta u)}.
+> $$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Cómo se combinan dos multiplicaciones sucesivas de un vector por escalares?
+===
+> [!important] Respuesta
+> Para $u\in K^n$ y $\alpha,\beta\in K$, $\alpha(\beta u)=(\alpha\beta)u$.
+```
+
+### Distributividad respecto de la suma vectorial
+
+#### Propiedad
+
+> [!teorema] Producto de un escalar por una suma de vectores
+> $$
+> \boxed{\alpha(u+v)=\alpha u+\alpha v}.
+> $$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Cómo se distribuye un escalar sobre una suma de vectores?
+===
+> [!important] Respuesta
+> Para $u,v\in K^n$ y $\alpha\in K$, $\alpha(u+v)=\alpha u+\alpha v$.
+```
+
+### Distributividad respecto de la suma de escalares
+
+#### Propiedad
+
+> [!teorema] Producto de una suma de escalares por un vector
+> $$
+> \boxed{(\alpha+\beta)u=\alpha u+\beta u}.
+> $$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Cómo se distribuye una suma de escalares al multiplicar un vector?
+===
+> [!important] Respuesta
+> Para $u\in K^n$ y $\alpha,\beta\in K$, $(\alpha+\beta)u=\alpha u+\beta u$.
+```
+
+### Multiplicar un vector por uno o por cero
+
+#### Propiedad
+
+> [!teorema] Escalares uno y cero
+> $$
+> \boxed{1_Ku=u,\qquad 0_Ku=0_{K^n}}.
+> $$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué efecto tiene multiplicar un vector por el escalar $1_K$?
+===
+> [!important] Respuesta
+> Conserva el vector: $1_Ku=u$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué se obtiene al multiplicar un vector de $K^n$ por el escalar cero?
+===
+> [!important] Respuesta
+> El vector nulo: $0_Ku=0_{K^n}$.
+```
+
+### Signo de un múltiplo escalar de un vector
+
+#### Propiedad
+
+> [!consecuencia] El signo puede incorporarse al escalar o al vector
+> $$
+> \boxed{-(\alpha u)=(-\alpha)u=\alpha(-u)}.
+> $$
+> [^vectores]
+
+#### Demostración
+
+> [!demostracion] Demostración
+> Sea $u=(x_1,\ldots,x_n)$. Las tres expresiones pertenecen a $K^n$. Fijemos una posición arbitraria $j\in\mathbb N$, con $1\leq j\leq n$.
+>
+> Por la definición de opuesto, la componente $j$ de $-(\alpha u)$ es $-(\alpha x_j)$. Por la definición del producto por escalar, las componentes de las otras dos expresiones son $(-\alpha)x_j$ y $\alpha(-x_j)$.
+>
+> Las [[Matemáticas/Estructuras algebraicas/Cuerpos#Reglas de los signos|reglas de los signos en un cuerpo]] establecen que
+>
+> $$
+> -(\alpha x_j)=(-\alpha)x_j=\alpha(-x_j).
+> $$
+>
+> Las componentes coinciden en cualquier posición admisible. Por el criterio de igualdad de vectores,
+>
+> $$
+> \boxed{-(\alpha u)=(-\alpha)u=\alpha(-u)}\qquad\blacksquare
+> $$
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Cómo puede escribirse el opuesto de un múltiplo escalar de un vector?
+===
+> [!important] Respuesta
+> Para $u\in K^n$ y $\alpha\in K$, $-(\alpha u)=(-\alpha)u=\alpha(-u)$.
+```
+
+La suma de dos elementos de $K^n$ [[Matemáticas/Estructuras algebraicas/Operaciones algebraicas#2. Cerradura y operaciones externas|vuelve a pertenecer a $K^n$]], igual que el [[Matemáticas/Estructuras algebraicas/Operaciones algebraicas#2. Cerradura y operaciones externas|producto de uno de ellos por un escalar de $K$]]. Junto con las leyes anteriores, esto hace de $K^n$ un [[Matemáticas/Álgebra lineal/Espacios vectoriales/01 Espacios vectoriales — definición y axiomas|espacio vectorial sobre $K$]]. Aquí los vectores son las tuplas y los escalares pertenecen a $K$.[^vectores]
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué significa que $K^n$ sea cerrado bajo la suma de vectores?
+===
+> [!important] Respuesta
+> Que $u+v\in K^n$ para cualesquiera $u,v\in K^n$: sumar dos de sus elementos no produce un elemento exterior al conjunto.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> ¿Qué significa que $K^n$ sea estable bajo el producto por escalares de $K$?
+===
+> [!important] Respuesta
+> Que $\alpha u\in K^n$ para cualquier $\alpha\in K$ y cualquier $u\in K^n$.
+```
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - vectores
+---
+> [!note] Pregunta
+> En el espacio vectorial $K^n$ sobre $K$, ¿cuáles son los vectores y cuáles los escalares?
+===
+> [!important] Respuesta
+> Los vectores son las tuplas de $n$ componentes de $K$; los escalares son los elementos de $K$.
+```
+
+> [!advertencia] Distinguir escalar y vector al operar
+> Las operaciones definidas reciben dos vectores del mismo $K^n$ para sumarlos, o un escalar y un vector para multiplicarlos. No definen una suma entre un vector y un escalar ni un producto entre dos vectores.[^vectores]
 
 ## Matrices: filas, columnas y entradas
 
@@ -719,13 +1164,13 @@ La fila $i$ de $A$ es la columna $i$ de $A^T$; por eso se invierten las dimensio
 #### Ejemplo — Las filas pasan a columnas
 
 $$
-A=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}_{2\times3}.
+A=\begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}_{2\times3}
 $$
 
 La primera fila $(1,2,3)$ se convierte en la primera columna; la segunda fila, en la segunda columna:
 
 $$
-A^T=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}_{3\times2}.
+A^T=\begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}_{3\times2}
 $$
 
 ```anki
@@ -758,19 +1203,29 @@ Antes de las primeras pruebas por entradas, consulta el fundamento de la [[Físi
 #### Demostración
 
 > [!demostracion] Demostración · TPC resuelto
-> La doble transpuesta recupera el tamaño original: $A^T$ mide $n\times m$ y $(A^T)^T$ mide $m\times n$. Fijemos $1\le i\le m$ y $1\le j\le n$. Al transponer por segunda vez, la entrada $(i,j)$ pasa a ser la entrada $(j,i)$ de $A^T$:
+> Sea $A=(a_{ij})\in\mathcal M_{m\times n}(\mathbb K)$. Por definición de transpuesta,
 >
 > $$
-> ((A^T)^T)_{ij}=(A^T)_{ji}.
+> A^T\in\mathcal M_{n\times m}(\mathbb K)
+> \quad\Longrightarrow\quad
+> (A^T)^T\in\mathcal M_{m\times n}(\mathbb K).
 > $$
 >
-> Por la definición de transpuesta, esa entrada es $a_{ij}$:
+> Para todo $1\le i\le m$ y $1\le j\le n$,
 >
 > $$
-> (A^T)_{ji}=a_{ij}.
+> \boxed{
+> \left((A^T)^T\right)_{ij}
+> =(A^T)_{ji}
+> =a_{ij}.
+> }
 > $$
 >
-> Por tanto, en cada posición admisible las dos matrices tienen la misma entrada; luego $(A^T)^T=A$.[^25]
+> Como ambas matrices tienen el mismo orden y coinciden entrada a entrada, concluimos que
+>
+> $$
+> \boxed{(A^T)^T=A.}
+> $$[^25]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -788,7 +1243,12 @@ tags:
 
 ### Conjugada de una matriz
 
-Para un número complejo $z=x+iy$, con $x,y\in\mathbb R$, el [[Matemáticas/Sistemas numéricos/Números complejos#🔄 Conjugación y módulo|conjugado]] es $\overline z=x-iy$. Así, $1+2i$ y $1-2i$ son conjugados; cualquier número real es su propio conjugado.[^13]
+Para un [[Números complejos|número completo]] $z \in \mathbb C$, de la forma $z=x+iy$, con $x,y\in\mathbb R$, el [[Matemáticas/Sistemas numéricos/Números complejos#🔄 Conjugación y módulo|conjugado]] $\overline z$ del complejo $z$ se define como: $\overline z=x-iy$.
+
+Así, $1+2i$ y $1-2i$ son conjugados.[^13]
+
+>[!note]
+>Cualquier número real es su propio conjugado
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -807,13 +1267,13 @@ tags:
 Sea $A=(a_{ij})\in M_{m\times n}(\mathbb C)$.
 
 > [!definicion] Matriz conjugada
-> La **[[Matemáticas/Álgebra lineal/Conjugada de una matriz|conjugada]]** $\overline A$ se obtiene conjugando cada entrada, sin cambiar su posición:
+> La **[[Matemáticas/Álgebra lineal/Conjugada de una matriz|conjugada]]** $\overline A$ se obtiene conjugando cada entrada, es decir, realizando el conjugado de cada $a_{ij}$ individualmente [^7].
 > $$
 > (\overline A)_{ij}=\overline{a_{ij}}.
 > $$
-> Tiene el mismo tamaño que $A$.[^7]
 
-$\overline{a_{ij}}$ es un número complejo; $\overline A$ es la matriz completa.
+>[!recuerda]
+>$\overline{a_{ij}}$ es un número complejo; $\overline A$ es la matriz completa
 
 #### Ejemplo — Cambiar el signo de las partes imaginarias
 
@@ -825,7 +1285,7 @@ $$
 \overline C=\begin{pmatrix}1-i&2&i\\3+i&0&-4i\end{pmatrix}.
 $$
 
-Las entradas reales, como $2$, permanecen iguales. En las demás cambia el signo de la parte imaginaria.
+Las entradas reales, como $c_{12}$, permanecen iguales. En las demás cambia el signo de la parte imaginaria.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -846,6 +1306,9 @@ tags:
 Sean $z=x+iy$ y $w=u+iv$ dos [[Matemáticas/Sistemas numéricos/Números complejos|números complejos]], con $x,y,u,v\in\mathbb R$ e $i^2=-1$. Entonces $\overline z=x-iy$ y $\overline w=u-iv$.[^13]
 
 ### Doble conjugación escalar
+
+> [!opcional] Ampliación de prerrequisitos — conjugación de escalares
+> Las tres pruebas escalares siguientes recuerdan propiedades de los números complejos utilizadas después con matrices. No son TPC de las aulas de matrices.[^30]
 
 #### Propiedad
 
@@ -1037,7 +1500,7 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración · TPC resuelto
-> La conjugación conserva el tamaño. Fijemos $1\le i\le m$ y $1\le j\le n$: al aplicar la definición dos veces,
+> Sea $A=(a_{ij})\in M_{m\times n}(\mathbb C)$. Por definición de matriz conjugada, para $1\le i\le m$ y $1\le j\le n$,
 >
 > $$
 > (\overline{\overline A})_{ij}=\overline{\overline{a_{ij}}}.
@@ -1109,13 +1572,53 @@ tags:
 > Sí: $\overline{A^T}=(\overline A)^T$.
 ```
 
-## Matrices simétricas, antisimétricas, hermíticas y antihermíticas
+## Matriz opuesta
 
-La traspuesta y la conjugada transpuesta permiten comparar cada matriz cuadrada con la que resulta de esas operaciones. Las condiciones se comprueban también entrada por entrada.
+Sea $A=(a_{ij})\in M_{m\times n}(K)$.
+
+> [!definicion] Matriz opuesta
+> La **[[Matemáticas/Álgebra lineal/Suma de matrices#Neutro, opuesta y resta|opuesta]]** de $A$ es la matriz del mismo tamaño que se obtiene cambiando el signo de cada entrada:
+>
+> $$
+> -A=(-a_{ij}).
+> $$
+> [^9]
+
+### Ejemplo — Cambiar el signo de cada entrada
+
+Sea
+
+$$
+A=\begin{pmatrix}5&-1&0\\2&0&1\end{pmatrix}.
+$$
+
+Su opuesta es
+
+$$
+-A=\begin{pmatrix}-5&1&0\\-2&0&-1\end{pmatrix}.
+$$
+
+El $5$ pasa a ser $-5$; el $-1$, a ser $1$. Las entradas nulas permanecen nulas.
+
+```anki
+deck: Matemáticas::Álgebra lineal::Matrices
+tags:
+  - matemáticas
+  - matrices
+  - opuesto
+---
+> [!note] Pregunta
+> ¿Cómo se define la matriz opuesta $-A$?
+===
+> [!important] Respuesta
+> Se cambia el signo de cada entrada de $A$: $(-A)_{ij}=-a_{ij}$; su tamaño no cambia.
+```
+
+## Matrices simétricas, antisimétricas, hermíticas y antihermíticas
 
 ### Matriz simétrica
 
-Las posiciones $(1,2)$ y $(2,1)$ se intercambian al reflejarse respecto de la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Diagonal principal|diagonal principal]]. Lo mismo ocurre con cualquier pareja $(i,j)$ y $(j,i)$.
+En una matriz simétrica, las entradas situadas a ambos lados de la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Diagonal principal|diagonal principal]] coinciden por parejas: cada número tiene otro igual en la posición que ocuparía su reflejo en esa diagonal.
 
 > [!definicion] Matriz simétrica
 > Una matriz $A=(a_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz simétrica|simétrica]]** cuando coinciden las entradas de esas posiciones:
@@ -1125,7 +1628,13 @@ Las posiciones $(1,2)$ y $(2,1)$ se intercambian al reflejarse respecto de la [[
 > $$
 > [^9]
 
-La [[#Transpuesta|transpuesta]] intercambia esas posiciones. Por tanto, la condición de simetría también se escribe $A^T=A$.[^9]
+> [!consecuencia] Una matriz simétrica es igual a su traspuesta
+> Al [[#Transpuesta|transponer]], cada entrada pasa a la posición reflejada respecto de la diagonal principal. Si las entradas de cada pareja son iguales, ese intercambio deja la matriz tal como estaba. Por tanto,
+>
+> $$
+> \boxed{A^T=A}.
+> $$
+> [^9]
 
 #### Ejemplo — Reflejo respecto de la diagonal
 
@@ -1180,16 +1689,27 @@ tags:
 
 ### Matriz antisimétrica
 
-La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Matriz opuesta|opuesta de una matriz]] se escribe $-A=(-a_{ij})$: sus entradas son los opuestos de las de $A$.
+> [!opcional] Ampliación — matrices antisimétricas
+> Esta clase complementa la clasificación de las aulas 2–4; no aparece definida en esas diapositivas.[^clasificacion-ampliada]
+
+La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz opuesta|opuesta de una matriz]] se escribe $-A=(-a_{ij})$: sus entradas son los opuestos de las de $A$.
 
 > [!definicion] Matriz antisimétrica
-> Una matriz $A=(a_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz antisimétrica|antisimétrica]]** cuando las entradas reflejadas son opuestas:
+> Una matriz $A=(a_{ij})\in M_n(K)$ es **[[Matemáticas/Álgebra lineal/Matriz antisimétrica|antisimétrica]]** cuando la entrada de la fila $i$ y columna $j$ es el opuesto de la entrada de la fila $j$ y columna $i$:
 >
 > $$
 > a_{ij}=-a_{ji}\qquad\forall i,j\in\{1,\ldots,n\}.
 > $$
 >
-> En notación de transpuesta, $A^T=-A$.[^31]
+> [^31]
+
+> [!consecuencia] La traspuesta es la matriz opuesta
+> Al transponer una matriz antisimétrica, en cada posición queda el opuesto del número que había antes. Por eso, su traspuesta coincide con $-A$:
+>
+> $$
+> \boxed{A^T=-A}.
+> $$
+> [^31]
 
 #### Ejemplo — Signos opuestos a ambos lados
 
@@ -1201,7 +1721,31 @@ T=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-El $2$ de $(1,2)$ se corresponde con $-2$ en $(2,1)$. Las otras parejas son $-1$ y $1$, y $4$ y $-4$. Las entradas diagonales son cero.
+Calculemos su traspuesta y su opuesta por separado:
+
+$$
+T\xrightarrow{\text{filas a columnas}}
+T^T=\begin{pmatrix}
+0&-2&1\\
+2&0&-4\\
+-1&4&0
+\end{pmatrix}.
+$$
+
+$$
+T\xrightarrow{\text{cambiar todos los signos}}
+-T=\begin{pmatrix}
+0&-2&1\\
+2&0&-4\\
+-1&4&0
+\end{pmatrix}.
+$$
+
+Las dos operaciones dan la misma matriz:
+
+$$
+\boxed{T^T=-T}.
+$$
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1211,7 +1755,7 @@ tags:
   - tipos-de-matriz
 ---
 > [!note] Pregunta
-> Para $A=(a_{ij})\in M_n(K)$, ¿qué relación cumplen las entradas reflejadas si $A$ es antisimétrica?
+> En una matriz antisimétrica $A=(a_{ij})\in M_n(K)$, ¿qué relación hay entre la entrada de la fila $i$, columna $j$, y la de la fila $j$, columna $i$?
 ===
 > [!important] Respuesta
 > $a_{ij}=-a_{ji}$ para todo $i,j\in\{1,\ldots,n\}$; equivalentemente, $A^T=-A$.
@@ -1220,11 +1764,12 @@ tags:
 #### Propiedad
 
 > [!consecuencia] Diagonal de una antisimétrica real o compleja
-> Si $A^T=-A$ sobre $\mathbb R$ o $\mathbb C$, entonces
+> Toda [[matriz antisimétrica]] real o compleja tiene ceros en su [[#Diagonal principal|diagonal principal]]:
 >
 > $$
 > a_{ii}=0_K\qquad\forall i\in\{1,\ldots,n\}.
 > $$
+> [^31]
 
 #### Demostración
 
@@ -1260,32 +1805,35 @@ tags:
 > [!opcional]- Por qué se ha especificado el conjunto de escalares
 > Existen cuerpos en los que $1_K+1_K=0_K$, llamados de característica dos. Allí la igualdad $2a_{ii}=0_K$ se cumple para cualquier $a_{ii}$ y no obliga a que la diagonal sea nula. Esta excepción no aparece en $\mathbb R$ ni en $\mathbb C$.[^10]
 
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - escalares
----
-> [!note] Pregunta
-> ¿Qué significa que un cuerpo tenga característica dos?
-===
-> [!important] Respuesta
-> Que $1_K+1_K=0_K$. En ese caso, la igualdad $2a=0_K$ no obliga a que $a=0_K$.
-```
+> [!opcional]- Tarjetas de la ampliación
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/assets/anki/ALGA — Tarjetas de ampliación#^caracteristica-dos]]
 
 ### Matriz hermítica
 
+La [[#Conjugada transpuesta|conjugada transpuesta]] de $H$ se denota por $H^*$: el asterisco indica que conjugamos las entradas y transponemos la matriz.
+
+$$
+H^*=(\overline H)^T,
+\qquad (H^*)_{ij}=\overline{h_{ji}}.
+$$
+
 > [!definicion] Matriz hermítica
-> Una matriz $H=(h_{ij})\in M_n(\mathbb C)$ es **[[Matemáticas/Álgebra lineal/Matriz hermítica|hermítica]]** cuando sus entradas reflejadas son conjugadas:
+> Una matriz $H=(h_{ij})\in M_n(\mathbb C)$ se dice **[[Matemáticas/Álgebra lineal/Matriz hermítica|hermítica]]** cuando la entrada de la fila $i$ y columna $j$ es el conjugado de la entrada de la fila $j$ y columna $i$:
 >
 > $$
 > h_{ij}=\overline{h_{ji}}\qquad\forall i,j\in\{1,\ldots,n\}.
 > $$
 > [^6]
 
-La [[#Conjugada transpuesta|conjugada transpuesta]] tiene entradas $(H^*)_{ij}=\overline{h_{ji}}$. La condición de hermiticidad equivale, por tanto, a $H^*=H$.[^6]
+> [!consecuencia] Una matriz hermítica es igual a su conjugada transpuesta
+> Al transponer $H$, cada entrada pasa al lugar de su conjugado. Al conjugar después, recuperamos el número que había originalmente en ese lugar. Así, la [[#Conjugada transpuesta|conjugada transpuesta]] devuelve la matriz inicial:
+>
+> $$
+> \boxed{H^*=H}.
+> $$
+> [^6]
 
-#### Ejemplo — Conjugación al cruzar la diagonal
+#### Ejemplo — Una matriz igual a su conjugada transpuesta
 
 $$
 H=\begin{pmatrix}
@@ -1295,7 +1843,35 @@ H=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-En las posiciones $(1,2)$ y $(2,1)$ aparecen $1-2i$ y $1+2i$. En $(1,3)$ y $(3,1)$, $4i$ y $-4i$. La pareja restante contiene dos veces el número real $-8$, que es su propio conjugado.
+Primero conjugamos las entradas:
+
+$$
+H\xrightarrow{\text{conjugar}}
+\overline H=\begin{pmatrix}
+1&1+2i&-4i\\
+1-2i&0&-8\\
+4i&-8&-2
+\end{pmatrix}.
+$$
+
+Después pasamos las filas a columnas:
+
+$$
+\overline H\xrightarrow{\text{transponer}}
+H^*=(\overline H)^T=\begin{pmatrix}
+1&1-2i&4i\\
+1+2i&0&-8\\
+-4i&-8&-2
+\end{pmatrix}.
+$$
+
+Obtenemos de nuevo la matriz inicial:
+
+$$
+\boxed{H^*=H}.
+$$
+
+Si sustituimos el $-2$ de la esquina inferior derecha por $-2+i$, al conjugar aparecerá $-2-i$ en ese mismo lugar. Las matrices ya no coincidirán y la matriz modificada no será hermítica.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1305,7 +1881,7 @@ tags:
   - tipos-de-matriz
 ---
 > [!note] Pregunta
-> Para $A=(a_{ij})\in M_n(\mathbb C)$, ¿qué relación cumplen las entradas reflejadas si $A$ es hermítica?
+> En una matriz hermítica $A=(a_{ij})\in M_n(\mathbb C)$, ¿qué relación hay entre la entrada de la fila $i$, columna $j$, y la de la fila $j$, columna $i$?
 ===
 > [!important] Respuesta
 > $a_{ij}=\overline{a_{ji}}$ para todo $i,j\in\{1,\ldots,n\}$; equivalentemente, $A^*=A$.
@@ -1313,7 +1889,7 @@ tags:
 
 #### Propiedad
 
-> [!consecuencia] La diagonal de una hermítica es real
+> [!consecuencia] Ampliación — La diagonal de una hermítica es real
 > Si $H\in M_n(\mathbb C)$ es hermítica, entonces
 >
 > $$
@@ -1321,22 +1897,58 @@ tags:
 > $$
 > [^6]
 
+La propiedad explicita una consecuencia de la definición; su prueba se desarrolla como complemento, sin atribuirle un encargo TPC.[^clasificacion-ampliada]
+
 #### Demostración
 
 > [!demostracion] Demostración
-> Sea $r\in\mathbb N$, con $1\leq r\leq n$. En la diagonal, los índices coinciden, de modo que la condición $h_{ij}=\overline{h_{ji}}$ se reduce a $h_{rr}=\overline{h_{rr}}$.
+> Sea $H=(h_{ij})\in M_n(\mathbb C)$ una matriz hermítica y sea $r\in\{1,\ldots,n\}$ un índice arbitrario.
 >
-> Escribimos $h_{rr}=x+iy$, con $x,y\in\mathbb R$. La igualdad con su conjugado exige
+> **1. Aplicamos la condición de hermiticidad a una entrada diagonal.** Como los dos índices son $r$,
+>
+> $$
+> h_{ij}=\overline{h_{ji}}
+> \quad\xRightarrow{i=j=r}\quad
+> h_{rr}=\overline{h_{rr}}.
+> $$
+>
+> **2. Escribimos la entrada y su conjugado en forma binómica.** Existen $x,y\in\mathbb R$ tales que
+>
+> $$
+> h_{rr}=x+iy,
+> \qquad
+> \overline{h_{rr}}=x-iy.
+> $$
+>
+> Sustituyendo en la igualdad anterior,
 >
 > $$
 > x+iy=x-iy.
 > $$
 >
-> Al comparar las partes imaginarias obtenemos $y=-y$, es decir, $2y=0$. Como $y$ es real, $y=0$, por lo que $h_{rr}=x\in\mathbb R$.
+> **3. Igualamos las partes imaginarias.** Dos números complejos iguales tienen la misma parte imaginaria, por lo que
 >
-> El índice $r$ era arbitrario: todas las entradas diagonales son reales. $\blacksquare$[^6]
-
-En el ejemplo, cambiar $h_{33}=-2$ por $-2+i$ haría que la matriz dejase de ser hermítica, aunque no se alterase ninguna pareja fuera de la diagonal.
+> $$
+> y=-y
+> \quad\Longrightarrow\quad
+> 2y=0
+> \quad\Longrightarrow\quad
+> y=0.
+> $$
+>
+> Por tanto,
+>
+> $$
+> h_{rr}=x+i\cdot0=x\in\mathbb R.
+> $$
+>
+> Como $r$ era arbitrario, la conclusión vale para toda la diagonal:
+>
+> $$
+> \boxed{h_{ii}\in\mathbb R\qquad\forall i\in\{1,\ldots,n\}.}
+> \qquad\blacksquare
+> $$
+> [^6]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1371,14 +1983,27 @@ tags:
 
 ### Matriz antihermítica
 
+> [!opcional] Ampliación — matrices antihermíticas
+> Esta clase se añade como complemento de las matrices hermíticas; no aparece definida en las aulas 2–4 cotejadas.[^clasificacion-ampliada]
+
+Para $Q$ usamos la misma notación: $Q^*=(\overline Q)^T$ es su [[#Conjugada transpuesta|conjugada transpuesta]], mientras que $-Q$ es su [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz opuesta|matriz opuesta]].
+
 > [!definicion] Matriz antihermítica
-> Una matriz $Q=(q_{ij})\in M_n(\mathbb C)$ es **[[Matemáticas/Álgebra lineal/Matriz antihermítica|antihermítica]]** cuando cada entrada es el opuesto del conjugado de la entrada reflejada:
+> Una matriz $Q=(q_{ij})\in M_n(\mathbb C)$ es **[[Matemáticas/Álgebra lineal/Matriz antihermítica|antihermítica]]** cuando la entrada de la fila $i$ y columna $j$ es el opuesto del conjugado de la entrada de la fila $j$ y columna $i$:
 >
 > $$
 > q_{ij}=-\overline{q_{ji}}\qquad\forall i,j\in\{1,\ldots,n\}.
 > $$
 >
-> Equivalentemente, $Q^*=-Q$.[^antihermiticas]
+> [^antihermiticas]
+
+> [!consecuencia] La conjugada transpuesta es la matriz opuesta
+> Al transponer $Q$ y conjugar sus entradas, en cada posición obtenemos el opuesto del número que había antes. Por eso, la [[#Conjugada transpuesta|conjugada transpuesta]] coincide con $-Q$:
+>
+> $$
+> \boxed{Q^*=-Q}.
+> $$
+> [^antihermiticas]
 
 #### Ejemplo — Diagonal imaginaria
 
@@ -1390,13 +2015,46 @@ i&2+i&0\\
 \end{pmatrix}.
 $$
 
-Conjugamos $q_{12}=2+i$ y cambiamos su signo:
+Primero conjugamos las entradas:
 
 $$
--\overline{q_{12}}=-(2-i)=-2+i=q_{21}.
+Q\xrightarrow{\text{conjugar}}
+\overline Q=\begin{pmatrix}
+-i&2-i&0\\
+-2-i&0&3\\
+0&-3&2i
+\end{pmatrix}.
 $$
 
-Las otras parejas son $0,0$ y $3,-3$. Las tres cumplen la misma condición.
+Después transponemos:
+
+$$
+\overline Q\xrightarrow{\text{transponer}}
+Q^*=(\overline Q)^T=\begin{pmatrix}
+-i&-2-i&0\\
+2-i&0&-3\\
+0&3&2i
+\end{pmatrix}.
+$$
+
+Por separado, calculamos la opuesta de $Q$:
+
+$$
+Q\xrightarrow{\text{cambiar todos los signos}}
+-Q=\begin{pmatrix}
+-i&-2-i&0\\
+2-i&0&-3\\
+0&3&2i
+\end{pmatrix}.
+$$
+
+Las dos matrices coinciden:
+
+$$
+\boxed{Q^*=-Q}.
+$$
+
+La diagonal de esta matriz contiene $i$, $0$ y $-2i$: puede tener valores imaginarios no nulos, a diferencia de la diagonal de una antisimétrica real o compleja.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1406,7 +2064,7 @@ tags:
   - tipos-de-matriz
 ---
 > [!note] Pregunta
-> Para $A=(a_{ij})\in M_n(\mathbb C)$, ¿qué relación cumplen las entradas reflejadas si $A$ es antihermítica?
+> En una matriz antihermítica $A=(a_{ij})\in M_n(\mathbb C)$, ¿qué relación hay entre la entrada de la fila $i$, columna $j$, y la de la fila $j$, columna $i$?
 ===
 > [!important] Respuesta
 > $a_{ij}=-\overline{a_{ji}}$ para todo $i,j\in\{1,\ldots,n\}$; equivalentemente, $A^*=-A$.
@@ -1420,21 +2078,52 @@ tags:
 #### Demostración
 
 > [!demostracion] Demostración
-> Escribimos una entrada diagonal como $q_{ii}=x+iy$, con $x,y\in\mathbb R$. En esa posición, la condición de antihermiticidad exige $q_{ii}=-\overline{q_{ii}}$. Al sustituir,
+> Sea $Q=(q_{ij})\in M_n(\mathbb C)$ una matriz antihermítica y sea $r\in\{1,\ldots,n\}$ un índice arbitrario.
+>
+> **1. Aplicamos la condición de antihermiticidad a una entrada diagonal.** Como los dos índices son $r$,
 >
 > $$
-> x+iy=-(x-iy)=-x+iy.
+> q_{ij}=-\overline{q_{ji}}
+> \quad\xRightarrow{i=j=r}\quad
+> q_{rr}=-\overline{q_{rr}}.
 > $$
 >
-> Las partes imaginarias ya coinciden. La igualdad de las partes reales da
+> **2. Escribimos la entrada y el opuesto de su conjugado.** Existen $x,y\in\mathbb R$ tales que
+>
+> $$
+> q_{rr}=x+iy,
+> \qquad
+> -\overline{q_{rr}}=-(x-iy)=-x+iy.
+> $$
+>
+> Sustituyendo en la igualdad anterior,
+>
+> $$
+> x+iy=-x+iy.
+> $$
+>
+> **3. Igualamos las partes reales.** Dos números complejos iguales tienen la misma parte real, por lo que
 >
 > $$
 > x=-x\quad\Longrightarrow\quad 2x=0\quad\Longrightarrow\quad x=0.
 > $$
 >
-> Por tanto, $q_{ii}=iy$: su parte real es cero. Esto incluye el caso $y=0$. $\blacksquare$[^antihermiticas]
+> Por tanto,
+>
+> $$
+> q_{rr}=0+iy=iy,\qquad y\in\mathbb R.
+> $$
+>
+> El valor de $y$ no queda restringido: si $y\ne0$, la entrada es puramente imaginaria; si $y=0$, es cero. Como $r$ era arbitrario,
+>
+> $$
+> \boxed{\operatorname{Re}(q_{ii})=0\qquad\forall i\in\{1,\ldots,n\}.}
+> \qquad\blacksquare
+> $$
+> [^antihermiticas]
 
-En $Q$ son $i$, $0$ y $-2i$. Al comprobar una antihermítica, se conjuga **y** se cambia el signo; para una antisimétrica sólo se cambia el signo.
+> [!recuerda] Antisimétrica y antihermítica
+> En una antisimétrica, $A^T=-A$. En una antihermítica interviene también la conjugación: $A^*=(\overline A)^T=-A$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1464,9 +2153,12 @@ Sea $A=(a_{ij})\in M_n(K)$.
 > \operatorname{tr}(A)=\sum_{i=1}^{n}a_{ii}\in K.
 > $$
 
-El resultado es un escalar de $K$. La traza se define para matrices cuadradas.[^7]
+El resultado es un escalar de $K$.
 
-#### Ejemplo — Leer la diagonal antes de sumar
+>[!recuerda]
+>La traza solo está definida para [[#Matriz cuadrada|matrices cuadradas]].[^7]
+
+#### Ejemplo
 
 $$
 T=\begin{pmatrix}
@@ -1476,9 +2168,13 @@ T=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-La diagonal es $(3,0,-8)$, de modo que $\operatorname{tr}(T)=3+0-8=-5$. Las otras seis entradas no intervienen.[^7]
+La diagonal es $(3,0,-8)$, de modo que
+$$\operatorname{tr}(T)=3+0-8=-5$$Las otras seis entradas no intervienen.[^7]
 
-En $I_n$, las $n$ entradas diagonales valen uno. Por tanto, $\operatorname{tr}(I_n)=n\cdot1_K$, que se escribe simplemente $n$ para $K=\mathbb R$ o $\mathbb C$.
+>[!consecuencia]
+>En $I_n$, las $n$ entradas diagonales valen uno. Por tanto: 
+>$$\operatorname{tr}(I_n)=n\cdot1_K$$
+>que se escribe simplemente $n$ para $K=\mathbb R$ o $\mathbb C$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -1548,10 +2244,12 @@ La traspuesta intercambia filas y columnas; la conjugada conserva su posición; 
 
 [^antihermiticas]: Michael E. O’Sullivan, San Diego State University, *Lecture Notes for Math 623: Matrix Analysis*, 18/04/2013, §1, definición 1.1 y observación 2, p. 1. [Hermitian Matrices](https://mosullivan.sdsu.edu/Teaching/MatrixAnalysis13s/hermitian.pdf). Definición $A^*=-A$ y condición sobre la diagonal. La justificación por partes real e imaginaria se desarrolla aquí a partir del enunciado; no se atribuye a la fuente una prueba publicada de ese argumento.
 
+[^clasificacion-ampliada]: Cotejo de las aulas 2–4: el aula 4 define matriz simétrica (diapositiva 6) y hermítica (diapositiva 8), pero no antisimétrica ni antihermítica. Estas dos clases se incorporan desde las fuentes generales de matrices antisimétricas y antihermíticas.[^31][^antihermiticas] La diagonal real de una hermítica se deduce de su definición; el ejemplo y contraejemplo de la diapositiva 8 son compatibles con ese criterio, pero la diapositiva no lo formula como un teorema ni asigna su prueba. La clasificación describe estos materiales concretos, sin concluir exclusiones del programa o de la evaluación.
+
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Actúa como tutor de Álgebra lineal para primer curso de Física. El alumno conoce aritmética real y compleja. Trabaja con $K=\mathbb R$ o $\mathbb C$ e índices naturales positivos.
 
-Repasa tuplas, vectores coordenados, entradas, tamaños e igualdad de matrices. Pide reconocer matrices fila, columna, cuadradas, nulas, identidad, diagonales, escalares y triangulares. La transpuesta intercambia índices, la conjugada conjuga entradas y la adjunta realiza ambas operaciones. Pide clasificar matrices simétricas, antisimétricas, hermíticas y antihermíticas, justificar sus condiciones diagonales y calcular la traza. Para entradas reales, hermítica equivale a simétrica.
+Repasa tuplas e igualdad de vectores coordenados; trabaja su suma, producto por escalar, nulo, opuesto y leyes. Después aborda entradas, tamaños e igualdad de matrices. Pide reconocer matrices fila, columna, cuadradas, nulas, identidad, diagonales, escalares y triangulares. La transpuesta intercambia índices, la conjugada conjuga entradas y la adjunta realiza ambas operaciones. Pide clasificar matrices simétricas, antisimétricas, hermíticas y antihermíticas, justificar sus condiciones diagonales y calcular la traza. Para entradas reales, hermítica equivale a simétrica.
 
 Formula una pregunta cada vez y espera el intento antes de mostrar la respuesta. Distingue errores de concepto, de notación y de cálculo; ofrece pistas concretas y recupera después lo que haya fallado. Usa los ejemplos existentes; no generes ejercicios nuevos.

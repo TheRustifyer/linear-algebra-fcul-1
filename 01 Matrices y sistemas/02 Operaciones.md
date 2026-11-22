@@ -28,456 +28,7 @@ tags:
 
 # Operaciones
 
-Las dimensiones, las clases de matrices, la traspuesta, la conjugada y la adjunta se han definido en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|01 · Matrices]].
-
-## Operaciones con vectores coordenados
-
-### Suma de vectores
-
-La [[Matemáticas/Geometría/Vectores/Suma de vectores|suma de dos desplazamientos]] corresponde a recorrer uno después del otro. En coordenadas, se suman por separado los cambios en cada eje.
-
-Sean $u=(x_1,\ldots,x_n)$ y $v=(y_1,\ldots,y_n)$ dos vectores de $K^n$.
-
-> [!definicion] Suma de vectores coordenados
-> La suma se calcula componente a componente:
->
-> $$
-> u+v=(x_1+y_1,\ldots,x_n+y_n).
-> $$
-> [^vectores]
-
-#### Ejemplo — Sumar dos desplazamientos
-
-Con los pares que ya hemos utilizado,
-
-$$
-(3,2)+(2,3)=(5,5).
-$$
-
-En el plano, podemos recorrer primero el desplazamiento $(3,2)$ y, desde su extremo, recorrer $(2,3)$. Terminamos en $(5,5)$.
-
-![[vector-addition-graph.excalidraw.svg|Si dibujamos los dos vectores desde el mismo origen, sus flechas forman dos lados de un paralelogramo. La diagonal que parte de ese origen representa la suma.]][^vectores]
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Cómo se suman dos vectores de $K^n$?
-===
-> [!important] Respuesta
-> Sumando las componentes correspondientes: $(x_1,\ldots,x_n)+(y_1,\ldots,y_n)=(x_1+y_1,\ldots,x_n+y_n)$.
-```
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Cómo representa la regla del paralelogramo la suma de dos vectores del plano?
-===
-> [!important] Respuesta
-> Se dibujan desde el mismo origen y se completa el paralelogramo. La diagonal que parte de ese origen representa la suma.
->
-> En el dibujo, las flechas azul y roja son los sumandos $(3,2)$ y $(2,3)$; la negra representa $(5,5)$.
->
-> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/vector-addition-graph-anki.png|Paralelogramo de la suma (3,2)+(2,3)=(5,5)|420]]
-```
-
-### Producto de un escalar por un vector
-
-> [!definicion] Producto por escalar de un vector
-> Para $\lambda\in K$ y $u=(x_1,\ldots,x_n)\in K^n$,
->
-> $$
-> \lambda u=(\lambda x_1,\ldots,\lambda x_n).
-> $$
-> [^vectores]
-
-#### Ejemplo — Cambiar la longitud y el sentido
-
-Para $u=(3,2)$,
-
-$$
-2u=(6,4),
-$$
-
-$$
--\frac12u=\left(-\frac32,-1\right).
-$$
-
-En el plano, $2u$ tiene el mismo sentido que $u$ y el doble de longitud.
-El factor $-\frac12$ cambia el sentido y reduce la longitud a la mitad.[^vectores]
-
-> [!recuerda] El signo y el valor absoluto cumplen funciones distintas
-> Para un vector real no nulo, multiplicar por $\lambda\in\mathbb R\setminus\{0\}$ cambia su longitud por el factor $|\lambda|$. El sentido se conserva si $\lambda>0$ y se invierte si $\lambda<0$. La interpretación geométrica se desarrolla en [[Matemáticas/Geometría/Vectores/Producto por un escalar|producto de un vector por un escalar]].
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> Al multiplicar un vector real no nulo por un escalar real no nulo $\lambda$, ¿cómo cambian su longitud y su sentido?
-===
-> [!important] Respuesta
-> La longitud se multiplica por $|\lambda|$. El sentido se conserva si $\lambda>0$ y se invierte si $\lambda<0$.
-```
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Cómo se multiplica un vector coordenado por un escalar $\lambda$?
-===
-> [!important] Respuesta
-> Multiplicando cada componente: $\lambda(x_1,\ldots,x_n)=(\lambda x_1,\ldots,\lambda x_n)$.
-```
-
-### Vector nulo
-
-> [!definicion] Vector nulo
-> El vector nulo de $K^n$ tiene todas sus componentes iguales a cero:
->
-> $$
-> 0_{K^n}=(0_K,\ldots,0_K).
-> $$
-> [^vectores]
-
-Por ejemplo, $0_{\mathbb R^2}=(0,0)$. El subíndice indica que se trata de un vector con dos componentes; el escalar $0_K$ es un número.
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Qué componentes tiene el vector nulo de $K^n$?
-===
-> [!important] Respuesta
-> Sus $n$ componentes son $0_K$: $0_{K^n}=(0_K,\ldots,0_K)$.
-```
-
-### Vector opuesto
-
-> [!definicion] Vector opuesto
-> El opuesto de $u=(x_1,\ldots,x_n)$ es
->
-> $$
-> -u=(-x_1,\ldots,-x_n).
-> $$
-> [^vectores]
-
-El opuesto de $(3,2)$ es $(-3,-2)$. En el plano, tienen la misma longitud, el sentido contrario y ambos se sientan sobre la misma dirección (recta en el plano).
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Cómo se obtiene el opuesto de un vector coordenado?
-===
-> [!important] Respuesta
-> Cambiando el signo de cada componente: $-(x_1,\ldots,x_n)=(-x_1,\ldots,-x_n)$.
-```
-
-## Leyes de las operaciones vectoriales
-
-Las siguientes igualdades se aplican a $u,v,w\in K^n$. Se comprueban usando las definiciones en cada posición y las leyes de suma y multiplicación del [[Matemáticas/Estructuras algebraicas/Cuerpos|cuerpo]] $K$.[^vectores]
-
-### Conmutatividad de la suma vectorial
-
-#### Propiedad
-
-> [!teorema] Conmutatividad de la suma de vectores
-> $$
-> \boxed{u+v=v+u}.
-> $$
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Cambia la suma de dos vectores de $K^n$ al intercambiar los sumandos?
-===
-> [!important] Respuesta
-> No: $u+v=v+u$.
-```
-
-### Asociatividad de la suma vectorial
-
-#### Propiedad
-
-> [!teorema] Asociatividad de la suma de vectores
-> $$
-> \boxed{(u+v)+w=u+(v+w)}.
-> $$
-
-Podemos escribir $u+v+w$ sin especificar qué par se suma primero.
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Qué permite la asociatividad al sumar tres vectores de $K^n$?
-===
-> [!important] Respuesta
-> Cambiar los paréntesis: $(u+v)+w=u+(v+w)$.
-```
-
-### El vector nulo como neutro aditivo
-
-#### Propiedad
-
-> [!teorema] El vector nulo es el neutro aditivo
-> $$
-> \boxed{u+0_{K^n}=u=0_{K^n}+u}.
-> $$
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Qué vector es el elemento neutro de la suma en $K^n$?
-===
-> [!important] Respuesta
-> El vector nulo: $u+0_{K^n}=u=0_{K^n}+u$.
-```
-
-### El vector opuesto como inverso aditivo
-
-#### Propiedad
-
-> [!teorema] Sumar un vector y su opuesto
-> $$
-> \boxed{u+(-u)=0_{K^n}=(-u)+u}.
-> $$
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Qué se obtiene al sumar un vector y su opuesto?
-===
-> [!important] Respuesta
-> El vector nulo del mismo espacio: $u+(-u)=0_{K^n}$.
-```
-
-Sean $u,v\in K^n$ y $\alpha,\beta\in K$. Las leyes de los escalares se aplican a cada componente del vector.[^vectores]
-
-### Asociatividad del producto por escalar de un vector
-
-#### Propiedad
-
-> [!teorema] Multiplicaciones sucesivas por escalares
-> $$
-> \boxed{(\alpha\beta)u=\alpha(\beta u)}.
-> $$
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Cómo se combinan dos multiplicaciones sucesivas de un vector por escalares?
-===
-> [!important] Respuesta
-> Para $u\in K^n$ y $\alpha,\beta\in K$, $\alpha(\beta u)=(\alpha\beta)u$.
-```
-
-### Distributividad respecto de la suma vectorial
-
-#### Propiedad
-
-> [!teorema] Producto de un escalar por una suma de vectores
-> $$
-> \boxed{\alpha(u+v)=\alpha u+\alpha v}.
-> $$
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Cómo se distribuye un escalar sobre una suma de vectores?
-===
-> [!important] Respuesta
-> Para $u,v\in K^n$ y $\alpha\in K$, $\alpha(u+v)=\alpha u+\alpha v$.
-```
-
-### Distributividad respecto de la suma de escalares
-
-#### Propiedad
-
-> [!teorema] Producto de una suma de escalares por un vector
-> $$
-> \boxed{(\alpha+\beta)u=\alpha u+\beta u}.
-> $$
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Cómo se distribuye una suma de escalares al multiplicar un vector?
-===
-> [!important] Respuesta
-> Para $u\in K^n$ y $\alpha,\beta\in K$, $(\alpha+\beta)u=\alpha u+\beta u$.
-```
-
-### Multiplicar un vector por uno o por cero
-
-#### Propiedad
-
-> [!teorema] Escalares uno y cero
-> $$
-> \boxed{1_Ku=u,\qquad 0_Ku=0_{K^n}}.
-> $$
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Qué efecto tiene multiplicar un vector por el escalar $1_K$?
-===
-> [!important] Respuesta
-> Conserva el vector: $1_Ku=u$.
-```
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Qué se obtiene al multiplicar un vector de $K^n$ por el escalar cero?
-===
-> [!important] Respuesta
-> El vector nulo: $0_Ku=0_{K^n}$.
-```
-
-### Signo de un múltiplo escalar de un vector
-
-#### Propiedad
-
-> [!consecuencia] El signo puede incorporarse al escalar o al vector
-> $$
-> \boxed{-(\alpha u)=(-\alpha)u=\alpha(-u)}.
-> $$
-> [^vectores]
-
-#### Demostración
-
-> [!demostracion] Demostración
-> Sea $u=(x_1,\ldots,x_n)$. Las tres expresiones pertenecen a $K^n$. Fijemos una posición arbitraria $j\in\mathbb N$, con $1\leq j\leq n$.
->
-> Por la definición de opuesto, la componente $j$ de $-(\alpha u)$ es $-(\alpha x_j)$. Por la definición del producto por escalar, las componentes de las otras dos expresiones son $(-\alpha)x_j$ y $\alpha(-x_j)$.
->
-> Las [[Matemáticas/Estructuras algebraicas/Cuerpos#Reglas de los signos|reglas de los signos en un cuerpo]] establecen que
->
-> $$
-> -(\alpha x_j)=(-\alpha)x_j=\alpha(-x_j).
-> $$
->
-> Las componentes coinciden en cualquier posición admisible. Por el criterio de igualdad de vectores,
->
-> $$
-> \boxed{-(\alpha u)=(-\alpha)u=\alpha(-u)}\qquad\blacksquare
-> $$
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Cómo puede escribirse el opuesto de un múltiplo escalar de un vector?
-===
-> [!important] Respuesta
-> Para $u\in K^n$ y $\alpha\in K$, $-(\alpha u)=(-\alpha)u=\alpha(-u)$.
-```
-
-La suma de dos elementos de $K^n$ [[Matemáticas/Estructuras algebraicas/Operaciones algebraicas#2. Cerradura y operaciones externas|vuelve a pertenecer a $K^n$]], igual que el [[Matemáticas/Estructuras algebraicas/Operaciones algebraicas#2. Cerradura y operaciones externas|producto de uno de ellos por un escalar de $K$]]. Junto con las leyes anteriores, esto hace de $K^n$ un [[Matemáticas/Álgebra lineal/Espacios vectoriales/01 Espacios vectoriales — definición y axiomas|espacio vectorial sobre $K$]]. Aquí los vectores son las tuplas y los escalares pertenecen a $K$.[^vectores]
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Qué significa que $K^n$ sea cerrado bajo la suma de vectores?
-===
-> [!important] Respuesta
-> Que $u+v\in K^n$ para cualesquiera $u,v\in K^n$: sumar dos de sus elementos no produce un elemento exterior al conjunto.
-```
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Qué significa que $K^n$ sea estable bajo el producto por escalares de $K$?
-===
-> [!important] Respuesta
-> Que $\alpha u\in K^n$ para cualquier $\alpha\in K$ y cualquier $u\in K^n$.
-```
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> En el espacio vectorial $K^n$ sobre $K$, ¿cuáles son los vectores y cuáles los escalares?
-===
-> [!important] Respuesta
-> Los vectores son las tuplas de $n$ componentes de $K$; los escalares son los elementos de $K$.
-```
-
-> [!advertencia] Distinguir escalar y vector al operar
-> Las operaciones definidas reciben dos vectores del mismo $K^n$ para sumarlos, o un escalar y un vector para multiplicarlos. No definen una suma entre un vector y un escalar ni un producto entre dos vectores.[^vectores]
-
 ## Suma, opuesto y resta
-
-Para sumar matrices emparejamos las entradas que ocupan la misma posición. Por eso empezamos comprobando sus tamaños: debe haber una fila y una columna correspondientes para cada entrada.
 
 ### Suma de matrices
 
@@ -524,48 +75,12 @@ tags:
 > Para matrices del mismo tamaño, $(A+B)_{ij}=a_{ij}+b_{ij}$; el resultado conserva ese tamaño.
 ```
 
-### Matriz opuesta
-
-Sea $A=(a_{ij})\in M_{m\times n}(K)$.
-
-> [!definicion] Matriz opuesta
-> La **[[Matemáticas/Álgebra lineal/Suma de matrices#Neutro, opuesta y resta|opuesta]]** de $A$ es la matriz del mismo tamaño que se obtiene cambiando el signo de cada entrada:
->
-> $$
-> -A=(-a_{ij}).
-> $$
-> [^9]
-
-#### Ejemplo — Cambiar el signo de cada entrada
-
-Para la matriz $A$ usada en la suma,
-
-$$
--A=\begin{pmatrix}-5&1&0\\-2&0&-1\end{pmatrix}.
-$$
-
-El $5$ pasa a ser $-5$; el $-1$, a ser $1$. Las entradas nulas permanecen nulas.
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - matrices
-  - opuesto
----
-> [!note] Pregunta
-> ¿Cómo se define la matriz opuesta $-A$?
-===
-> [!important] Respuesta
-> Se cambia el signo de cada entrada de $A$: $(-A)_{ij}=-a_{ij}$; su tamaño no cambia.
-```
-
 ### Resta de matrices
 
 Sean $A,B\in M_{m\times n}(K)$.
 
 > [!definicion] Resta de matrices
-> La [[Matemáticas/Álgebra lineal/Suma de matrices#Neutro, opuesta y resta|diferencia de $A$ y $B$]] es la suma de $A$ con la [[#Matriz opuesta|matriz opuesta]] de $B$:
+> La [[Matemáticas/Álgebra lineal/Suma de matrices#Neutro, opuesta y resta|diferencia de $A$ y $B$]] es la suma de $A$ con la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz opuesta|matriz opuesta]] de $B$:
 >
 > $$
 > A-B=A+(-B).
@@ -607,7 +122,10 @@ tags:
 
 ## Propiedades de la suma de matrices
 
-Las pruebas siguientes utilizan la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/00 Prefacio|demostración por componentes]]. El prefacio desarrolla el criterio de igualdad, el papel de los índices arbitrarios y los pasos del método.
+> [!recuerda] Demostración por componentes
+> Dos matrices del mismo tamaño son iguales si coinciden todas sus entradas. Para demostrarlo, elegimos una posición cualquiera $(i,j)$ y comprobamos que ambos miembros tienen el mismo valor en ella. Como no hemos elegido una fila ni una columna concretas, el razonamiento vale para todas las posiciones.
+>
+> El [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/00 Prefacio#^2bd3aa|prefacio sobre demostración por componentes]] desarrolla el método paso a paso.
 
 ### Conmutatividad de la suma
 
@@ -648,11 +166,7 @@ Las pruebas siguientes utilizan la [[Física/Grado/1º/Álgebra Lineal y Geometr
 > $$
 > \boxed{A+B=B+A}
 > $$
-
-> [!abstract] Idea fundamental
-> La igualdad matricial se reduce a la conmutatividad de la suma en $K$. La posición $(i,j)$ era arbitraria, por lo que el mismo razonamiento cubre todas las entradas.[^14][^10]
->
-> Es una [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/00 Prefacio#^2bd3aa|demostración por componentes]].
+> [^14][^10]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Matrices
@@ -778,7 +292,7 @@ tags:
 > La matriz nula del mismo tamaño, $0_{m\times n}$: $A+0_{m\times n}=A=0_{m\times n}+A$.
 ```
 
-### La [[#matriz opuesta]] como inverso aditivo
+### La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Matriz opuesta|matriz opuesta]] como inverso aditivo
 
 #### Propiedad
 
@@ -1306,6 +820,9 @@ tags:
 
 ### Combinaciones lineales de vectores
 
+> [!opcional] Ampliación del currículo del MIT
+> La interpretación del producto mediante combinaciones lineales de columnas amplía el desarrollo de las aulas 2–4. Se incluye como conexión con el bloque de espacios vectoriales y procede del curso de Gilbert Strang.[^2]
+
 En la primera columna de $AB$ han intervenido las tres columnas de $A$, con coeficientes $2$, $0$ y $3$ tomados de $B$. Una suma de múltiplos de vectores recibe el nombre de **combinación lineal**.
 
 > [!definicion] Combinación lineal
@@ -1329,20 +846,13 @@ $$
 
 Ésta es la primera columna del producto calculado. El coeficiente cero anula la contribución de la segunda columna de $A$.
 
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - vectores
----
-> [!note] Pregunta
-> ¿Qué es una combinación lineal de vectores?
-===
-> [!important] Respuesta
-> Una suma de múltiplos escalares de esos vectores: $\lambda_1v_1+\cdots+\lambda_pv_p$, con $\lambda_i\in K$.
-```
+> [!opcional]- Tarjetas de la ampliación
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/assets/anki/ALGA — Tarjetas de ampliación#^combinacion-lineal]]
 
 ### Lectura por columnas y filas
+
+> [!opcional] Alcance de esta ampliación
+> Las columnas y filas del producto ya se describen en el material del curso. Aquí ampliamos esa lectura expresándolas como combinaciones lineales.[^8][^2]
 
 Sean $A\in M_{m\times n}(K)$ y $B\in M_{n\times p}(K)$. Al calcular una columna de $AB$, usamos sucesivamente todas las filas de $A$, pero siempre la misma columna de $B$.
 
@@ -1362,19 +872,8 @@ $$
 
 En la columna $j$ del producto, los coeficientes de esa combinación se leen en la columna $j$ de $B$.
 
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - matrices
-  - producto-matricial
----
-> [!note] Pregunta
-> Si $A$ es $m\times n$ y $B$ es $n\times p$, ¿cómo se interpreta la columna $j$ de $AB$?
-===
-> [!important] Respuesta
-> Es $A\mathbf b_j$, donde $\mathbf b_j$ es la columna $j$ de $B$; por tanto, es una combinación lineal de las columnas de $A$.
-```
+> [!opcional]- Tarjetas de la ampliación
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/assets/anki/ALGA — Tarjetas de ampliación#^producto-por-columnas]]
 
 Para leer el producto por filas, fijamos una fila de $A$ y la multiplicamos por $B$. Si la fila $i$ es $\mathbf r_i$, la fila correspondiente de $AB$ es $\mathbf r_iB$: sus entradas se calculan emparejando esa fila con cada columna de $B$.
 
@@ -1388,19 +887,8 @@ $$
 
 Obtenemos así las dos entradas de la primera fila de $AB$ a la vez.
 
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - matrices
-  - producto-matricial
----
-> [!note] Pregunta
-> Si $A$ es $m\times n$ y $B$ es $n\times p$, ¿cómo se obtiene la fila $i$ de $AB$?
-===
-> [!important] Respuesta
-> Multiplicando la fila $i$ de $A$ por $B$; en coordenadas, su entrada $j$ es $\sum_{k=1}^n a_{ik}b_{kj}$.
-```
+> [!opcional]- Tarjetas de la ampliación
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/assets/anki/ALGA — Tarjetas de ampliación#^producto-por-filas]]
 
 ### Matrices diagonales en un producto
 
@@ -1490,64 +978,16 @@ tags:
 >
 > [^37]
 
+> [!opcional]- Tarjetas de la ampliación
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/assets/anki/ALGA — Tarjetas de ampliación#^aplicacion-matricial]]
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/assets/anki/ALGA — Tarjetas de ampliación#^producto-composicion]]
+
 > [!opcional]- Ampliación — Representación en bases compatibles
 > Para aplicaciones $S:U\to V$ y $T:V\to W$ entre espacios vectoriales, se eligen [[Matemáticas/Álgebra lineal/Aplicaciones lineales#La matriz de una aplicación lineal|bases para obtener sus matrices]]: cada columna de su matriz contiene las coordenadas de la imagen de un vector de la base del dominio. Si sus matrices son $B$ y $A$, respectivamente, la matriz de $T\circ S$ es $AB$, usando **la misma base de $V$** para escribir la salida de $S$ y la entrada de $T$.[^37]
 
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - matrices
-  - aplicaciones-lineales
----
-> [!note] Pregunta
-> Si $A$ tiene $m$ filas y $n$ columnas, ¿entre qué espacios actúa la aplicación $T_A(\mathbf x)=A\mathbf x$?
-===
-> [!important] Respuesta
-> $T_A:K^n\to K^m$: recibe $n$ coordenadas y devuelve $m$.
-```
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - matrices
-  - aplicaciones-lineales
----
-> [!note] Pregunta
-> Para obtener la matriz de $T\circ S$ multiplicando las matrices de $S:U\to V$ y $T:V\to W$, ¿cómo deben elegirse las bases de $V$?
-===
-> [!important] Respuesta
-> Debe usarse la misma base de $V$ para las coordenadas de salida de $S$ y las de entrada de $T$.
-```
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - matrices
-  - aplicaciones-lineales
----
-> [!note] Pregunta
-> ¿Qué representan las columnas de la matriz de una aplicación lineal en las bases elegidas?
-===
-> [!important] Respuesta
-> Las coordenadas de las imágenes de los vectores de la base elegida del dominio.
-```
-
-```anki
-deck: Matemáticas::Álgebra lineal::Matrices
-tags:
-  - matemáticas
-  - matrices
-  - producto-matricial
----
-> [!note] Pregunta
-> Si $B$ representa $S:U\to V$ y $A$ representa $T:V\to W$, ¿qué composición representa $AB$?
-===
-> [!important] Respuesta
-> $T\circ S$: primero actúa $B$ y después $A$.
-```
+> [!opcional]- Tarjetas de la ampliación
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/assets/anki/ALGA — Tarjetas de ampliación#^bases-compatibles]]
+> ![[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/assets/anki/ALGA — Tarjetas de ampliación#^columnas-matriz-aplicacion]]
 
 ### Cómo leer los sumatorios del producto
 
@@ -1884,6 +1324,9 @@ tags:
 > $\alpha(AB)=(\alpha A)B=A(\alpha B)$ para tamaños compatibles.
 ```
 
+> [!demostracion] Demostración · TPC resuelto
+> La identidad por la izquierda y por la derecha son los dos casos del mismo resultado. Se prueban en [[#Identidad a la izquierda|el primer caso]] y [[#Identidad a la derecha|el segundo caso]].[^tpc-producto-casos]
+
 ### Identidad a la izquierda
 
 #### Propiedad
@@ -1897,7 +1340,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Caso — Identidad a la izquierda
 > Sean $A$ de tamaño $m\times n$ e $I_m$ la identidad de tamaño $m\times m$. El producto $I_mA$ está definido y mide $m\times n$, igual que $A$. En la posición cualquiera $1\le i\le m$, $1\le j\le n$,
 >
 > $$
@@ -1938,7 +1381,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Caso — Identidad a la derecha
 > Sea $A$ de tamaño $m\times n$ e $I_n$ la identidad de tamaño $n\times n$. El producto $AI_n$ está definido y mide $m\times n$. Para cualquier $1\le i\le m$ y $1\le j\le n$,
 >
 > $$
@@ -1966,6 +1409,9 @@ tags:
 > La identidad $I_n$ de orden $n$: $AI_n=A$.
 ```
 
+> [!demostracion] Demostración · TPC resuelto
+> Los productos con la matriz nula por la izquierda y por la derecha son los dos casos del mismo resultado. Se prueban en [[#Matriz nula a la izquierda|el primer caso]] y [[#Matriz nula a la derecha|el segundo caso]].[^tpc-producto-casos]
+
 ### Matriz nula a la izquierda
 
 #### Propiedad
@@ -1979,7 +1425,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Caso — Matriz nula a la izquierda
 > Sean $A$ de tamaño $m\times n$ y $0_{r\times m}$ la matriz nula de tamaño $r\times m$. Las dimensiones interiores coinciden y el producto mide $r\times n$. Fijemos $1\le i\le r$ y $1\le j\le n$.
 >
 > La definición del producto da
@@ -2024,7 +1470,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Caso — Matriz nula a la derecha
 > Sean $A$ de tamaño $m\times n$ y $0_{n\times q}$ la matriz nula de tamaño $n\times q$. Las dimensiones interiores coinciden y el producto mide $m\times q$. Fijemos $1\le i\le m$ y $1\le j\le q$.
 >
 > Por definición del producto matricial,
@@ -2498,6 +1944,9 @@ tags:
 
 ### Adjunta de un producto
 
+> [!opcional] Ampliación — leyes de la conjugada transpuesta
+> Este resultado se deduce de las leyes de conjugación y transposición ya estudiadas; se añade como ampliación del desarrollo de las aulas 2–4.[^adjunta-ampliacion]
+
 #### Propiedad
 
 > [!teorema] Adjunta de un producto
@@ -2507,7 +1956,7 @@ tags:
 > \boxed{(AB)^*=B^*A^*}
 > $$
 
-Ambos lados miden $p\times m$.[^7]
+Ambos lados miden $p\times m$.[^adjunta-ampliacion]
 
 #### Demostración
 
@@ -2538,10 +1987,13 @@ tags:
 
 ### Adjunta de un múltiplo escalar
 
+> [!opcional] Ampliación — leyes de la conjugada transpuesta
+> Este resultado se deduce de las leyes de conjugación y transposición ya estudiadas; se añade como ampliación del desarrollo de las aulas 2–4.[^adjunta-ampliacion]
+
 #### Propiedad
 
 > [!teorema] Adjunta de un múltiplo escalar
-> Si $\alpha\in\mathbb C$ y $A\in M_{m\times n}(\mathbb C)$, entonces:[^7]
+> Si $\alpha\in\mathbb C$ y $A\in M_{m\times n}(\mathbb C)$, entonces:[^adjunta-ampliacion]
 >
 > $$
 > \boxed{(\alpha A)^*=\overline\alpha\,A^*}
@@ -2890,13 +2342,11 @@ tags:
 
 ## Condiciones de validez y continuación
 
-La suma y la resta requieren matrices del mismo tamaño. El producto por escalar conserva las dimensiones; el producto matricial exige que coincidan las dimensiones interiores. En $A\mathbf x=\mathbf b$, hay una columna de $A$ por incógnita y una fila por ecuación. Las operaciones sobre filas se estudian en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|03 · Eliminación y matrices elementales]].
+La suma y la resta requieren matrices del mismo tamaño. El producto por escalar conserva las dimensiones; el producto matricial exige que coincidan las dimensiones interiores. En $A\mathbf x=\mathbf b$, hay una columna de $A$ por incógnita y una fila por ecuación. Las operaciones sobre filas se estudian en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Matrices elementales y operaciones elementales|03 · Matrices elementales y operaciones elementales]].
 
 ## 📚 Fuentes
 
 ### Material base aportado
-
-[^vectores]: FCUL, aula 2, 18/09/2026, diapositivas 5–10. Archivo privado `ALGA-2026-27-AulasTeo-slides-aula2-VectMatrizes-impressao.pdf`. Operaciones vectoriales, regla del paralelogramo, nulo y opuesto, ocho leyes y regla de signos.
 
 [^8]: FCUL, *Álgebra Linear e Geometria Analítica*, aula 3. Archivo privado `ALGA-2026-27-AulasTeo-slides-aula3-Matrizes-impressao.pdf`. Diap. 4, propiedades 1–4: suma; diap. 6, propiedades 1–5: producto por escalar; diap. 11, propiedades 1–6: producto matricial, sus distributividades y sus identidades y nulas. En estas diapositivas también se llama «simétrica de $A$» a $-A$; aquí se reserva «opuesta» para esa matriz, para distinguirla de la condición $A^T=A$. Fuente de los enunciados TPC; las pruebas se contrastan con las referencias indicadas junto a cada una.
 
@@ -2954,10 +2404,14 @@ La suma y la resta requieren matrices del mismo tamaño. El producto por escalar
 
 [^33]: Bruce Ikenaga, “Unitary and Hermitian Matrices”, proposición (c) y prueba de la relación entre la adjunta de un producto y las adjuntas de sus factores. El argumento se reordena usando la [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices#Conjugación y transposición|conmutación entre conjugación y transposición]] demostrada en *Matrices*. [Millersville University](https://sites.millersville.edu/bikenaga/linear-algebra/unitary-and-hermitian-matrices/unitary-and-hermitian-matrices.html).
 
+[^adjunta-ampliacion]: Las diapositivas 9–10 del aula 4 asignan TPC sobre transposición y conjugación por separado; no enuncian estos dos resultados para la conjugada transpuesta. Se incluyen como consecuencias añadidas. La prueba del producto se contrasta con Ikenaga; la del múltiplo escalar, con Beezer, teorema AMSM.[^33][^32] No se atribuye a FCUL un TPC sobre estas dos identidades.
+
+[^tpc-producto-casos]: FCUL, aula 3, diapositiva 11: la propiedad 5 reúne $I_mA=A=AI_n$ en un resultado; la propiedad 6 reúne los dos productos con matrices nulas. Cada propiedad tiene aquí dos casos, no dos TPC distintos.
+
 ## 🧑‍🏫 Prompt para tutor conversacional
 
 Actúa como tutor de Álgebra lineal para primer curso de Física. El alumno conoce entradas, tamaños y clases de matrices, así como transpuesta, conjugada y adjunta.
 
-Trabaja la suma, el opuesto y el producto por escalar de vectores y matrices. Pide comprobar dimensiones antes de multiplicar matrices, explicar una entrada del producto, interpretar sus filas y columnas y calcular potencias. Para las pruebas por componentes, exige índices arbitrarios, la definición aplicada y la ley escalar que justifica cada transición. Contrasta el orden de los factores al transponer o tomar adjuntas, el papel de la conjugación del escalar y las propiedades de la traza. Termina interpretando $A\mathbf x=\mathbf b$ y su matriz ampliada.
+Trabaja la suma, el opuesto y el producto por escalar de matrices. Pide comprobar dimensiones antes de multiplicar matrices, explicar una entrada del producto, interpretar sus filas y columnas y calcular potencias. Para las pruebas por componentes, exige índices arbitrarios, la definición aplicada y la ley escalar que justifica cada transición. Contrasta el orden de los factores al transponer o tomar adjuntas, el papel de la conjugación del escalar y las propiedades de la traza. Termina interpretando $A\mathbf x=\mathbf b$ y su matriz ampliada.
 
 Formula una pregunta cada vez y espera el intento antes de mostrar la respuesta. Distingue errores de concepto, de notación y de cálculo; ofrece pistas concretas y recupera después lo que haya fallado. Usa los ejemplos existentes; no generes ejercicios nuevos.

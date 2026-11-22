@@ -1,0 +1,274 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-noquoting]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\geometry{left=27mm,right=26mm,top=28mm,bottom=28mm}
+\definecolor{ink}{HTML}{182433}
+\definecolor{rednote}{HTML}{B42318}
+\definecolor{rulegray}{HTML}{9AA3AE}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{2}
+\setlist[enumerate]{topsep=3pt,itemsep=3pt,parsep=0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{El lenguaje de la realidad}}
+\fancyhead[R]{\small Álgebra lineal}
+\fancyfoot[L]{\small Alex Vergara}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+\newcounter{question}
+\newcommand{\qitem}[1]{\refstepcounter{question}\subsection*{\thequestion.\quad #1}\addcontentsline{toc}{subsection}{\thequestion.\ #1}}
+\newcommand{\anote}[1]{\par{\color{rednote}\textbf{Nota crítica.}\ #1}\par}
+\newcommand{\amatrix}[1]{\left[\begin{array}{#1}}
+\newcommand{\closematrix}{\end{array}\right]}
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{22mm}
+{\color{ink}\Large\scshape Un atlas de Física Teórica y Gravedad Cuántica\par}
+\vspace{12mm}
+{\Huge\bfseries El lenguaje de la realidad\par}
+\vspace{5mm}
+{\large Desde los principios básicos a la frontera del conocimiento\par}
+\vspace{26mm}
+{\color{rulegray}\rule{\textwidth}{1pt}\par}
+\vspace{9mm}
+{\large\scshape Álgebra lineal\par}
+\vspace{5mm}
+{\LARGE\bfseries Sistemas de ecuaciones lineales\par}
+\vspace{5mm}
+{\Large Cuaderno de preguntas\par}
+\vspace{6mm}
+{\normalsize 30 cuestiones organizadas en tres bloques\par}
+\vfill
+{\large\textbf{Autor}\\ Alex Vergara\par}
+\vspace{8mm}
+{\small Noviembre de 2026\par}
+\end{titlepage}
+\tableofcontents
+\clearpage
+\section*{Indicaciones de trabajo}
+\addcontentsline{toc}{section}{Indicaciones de trabajo}
+Este cuaderno está pensado para responder primero sin mirar las soluciones. Cada pregunta exige justificar las afirmaciones mediante ecuaciones, posiciones pivote, rango y operaciones elementales. La dificultad no está en recordar palabras, sino en reconocer qué puede concluirse y qué no a partir de los datos disponibles.
+
+Usaremos exclusivamente conceptos elementales de ecuaciones y sistemas lineales, matrices, forma escalonada y reducida, rango, sistemas homogéneos e invertibilidad. Los enunciados no anticipan sus propias conclusiones.
+\clearpage
+
+\section{Bloque I. Ecuaciones, soluciones y eliminación}
+\qitem{Ecuaciones lineales y términos independientes}
+En las incógnitas $x_1,x_2,x_3$, considera:
+\[
+\begin{aligned}
+\text{a)}\quad&2x_1+\sqrt3\,x_2+0x_3=5\\
+\text{b)}\quad&0x_1+0x_2+0x_3=5\\
+\text{c)}\quad&0x_1+0x_2+0x_3=0
+\end{aligned}
+\]
+¿Son las tres ecuaciones lineales? ¿Qué conjunto solución tiene cada una? ¿Qué sucede si exigimos que se cumplan las tres simultáneamente?
+
+\qitem{Homogeneidad de ecuaciones y sistemas}
+Considera el sistema
+\[
+\begin{cases}
+2x_1-3x_2+x_3=0\\
+x_1+2x_2-x_3=0\\
+3x_1-x_2=5
+\end{cases}
+\]
+¿Es homogéneo? ¿Qué condición caracteriza a un sistema homogéneo? ¿Puede un sistema homogéneo carecer de soluciones?
+
+\qitem{Verificar una solución no es resolver un sistema}
+Considera
+\[
+\begin{cases}
+x_1+2x_2-x_3=3\\
+2x_1-x_2+x_3=3\\
+3x_1+x_2=7
+\end{cases}
+\qquad u=(2,1,1)
+\]
+Comprueba si $u$ es solución. Define qué significa ser solución de un sistema y distingue entre encontrar una solución particular y resolver el sistema.
+
+\qitem{Equivalencia de sistemas}
+Considera
+\[
+\begin{aligned}
+S_1:&\begin{cases}x+y=3\\x-y=1\end{cases}
+& S_2:&\begin{cases}x+y=3\\2x=4\end{cases}
+& S_3:&\begin{cases}x+y=3\\2x=4\\3x=6\end{cases}
+\end{aligned}
+\]
+¿Son equivalentes $S_1$ y $S_2$? ¿Y $S_2$ y $S_3$? Justifica sin resolverlos explícitamente. ¿Basta compartir una solución particular para que dos sistemas sean equivalentes?
+
+\qitem{El cuerpo sobre el que resolvemos}
+Considera $x+y=2$. Escribe su solución general sobre $\mathbb R$ y sobre $\mathbb C$. ¿Pertenece $(2-i,i)$ al conjunto solución en ambos casos? ¿Qué cuerpo debe utilizarse normalmente cuando los coeficientes son reales y el enunciado no especifica otro?
+
+\qitem{Interpretación geométrica en $\mathbb R^2$ y $\mathbb R^3$}
+Analiza los sistemas
+\[
+\begin{aligned}
+S_1:&\begin{cases}x+y=3\\2x+2y=6\end{cases}
+& S_2:&\begin{cases}x+y=3\\x+y=5\end{cases}
+\\[-1pt]
+S_3:&\begin{cases}x+y+z=3\\x-y+z=1\end{cases}
+\end{aligned}
+\]
+¿Cómo se interpretan geométricamente las ecuaciones y sus intersecciones? Describe mediante sistemas sencillos cómo obtener como conjunto solución un plano, una recta, un punto o el conjunto vacío en $\mathbb R^3$.
+
+\qitem{Representación matricial y dimensiones}
+Para el sistema
+\[
+\begin{cases}2x_1-x_2+3x_3=5\\x_1+4x_3=-2\end{cases}
+\]
+escribe la matriz simple $A$, la matriz columna de incógnitas $X$, la matriz de términos independientes $B$ y la ampliada $[A\mid B]$. Indica sus dimensiones. ¿Está definido $AX$? ¿Y $XA$?
+
+\qitem{Por qué las operaciones elementales conservan las soluciones}
+Explica por qué las siguientes transformaciones preservan el conjunto solución del sistema:
+\[
+R_i\leftrightarrow R_j,\qquad
+R_i\leftarrow\lambda R_i\ (\lambda\ne0),\qquad
+R_i\leftarrow R_i+\lambda R_j\ (i\ne j)
+\]
+¿Qué falla si permitimos multiplicar una fila por $\lambda=0$? Relaciónalo con la reversibilidad de las matrices elementales.
+
+\qitem{Gauss, Gauss--Jordan y sustitución regresiva}
+La matriz ampliada de un sistema es
+\[
+\left[\begin{array}{ccc|c}
+1&2&-1&3\\0&1&4&2\\0&0&1&5
+\end{array}\right]
+\]
+¿Podemos clasificar el sistema sin reducir más la matriz? ¿Cómo obtendrías la solución utilizando la forma actual? ¿Qué operaciones concretas llevarían la matriz a forma escalonada reducida?
+
+\qitem{De una RREF a la solución general}
+Considera
+\[
+\left[\begin{array}{ccccc|c}
+1&0&3&0&-2&4\\
+0&1&-1&0&5&2\\
+0&0&0&1&3&-1\\
+0&0&0&0&0&0
+\end{array}\right]
+\]
+Identifica variables básicas y libres, rango y grado de indeterminación. Escribe la solución general en la forma $u+\alpha v_1+\beta v_2$ e indica de dónde sale cada vector.
+
+\section{Bloque II. Rangos y clasificación de sistemas}
+\qitem{El rango de la ampliada no disminuye}
+Justifica con posiciones pivote por qué, para un sistema $AX=B$, se cumple $r(A)\le r([A\mid B])$. ¿Es correcto calcular $r([A\mid B])$ sumando $r(A)+r(B)$?
+
+\qitem{Cuánto puede aumentar el rango al añadir una columna}
+Demuestra mediante forma escalonada que
+\[
+r(A)\le r([A\mid B])\le r(A)+1
+\]
+¿Por qué el número de filas de $A$ no altera ese límite de una unidad?
+
+\qitem{El pivote que revela una contradicción}
+Considera las matrices ampliadas
+\[
+M_1=\left[\begin{array}{ccc|c}1&2&0&3\\0&1&4&2\\0&0&0&0\end{array}\right],
+\quad
+M_2=\left[\begin{array}{ccc|c}1&2&0&3\\0&1&4&2\\0&0&0&5\end{array}\right]
+\]
+Determina los rangos simple y ampliado de cada sistema, clasifícalos y explica el significado de la última ecuación en ambos casos.
+
+\qitem{Rango máximo y compatibilidad no son lo mismo}
+Un sistema tiene cuatro ecuaciones, tres incógnitas y matriz simple de rango $3$. ¿Se deduce que es compatible determinado? ¿Qué rangos puede tener su matriz ampliada? Establece la condición necesaria y suficiente para que tenga solución única.
+
+\qitem{Compatibilidad y número de variables libres}
+Un sistema sobre $\mathbb R$ tiene cinco ecuaciones y cuatro incógnitas, y satisface $r(A)=r([A\mid B])=2$. Clasifícalo, determina su grado de indeterminación y razona cuántas variables básicas y libres tiene. Justifica por qué su conjunto solución es infinito.
+
+\qitem{Independencia de los parámetros libres}
+Para la matriz reducida
+\[
+\left[\begin{array}{cccc|c}1&0&2&-1&3\\0&1&-1&3&1\\0&0&0&0&0\end{array}\right]
+\]
+identifica las variables libres. ¿Hay alguna ecuación que obligue a elegir sus valores conjuntamente? Justifícalo escribiendo el sistema equivalente.
+
+\qitem{Los parámetros de la solución general determinan el rango}
+La solución general de un sistema compatible indeterminado de siete incógnitas tiene la forma
+\[
+u+\alpha v_1+\beta v_2+\gamma v_3,
+\qquad\alpha,\beta,\gamma\in\mathbb R
+\]
+con tres parámetros independientes. ¿Qué rango tiene la matriz simple? ¿Y la ampliada? Explica el papel de $u$ y por qué no se cuenta como parámetro libre.
+
+\qitem{Cuándo está definido el grado de indeterminación}
+Dos sistemas de seis incógnitas satisfacen
+\[
+\begin{array}{c|cc}
+&r(A)&r([A\mid B])\\\hline
+S_1&4&4\\
+S_2&4&5
+\end{array}
+\]
+Discútelos e indica cuándo tiene sentido hablar del grado de indeterminación. ¿Podrían compartir la misma matriz simple?
+
+\qitem{Discusión de un sistema con parámetro}
+Para $a\in\mathbb R$, considera
+\[
+S_a:\begin{cases}
+x+y+z=2\\2x+2y+az=4\\x+y+(a-1)z=2
+\end{cases}
+\]
+Discute el sistema según $a$, indicando, cuando corresponda, el grado de indeterminación. ¿Hasta qué forma escalonada hace falta llegar para discutirlo? Diferencia discutir de resolver.
+
+\qitem{Por qué $r(A)\le\min\{m,n\}$}
+Sea $A\in M_{m\times n}(K)$. Demuestra utilizando únicamente posiciones pivote en una forma escalonada que $r(A)\le m$ y $r(A)\le n$. ¿Qué concluyes para un sistema compatible de cuatro ecuaciones y cinco incógnitas?
+
+\section{Bloque III. Sistemas homogéneos y matrices invertibles}
+\qitem{Construcción del sistema homogéneo asociado}
+Explica cómo construir, a partir de $AX=B$, su sistema homogéneo asociado. ¿Qué cambia y qué permanece? Aplica el procedimiento a
+\[
+\begin{cases}-x+2y-6z=2\\2x-3y-3z=0\\3x-5y+3z=-2\end{cases}
+\]
+
+\qitem{Por qué un sistema homogéneo siempre es compatible}
+Demuestra que $AX=0$ tiene al menos una solución, cualquiera que sea $A\in M_{m\times n}(K)$. ¿Puede el homogéneo asociado a un sistema incompatible ser compatible determinado o compatible indeterminado? Ilustra ambos casos.
+
+\qitem{Cuándo la solución trivial es única}
+Establece una condición necesaria y suficiente, en términos de rango y número de incógnitas, para que $AX=0$ tenga solamente la solución nula. Justifica usando variables pivote y variables libres.
+
+\qitem{Extraer el homogéneo de una solución general}
+Un sistema compatible indeterminado tiene solución general
+\[
+(x,y,z)=(3,1,2)+\alpha(1,-2,4),\qquad\alpha\in\mathbb R
+\]
+Escribe la solución general de su homogéneo asociado y explica por qué desaparece el primer vector.
+
+\qitem{Reconstruir el sistema original}
+Sabemos que $u=(1,2,3)$ es una solución particular de $AX=B$ y que el homogéneo asociado tiene solución general
+\[
+\alpha(2,-1,0)+\beta(0,1,1),\qquad\alpha,\beta\in\mathbb R
+\]
+Escribe la solución general de $AX=B$. Justifica con la distributividad del producto matricial por qué el procedimiento funciona.
+
+\qitem{Obtener soluciones particulares}
+Un sistema tiene solución general
+\[
+(x,y,z)=(2+\alpha,3-\alpha,1),\qquad\alpha\in\mathbb R
+\]
+Da tres soluciones particulares distintas y demuestra que una elección arbitraria del parámetro determina una solución concreta.
+
+\qitem{La misma matriz simple, distintos sistemas}
+Dos sistemas comparten matriz simple $A$, pero sus términos independientes son $B_1$ y $B_2$. ¿Puede uno ser compatible y el otro incompatible? Si ambos son compatibles indeterminados, ¿pueden tener distinto grado de indeterminación? Justifica.
+
+\qitem{Sistemas cuadrados e invertibilidad}
+Para $A\in M_n(K)$, establece y explica la equivalencia entre que $AX=B$ tenga solución única, que $r(A)=n$ y que $A$ sea invertible. ¿Por qué es importante que $A$ sea cuadrada?
+
+\qitem{Resolver mediante la inversa}
+Si $A\in M_n(K)$ es invertible, deduce la solución de $AX=B$. Justifica por qué multiplicamos por $A^{-1}$ a la izquierda y no a la derecha; comprueba las dimensiones de los productos.
+
+\qitem{Vectores y matrices columna}
+Si $u=(a_1,\ldots,a_n)\in K^n$ y $A\in M_{m\times n}(K)$, explica el convenio que permite escribir $Au$. ¿Por qué no escribimos directamente $A(a_1,\ldots,a_n)$ como un producto matricial? ¿Cómo representarías su conjunto solución?
+\end{document}

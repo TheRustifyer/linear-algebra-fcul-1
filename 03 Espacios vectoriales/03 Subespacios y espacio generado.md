@@ -602,7 +602,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Justificación del encargo
 > Supongamos que $p_1,\ldots,p_s$ lo generan. Si todos son nulos, no pueden generar el polinomio $1$.
 >
 > Si alguno es no nulo, sea $d$ el mayor grado entre los polinomios no nulos de la lista. Cada múltiplo escalar tiene grado a lo sumo $d$ o es nulo; al sumar tampoco pueden aparecer potencias superiores a $x^d$. Por tanto toda combinación pertenece a $P_d(K)$.
@@ -640,7 +640,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Demostración del criterio de inclusión
 > Si se cumple la inclusión, cada $u_i$ pertenece al primer generado y, por tanto, al segundo.
 >
 > Recíprocamente, supongamos que todos los $u_i$ pertenecen al segundo generado. Este último es un subespacio que contiene a los $u_i$; por la propiedad mínima, contiene a todo $\langle u_1,\ldots,u_s\rangle$. $\blacksquare$
@@ -673,7 +673,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Demostración del criterio de igualdad
 > La igualdad implica las dos pertenencias, porque cada conjunto está contenido en su propio generado. A la inversa, el criterio de inclusión da $\langle S\rangle\subseteq\langle T\rangle$ y $\langle T\rangle\subseteq\langle S\rangle$. La doble inclusión concluye la igualdad. $\blacksquare$
 
 
@@ -1001,8 +1001,8 @@ Hemos podido eliminar generadores sin cambiar el subespacio. En [[Física/Grado/
 [^generado]: Aula 19, diapositivas 8 y 11: generado y generación finita.
 [^generadores]: Aula 19, diapositivas 12–14: coordenadas, cuerpos real y complejo, polinomios.
 [^minimalidad]: Aula 19, diapositivas 8–10: demostración incluida; se explicitan las leyes que la diapositiva 9 pide justificar. Adaptación del argumento publicado en IST, proposición 3.16, pp. 42–43.
-[^polinomios-tpc]: Aula 19, diapositiva 14: «justifique» que $\mathbb R[x]$ no es finitamente generado. Desarrollo por grado máximo, válido sobre $K$; adaptación de IST, ejemplo 3.20, p. 44.
-[^comparacion]: Aula 20, diapositiva 2: TPC de inclusión, igualdad y eliminación de un generador redundante. Pruebas por propiedad mínima y doble inclusión, desarrolladas aquí; contraste con IST, proposición 3.16, pp. 42–43.
+[^polinomios-tpc]: Aula 19, diapositiva 14: pide «justifique», sin rótulo TPC, que $\mathbb R[x]$ no es finitamente generado. Desarrollo por grado máximo, válido sobre $K$; adaptación de IST, ejemplo 3.20, p. 44.
+[^comparacion]: Aula 20, diapositiva 2: inclusión e igualdad de espacios generados se presentan como consecuencias inmediatas de la proposición anterior. Sólo la proposición de eliminación de un generador redundante lleva «Dem.: TPC». Las pruebas de los dos criterios se desarrollan aquí sin atribuirles un encargo TPC; contraste con IST, proposición 3.16, pp. 42–43.
 [^transformaciones]: Aula 20, diapositiva 3: TPC de las tres transformaciones. Se desarrollan los dos sentidos y las operaciones inversas; contraste con IST, §3.18, pp. 43–44, y la reversibilidad de las operaciones elementales. Los tres casos se desarrollan aquí mediante sus inversas.
 [^simplificacion]: Aula 20, diapositiva 4. El orden de los dos últimos vectores difiere del de Aula 19, diapositiva 6; aquí se conserva el orden de Aula 19.
 [^pertenencia]: Aula 20, diapositiva 14: equivalencia entre combinación, compatibilidad e igualdad de rangos.

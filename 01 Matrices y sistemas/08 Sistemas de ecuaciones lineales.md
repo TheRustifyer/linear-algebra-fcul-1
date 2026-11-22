@@ -9,7 +9,7 @@ nivel: universitario-introductorio
 estado: completo
 requiere:
   - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/01 Matrices|Matrices]]"
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|Eliminación y matrices elementales]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan|Eliminación de Gauss y Gauss-Jordan]]"
   - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones]]"
 fsrs_goal: Traduce un sistema a AX=B, comprueba soluciones, clasifica los casos por pivotes y resuelve mediante Gauss o Gauss–Jordan; expresa la solución compatible como particular más núcleo y verifica cada vector obtenido.
 simbolos:
@@ -31,7 +31,9 @@ $$
 2\cdot0-3\cdot2=-6,\qquad 2\cdot3-3\cdot4=-6.
 $$
 
-Si añadimos la ecuación $x+y=2$, sólo el primero de esos dos pares sigue siendo solución. Para resolver el sistema tendremos que encontrar **todos** los pares que cumplan ambas ecuaciones, no resolver cada una con valores distintos de las incógnitas.[^a8-sistemas]
+Si añadimos la ecuación $x+y=2$, sólo el primero de esos dos pares sigue siendo solución. 
+
+Para resolver el sistema tendremos que encontrar **todos** los pares que cumplan ambas ecuaciones, no resolver cada una con valores distintos de las incógnitas.[^a8-sistemas]
 
 ## Ecuaciones lineales
 
@@ -56,7 +58,7 @@ $$
 3x+5y=-1,
 $$
 
-los coeficientes de $x$ e $y$ son $3$ y $5$, y el término independiente es $-1$. Del mismo modo,
+los ==🟢coeficientes== de $x$ e $y$ son $3$ y $5$, y el ==🔵término independiente== es $-1$. Del mismo modo,
 
 $$
 -2x_1+x_2-7x_3-x_4=5
@@ -67,16 +69,13 @@ tiene cuatro incógnitas, con coeficientes $-2,1,-7,-1$. El coeficiente de $x_2$
 Las expresiones
 
 $$
-3x^2-y=8
+\begin{aligned}
+3x^2-y&=8 \\
+x-3y-5xz&=0
+\end{aligned}
 $$
 
-y
-
-$$
-x-3y-5xz=0
-$$
-
-no son [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|ecuaciones lineales]] en sus incógnitas: en la primera aparece $x^2$ y en la segunda, el producto $xz$.
+no son [[Matemáticas/Álgebra/Sistemas de ecuaciones lineales|ecuaciones lineales]] en sus incógnitas: en la primera aparece $x^2$ (que es un término cuadrático) y en la segunda, el producto $xz$.
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -91,7 +90,7 @@ tags:
 > $a_1x_1+\cdots+a_nx_n=b$, con $a_i,b\in K$ conocidos. Cada $a_i$ multiplica a una incógnita; $b$ es el término independiente. No aparecen productos ni potencias superiores de incógnitas.
 ```
 
-### Ecuación homogénea
+### Ecuación lineal homogénea
 
 > [!definicion] Ecuación lineal homogénea
 > Una [[#Definición y coeficientes|ecuación lineal]] es **homogénea** cuando su término independiente es cero:
@@ -127,19 +126,17 @@ tags:
 
 ### Ejemplo: una recta en el plano
 
-Para describir todas las soluciones reales de
+Despejamos $y$ en la ecuación $2x-3y=-6$:
 
 $$
-2x-3y=-6,
+\begin{alignedat}{2}
+&\phantom{\Longleftrightarrow}\quad &2x-3y&=-6\\
+&\Longleftrightarrow\quad &-3y&=-6-2x\\
+&\Longleftrightarrow\quad &y&=2+\frac23x.
+\end{alignedat}
 $$
 
-despejamos $y$:
-
-$$
-y=2+\frac23x.
-$$
-
-Podemos elegir $x$; el valor de $y$ se obtiene sustituyendo esa elección. Con $x=0$ sale $y=2$ y, con $x=3$, sale $y=4$. Para reunir todas las elecciones en una expresión, escribimos $x=\alpha$:
+Podemos dar a $x$ cualquier valor real y calcular $y$ con el despeje. Escribimos $x=\alpha$, con $\alpha\in\mathbb R$:
 
 $$
 (x,y)=\left(\alpha,2+\frac23\alpha\right),
@@ -148,6 +145,54 @@ $$
 
 > [!definicion] Parámetro libre
 > Un parámetro libre es una variable auxiliar que puede recorrer todo el dominio indicado. En esta expresión, $\alpha$ recorre $\mathbb R$; una vez elegido, determina el par solución.
+
+Separamos las coordenadas de este par en una parte constante y otra que depende de $\alpha$:
+
+$$
+\begin{aligned}
+(x,y)&=\left(\alpha,2+\frac23\alpha\right)\\
+&=(0,2)+\left(\alpha,\frac23\alpha\right)\\
+&=(0,2)+\alpha\left(1,\frac23\right).
+\end{aligned}
+$$
+
+La [[Matemáticas/Geometría/Geometría analítica/Ecuaciones paramétricas de una recta|forma paramétrica]] queda
+
+$$
+\boxed{(x,y)=\underbrace{(0,2)}_{\text{punto de la recta}}
++\alpha\underbrace{\left(1,\frac23\right)}_{\text{vector director}}},
+\qquad \alpha\in\mathbb R.
+$$
+
+Por ejemplo,
+
+$$
+\begin{aligned}
+\alpha=0&\quad\Longrightarrow\quad(x,y)=(0,2),\\
+\alpha=3&\quad\Longrightarrow\quad(x,y)=(3,4).
+\end{aligned}
+$$
+
+Si aumentamos $\alpha$ en una unidad, $x$ aumenta en $1$ e $y$ en $\frac23$; ése es el desplazamiento que recoge el **vector director** $\left(1,\frac23\right)$.
+
+> [!definicion] Vector director de una recta
+> Un vector no nulo $v$ es director de una recta si, fijado un punto $P$ de ella, todos sus puntos se describen mediante $P+\alpha v$, con $\alpha\in\mathbb R$.
+
+![La recta 2x−3y=−6 pasa por (0,2) y (3,4); la recta homogénea 2x−3y=0 pasa por el origen y tiene la misma dirección. Se destaca el desplazamiento (1,2/3) desde (0,2).](assets/05-recta-y-homogenea.svg)
+
+*La recta azul reúne las soluciones. La recta discontinua pasa por el origen y tiene la misma dirección; aparecerá de nuevo al estudiar el [[#Sistema homogéneo asociado|homogéneo asociado]].* [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/05-recta-y-homogenea.excalidraw|Dibujo editable]].
+
+Comprobamos que cada valor del parámetro produce una solución:
+
+$$
+\begin{aligned}
+2x-3y&=2\alpha-3\left(2+\frac23\alpha\right)\\
+&=2\alpha-6-2\alpha\\
+&=-6.
+\end{aligned}
+$$
+
+Recíprocamente, si $(x,y)$ es una solución, tomamos $\alpha=x$. El despeje obliga a que $y=2+\frac23\alpha$, de modo que ese par está incluido en la parametrización. Obtenemos, por tanto, todas las soluciones reales.[^a8-geometria]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -161,30 +206,6 @@ tags:
 > [!important] Respuesta
 > Que puede elegirse arbitrariamente en el dominio indicado, con independencia de los otros parámetros libres.
 ```
-
-Para interpretar la expresión como una recta, separamos la parte constante de la que multiplica a $\alpha$:
-
-$$
-\boxed{(x,y)=(0,2)+\alpha\left(1,\frac23\right)},
-\qquad \alpha\in\mathbb R.
-$$
-
-Con $\alpha=0$ obtenemos el punto $(0,2)$. Si aumentamos $\alpha$ en una unidad, $x$ aumenta en $1$ e $y$ en $\frac23$; ése es el desplazamiento que recoge el **vector director** $\left(1,\frac23\right)$.
-
-> [!definicion] Vector director de una recta
-> Un vector no nulo $v$ es director de una recta si, fijado un punto $P$ de ella, todos sus puntos se describen mediante $P+\alpha v$, con $\alpha\in\mathbb R$.
-
-![La recta 2x−3y=−6 pasa por (0,2) y (3,4); la recta homogénea 2x−3y=0 pasa por el origen y tiene la misma dirección. Se destaca el desplazamiento (1,2/3) desde (0,2).](assets/05-recta-y-homogenea.svg)
-
-*La recta azul reúne las soluciones. La recta discontinua pasa por el origen y tiene la misma dirección; aparecerá de nuevo al estudiar el [[#Sistema homogéneo asociado|homogéneo asociado]].* [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/assets/05-recta-y-homogenea.excalidraw|Dibujo editable]].
-
-Al sustituir en la ecuación original,
-
-$$
-2\alpha-3\left(2+\frac23\alpha\right)=-6.
-$$
-
-La expresión produce soluciones para cualquier $\alpha\in\mathbb R$. Recíprocamente, cualquier solución tiene un valor de $x$ que podemos tomar como $\alpha$; el despeje obliga entonces a que $y=2+\frac23\alpha$. No queda ninguna solución fuera de la parametrización.[^a8-geometria]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -201,7 +222,7 @@ tags:
 > ![Recta por (0,2), con desplazamiento director (1,2/3).](assets/05-recta-anki.png)
 ```
 
-### Ejemplo: un plano en el espacio
+### Ejemplo: un plano en el espacio, $\mathbb R^3$
 
 Despejamos $x$ en
 
@@ -755,7 +776,7 @@ tags:
 
 ### Operaciones que conservan las soluciones
 
-Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales|operaciones elementales]] permiten simplificar las ecuaciones sin cambiar sus soluciones:
+Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Matrices elementales y operaciones elementales|operaciones elementales]] permiten simplificar las ecuaciones sin cambiar sus soluciones:
 
 | Operación | Cómo se deshace |
 |---|---|
@@ -763,7 +784,7 @@ Las [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y si
 | Multiplicar una ecuación por $\lambda\ne0$ | Multiplicarla por $1/\lambda$ |
 | Reemplazar $R_i$ por $R_i+\lambda R_j$, con $i\ne j$ | Reemplazar $R_i$ por $R_i-\lambda R_j$; $R_j$ no cambia |
 
-Por ejemplo, sustituir la segunda ecuación por la segunda menos tres veces la primera se deshace sumando tres veces esa primera ecuación, que no se ha modificado. Una solución del sistema inicial satisface la nueva ecuación; como podemos reconstruir la anterior, tampoco hemos añadido soluciones. Ésta es la razón de la equivalencia, demostrada para cada operación en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Conservación de las soluciones|conservación de las soluciones]].[^a8-gauss]
+Por ejemplo, sustituir la segunda ecuación por la segunda menos tres veces la primera se deshace sumando tres veces esa primera ecuación, que no se ha modificado. Una solución del sistema inicial satisface la nueva ecuación; como podemos reconstruir la anterior, tampoco hemos añadido soluciones. Ésta es la razón de la equivalencia, demostrada para cada operación en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Matrices elementales y operaciones elementales#Conservación de las soluciones|conservación de las soluciones]].[^a8-gauss]
 
 > [!advertencia] La operación afecta a toda la fila
 > Al operar en $[A\mid B]$, también se modifica el término independiente. Cambiar sólo los coeficientes produciría, en general, un sistema distinto.
@@ -822,9 +843,9 @@ tags:
 
 ### Eliminación de Gauss y de Gauss–Jordan
 
-La [[Matemáticas/Álgebra lineal/Eliminación de Gauss|eliminación de Gauss]] obtiene una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] está a la derecha del anterior y tiene ceros debajo. Si el sistema es compatible, se resuelve desde la última ecuación no nula hacia arriba, por **[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Sustitución hacia atrás|sustitución regresiva]]**.
+La [[Matemáticas/Álgebra lineal/Eliminación de Gauss|eliminación de Gauss]] obtiene una [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]] está a la derecha del anterior y tiene ceros debajo. Si el sistema es compatible, se resuelve desde la última ecuación no nula hacia arriba, por **[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Sustitución hacia atrás|sustitución regresiva]]**.
 
-La [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|eliminación de Gauss–Jordan]] continúa hasta la [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma escalonada reducida]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] vale $1$ y es el único elemento no nulo de su columna. Así se leen directamente las incógnitas básicas en función de las libres.[^a8-gauss]
+La [[Matemáticas/Álgebra lineal/Eliminación de Gauss-Jordan|eliminación de Gauss–Jordan]] continúa hasta la [[Matemáticas/Álgebra lineal/Forma escalonada reducida|forma escalonada reducida]]: cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]] vale $1$ y es el único elemento no nulo de su columna. Así se leen directamente las incógnitas básicas en función de las libres.[^a8-gauss]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -879,9 +900,9 @@ tags:
 ### Variables básicas
 
 > [!definicion] Variable básica
-> Una incógnita es **básica** o **variable [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]** si su columna de coeficientes contiene un pivote en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]].[^a9]
+> Una incógnita es **básica** o **variable [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]]** si su columna de coeficientes contiene un pivote en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]].[^a9]
 
-En una ecuación reducida como $x_1+2x_3=5$, con [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] en la columna de $x_1$, despejamos $x_1=5-2x_3$. La variable básica se calcula a partir del valor asignado a la [[#Variables libres|variable libre]].
+En una ecuación reducida como $x_1+2x_3=5$, con [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]] en la columna de $x_1$, despejamos $x_1=5-2x_3$. La variable básica se calcula a partir del valor asignado a la [[#Variables libres|variable libre]].
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -899,9 +920,9 @@ tags:
 ### Variables libres
 
 > [!definicion] Variable libre
-> Una incógnita es **libre** si su columna de coeficientes no contiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]. En un sistema compatible puede elegirse arbitrariamente en $K$.
+> Una incógnita es **libre** si su columna de coeficientes no contiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]] en la [[Matemáticas/Álgebra lineal/Forma escalonada|forma escalonada]]. En un sistema compatible puede elegirse arbitrariamente en $K$.
 
-En el ejemplo $x_1=5-2x_3$, la columna de $x_3$ no contiene [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. Elegir $x_3=t$ da $x_1=5-2t$; cada $t\in K$ produce una solución.
+En el ejemplo $x_1=5-2x_3$, la columna de $x_3$ no contiene [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]]. Elegir $x_3=t$ da $x_1=5-2t$; cada $t\in K$ produce una solución.
 
 > [!recuerda] La última columna no es una incógnita
 > Los parámetros se cuentan entre las columnas de $A$. La columna $B$ contiene los términos independientes.
@@ -945,7 +966,7 @@ M_0=\left[\begin{array}{rrrr|r}
 \end{array}\right].
 $$
 
-La primera entrada es cero. Intercambiamos $R_1$ y $R_2$ y hacemos $R_1\leftarrow R_1-R_3$: como $4-3=1$, obtenemos un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] que permite eliminar sin fracciones.
+La primera entrada es cero. Intercambiamos $R_1$ y $R_2$ y hacemos $R_1\leftarrow R_1-R_3$: como $4-3=1$, obtenemos un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]] que permite eliminar sin fracciones.
 
 $$
 \left[\begin{array}{rrrr|r}
@@ -969,7 +990,7 @@ $$
 \end{array}\right].
 $$
 
-En la segunda columna ya hay un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] igual a $1$. Hacemos
+En la segunda columna ya hay un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]] igual a $1$. Hacemos
 
 $$
 R_3\leftarrow R_3+3R_2,
@@ -1012,11 +1033,11 @@ $$
 > \boxed{(x_1,x_2,x_3,x_4)=(-2,-16,8,-1)}.
 > $$
 >
-> Cada columna de coeficientes tiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]; no hay [[#Variables libres|variables libres]].
+> Cada columna de coeficientes tiene un [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]]; no hay [[#Variables libres|variables libres]].
 
 ### Continuar con Gauss–Jordan
 
-También podemos partir de $M_E$ y anular las entradas situadas encima de cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. Primero eliminamos las de la cuarta columna:
+También podemos partir de $M_E$ y anular las entradas situadas encima de cada [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]]. Primero eliminamos las de la cuarta columna:
 
 $$
 R_3\leftarrow R_3-4R_4,
@@ -1100,7 +1121,7 @@ M_0=\left[\begin{array}{rrrrr|r}
 \end{array}\right].
 $$
 
-Con $R_1\leftarrow R_1-R_3$ obtenemos la primera fila $(1,2,-1,-2,-4\mid-3)$. Usamos ese [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] para hacer
+Con $R_1\leftarrow R_1-R_3$ obtenemos la primera fila $(1,2,-1,-2,-4\mid-3)$. Usamos ese [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]] para hacer
 
 $$
 R_2\leftarrow R_2-5R_1,
@@ -1139,7 +1160,7 @@ M_E=\left[\begin{array}{rrrrr|r}
 \end{array}\right].
 $$
 
-Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivotes]] están en las columnas **1, 2 y 4**: son las [[#Variables básicas|variables básicas]] $x_1,x_2,x_4$. Aunque queda una columna sin [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]] entre la segunda y la cuarta, la matriz está escalonada. Las [[#Variables libres|variables libres]] son $x_3$ y $x_5$.
+Los [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivotes]] están en las columnas **1, 2 y 4**: son las [[#Variables básicas|variables básicas]] $x_1,x_2,x_4$. Aunque queda una columna sin [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]] entre la segunda y la cuarta, la matriz está escalonada. Las [[#Variables libres|variables libres]] son $x_3$ y $x_5$.
 
 La última fila expresa $0=0$, así que no aparece ninguna contradicción. Podemos elegir las dos [[#Variables libres|variables libres]] y calcular las tres básicas.
 
@@ -1441,7 +1462,7 @@ tags:
 > Deben pertenecer al núcleo, generar todas las soluciones de $Av=0$ y ser linealmente independientes. Cada vector de la base aporta un parámetro independiente.
 ```
 
-Cada columna sin pivote permite una elección libre. Si hay $n$ incógnitas y $r$ pivotes, quedan $n-r$ parámetros independientes. Las direcciones obtenidas al dar valor $1$ a una variable libre y $0$ a las restantes forman una base del núcleo: en las coordenadas libres, cada una tiene un $1$ en su posición y ceros en las otras. Es la relación entre [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa#Grado de indeterminación|rango y número de parámetros]].[^a9][^rango-nulidad]
+Cada columna sin pivote permite una elección libre. Si hay $n$ incógnitas y $r$ pivotes, quedan $n-r$ parámetros independientes. Las direcciones obtenidas al dar valor $1$ a una variable libre y $0$ a las restantes forman una base del núcleo: en las coordenadas libres, cada una tiene un $1$ en su posición y ceros en las otras. Es la relación entre [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/06 Compatibilidad y clasificación de sistemas#Grado de indeterminación|rango y número de parámetros]].[^a9][^rango-nulidad]
 
 ```anki
 deck: Matemáticas::Álgebra lineal::Sistemas lineales
@@ -1515,7 +1536,7 @@ $$
 \end{pmatrix}.
 $$
 
-Las dos últimas filas son iguales. Hacemos $R_3\leftarrow R_3-R_2$ para anular la tercera y $R_2\leftarrow-\frac12R_2$ para normalizar el segundo [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/03 Eliminación y matrices elementales#Pivote|pivote]]. Finalmente, $R_1\leftarrow R_1+2R_2$ anula la entrada situada encima de él y da la matriz $R$.
+Las dos últimas filas son iguales. Hacemos $R_3\leftarrow R_3-R_2$ para anular la tercera y $R_2\leftarrow-\frac12R_2$ para normalizar el segundo [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Pivote|pivote]]. Finalmente, $R_1\leftarrow R_1+2R_2$ anula la entrada situada encima de él y da la matriz $R$.
 
 Las ecuaciones no nulas son
 
@@ -1556,34 +1577,6 @@ $$
 $$
 
 El [[Matemáticas/Álgebra lineal/Rango de una matriz|rango]] de $A$ es $2$ y hay cuatro incógnitas. Cualquier segundo miembro compatible dará dos parámetros libres; si resulta incompatible, no habrá soluciones.
-
-## Práctica graduada
-
-### Ejercicio 1 — Justificar la solución general
-
-Si $Au=B$ y $Av=0$, demuestra que $u+v$ es solución de $AX=B$ y que toda solución $X$ se escribe $u+(X-u)$, con $X-u$ en el [[Matemáticas/Álgebra lineal/Espacios vectoriales/07 Núcleo, imagen, rango y nulidad|núcleo]].
-
-> [!resolucion]- Resolución
-> La [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/02 Operaciones#Distributividad por la derecha|distributividad]] da $A(u+v)=Au+Av=B+0=B$.
->
-> Recíprocamente, si $AX=B$, entonces $A(X-u)=AX-Au=B-B=0$. Así, $X-u\in\ker(A)$ y $X=u+(X-u)$. Se han probado ambas inclusiones del [[#Conjunto solución y cuerpo de resolución|conjunto solución]].
-
-### Ejercicio 2 — Elegir otra solución
-
-En el último ejemplo, toma $u=(-7,-4,1,0)$ y las dos direcciones del homogéneo. Escribe una solución distinta de $u$ y compruébala.
-
-> [!resolucion]- Resolución
-> Con $\alpha=1$ y $\beta=0$ resulta $X=(-9,-5,2,0)$. La sustitución da
->
-> $$
-> \begin{aligned}
-> -9-2(-5)&=1,\\
-> -3(-9)+4(-5)-2(2)&=3,\\
-> -(-9)-2(2)&=5.
-> \end{aligned}
-> $$
->
-> Los tres resultados coinciden con $B$, como garantiza la expresión particular más homogénea.
 
 ## 📚 Fuentes
 

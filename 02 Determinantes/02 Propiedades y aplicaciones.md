@@ -18,7 +18,7 @@ requiere:
   - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/02 Determinantes/01 Definición y cálculo de determinantes|Definición y cálculo de determinantes]]"
   - "[[Matemáticas/Álgebra lineal/Determinantes|Determinantes]]"
 relacionado:
-  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|Compatibilidad, rango e inversa]]"
+  - "[[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa|Matrices invertibles y matriz inversa]]"
   - "[[Matemáticas/Álgebra lineal/Matrices|Matrices]]"
 fsrs_goal: Justificar por desarrollo de Laplace la aditividad y homogeneidad del determinante en una fila o columna fija, probar por inducción su compatibilidad con conjugación y deducir la anulación para filas o columnas proporcionales; usar transposición, triangularidad, escala y producto; decidir invertibilidad y analizar sistemas singulares; definir un sistema de Cramer, identificar A, B y sus columnas C_j, construir A_j(B), aplicar la fórmula bajo det(A)≠0 para hallar la solución o una coordenada aislada y comprobar por sustitución; construir la adjunta y obtener A^{-1} o una de sus entradas.
 simbolos:
@@ -141,6 +141,9 @@ tags:
 ```
 
 
+> [!demostracion] Demostración · TPC resuelto
+> La homogeneidad respecto de una fila y respecto de una columna es un único resultado, demostrado en dos casos. Véanse [[#Homogeneidad respecto de una fila|el caso por filas]] y [[#Homogeneidad respecto de una columna|el caso por columnas]].[^tpc-homogeneidad]
+
 ### Homogeneidad respecto de una fila
 
 #### Propiedad
@@ -154,7 +157,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Caso — Homogeneidad respecto de una fila
 > Sea $L=(\ell_1,\ldots,\ell_n)$ y $\lambda\in K$. Para $n\ge2$, los cofactores $q_j$ de la fila $i$ coinciden antes y después de escalarla: sus submatrices no contienen esa fila.
 >
 > Por Laplace y por distributividad de la multiplicación escalar,
@@ -198,7 +201,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Caso — Homogeneidad respecto de una columna
 > Sea $C=(c_1,\ldots,c_n)^T$ y $\lambda\in K$. En orden $n\ge2$, llamemos $r_i$ a los cofactores de la columna $j$. Son los mismos para $C$ y $\lambda C$, pues al construirlos se borra esa columna.
 >
 > Por el [[Matemáticas/Álgebra lineal/Desarrollo de Laplace|desarrollo de Laplace]] correspondiente,
@@ -604,6 +607,9 @@ tags:
 ```
 
 
+> [!demostracion] Demostración · TPC resuelto
+> La anulación del determinante por filas o columnas proporcionales es un único resultado, demostrado en dos casos. Véanse [[#Filas proporcionales|el caso por filas]] y [[#Columnas proporcionales|el caso por columnas]].[^proporcionales]
+
 ### Filas proporcionales
 
 #### Propiedad
@@ -613,7 +619,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Caso — Filas proporcionales
 > **1. Reemplazar la fila por la fila proporcional sin dividir por $\lambda$.** Sea $B$ la matriz que coincide con $A$ salvo que su fila $i$ se reemplaza por $R_j$. Entonces $A$ se obtiene de $B$ multiplicando esa fila por $\lambda$. La homogeneidad, válida también para $\lambda=0$, da
 >
 > $$
@@ -653,7 +659,7 @@ tags:
 
 #### Demostración
 
-> [!demostracion] Demostración · TPC resuelto
+> [!demostracion] Caso — Columnas proporcionales
 > **1. Reemplazar la columna por la otra sin dividir por $\lambda$.** Sea $B$ la matriz que coincide con $A$ salvo que su columna $i$ se reemplaza por $C_j$. La matriz $A$ se obtiene de $B$ multiplicando esa columna por $\lambda$. Por homogeneidad en una columna,
 >
 > $$
@@ -978,7 +984,7 @@ tags:
 > \det(AB)=\frac{\det(B)}{c}=\det(A)\det(B).
 > $$
 >
-> **2. Caso en que $A$ no es invertible.** Por el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa#Relación entre invertibilidad, rango y solución única|criterio de pivotes]], una matriz cuadrada no invertible tiene menos de $n$ pivotes; en forma escalonada eso significa que alguna de sus $n$ filas es nula. La misma secuencia fija transforma $A$ en $QA$, que conserva esa fila nula. Al multiplicar por $B$, la fila sigue siendo nula, así que $Q(AB)=(QA)B$ también tiene una fila nula. Por ello, ambos determinantes reducidos son cero:
+> **2. Caso en que $A$ no es invertible.** Por el [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa#Relación entre invertibilidad, rango y solución única|criterio de pivotes]], una matriz cuadrada no invertible tiene menos de $n$ pivotes; en forma escalonada eso significa que alguna de sus $n$ filas es nula. La misma secuencia fija transforma $A$ en $QA$, que conserva esa fila nula. Al multiplicar por $B$, la fila sigue siendo nula, así que $Q(AB)=(QA)B$ también tiene una fila nula. Por ello, ambos determinantes reducidos son cero:
 >
 > $$
 > \det(QA)=c\det(A)=0,\qquad \det(Q(AB))=c\det(AB)=0.
@@ -1102,7 +1108,7 @@ tags:
 
 ### Rango, matrices elementales y solución única
 
-Para una matriz cuadrada de orden $n$, las equivalencias estudiadas en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Compatibilidad, rango e inversa|rango e inversa]] se completan con el determinante:
+Para una matriz cuadrada de orden $n$, las equivalencias estudiadas en [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan#Rango de una matriz|rango]] e [[Física/Grado/1º/Álgebra Lineal y Geometría Analítica/01 Matrices y sistemas/05 Matrices invertibles y matriz inversa|inversa]] se completan con el determinante:
 
 $$
 \begin{aligned}
@@ -1771,11 +1777,13 @@ El criterio $\det(A)\ne0$ permite resolver un sistema cuadrado sin calcular ante
 
 [^conjugacion]: Kenneth A. Ribet, University of California, Berkeley, *Math 110, Final Examination, May 10, 2010*, [soluciones, problema 5, p. 3](https://math.berkeley.edu/~ribet/110/finalsols_sp10.pdf): prueba por inducción de la compatibilidad entre determinante y conjugación. Adaptación de notación con desarrollo de los pasos. Corresponde al TPC de Aula 14, diapositiva 10.
 
-[^proporcionales]: Aula 15, diapositiva 9: TPC para filas y columnas proporcionales. Adaptación del argumento de homogeneidad y filas repetidas de Kuttler §3.2; se incluye el factor cero sin dividir por él.
+[^proporcionales]: Aula 15, diapositiva 9: un único TPC para la proposición que reúne filas y columnas proporcionales. Los dos apartados de la nota son casos de ese mismo encargo. Adaptación del argumento de homogeneidad y filas repetidas de Kuttler §3.2; se incluye el factor cero sin dividir por él.
 
 [^ist]: ULisboa, Instituto Superior Técnico, *Álgebra Linear*, [apuntes integrados](https://fenix.tecnico.ulisboa.pt/downloadFile/563568428979297/ApontamentosInteg.pdf), proposición 5.11 y corolarios 5.12–5.13, pp. 104–106: Laplace, producto, transposición, identidad de cofactores e inversa. La prueba local de la identidad de la adjunta desarrolla ambos órdenes del producto; la de transposición conserva el método inductivo completo publicado en Aula 14, diapositivas 7–9.
 
 [^cramer]: W. Keith Nicholson, *Linear Algebra with Applications*, [§3.2, «Determinants and Matrix Inverses»](https://math.libretexts.org/Bookshelves/Linear_Algebra/Linear_Algebra_with_Applications_(Nicholson)/03%3A_Determinants_and_Diagonalization/3.02%3A_Determinants_and_Matrix_Inverses): demostración de Cramer mediante la inversa y Laplace, también publicada en IST, proposición 5.17, pp. 107–108. La prueba principal adapta ese argumento. La alternativa por linealidad de una columna es un desarrollo local de las propiedades ya demostradas, no una transcripción de Nicholson.
+
+[^tpc-homogeneidad]: Aula 14, diapositiva 14: una sola proposición y un solo «Dem.: TPC» para homogeneidad respecto de filas y de columnas. Se conserva aquí la prueba completa en dos casos; no se cuentan como dos encargos. Las aditividades por fila y por columna, en cambio, se asignan por separado en las diapositivas 12 y 13.
 
 ## 🧑‍🏫 Prompt para tutor conversacional
 
