@@ -1,23 +1,57 @@
 
 \item \textbf{Determine whether each of
 the following statements is true or false,
-justifying your answer}
+justifying your answer.}
 
 For any system of linear equations $(S)$
 with $m$ equations and $n$ unknowns:
 
 \begin{enumerate}[label=\alph*)]
 
-    \item If $m>n$, then $(S)$
-    is inconsistent.
+    \item If $m>n$, then $(S)$ is inconsistent.
 
     \begin{answer}
+        \textbf{False.}
+
+        A system with more equations than
+        unknowns can be consistent and
+        determined, consistent and
+        indeterminate, or inconsistent.
+
+        Consider:
+        $$
+        \begin{cases}
+            x=1\\
+            y=2\\
+            x+y=3
+        \end{cases}
+        $$
+
+        Here $m=3>2=n$, but
+        $$
+        r(A)=r([A\mid B])=2=n.
+        $$
+
+        Therefore, the system is
+        consistent and determined.
     \end{answer}
 
-    \item If $m<n$, then $(S)$
-    is inconsistent.
+    \item If $m<n$, then $(S)$ is inconsistent.
 
     \begin{answer}
+        \textbf{False.}
+
+        Consider:
+        $$
+        x+y=0.
+        $$
+
+        Here $m=1<2=n$, but the system
+        is consistent and indeterminate.
+
+        In general, $m<n$ does not
+        imply that
+        $r(A)<r([A\mid B])$.
     \end{answer}
 
     \item If $m<n$, then $(S)$ is either
@@ -25,18 +59,112 @@ with $m$ equations and $n$ unknowns:
     indeterminate.
 
     \begin{answer}
+        \textbf{True.}
+
+        Since
+        $$
+        r(A)\leq m<n,
+        $$
+        we necessarily have
+        $$
+        r(A)<n.
+        $$
+
+        If
+        $$
+        r(A)<r([A\mid B]),
+        $$
+        the system is inconsistent.
+
+        Otherwise,
+        $$
+        r(A)=r([A\mid B])<n,
+        $$
+        and the system is consistent
+        and indeterminate.
+
+        Thus, it cannot be consistent
+        and determined.
     \end{answer}
 
     \item If $(S)$ is consistent and
     determined, then $m=n$.
 
     \begin{answer}
+        \textbf{False.}
+
+        If $(S)$ is consistent and
+        determined, then
+        $$
+        r(A)=r([A\mid B])=n.
+        $$
+
+        However, since
+        $$
+        r(A)\leq m,
+        $$
+        we can only conclude that
+        $$
+        \boxed{m\geq n}.
+        $$
+
+        Equality is not necessary.
+
+        For example:
+        $$
+        \begin{cases}
+            x=1\\
+            y=2\\
+            x+y=3
+        \end{cases}
+        $$
+
+        This system has $m=3>2=n$
+        and a unique solution.
     \end{answer}
 
     \item If $m=n$, then $(S)$ is
     consistent and determined.
 
     \begin{answer}
+        \textbf{False.}
+
+        Consider:
+        $$
+        \begin{cases}
+            x+y=2\\
+            x+y=3
+        \end{cases}
+        $$
+
+        Here $m=n=2$, but
+        $$
+        r(A)=1<2=r([A\mid B]).
+        $$
+
+        Therefore, the system is
+        inconsistent.
+
+        The equality $m=n$ alone
+        does not guarantee that
+        $r(A)=n$.
     \end{answer}
 
 \end{enumerate}
+
+{\color{red}
+\textbf{Important conclusion:}
+
+$$
+\begin{aligned}
+m<n&\implies
+\text{inconsistent or indeterminate},\\
+m\geq n&\implies
+\text{any classification is possible}.
+\end{aligned}
+$$
+
+A consistent and determined system
+necessarily satisfies $m\geq n$,
+but the converse is not true.
+}
