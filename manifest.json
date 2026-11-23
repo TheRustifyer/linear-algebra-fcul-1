@@ -2,35 +2,51 @@
   "schema": 1,
   "recipe": "d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240",
   "engine": "Argos Translate",
-  "sourceCommit": "63eef86f989d13301df6633833be7d4bea8f8294",
+  "sourceCommit": "5cf4f27535e3261ab6e4bc14accf5998311038d2",
   "documents": [
     {
       "path": "00 Fundamentos/01 Teoría elemental de conjuntos.md",
-      "sourceHash": "e1c3c784436e97032838840ff3372eec4e1333ed3610c3f974b5a91bb13c676e"
+      "sourceHash": "859f0bf88e26b0e766ba23354064fe239c921ff2328886989d7584711171aaca"
     },
     {
       "path": "01 Matrices y sistemas/00 Prefacio.md",
-      "sourceHash": "e0de1f132c1731b106b7a82df40a28172a3c20e905f189c0f30a0ae6957b32d3"
+      "sourceHash": "c7075011d50b3084604949be8c9050b532db6c133a63503e983b6c9049ac7027"
     },
     {
-      "path": "01 Matrices y sistemas/01 Matrices y operaciones.md",
-      "sourceHash": "1322fe91709c15a2f7ed598294271cf5d7cd8a97a3bc41bb9cafb057c315fbd3"
+      "path": "01 Matrices y sistemas/01 Matrices.md",
+      "sourceHash": "9c0ed73007eea2414e2f871a29ca7b99fa6fb51bfb1d859d663f0939dc41b3ab"
     },
     {
-      "path": "01 Matrices y sistemas/02 Eliminación y matrices elementales.md",
-      "sourceHash": "8b1ec815e0af502c70c604d059260a448b695effdc18b05067946fd0381f8f27"
+      "path": "01 Matrices y sistemas/02 Operaciones.md",
+      "sourceHash": "48a0ae45b7da71e0b3d326dc46faf5e8e5b59128567467fafcdd34c132e09ae1"
     },
     {
-      "path": "01 Matrices y sistemas/03 Compatibilidad, rango e inversa.md",
-      "sourceHash": "776fb4fd393c75beb9243567d4d949574ae0eea0674859a7819e01be76bdcc8d"
+      "path": "01 Matrices y sistemas/03 Matrices elementales y operaciones elementales.md",
+      "sourceHash": "3b03c19b3634eda76bf34c992d9f09fe9b52dddbcdb06865c2bdd09521a6756d"
     },
     {
-      "path": "01 Matrices y sistemas/04 Factorización LU.md",
-      "sourceHash": "926a5062363cfaa9fb5b5e7bbffc719480bd0d71856a71f62109d2e18ffdc64d"
+      "path": "01 Matrices y sistemas/04 Eliminación de Gauss y Gauss-Jordan.md",
+      "sourceHash": "a30d7bb55dc378dad565c050e3cfa15127fc502a68aadb53c3baab75c03ff38a"
     },
     {
-      "path": "01 Matrices y sistemas/05 Sistemas de ecuaciones lineales.md",
-      "sourceHash": "6800f68ca6fd53c7d05b3b33f92231fd09de7795a3749404e61aa31c5689a741"
+      "path": "01 Matrices y sistemas/05 Matrices invertibles y matriz inversa.md",
+      "sourceHash": "50b937bae0899a4d51f1880728298e28aed728de7aab321dfec664b83e40e6fe"
+    },
+    {
+      "path": "01 Matrices y sistemas/06 Compatibilidad y clasificación de sistemas.md",
+      "sourceHash": "45130c8a048575844a258f8060124521739670fec3905a4f4dc3483b074fac69"
+    },
+    {
+      "path": "01 Matrices y sistemas/07 Factorización LU.md",
+      "sourceHash": "bb24494d0273243ab458dd135234e7d8373833d36dd98c2c0842b47247cad987"
+    },
+    {
+      "path": "01 Matrices y sistemas/08 Sistemas de ecuaciones lineales.md",
+      "sourceHash": "e2883c7d5a9095e7301c9927317b6ce8608c3001ed8760f710704d2bb7ba1974"
+    },
+    {
+      "path": "01 Matrices y sistemas/09 Interpretaciones de Ax=b.md",
+      "sourceHash": "fdf024bfc1680ff7b15263781c7ba01563b1a211c59617d2c86e8ea568ded537"
     },
     {
       "path": "01 Matrices y sistemas/assets/01-desplazamiento-cartesiano.excalidraw.md",
@@ -70,7 +86,7 @@
     },
     {
       "path": "01 Matrices y sistemas/assets/03-producto-fila-columna.excalidraw.md",
-      "sourceHash": "07803ec12a5723fe4a344e666553ea35ccbf9c7480dd12b113fc556c275f311f"
+      "sourceHash": "177e264db23925623ecf7be5e6463f9f8c1a59e59ea3be62d143b3c9b4d24db4"
     },
     {
       "path": "01 Matrices y sistemas/assets/04-transpuesta-y-adjunta.excalidraw.md",
@@ -82,7 +98,7 @@
     },
     {
       "path": "01 Matrices y sistemas/assets/05-plano-parametrico.excalidraw.md",
-      "sourceHash": "c55dd829c74b6f067cb21feb3f0a84d19128274ce3772bcfe86e884bc2959650"
+      "sourceHash": "c14033121ca2e8131c9446063a6d39cb14a9493181ab9ec79995d45fc59291f7"
     },
     {
       "path": "01 Matrices y sistemas/assets/05-recta-y-homogenea.excalidraw.md",
@@ -118,19 +134,19 @@
     },
     {
       "path": "01 Matrices y sistemas/ejercicios/05 Sistemas e invertibilidad — ejercicios 35–40.md",
-      "sourceHash": "1c12438e4b40bce3e98194b28cc5dd8dcf5ee6e4c42aa6e7cc96602504dd5d14"
+      "sourceHash": "25c24db0b76346ef3595f34041b7ea1db78aef39fd0cb9ec87468e262ce5d091"
     },
     {
       "path": "02 Determinantes/01 Definición y cálculo de determinantes.md",
-      "sourceHash": "ef0caffed1fcb73b37d585f13c32715fc935d61a9be843ad6e9b6c5216b33fb6"
+      "sourceHash": "28e0a619d6d6b68f160da488c344dfec1f6d6ebf5b000e8bf46638cf95fe1f62"
     },
     {
       "path": "02 Determinantes/02 Propiedades y aplicaciones.md",
-      "sourceHash": "b47bb60a5d08ece60eb23e0a5609ff92a6058b1fe49bca956bd0ca1a8b50d6a9"
+      "sourceHash": "12c6a497dbb2081d2fcbee7a914387e9f8715703abca15e2d3102519e178e73d"
     },
     {
       "path": "02 Determinantes/03 Interpretación geométrica del determinante.md",
-      "sourceHash": "b0ac3cd1f55fb7eaf9f1424801c9bc85bc214809e00c97304aba783c8f77aee9"
+      "sourceHash": "7292b14dced16199963bf6f486c0b539f758a959bc455b07d3dc8397af2fa080"
     },
     {
       "path": "02 Determinantes/assets/01-sarrus.excalidraw.md",
@@ -166,39 +182,47 @@
     },
     {
       "path": "02 Determinantes/ejercicios/01 Cálculo y propiedades — ejercicios 41–48.md",
-      "sourceHash": "c25158dfa50206b75bdf88c31d4f78e232a9317108957a601e41a4850e148c57"
+      "sourceHash": "88ace1b50a039adfcbc6f4b6f734b841c85253b5cced8a761add29a6093e1149"
     },
     {
       "path": "02 Determinantes/ejercicios/02 Productos, invertibilidad y parámetros — ejercicios 49–54.md",
-      "sourceHash": "c71e71f2f7c51a84c9ffe7642e58b390d0fa1ca342963bdcb084f2d14565a452"
+      "sourceHash": "bed73f5451fd4b3c9ef34510f72c0c373e26ca9df5648db411db9ec59ab77541"
     },
     {
       "path": "02 Determinantes/ejercicios/03 Cofactores, adjunta y Cramer — ejercicios 55–58.md",
-      "sourceHash": "6d2c8aec49234770cfe49a68074ca833b82318e8fd81c07be88eda6cde06ab5f"
+      "sourceHash": "afc629907227c7b73e8f4097eba02ba7bfcceaea7ce8b2ff6971ef62e82d906a"
     },
     {
       "path": "03 Espacios vectoriales/01 Espacios vectoriales y axiomas.md",
-      "sourceHash": "dc2fafa67ca44292ba32fe9eb1c10179ba67be50fde46f699463ad09a0d4a3c8"
+      "sourceHash": "83b2b64b1f94aef4389692749bcfb5ae7f63245fb477db639863ad3734ff87fc"
     },
     {
       "path": "03 Espacios vectoriales/02 Propiedades derivadas de los axiomas.md",
-      "sourceHash": "d5f47cb3c7f0d893f29cc405a54ad674189382ead7263e9a4263dd117d679620"
+      "sourceHash": "43cd881cf3cb440ec9a2e8f0e5dcac7d775a03ff241dbe2e2d5bce17236cee85"
     },
     {
       "path": "03 Espacios vectoriales/03 Subespacios y espacio generado.md",
-      "sourceHash": "1dc3d562a1855d39eeff6bf5c4ec57d76e24bc22e50a09ff8b0a044355024111"
+      "sourceHash": "13a491f21533d67fb37088e4b9e68c7fd9c456af3d9733a84fdd557110350951"
     },
     {
       "path": "03 Espacios vectoriales/04 Independencia, bases y coordenadas.md",
-      "sourceHash": "28c236111556edc9f27bffb5de8a647bfb78edeb2f1fe0427ad78dda9d32ff3f"
+      "sourceHash": "39789d03d9a2ada89708f18bc0509e4b95eb06c5aa8bd9c9b0c045d955e07332"
     },
     {
       "path": "03 Espacios vectoriales/05 Sumas y espacios asociados a una matriz.md",
-      "sourceHash": "7ff61dbd69b771d4766c3bac944ceae6f3e02ab45bd7afdb4877b8d3009fd9bd"
+      "sourceHash": "02a2e154becbf9a64598f4b0a026c4bfab193dd2cdece9f6bb3192a83c0f589e"
     },
     {
       "path": "03 Espacios vectoriales/06 Cuatro subespacios fundamentales.md",
-      "sourceHash": "9e2e76fa0cce3b8c1ae899e76ffec4cf7796e655cadade7c9b8e77b60ec9c0a0"
+      "sourceHash": "6fae30b38e4f215113b8e059bddcf4461cb3226651cb79003fdf26eeca3f4b67"
+    },
+    {
+      "path": "03 Espacios vectoriales/07 Matrices de rango uno.md",
+      "sourceHash": "a84854071e652fe974e45309f7b921912b298bd778b6d223cec7f8473bd1c8c7"
+    },
+    {
+      "path": "03 Espacios vectoriales/08 Grafos, redes y matrices de incidencia.md",
+      "sourceHash": "ef21b4450b3910fbaa047b91c6818f478ca72a30810182670120690c8826eb2c"
     },
     {
       "path": "03 Espacios vectoriales/assets/01-circunferencia-cierre.excalidraw.md",
@@ -234,91 +258,155 @@
     },
     {
       "path": "03 Espacios vectoriales/ejercicios/01 Axiomas y subespacios — ejercicios 59–65.md",
-      "sourceHash": "6b05e48b3bb19edb5390e458530a58f890b16ff898ac4c1d48ca95b0e1c3492c"
+      "sourceHash": "1e8396e8b5364665164fd8c61576c31cb4a4c2a090ee5f16279e5404d69c7981"
     },
     {
       "path": "03 Espacios vectoriales/ejercicios/02 Combinaciones lineales y espacio generado — ejercicios 66–77.md",
-      "sourceHash": "e315bcf9707441cc3eea7945ebf6c1baa7972d81ea884e10745c4de32fc62088"
+      "sourceHash": "2172080e3373bf5cc9bf2185052a0d742bd0b8e368754940d77cd7bdaf5c55fa"
     },
     {
       "path": "03 Espacios vectoriales/ejercicios/03 Independencia, bases y coordenadas — ejercicios 78–88.md",
-      "sourceHash": "3211512693d50fdcbbbcbbaa0ef9c9b1554545a359420724810a08619599ff32"
+      "sourceHash": "051f5aca8c2ce5a7afc8ebc436b4699cfe13f12a9e7397b81c6719330581f8f7"
     },
     {
       "path": "03 Espacios vectoriales/ejercicios/04 Dimensión, intersección y suma — ejercicios 89–90.md",
-      "sourceHash": "2f0b8cfa3ba6530e283cd65855c1a5cb3f093e1ba303e87eb72c051bf8d12687"
+      "sourceHash": "e53f2992ab8c21790a837ab0002b0bc481176171e4f5d375ddf5f700fc311029"
     },
     {
       "path": "04 Transformaciones lineales/01 Aplicaciones entre conjuntos.md",
-      "sourceHash": "6b6b7566bc501768a979e153ac13dbc6ae4bc8013b870a32b6b0f6df1e44cc0c"
+      "sourceHash": "d0fae011d041b8919c47b8e686bb64c7f4e2f37f1f42426079cb02d513738532"
     },
     {
       "path": "04 Transformaciones lineales/02 Transformaciones, núcleo e imagen.md",
-      "sourceHash": "1c3db3d73ed6157c332f55f5ac6eae33fd2234758afb7ccc4bbf7e468017937a"
+      "sourceHash": "c0638ca2a66994139e267089825ec1248bbbacc135f8a167ee131a24eb99c943"
     },
     {
       "path": "04 Transformaciones lineales/03 Representación matricial e isomorfismos.md",
-      "sourceHash": "7f5f9da57be20c78824c7123a361c91534c71f28e5899d5a3dae93b9993761e5"
+      "sourceHash": "981b4858be7f92ac35dc237aebd3cb31ee3c7b97e2807e32a0484e2cad31e626"
     },
     {
       "path": "04 Transformaciones lineales/04 Transformaciones geométricas y composición.md",
-      "sourceHash": "f93f5d918f3683dcd6f39860d3deff9d1483ca286b2ae0722c94de1c10920f39"
+      "sourceHash": "05c8f4d9d366228a22614217268eda5d8c9e4350d61b9ccfe3f7ca3e96ad183f"
+    },
+    {
+      "path": "04 Transformaciones lineales/05 Semejanza de matrices.md",
+      "sourceHash": "319dc213febbd6da37bb41c46b1d3531531ddf37692ce99698d980c3a903b652"
     },
     {
       "path": "05 Valores propios y diagonalización/01 Espectro y subespacios propios.md",
-      "sourceHash": "41438602697548e14184684e91fa30aa7e929884b479c06723c7c58f6f184320"
+      "sourceHash": "e2fc001a53c1b825b8241a5665a4e8688a19a94fb7539bbabcb5410271f5878f"
     },
     {
       "path": "05 Valores propios y diagonalización/02 Diagonalización y matrices simétricas.md",
-      "sourceHash": "682af9ba17357431b3b8a1cd926cf03552676b84350a501461aaa605e0a27802"
+      "sourceHash": "57acb70a5dd921a46ebb4d635489952e18c3c965e7787fcdfff5014ddbf8b160"
+    },
+    {
+      "path": "05 Valores propios y diagonalización/03 Sistemas dinámicos discretos.md",
+      "sourceHash": "9705e88f1ef21d50a48e06fa51d543f74522e03a1f41d60a9b7c36d3f618bc1d"
+    },
+    {
+      "path": "05 Valores propios y diagonalización/04 Matrices de Markov.md",
+      "sourceHash": "b80390c51081c91b19994f70876d11322844df1b666d97e1809d222f1f6f8628"
+    },
+    {
+      "path": "05 Valores propios y diagonalización/05 Sistemas diferenciales y exponencial matricial.md",
+      "sourceHash": "b3777c96779e2c96a9f08ccf18c9df78601b6ff5ec7d451ba6bbd8c50005ac4e"
+    },
+    {
+      "path": "05 Valores propios y diagonalización/06 Forma de Jordan.md",
+      "sourceHash": "de396be301bf3757b3741f4863d57cf5e3fcca01de8b1e1c866316293dfc308e"
     },
     {
       "path": "06 Espacios euclídeos/01 Producto interno, norma y ángulo.md",
-      "sourceHash": "d893c6d52845e9beb4de96413a67b08ebe984cbf7fc79acdca87fd436c666a0b"
+      "sourceHash": "bdea884f8ada42a3682496a56923cb42ca0396d429f5630e065b1e23919a49bd"
     },
     {
       "path": "06 Espacios euclídeos/02 Bases ortogonales y Gram-Schmidt.md",
-      "sourceHash": "5b1d1ecb47db08bc5d04d41b334e18bdd1c07d93bc3b707c0fa3c6b5498f2439"
+      "sourceHash": "5a317daea5b72c558fef4ddd9341998ca5ecfb290e3e3f47061f818c0278633b"
     },
     {
       "path": "06 Espacios euclídeos/03 Producto externo en R3.md",
-      "sourceHash": "560413861251a8d7f12d68fc3d656f656255a6428babe95302ff6631ad12775d"
+      "sourceHash": "404528002ccd96b7916062a8d6e680e6d045df7e052df09014b13492ab82dc25"
     },
     {
       "path": "06 Espacios euclídeos/04 Proyecciones matriciales y mínimos cuadrados.md",
-      "sourceHash": "7e30c5f784619d6b461f0c0859086053450e9b8f9ce42f37a0fa05053b834f70"
+      "sourceHash": "a98957edf0331c754276dbb42e188c17f06e89d78103666d45614bd145bd1414"
     },
     {
       "path": "06 Espacios euclídeos/05 Rectas, planos y distancias.md",
-      "sourceHash": "da15732bd2d89ace5ad5fb3e2b9a615abb2065a48325468430b0e38b3913fdbb"
+      "sourceHash": "31f9d9290e8a27dc60cb4b51fef29b85818f3e0b569448c11c8545822625a29b"
+    },
+    {
+      "path": "06 Espacios euclídeos/06 Factorización QR.md",
+      "sourceHash": "e36947b26942324cc17fa103b8ff392860a0389a0ab1b5a250136b1caafe2f87"
+    },
+    {
+      "path": "06 Espacios euclídeos/07 Producto interno hermítico y matrices unitarias.md",
+      "sourceHash": "cb9b1228b90292ae75c4447d5c90fddaba73895e05b9560c5466dcd973d78872"
     },
     {
       "path": "07 Formas cuadráticas/01 Formas cuadráticas y matrices simétricas.md",
-      "sourceHash": "d2f12d05127fc849a4f4c4063773cb0d2bfe8cf4fa614316ff2e4687d8e86af5"
+      "sourceHash": "434843c4fc2dd89f95520911a1724d590ff366418751d1f0533cec4dcaa23593"
     },
     {
       "path": "07 Formas cuadráticas/02 Clasificación de formas cuadráticas.md",
-      "sourceHash": "c49a87a7984a7a684fbea462d0e040ff4a542f2632659e2b1f93146b0fad71a0"
+      "sourceHash": "94e596e6fdd901ba3d0b196015acc834c5d55ac8bb37d7a5c777687f06a8e4de"
+    },
+    {
+      "path": "07 Formas cuadráticas/03 Positividad, pivotes y sumas de cuadrados.md",
+      "sourceHash": "e3c73f83e627b7a6191868cbebb1806c6896f68a67f4d8e34894ea094b1c6ef4"
+    },
+    {
+      "path": "07 Formas cuadráticas/04 Elipses, elipsoides y ejes principales.md",
+      "sourceHash": "e996dc023eeb8a9dfe1431400c3b8137cfd72f9852c50ec68ee338ad5a2fc3a2"
+    },
+    {
+      "path": "07 Formas cuadráticas/05 Hessiana y mínimos locales.md",
+      "sourceHash": "608e89ea79b867ec389dac6b0999f4f281fbc6dc6284cd55dd8ab737ac421376"
+    },
+    {
+      "path": "08 Descomposición en valores singulares/01 Descomposición en valores singulares.md",
+      "sourceHash": "d5aea7c88f7d71f87c5aaf1508120b006d45c64a700ca2e18e7b37edd5a99ac1"
+    },
+    {
+      "path": "08 Descomposición en valores singulares/02 Aproximación de rango reducido y compresión de imágenes.md",
+      "sourceHash": "da7221cc99995df9a35a851c2347370defd0bed6d896b9aebb2c716bb93034b5"
+    },
+    {
+      "path": "08 Descomposición en valores singulares/03 Inversas laterales y pseudoinversa.md",
+      "sourceHash": "a9e5e02842dc487e709a75694559bbe94053dc6288e8b4d5b75f6c827a3c7fb0"
+    },
+    {
+      "path": "09 Fourier/01 Series de Fourier.md",
+      "sourceHash": "56698b0f60e16535dea8128ceab68febfe4c6fdae14b48f8ee8c37c4af5fac81"
+    },
+    {
+      "path": "09 Fourier/02 Transformada discreta de Fourier y FFT.md",
+      "sourceHash": "30fa0ea9e90b4b2e672138f612d5eee8f166ac6eefb09f60a240ec868aa46ed8"
     },
     {
       "path": "Resumen - Síntesis de contenidos.md",
-      "sourceHash": "bda5837c13b58096ca9e12d9c733cd074a6ca3319b3f211217bc9cfabfd3794d"
+      "sourceHash": "0c336281541ca9a7406c006e2ebbe7f9232c6e6aee62339ab47c786a6e472a95"
+    },
+    {
+      "path": "assets/anki/ALGA — Tarjetas de ampliación.md",
+      "sourceHash": "519fec6d7e1705b037f2c807ba45af4f6da9949b9815d171d7448f2f68bb186a"
     },
     {
       "path": "index.md",
-      "sourceHash": "6b9d6dd3fe1f870676ddf3ffaf80693c8045b03abd18677849b80212a7f128b7"
+      "sourceHash": "8f242d3ba77c1e276922eb47cfe51d90af79b09587dcd52d1fd014b3e3bf58ee"
     }
   ],
   "stats": {
     "en": {
-      "translated": 0,
-      "reused": 10033,
-      "total": 10033
+      "translated": 1148,
+      "reused": 9444,
+      "total": 10592
     },
     "pt": {
-      "translated": 0,
-      "reused": 10033,
-      "total": 10033
+      "translated": 1148,
+      "reused": 9444,
+      "total": 10592
     }
   }
 }
