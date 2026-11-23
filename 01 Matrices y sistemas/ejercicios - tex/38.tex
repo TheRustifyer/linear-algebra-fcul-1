@@ -1,0 +1,380 @@
+\item Let $(S)$ be a system of linear equations over $\mathbb{R}$ in the unknowns $x,y,z,w$
+whose general solution is
+
+$$
+\begin{aligned}
+(x,y,z,w)
+={}&(2,1,-1,0)\\
+&+\alpha(1,3,0,1)\\
+&+\beta(1,0,0,1),
+\end{aligned}
+$$
+
+where $\alpha,\beta\in\mathbb{R}$.
+
+\begin{enumerate}[label=\alph*)]
+
+\item Justify that $(S)$ is not homogeneous.
+
+\begin{answer}
+    The general solution is
+    $$
+    \begin{aligned}
+    (x,y,z,w)
+    ={}&(2,1,-1,0)\\
+    &+\alpha(1,3,0,1)\\
+    &+\beta(1,0,0,1).
+    \end{aligned}
+    $$
+
+    Expanding the vector expression
+    component by component gives
+    $$
+    \begin{cases}
+    x=2+\alpha+\beta,\\
+    y=1+3\alpha,\\
+    z=-1,\\
+    w=\alpha+\beta.
+    \end{cases}
+    $$
+
+    Since the third coordinate of both parameter vectors is zero, every solution satisfies
+    $$
+    z=-1.
+    $$
+
+    Therefore, the zero vector $(0,0,0,0)$ is not a solution.
+
+    Since every homogeneous system admits the zero solution, we conclude that
+    $$
+    \boxed{(S)\text{ is not homogeneous}.}
+    $$
+
+    {\color{red}
+    \textbf{Note:} The presence of a nonzero particular solution does not prove that
+    a system is nonhomogeneous. A homogeneous system may also have nonzero
+    solutions. The decisive fact is that the zero vector is not a solution of $(S)$.}
+\end{answer}
+
+\item Determine, with justification, which of the following families are
+general solutions of $(S)$.
+
+\begin{enumerate}[label=\roman*)]
+
+\item
+$$
+\begin{aligned}
+(x,y,z,w)
+={}&(3,1,-1,1)\\
+&+\alpha(1,3,0,1)\\
+&+\beta(1,0,0,1).
+\end{aligned}
+$$
+
+\item
+$$
+\begin{aligned}
+(x,y,z,w)
+={}&(1,4,-1,-1)\\
+&+\alpha(1,3,0,1)\\
+&+\beta(1,0,0,1).
+\end{aligned}
+$$
+
+\item
+$$
+\begin{aligned}
+(x,y,z,w)
+={}&(3,1,-1,0)\\
+&+\alpha(1,3,0,1)\\
+&+\beta(1,0,0,1).
+\end{aligned}
+$$
+
+\end{enumerate}
+
+\begin{answer}
+    Let
+    $$
+    \begin{aligned}
+    u&=(2,1,-1,0),\\
+    v_1&=(1,3,0,1),\\
+    v_2&=(1,0,0,1).
+    \end{aligned}
+    $$
+
+    The original general solution is
+    $$
+    X=u+\alpha v_1+\beta v_2.
+    $$
+
+    To determine whether a proposed vector $u'$ is another particular
+    solution, we seek parameters $s,t\in\mathbb{R}$ such that
+    $$
+    X(s,t)=u'.
+    $$
+
+    First, expand the original family:
+    $$
+    \begin{aligned}
+    X(s,t)
+    &=u+sv_1+tv_2\\
+    &=(2+s+t,1+3s,-1,s+t).
+    \end{aligned}
+    $$
+
+    {\color{red}
+    \textbf{Note:} Fixing particular values of $s$ and $t$ produces one concrete solution $X(s,t)$.
+    Any such solution may be chosenas a new particular solution $u'$.}
+
+    \textbf{Family i).}
+
+    The proposed particular solution is
+    $$
+    u'=(3,1,-1,1).
+    $$
+
+    We impose
+    $$
+    X(s,t)=u'.
+    $$
+
+    Thus,
+    $$
+    \begin{aligned}
+    &(2+s+t,1+3s,-1,s+t)\\
+    &\qquad=(3,1,-1,1).
+    \end{aligned}
+    $$
+
+    Equating corresponding coordinates:
+    $$
+    \begin{cases}
+    2+s+t=3,\\
+    1+3s=1,\\
+    -1=-1,\\
+    s+t=1.
+    \end{cases}
+    $$
+
+    From the second equation,
+    $$
+    3s=0
+    \implies s=0.
+    $$
+
+    From the first equation,
+    $$
+    s+t=1
+    \implies t=1.
+    $$
+
+    All remaining equalities hold.
+    Therefore,
+    $$
+    u'=X(0,1)=u+v_2.
+    $$
+
+    Now consider the proposed family, using independent parameters
+    $\lambda,\mu\in\mathbb{R}$:
+    $$
+    \begin{aligned}
+    X
+    &=u'+\lambda v_1+\mu v_2\\
+    &=u+v_2+\lambda v_1+\mu v_2\\
+    &=u+\lambda v_1+(\mu+1)v_2.
+    \end{aligned}
+    $$
+
+    Since $\lambda$ and $\mu+1$ can independently take every real value, this describes
+    exactly the original solution set.
+
+    Hence \textbf{family i) is valid}.
+
+    \textbf{Family ii).}
+
+    The proposed particular solution is
+    $$
+    u'=(1,4,-1,-1).
+    $$
+
+    Again, impose
+    $$
+    X(s,t)=u'.
+    $$
+
+    Therefore,
+    $$
+    \begin{aligned}
+    &(2+s+t,1+3s,-1,s+t)\\
+    &\qquad=(1,4,-1,-1).
+    \end{aligned}
+    $$
+
+    Equating coordinates:
+    $$
+    \begin{cases}
+    2+s+t=1,\\
+    1+3s=4,\\
+    -1=-1,\\
+    s+t=-1.
+    \end{cases}
+    $$
+
+    From the second equation,
+    $$
+    3s=3
+    \implies s=1.
+    $$
+
+    Substituting into the first:
+    $$
+    2+1+t=1
+    \implies t=-2.
+    $$
+
+    The remaining equalities hold.
+    Hence
+    $$
+    u'=X(1,-2)=u+v_1-2v_2.
+    $$
+
+    The proposed family becomes
+    $$
+    \begin{aligned}
+    X
+    &=u'+\lambda v_1+\mu v_2\\
+    &=u+v_1-2v_2
+      +\lambda v_1+\mu v_2\\
+    &=u+(1+\lambda)v_1
+      +(\mu-2)v_2.
+    \end{aligned}
+    $$
+
+    Since $1+\lambda$ and $\mu-2$ independently range over $\mathbb{R}$, this is the same
+    solution set.
+
+    Hence \textbf{family ii) is valid}.
+
+    \textbf{Family iii).}
+
+    The proposed particular solution is
+    $$
+    u'=(3,1,-1,0).
+    $$
+
+    We impose
+    $$
+    X(s,t)=u'.
+    $$
+
+    Thus,
+    $$
+    \begin{cases}
+    2+s+t=3,\\
+    1+3s=1,\\
+    -1=-1,\\
+    s+t=0.
+    \end{cases}
+    $$
+
+    The first equation requires
+    $$
+    s+t=1,
+    $$
+
+    whereas the fourth requires
+    $$
+    s+t=0.
+    $$
+
+    These conditions are contradictory.
+    Therefore, no values of $s,t$ produce the proposed vector $u'$.
+
+    Hence \textbf{family iii) is invalid}.
+
+    \textbf{Conclusion:}
+    $$
+    \boxed{\text{Families i) and ii) only.}}
+    $$
+
+    {\color{red}
+    \textbf{Important:} The equation
+    $$
+    u'-u=sv_1+tv_2
+    $$
+    is equivalent to
+    $$
+    u+sv_1+tv_2=u'.
+    $$
+
+    Subtracting $u$ simply isolates the parameter-dependent part.
+    We are not proving that $u=u'$; we are checking whether $u'$ already belongs to the original
+    family of solutions.
+
+    Since all three proposed families retain the same parameter vectors,
+    any valid new particular solution gives another representation of the same general solution.
+    }
+\end{answer}
+
+\item Justify that the family
+$$
+\begin{aligned}
+(x,y,z,w)
+={}&(2,1,-1,0)\\
+&+\alpha(3,4,-1,1)\\
+&+\beta(1,0,0,1),
+\end{aligned}
+$$
+where $\alpha,\beta\in\mathbb{R}$,
+is not a general solution of $(S)$.
+
+\begin{answer}
+    Every vector in the original general solution satisfies
+    $$
+    z=-1.
+    $$
+
+    In the proposed family, however, the third coordinate is
+    $$
+    z=-1-\alpha.
+    $$
+
+    Thus, it is no longer fixed.
+
+    For instance, let
+    $$
+    \alpha=1,\qquad\beta=0.
+    $$
+
+    The proposed expression gives
+    $$
+    \begin{aligned}
+    (x,y,z,w)
+    &=(2,1,-1,0)+(3,4,-1,1)\\
+    &=(5,5,-2,1).
+    \end{aligned}
+    $$
+
+    This vector cannot belong to the original solution set, since its third coordinate
+    is $-2$, rather than $-1$.
+
+    Consequently,
+    $$
+    \boxed{
+    \text{The proposed family is not}
+    }
+    $$
+    $$
+    \boxed{
+    \text{a general solution of }(S).
+    }
+    $$
+
+    {\color{red}
+    \textbf{Note:} To prove that two families are different, it is
+    sufficient to find a vector belonging to one family but not to the other.
+    }
+\end{answer}
+
+\end{enumerate}

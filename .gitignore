@@ -10,6 +10,8 @@ node_modules/
 .site/public/
 .site-cache/
 .quartz-cache/
+dudas-tutorías/
+
 *.tsbuildinfo
 
 # Keep .tex sources, .bib bibliographies, and final PDFs.
