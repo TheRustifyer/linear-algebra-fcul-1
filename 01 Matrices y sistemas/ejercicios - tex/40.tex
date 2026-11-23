@@ -1,0 +1,110 @@
+
+\item Let $A\in M_n(\mathbb{C})$ satisfy
+$$
+AA^*=3I_n,
+$$
+where
+$$
+A^*=\overline{A}^{\,T}.
+$$
+
+\begin{enumerate}[label=\alph*)]
+
+\item Prove that $A$ is invertible and determine its inverse in terms of $A$.
+
+\begin{answer}
+    We are given
+    $$
+    AA^*=3I_n.
+    $$
+
+    Multiplying both sides by the scalar $\frac13$ gives
+    $$
+    \frac13AA^*=I_n.
+    $$
+
+    By associativity of scalar multiplication,
+    $$
+    A\left(\frac13A^*\right)=I_n.
+    $$
+
+    Thus, $\frac13A^*$ is a right inverse of $A$.
+
+    Since $A$ is a square matrix, the existence of a right inverse
+    guarantees that $A$ is invertible.
+
+    Consequently,
+    $$
+    \boxed{
+    A^{-1}=\frac13A^*
+    =\frac13\overline{A}^{\,T}.
+    }
+    $$
+
+\end{answer}
+
+\item Prove that the complex conjugate matrix $\overline{A}$
+is invertible and determine its inverse in terms of $A$.
+
+\begin{answer}
+    Starting from
+    $$
+    AA^*=3I_n,
+    $$
+    take the complex conjugate of both sides:
+    $$
+    \overline{AA^*}
+    =\overline{3I_n}.
+    $$
+
+    Since complex conjugation preserves matrix products,
+    $$
+    \overline{A}\,
+    \overline{A^*}=3I_n.
+    $$
+
+    By definition,
+    $$
+    A^*=\overline{A}^{\,T}.
+    $$
+
+    Therefore,
+    $$
+    \overline{A^*}=A^T.
+    $$
+
+    Substituting gives
+    $$
+    \overline{A}\,A^T=3I_n.
+    $$
+
+    Multiplying by $\frac13$,
+    $$
+    \overline{A}
+    \left(\frac13A^T\right)=I_n.
+    $$
+
+    The matrix $\overline{A}$ is square, so it is invertible.
+
+    Hence,
+    $$
+    \boxed{
+    (\overline{A})^{-1}
+    =\frac13A^T.
+    }
+    $$
+
+    {\color{red}
+    \textbf{Important:} The complex conjugate and the conjugate transpose
+    are different operations.
+
+    We have
+    $$
+    A^*=\overline{A}^{\,T},
+    \qquad
+    \overline{A^*}=A^T.
+    $$
+}
+\end{answer}
+
+\end{enumerate}

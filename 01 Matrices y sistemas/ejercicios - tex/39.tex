@@ -1,0 +1,353 @@
+
+\item Let $a,b\in\mathbb{R}$ and consider the matrices
+
+$$
+A=
+\begin{bmatrix}
+8&-2&1&3\\
+0&a^2-4&a-2&6\\
+0&0&a^2-4&b\\
+0&0&0&a
+\end{bmatrix},
+\qquad
+B=
+\begin{bmatrix}
+b\\1\\2\\2b
+\end{bmatrix}.
+$$
+
+\begin{enumerate}[label=\alph*)]
+
+\item Let $(S)$ be the system whose augmented matrix is $[A\mid B]$.
+Discuss $(S)$ depending on $a$ and $b$.
+
+\begin{answer}
+    The augmented matrix is
+    $$
+    \left[
+    \begin{array}{cccc|c}
+    8&-2&1&3&b\\
+    0&a^2-4&a-2&6&1\\
+    0&0&a^2-4&b&2\\
+    0&0&0&a&2b
+    \end{array}
+    \right].
+    $$
+
+    The coefficient matrix is upper triangular. Its diagonal entries are
+    $$
+    8,\quad a^2-4,\quad
+    a^2-4,\quad a.
+    $$
+
+    Since
+    $$
+    a^2-4=(a-2)(a+2),
+    $$
+    the exceptional values are
+    $$
+    \boxed{a=-2,\quad a=0,\quad a=2.}
+    $$
+
+    {\color{red}
+    \textbf{Note:} A vanishing potential pivot requires a separate discussion.
+    It does not automatically imply that the system is consistent and indeterminate}
+
+    \textbf{Case 1:
+    $a\notin\{-2,0,2\}$.}
+
+    Every diagonal entry is nonzero.
+    Therefore, $A$ has four pivots:
+    $$
+    r(A)=4.
+    $$
+
+    Since $[A\mid B]$ has four rows,
+    $$
+    r(A)\leq r([A\mid B])\leq4.
+    $$
+
+    Consequently,
+    $$
+    r(A)=r([A\mid B])=4=n.
+    $$
+
+    The system is consistent and determined for every $b$.
+
+    \textbf{Case 2: $a=0$.}
+
+    Substituting $a=0$ gives
+    $$
+    \left[
+    \begin{array}{cccc|c}
+    8&-2&1&3&b\\
+    0&-4&-2&6&1\\
+    0&0&-4&b&2\\
+    0&0&0&0&2b
+    \end{array}
+    \right].
+    $$
+
+    The coefficient matrix has three pivots, so
+    $$
+    r(A)=3.
+    $$
+
+    If $b=0$, the last row becomes entirely zero:
+    $$
+    r(A)=r([A\mid B])=3<4.
+    $$
+
+    Therefore, the system is consistent and indeterminate, with degree
+    $$
+    p=4-3=1.
+    $$
+
+    If $b\neq0$, the last row represents
+    $$
+    0=2b,
+    $$
+    which is a contradiction.
+
+    Thus,
+    $$
+    r(A)=3<4=r([A\mid B]).
+    $$
+
+    The system is inconsistent.
+
+    \textbf{Case 3: $a=2$.}
+
+    Substitution gives
+    $$
+    \left[
+    \begin{array}{cccc|c}
+    8&-2&1&3&b\\
+    0&0&0&6&1\\
+    0&0&0&b&2\\
+    0&0&0&2&2b
+    \end{array}
+    \right].
+    $$
+
+    The last three equations are
+    $$
+    \begin{cases}
+    6x_4=1,\\
+    bx_4=2,\\
+    2x_4=2b.
+    \end{cases}
+    $$
+
+    From the first equation,
+    $$
+    x_4=\frac16.
+    $$
+
+    From the third equation,
+    $$
+    x_4=b.
+    $$
+
+    Therefore,
+    $$
+    b=\frac16.
+    $$
+
+    However, substituting $x_4=\frac16$ into the
+    second equation gives
+    $$
+    \frac{b}{6}=2
+    \implies b=12.
+    $$
+
+    This contradicts
+    $b=\frac16$.
+
+    Hence the system is
+    inconsistent for every $b$.
+
+    More precisely,
+    $$
+    r(A)=2<3=r([A\mid B]).
+    $$
+
+    \textbf{Case 4: $a=-2$.}
+
+    Substitution gives
+    $$
+    \left[
+    \begin{array}{cccc|c}
+    8&-2&1&3&b\\
+    0&0&-4&6&1\\
+    0&0&0&b&2\\
+    0&0&0&-2&2b
+    \end{array}
+    \right].
+    $$
+
+    The last two equations are
+    $$
+    \begin{cases}
+    bx_4=2,\\
+    -2x_4=2b.
+    \end{cases}
+    $$
+
+    From the second equation,
+    $$
+    x_4=-b.
+    $$
+
+    Substitution into the first gives
+    $$
+    -b^2=2.
+    $$
+
+    Equivalently,
+    $$
+    b^2=-2.
+    $$
+
+    Since $b\in\mathbb{R}$, this is impossible.
+
+    Thus the system is inconsistent for every real value of $b$.
+
+    In this case,
+    $$
+    r(A)=3<4=r([A\mid B]).
+    $$
+
+    \textbf{Conclusion}
+
+    $$
+    \boxed{
+    \begin{array}{ll}
+    a\notin\{-2,0,2\}:&
+    \text{SCD, for every }b,\\
+    a=0,\ b=0:&
+    \text{SCI, degree }1,\\
+    a=0,\ b\neq0:&
+    \text{SI},\\
+    a\in\{-2,2\}:&
+    \text{SI, for every }b.
+    \end{array}
+    }
+    $$
+
+    {\color{red}
+    \textbf{Important:} To discuss a system, we must determine the ranks of the coefficient
+    and augmented matrices. Computing the general solution is not required.}
+\end{answer}
+
+\item Determine the values of $a$
+and $b$ for which the matrix
+$A-5I_4$ is invertible.
+
+\begin{answer}
+    Subtracting $5I_4$ changes only the diagonal entries:
+    $$
+    A-5I_4=
+    \begin{bmatrix}
+    3&-2&1&3\\
+    0&a^2-9&a-2&6\\
+    0&0&a^2-9&b\\
+    0&0&0&a-5
+    \end{bmatrix}.
+    $$
+
+    This matrix is upper triangular. Its diagonal entries are
+    $$
+    3,\quad a^2-9,\quad
+    a^2-9,\quad a-5.
+    $$
+
+    Since it is a square matrix of order $4$,
+    $$
+    A-5I_4\text{ invertible}
+    \iff r(A-5I_4)=4.
+    $$
+
+    All four diagonal entries must therefore be nonzero.
+
+    Since
+    $$
+    a^2-9=(a-3)(a+3),
+    $$
+    the required conditions are
+    $$
+    a\neq-3,\qquad
+    a\neq3,\qquad
+    a\neq5.
+    $$
+
+    Hence,
+    $$
+    \boxed{
+    a\in\mathbb{R}
+    \setminus\{-3,3,5\},
+    \qquad b\in\mathbb{R}.
+    }
+    $$
+
+\end{answer}
+
+\item For the values determine in part b), determine, with
+justification, whether there exists a nonzero column matrix
+$C\in M_{4\times1}(\mathbb{R})$ such that $AC=5C$.
+
+\begin{answer}
+    We seek a nonzero column matrix $C$ satisfying
+    $$
+    AC=5C.
+    $$
+
+    Since
+    $$
+    5C=(5I_4)C,
+    $$
+    we obtain
+    $$
+    \begin{aligned}
+    AC&=5I_4C\\
+    AC-5I_4C&=0\\
+    (A-5I_4)C&=0.
+    \end{aligned}
+    $$
+
+    This is a homogeneous linear system whose
+    coefficient matrix is $A-5I_4$.
+
+    For the values found in part b), this matrix is invertible.
+
+    Multiplying on the left by its inverse gives
+    $$
+    \begin{aligned}
+    (A-5I_4)C&=0\\
+    (A-5I_4)^{-1}
+    (A-5I_4)C&=0\\
+    I_4C&=0\\
+    C&=0.
+    \end{aligned}
+    $$
+
+    Therefore, the only solution is the zero column.
+
+    Consequently,
+    $$
+    \boxed{
+    \text{No nonzero such column exists.}
+    }
+    $$
+
+    {\color{red}
+    \textbf{Note:} The expression
+    $AC=5C$ can be rewritten
+    as $(A-5I_4)C=0$.
+
+    An invertible coefficient matrix gives a homogeneous
+    system with a unique solution, necessarily the zero vector.
+    }
+\end{answer}
+
+\end{enumerate}
