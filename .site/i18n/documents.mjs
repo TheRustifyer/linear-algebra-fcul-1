@@ -9,13 +9,17 @@ import remarkGfm from "remark-gfm";
 import remarkFrontmatter from "remark-frontmatter";
 import GithubSlugger from "github-slugger";
 import YAML from "yaml";
+import { assertTranslation } from "./quality.mjs";
 import { root, cache, source, editions, memory, sha256, publicBase } from "../paths.mjs";
 
 const processor = unified().use(remarkParse).use(remarkFrontmatter, ["yaml"]).use(remarkMath).use(remarkGfm).use(remarkStringify, { bullet: "-", fences: true });
 const languages = JSON.parse(await fs.readFile(path.join(root, ".site/languages.json"), "utf8"));
 const targets = Object.keys(languages.locales).filter((code) => code !== languages.sourceLanguage);
-const recipeFiles = ["argos.py", "argos-models.lock.json", "glossary.json", "requirements.txt"];
+const recipeFiles = ["argos.py", "argos-models.lock.json", "glossary.json", "requirements.txt", "quality.py", "quality.mjs"];
 const recipe = sha256(Buffer.concat([Buffer.from("ast-prose-v1\n"), ...await Promise.all(recipeFiles.map((file) => fs.readFile(path.join(root, ".site/i18n", file))))]));
+// One-time migration of the published pre-validation memory. Entries still have
+// to pass the new checks; glossary corrections take precedence when translating.
+const compatibleRecipes = ["d02109101c46ac9eb8ca014e35a4f78ed65fda46ff66323c6265e7c91b594240"];
 const manifest = JSON.parse(await fs.readFile(path.join(cache, "source-manifest.json"), "utf8"));
 
 const folders = new Set();
@@ -104,7 +108,7 @@ if (mode === "extract") {
     documents.push({ path: file.dest, sourceHash: sha256(contents) });
   }
   for (const folder of folders) transformText(folderTitle(folder), register);
-  await fs.writeFile(path.join(cache, "translation-plan.json"), JSON.stringify({ schema: 1, recipe, targets, sourceLanguage: languages.sourceLanguage, sourceCommit: process.env.GITHUB_SHA || null, documents, segments }));
+  await fs.writeFile(path.join(cache, "translation-plan.json"), JSON.stringify({ schema: 1, recipe, compatibleRecipes, targets, sourceLanguage: languages.sourceLanguage, sourceCommit: process.env.GITHUB_SHA || null, documents, segments }));
   console.log("Extracted " + Object.keys(segments).length + " unique prose segments from " + documents.length + " documents.");
 } else if (mode === "materialize") {
   const plan = JSON.parse(await fs.readFile(path.join(cache, "translation-plan.json"), "utf8"));
@@ -113,6 +117,9 @@ if (mode === "extract") {
   for (const target of targets) {
     memories[target] = JSON.parse(gunzipSync(await fs.readFile(path.join(memory, "memory", target + ".json.gz"))));
     if (memories[target].recipe !== recipe) throw new Error("Stale translation memory for " + target);
+    for (const [key, value] of Object.entries(memories[target].entries)) {
+      assertTranslation(plan.segments[key], value, target + ": " + key);
+    }
   }
   // Generated editions live exclusively in the runner's temporary directory.
   await fs.rm(editions, { recursive: true, force: true });
@@ -121,8 +128,7 @@ if (mode === "extract") {
     const titles = new Map();
     const translated = (text) => {
       const result = memories[code]?.entries[sha256(text)];
-      if (typeof result !== "string" || !result.trim()) throw new Error("Missing translation in " + code + ": " + sha256(text));
-      return result;
+      return assertTranslation(text, result, code + ": " + sha256(text));
     };
     const label = (text) => code === languages.sourceLanguage ? text : transformText(text, translated);
     for (const file of manifest.files) {

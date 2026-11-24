@@ -4,6 +4,7 @@
 .vscode/
 .idea/
 node_modules/
+__pycache__/
 .env
 .env.*
 !.env.example
@@ -11,6 +12,7 @@ node_modules/
 .site-cache/
 .quartz-cache/
 dudas-tutorías/
+course-docs/
 
 *.tsbuildinfo
 

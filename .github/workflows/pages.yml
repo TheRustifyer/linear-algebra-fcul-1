@@ -30,6 +30,7 @@ jobs:
       XDG_CACHE_HOME: /tmp/alga-site-cache/argos-runtime
       ARGOS_CHUNK_TYPE: MINISBD
       ARGOS_DEVICE_TYPE: cpu
+      ARGOS_COMPUTE_TYPE: float32
       ARGOS_INTER_THREADS: '1'
       ARGOS_INTRA_THREADS: '2'
       OMP_NUM_THREADS: '2'
@@ -61,6 +62,8 @@ jobs:
         run: npm ci --ignore-scripts
       - name: Prepare original notes outside the checkout
         run: npm run site:prepare
+      - name: Test translation quality and cache recovery
+        run: node --test .site/i18n/quality.test.mjs
       - name: Restore durable translation memory
         id: memory_restore
         run: node .site/i18n/memory-store.mjs pull

@@ -10,6 +10,7 @@ from pathlib import Path
 import sys
 import time
 import urllib.request
+from quality import clean_memory, translation_issue
 
 
 def atomic_json_gz(destination, data):
@@ -49,9 +50,9 @@ def main():
     argostranslate.settings.device = "cpu"
     argostranslate.settings.inter_threads = 1
     argostranslate.settings.intra_threads = 2
+    argostranslate.settings.compute_type = "float32"
     model_dir = cache / "argos-models"
     model_dir.mkdir(parents=True, exist_ok=True)
-    installed = argostranslate.package.get_installed_packages()
     for model in lock["models"]:
         archive = model_dir / (model["source"] + "-" + model["target"] + ".argosmodel")
         if not archive.exists() or fingerprint(archive) != model["sha256"]:
@@ -71,8 +72,12 @@ def main():
                     if attempt == 2:
                         raise
                     time.sleep(2 ** attempt)
-        if not any(p.from_code == model["source"] and p.to_code == model["target"] and str(p.package_version) == model["version"] for p in installed):
-            argostranslate.package.install_from_path(archive)
+        # A version string does not verify the files restored from an Actions
+        # cache. Reinstall the checksum-verified archive before loading weights.
+        for installed in argostranslate.package.get_installed_packages():
+            if installed.from_code == model["source"] and installed.to_code == model["target"]:
+                argostranslate.package.uninstall(installed)
+        argostranslate.package.install_from_path(archive)
         print("Verified Argos model " + model["source"] + " → " + model["target"], flush=True)
 
     installed = argostranslate.package.get_installed_packages()
@@ -95,26 +100,44 @@ def main():
     for target in plan["targets"]:
         destination = cache / "translation-memory" / "memory" / (target + ".json.gz")
         existing = json.loads(gzip.decompress(destination.read_bytes())) if destination.exists() else {}
-        if existing.get("recipe") != plan["recipe"] or os.environ.get("ALGA_RETRANSLATE") == "true":
-            existing = {"schema": 1, "recipe": plan["recipe"], "source": "es", "target": target, "entries": {}}
-        entries = existing["entries"]
-        reused = sum(key in entries for key in plan["segments"])
+        if os.environ.get("ALGA_RETRANSLATE") == "true":
+            existing = {}
+        entries, invalidated = clean_memory(existing, plan["recipe"], plan.get("compatibleRecipes", []), plan["segments"])
+        existing = {"schema": 1, "recipe": plan["recipe"], "source": "es", "target": target, "entries": entries}
+        atomic_json_gz(destination, existing)
+        print(f"{target}: discarded {invalidated} invalid cached translations", flush=True)
+        reused = 0
         translator = argostranslate.translate.get_translation_from_codes("es", target)
+        # Exercise inference even if the memory happens to cover this whole run.
+        probe = translator.translate("Una matriz tiene filas y columnas.")
+        issue = translation_issue("Una matriz tiene filas y columnas.", probe)
+        if issue:
+            raise RuntimeError(f"Argos {target} smoke test failed: {issue}")
         exact = {key.casefold(): value for key, value in glossary["exact"][target].items()}
         fresh = 0
         for key, text in plan["segments"].items():
-            if key in entries:
+            preferred = exact.get(text.casefold())
+            if preferred is not None:
+                translated = preferred
+            elif key in entries:
+                reused += 1
                 continue
-            translated = exact.get(text.casefold()) or translator.translate(text)
-            if not isinstance(translated, str) or not translated.strip():
-                raise RuntimeError("Argos returned an empty translation for segment " + key)
+            else:
+                translated = translator.translate(text)
+            issue = translation_issue(text, translated)
+            if issue:
+                atomic_json_gz(destination, existing)
+                raise RuntimeError(f"Argos {target}: {issue} for segment {key}")
+            if entries.get(key) == translated.strip():
+                reused += 1
+                continue
             entries[key] = translated.strip()
             fresh += 1
             if fresh % 50 == 0:
                 atomic_json_gz(destination, existing)
                 print(f"{target}: {fresh} new segments; {reused} reused", flush=True)
         atomic_json_gz(destination, existing)
-        stats[target] = {"translated": fresh, "reused": reused, "total": len(plan["segments"])}
+        stats[target] = {"translated": fresh, "reused": reused, "invalidated": invalidated, "total": len(plan["segments"])}
         print(f"{target}: finished, {fresh} translated / {reused} reused", flush=True)
     (cache / "translation-stats.json").write_text(json.dumps(stats, indent=2) + "\n")
 

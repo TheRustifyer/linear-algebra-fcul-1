@@ -26,6 +26,10 @@ No se necesita ninguna clave de una API de traducción. Los modelos se descargan
 
 La rama técnica pertenece al mismo repositorio público: es pública y no constituye almacenamiento privado. No se descarga dentro del vault ni se mezcla con las notas de `main`. El trabajo de traducción la actualiza con permisos limitados a ese trabajo. Su actualización no vuelve a disparar Pages, que escucha únicamente `main`.
 
+Las traducciones nuevas y las recuperadas de la memoria se comprueban antes de construir la web. Se rechazan salidas vacías, repeticiones extensas, palabras de longitud anómala y expansiones desproporcionadas. Estos controles detectan fallos estructurales; no sustituyen la revisión lingüística o matemática. Una salida rechazada detiene la publicación y conserva la web anterior.
+
+La recuperación de la memoria anterior a estos controles conserva las entradas válidas y retira las defectuosas de la memoria activa. Las entradas retiradas que todavía necesita el curso se vuelven a traducir; su historial sigue disponible en Git. Las traducciones exactas del glosario prevalecen también sobre entradas ya guardadas.
+
 La memoria guarda cada fragmento por contenido y por versión del procedimiento, modelos y glosario. Si cambia un párrafo, se traduce ese párrafo. Si cambian los modelos o las reglas de traducción, se invalida la memoria correspondiente. Durante una ejecución larga se guardan avances; los fragmentos terminados se conservan incluso si después falla la construcción de Quartz.
 
 El archivo descargable permite recuperar los documentos concretos de una publicación. La rama técnica permite reconstruirlos aunque hayan caducado tanto el artefacto como las cachés. Si no existe memoria, se vuelve a traducir desde los originales.
@@ -33,6 +37,8 @@ El archivo descargable permite recuperar los documentos concretos de una publica
 ## Protección del contenido
 
 La extracción utiliza un parser Markdown con soporte para tablas, referencias, metadatos y matemáticas. Se traducen textos, títulos y etiquetas visibles. Se conservan las fórmulas, el código, los identificadores de referencias y los destinos de los enlaces. Una comprobación de integridad detiene la publicación si cambia contenido protegido.
+
+El motor de inferencia está fijado por versión y usa precisión `float32` en CPU. En cada ejecución se reinstalan los paquetes desde los archivos oficiales comprobados por SHA-256, evitando cargar archivos instalados antiguos o alterados de la caché. Antes de procesar los fragmentos se ejecuta una traducción de prueba.
 
 Las versiones publicadas incluyen anclas de los encabezados originales para que sigan funcionando los enlaces a apartados después de traducir sus títulos. PDF, TeX y otros adjuntos conservan su idioma y contenido originales.
 

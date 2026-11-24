@@ -2,6 +2,14 @@
   "schema": 1,
   "exact": {
     "en": {
+      "Matrices": "Matrices",
+      "Operaciones": "Operations",
+      "Matrices elementales y operaciones elementales": "Elementary matrices and elementary row operations",
+      "Matrices invertibles y matriz inversa": "Invertible matrices and the matrix inverse",
+      "Compatibilidad y clasificación de sistemas": "Consistency and classification of linear systems",
+      "Interpretaciones de Ax=b": "Interpretations of Ax=b",
+      "escalar": "scalar",
+      "producto por un escalar": "scalar multiplication",
       "Matrices y operaciones": "Matrices and operations",
       "Eliminación y matrices elementales": "Elimination and elementary matrices",
       "Compatibilidad, rango e inversa": "Consistency, rank, and inverses",
@@ -25,6 +33,14 @@
       "07 Formas cuadráticas": "07 Quadratic forms"
     },
     "pt": {
+      "Matrices": "Matrizes",
+      "Operaciones": "Operações",
+      "Matrices elementales y operaciones elementales": "Matrizes elementares e operações elementares sobre linhas",
+      "Matrices invertibles y matriz inversa": "Matrizes invertíveis e matriz inversa",
+      "Compatibilidad y clasificación de sistemas": "Compatibilidade e classificação de sistemas",
+      "Interpretaciones de Ax=b": "Interpretações de Ax=b",
+      "escalar": "escalar",
+      "producto por un escalar": "multiplicação por um escalar",
       "Matrices y operaciones": "Matrizes e operações",
       "Eliminación y matrices elementales": "Eliminação e matrizes elementares",
       "Compatibilidad, rango e inversa": "Compatibilidade, posto e inversa",

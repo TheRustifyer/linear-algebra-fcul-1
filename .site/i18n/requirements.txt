@@ -1,2 +1,4 @@
 argostranslate==1.11.0
 minisbd==0.9.5
+ctranslate2==4.9.1
+sacremoses==0.1.1
