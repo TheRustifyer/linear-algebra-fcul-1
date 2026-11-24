@@ -13,6 +13,7 @@ __pycache__/
 .quartz-cache/
 dudas-tutorías/
 course-docs/
+. - tex/
 
 *.tsbuildinfo
 
